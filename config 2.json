@@ -1,0 +1,55 @@
+{
+  "owner_name": "Mazen Farkouh",
+  "minimum_reward_usd": 5,
+  "maximum_claims_preferred": 2,
+  "preferred_languages": [
+    "TypeScript",
+    "JavaScript",
+    "Python",
+    "HTML",
+    "CSS",
+    "Markdown"
+  ],
+  "preferred_keywords": [
+    "test",
+    "tests",
+    "documentation",
+    "docs",
+    "bug",
+    "fix",
+    "ci",
+    "workflow",
+    "typescript",
+    "javascript",
+    "python",
+    "small",
+    "refactor"
+  ],
+  "blocked_keywords": [
+    "exploit",
+    "credential",
+    "bypass",
+    "phishing",
+    "malware",
+    "ransomware",
+    "unauthorized",
+    "steal",
+    "ddos",
+    "spam",
+    "fake account"
+  ],
+  "github_queries": [
+    "is:issue is:open bounty in:title,body",
+    "is:issue is:open reward in:title,body",
+    "is:issue is:open label:bounty",
+    "is:issue is:open label:reward"
+  ],
+  "algora_pages": [
+    "https://algora.io/tscircuit/bounties?status=open",
+    "https://algora.io/coollabsio/bounties?status=open",
+    "https://algora.io/arakoodev/bounties?status=open",
+    "https://algora.io/PrimeIntellect-ai/bounties",
+    "https://algora.io/tailcallhq/bounties?status=open",
+    "https://algora.io/daytonaio/bounties?status=open"
+  ]
+}
