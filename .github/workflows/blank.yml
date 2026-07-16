@@ -183,12 +183,32 @@ jobs:
 
                   score = max(0, min(100, score))
 
-                  if score >= 70:
-                      decision = "PURSUE"
-                  elif score >= 50:
-                      decision = "REVIEW"
-                  else:
-                      decision = "REJECT"
+                  if score >= 55
+
+    decision = "PURSUE"
+
+elif score >= 35:
+
+    decision = "REVIEW"
+
+else:
+
+    decision = "REJECT"
+
+     
+
+elif 
+
+    
+
+else:
+
+    d
+                    
+                  
+                      
+                
+                    
 
                   repository_url = issue.get("repository_url") or ""
                   repository = repository_url.split("/repos/")[-1]
