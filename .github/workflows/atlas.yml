@@ -83,20 +83,91 @@ jobs:
                   r"\$([0-9][0-9,]*(?:\.\d{1,2})?)\s*(?:bounty|reward)",
                   r"(?:bounty|reward)\s*(?:of|:)?\s*\$([0-9][0-9,]*(?:\.\d{1,2})?)",
               ]
+
               rewards = []
+
               for pattern in patterns:
                   for match in re.finditer(pattern, text, re.I):
-                      rewards.append(float(match.group(1).replace(",", "")))
+                      rewards.append(
+                          float(match.group(1).replace(",", ""))
+                      )
+
               return max(rewards, default=0.0)
+
+          def is_aggregator(issue, title, body):
+              repository = (
+                  issue.get("repository_url") or ""
+              ).split("/repos/")[-1].lower()
+
+              author = (
+                  (issue.get("user") or {}).get("login") or ""
+              ).lower()
+
+              labels = {
+                  (label.get("name") or "").lower()
+                  for label in issue.get("labels", [])
+              }
+
+              title_lower = title.lower()
+              body_lower = body.lower()
+
+              if "bountyscout" in repository:
+                  return True
+
+              if "bounty alert" in title_lower:
+                  return True
+
+              if "new opportunities" in title_lower:
+                  return True
+
+              if "new opportunityies" in title_lower:
+                  return True
+
+              if "opportunities found" in title_lower:
+                  return True
+
+              if "opportunityies found" in title_lower:
+                  return True
+
+              if "bounty-alert" in labels:
+                  return True
+
+              if "bounty alert" in labels:
+                  return True
+
+              if author == "github-actions[bot]":
+                  return True
+
+              if author.endswith("[bot]"):
+                  return True
+
+              linked_issues = re.findall(
+                  r"https://github\.com/[^/\s]+/[^/\s]+/issues/\d+",
+                  body,
+                  re.I,
+              )
+
+              if len(set(linked_issues)) >= 3:
+                  return True
+
+              if "top opportunities" in body_lower:
+                  return True
+
+              if "new bounties found" in body_lower:
+                  return True
+
+              return False
 
           issues = {}
 
           for query in queries:
               encoded = urllib.parse.quote(query)
+
               url = (
                   "https://api.github.com/search/issues"
                   f"?q={encoded}&sort=created&order=desc&per_page=50"
               )
+
               try:
                   data = api_get(url)
               except Exception as error:
@@ -106,11 +177,14 @@ jobs:
               for issue in data.get("items", []):
                   if "pull_request" in issue:
                       continue
+
                   issue_url = issue.get("html_url") or ""
+
                   if issue_url:
                       issues[issue_url] = issue
 
           results = []
+          rejected_aggregators = 0
 
           for issue in issues.values():
               title = issue.get("title") or ""
@@ -118,10 +192,15 @@ jobs:
               text = f"{title}\n{body}"
               lowered = text.lower()
 
+              if is_aggregator(issue, title, body):
+                  rejected_aggregators += 1
+                  continue
+
               if any(term in lowered for term in blocked):
                   continue
 
               reward = extract_reward(text)
+
               if reward <= 0:
                   continue
 
@@ -130,18 +209,19 @@ jobs:
 
               if reward >= 500:
                   score += 25
-                  reasons.append("Excellent verified reward")
+                  reasons.append("Large stated reward")
               elif reward >= 150:
                   score += 22
-                  reasons.append("Strong verified reward")
+                  reasons.append("Strong stated reward")
               elif reward >= 50:
                   score += 18
-                  reasons.append("Good verified reward")
+                  reasons.append("Good stated reward")
               else:
                   score += 12
-                  reasons.append("Verified paid reward")
+                  reasons.append("Stated paid reward")
 
               detail = len(body.strip())
+
               if detail >= 800:
                   score += 15
                   reasons.append("Detailed requirements")
@@ -154,12 +234,20 @@ jobs:
               else:
                   reasons.append("Requirements need review")
 
-              matches = sorted({word for word in preferred if word in lowered})
+              matches = sorted({
+                  word for word in preferred
+                  if word in lowered
+              })
+
               score += min(20, len(matches) * 4)
+
               if matches:
-                  reasons.append("Capability match: " + ", ".join(matches[:5]))
+                  reasons.append(
+                      "Capability match: " + ", ".join(matches[:5])
+                  )
 
               comments = int(issue.get("comments") or 0)
+
               if comments == 0:
                   score += 15
                   reasons.append("No visible discussion")
@@ -174,8 +262,12 @@ jobs:
                   reasons.append("Heavy discussion")
 
               created_at = issue.get("created_at") or ""
+
               try:
-                  created = datetime.fromisoformat(created_at.replace("Z", "+00:00"))
+                  created = datetime.fromisoformat(
+                      created_at.replace("Z", "+00:00")
+                  )
+
                   age_days = (
                       datetime.now(timezone.utc) - created
                   ).total_seconds() / 86400
@@ -220,39 +312,58 @@ jobs:
                   issue.get("repository_url") or ""
               ).split("/repos/")[-1]
 
+              author = (
+                  (issue.get("user") or {}).get("login") or ""
+              )
+
               results.append(
                   {
                       "title": title,
                       "url": issue.get("html_url") or "",
                       "repository": repository,
+                      "author": author,
                       "reward": reward,
                       "score": score,
                       "decision": decision,
                       "comments": comments,
                       "created_at": created_at,
+                      "manual_verification_required": True,
                       "reasons": reasons,
                   }
               )
 
           results.sort(
-              key=lambda item: (item["score"], item["reward"]),
+              key=lambda item: (
+                  item["score"],
+                  item["reward"],
+              ),
               reverse=True,
           )
 
           top_results = results[:10]
 
           counts = {
-              "PURSUE": sum(item["decision"] == "PURSUE" for item in results),
+              "PURSUE": sum(
+                  item["decision"] == "PURSUE"
+                  for item in results
+              ),
               "PRIORITY REVIEW": sum(
-                  item["decision"] == "PRIORITY REVIEW" for item in results
+                  item["decision"] == "PRIORITY REVIEW"
+                  for item in results
               ),
               "WATCHLIST": sum(
-                  item["decision"] == "WATCHLIST" for item in results
+                  item["decision"] == "WATCHLIST"
+                  for item in results
               ),
-              "REJECT": sum(item["decision"] == "REJECT" for item in results),
+              "REJECT": sum(
+                  item["decision"] == "REJECT"
+                  for item in results
+              ),
           }
 
-          generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+          generated_at = datetime.now(timezone.utc).strftime(
+              "%Y-%m-%d %H:%M UTC"
+          )
 
           Path("data").mkdir(exist_ok=True)
           Path("docs").mkdir(exist_ok=True)
@@ -262,6 +373,8 @@ jobs:
                   {
                       "owner": "Mazen Farkouh",
                       "generated_at": generated_at,
+                      "manual_verification_required": True,
+                      "aggregator_pages_rejected": rejected_aggregators,
                       "counts": counts,
                       "top_results": top_results,
                   },
@@ -271,6 +384,7 @@ jobs:
           )
 
           rows = ""
+
           for item in top_results:
               rows += (
                   "<tr>"
@@ -287,27 +401,57 @@ jobs:
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>Atlas Opportunity Hunter</title>
             <style>
-              body {{ font-family: system-ui; max-width: 1000px; margin: auto; padding: 20px; }}
-              table {{ width: 100%; border-collapse: collapse; }}
-              th, td {{ border: 1px solid #ccc; padding: 8px; text-align: left; }}
+              body {{
+                font-family: system-ui;
+                max-width: 1000px;
+                margin: auto;
+                padding: 20px;
+              }}
+
+              table {{
+                width: 100%;
+                border-collapse: collapse;
+              }}
+
+              th, td {{
+                border: 1px solid #ccc;
+                padding: 8px;
+                text-align: left;
+              }}
+
+              .warning {{
+                background: #fff3cd;
+                padding: 12px;
+                border-radius: 8px;
+              }}
             </style>
           </head>
           <body>
             <h1>Atlas Opportunity Hunter</h1>
             <p>Owner: Mazen Farkouh</p>
             <p>Last scan: {generated_at}</p>
+
+            <p class="warning">
+              Atlas candidates are not payment-verified.
+              Every opportunity requires manual verification
+              before work begins.
+            </p>
+
             <p>
+              Aggregator pages rejected: {rejected_aggregators} |
               Pursue: {counts['PURSUE']} |
               Priority Review: {counts['PRIORITY REVIEW']} |
               Watchlist: {counts['WATCHLIST']} |
               Reject: {counts['REJECT']}
             </p>
-            <h2>Top 10 Verified Paid Candidates</h2>
+
+            <h2>Top 10 Paid Candidates Requiring Manual Verification</h2>
+
             <table>
               <tr>
                 <th>Decision</th>
                 <th>Score</th>
-                <th>Reward</th>
+                <th>Stated Reward</th>
                 <th>Opportunity</th>
               </tr>
               {rows}
@@ -316,11 +460,15 @@ jobs:
           </html>
           """
 
-          Path("docs/index.html").write_text(dashboard, encoding="utf-8")
+          Path("docs/index.html").write_text(
+              dashboard,
+              encoding="utf-8",
+          )
 
           print(
               f"Atlas checked {len(issues)} issues; "
-              f"found {len(results)} verified paid opportunities; "
+              f"rejected {rejected_aggregators} aggregator pages; "
+              f"found {len(results)} paid candidates requiring manual verification; "
               f"{counts['PURSUE']} pursue; "
               f"{counts['PRIORITY REVIEW']} priority review; "
               f"{counts['WATCHLIST']} watchlist."
@@ -330,7 +478,7 @@ jobs:
               print(
                   f"{item['decision']} | "
                   f"Score {item['score']} | "
-                  f"${item['reward']:.2f} | "
+                  f"${item['reward']:.2f} stated reward | "
                   f"{item['title']}"
               )
           PY
@@ -345,6 +493,6 @@ jobs:
           then
             echo "No result changes to save."
           else
-            git commit -m "Atlas smarter opportunity scan"
+            git commit -m "Atlas improved opportunity scan"
             git push
           fi
