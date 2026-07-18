@@ -49,5 +49,22 @@
     "assigned_count": 2,
     "strong_uncontested_targets": 0,
     "meaningful_change_count": 14
+  },
+  {
+    "generated_at": "2026-07-18 23:37 UTC",
+    "system_status": "DEGRADED",
+    "raw_issues_found": 353,
+    "eligible_candidates_found": 14,
+    "deep_verified_candidates": 14,
+    "counts": {
+      "PURSUE": 0,
+      "PRIORITY REVIEW": 2,
+      "WATCHLIST": 10,
+      "REJECT": 2
+    },
+    "contested_count": 9,
+    "assigned_count": 2,
+    "strong_uncontested_targets": 0,
+    "meaningful_change_count": 14
   }
 ]
