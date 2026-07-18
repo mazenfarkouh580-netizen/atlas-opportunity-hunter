@@ -1,56 +1,85 @@
-name: Atlas Opportunity Hunter
+name: Atlas Opportunity Hunter V4
 
 on:
   workflow_dispatch:
   schedule:
     - cron: "7,22,37,52 * * * *"
 
+concurrency:
+  group: atlas-opportunity-hunter-v4
+  cancel-in-progress: false
+
 permissions:
   contents: write
   issues: read
+  pull-requests: read
 
 jobs:
   hunt:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Download repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
 
-      - name: Scan paid opportunities
+      - name: Scan and verify paid opportunities
+        id: atlas
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python <<'PY'
+          import html
           import json
           import os
           import re
+          import time
+          import urllib.error
           import urllib.parse
           import urllib.request
           from datetime import datetime, timezone
           from pathlib import Path
 
-          token = os.environ["GITHUB_TOKEN"]
+          TOKEN = os.environ["GITHUB_TOKEN"]
+          API_VERSION = "2022-11-28"
+          NOW = datetime.now(timezone.utc)
+          GENERATED_AT = NOW.strftime("%Y-%m-%d %H:%M UTC")
 
-          queries = [
+          DATA_DIR = Path("data")
+          DOCS_DIR = Path("docs")
+          DATA_DIR.mkdir(exist_ok=True)
+          DOCS_DIR.mkdir(exist_ok=True)
+
+          CURRENT_FILE = DATA_DIR / "opportunities.json"
+          HISTORY_FILE = DATA_DIR / "opportunity-history.json"
+          DASHBOARD_FILE = DOCS_DIR / "index.html"
+
+          SEARCH_QUERIES = [
               'is:issue is:open bounty in:title,body',
               'is:issue is:open reward in:title,body',
               'is:issue is:open label:bounty',
               'is:issue is:open label:reward',
+              'is:issue is:open label:"help wanted" "$" in:body',
           ]
 
-          blocked = [
+          BLOCKED_TERMS = [
               "phishing",
               "malware",
               "ransomware",
-              "unauthorized access",
+              "credential theft",
               "steal credentials",
+              "unauthorized access",
+              "bypass authentication",
               "ddos",
               "fake account",
+              "account farming",
+              "exploit users",
+              "stolen data",
           ]
 
-          preferred = [
+          PREFERRED_TERMS = [
               "bug",
               "fix",
               "test",
@@ -61,88 +90,276 @@ jobs:
               "javascript",
               "typescript",
               "workflow",
+              "github actions",
               "ci",
+              "data cleanup",
+              "refactor",
           ]
 
-          def api_get(url):
-              request = urllib.request.Request(
-                  url,
-                  headers={
-                      "Authorization": f"Bearer {token}",
-                      "Accept": "application/vnd.github+json",
-                      "X-GitHub-Api-Version": "2022-11-28",
-                      "User-Agent": "Atlas-Opportunity-Hunter",
-                  },
+          COMPLEXITY_TERMS = [
+              "architecture",
+              "rewrite",
+              "redesign",
+              "production ready",
+              "full implementation",
+              "mobile app",
+              "blockchain",
+              "smart contract",
+              "machine learning model",
+              "security audit",
+          ]
+
+          PAYMENT_EVIDENCE_TERMS = [
+              "paid bounty",
+              "payment sent",
+              "payment received",
+              "bounty paid",
+              "reward paid",
+              "funded bounty",
+              "escrow",
+              "algora",
+              "polar bounty",
+          ]
+
+          api_errors = []
+          api_calls = 0
+
+          def parse_datetime(value):
+              if not value:
+                  return None
+              try:
+                  return datetime.fromisoformat(
+                      value.replace("Z", "+00:00")
+                  )
+              except (TypeError, ValueError):
+                  return None
+
+          def age_days(value):
+              parsed = parse_datetime(value)
+
+              if not parsed:
+                  return None
+
+              return max(
+                  0.0,
+                  (NOW - parsed).total_seconds() / 86400,
               )
-              with urllib.request.urlopen(request, timeout=30) as response:
-                  return json.loads(response.read().decode("utf-8"))
+
+          def api_get(
+              url,
+              accept="application/vnd.github+json",
+              retries=3,
+          ):
+              global api_calls
+
+              last_error = None
+
+              for attempt in range(1, retries + 1):
+                  request = urllib.request.Request(
+                      url,
+                      headers={
+                          "Authorization": f"Bearer {TOKEN}",
+                          "Accept": accept,
+                          "X-GitHub-Api-Version": API_VERSION,
+                          "User-Agent": (
+                              "Atlas-Opportunity-Hunter-V4"
+                          ),
+                      },
+                  )
+
+                  try:
+                      api_calls += 1
+
+                      with urllib.request.urlopen(
+                          request,
+                          timeout=30,
+                      ) as response:
+                          return json.loads(
+                              response.read().decode("utf-8")
+                          )
+
+                  except urllib.error.HTTPError as error:
+                      body = error.read().decode(
+                          "utf-8",
+                          errors="replace",
+                      )[:300]
+
+                      last_error = (
+                          f"HTTP {error.code}: {body}"
+                      )
+
+                      if (
+                          error.code in (403, 429)
+                          and attempt < retries
+                      ):
+                          time.sleep(attempt * 3)
+                          continue
+
+                      if (
+                          500 <= error.code < 600
+                          and attempt < retries
+                      ):
+                          time.sleep(attempt * 2)
+                          continue
+
+                      break
+
+                  except Exception as error:
+                      last_error = str(error)
+
+                      if attempt < retries:
+                          time.sleep(attempt * 2)
+                          continue
+
+                      break
+
+              raise RuntimeError(
+                  last_error
+                  or "Unknown GitHub API error"
+              )
+
+          def safe_api_get(
+              url,
+              accept="application/vnd.github+json",
+          ):
+              try:
+                  return api_get(
+                      url,
+                      accept=accept,
+                  )
+
+              except Exception as error:
+                  api_errors.append(
+                      {
+                          "url": url,
+                          "error": str(error),
+                      }
+                  )
+
+                  return None
 
           def extract_reward(text):
               patterns = [
-                  r"/bounty\s*\$([0-9][0-9,]*(?:\.\d{1,2})?)",
-                  r"\$([0-9][0-9,]*(?:\.\d{1,2})?)\s*(?:bounty|reward)",
-                  r"(?:bounty|reward)\s*(?:of|:)?\s*\$([0-9][0-9,]*(?:\.\d{1,2})?)",
+                  (
+                      r"/bounty\s*\$"
+                      r"([0-9][0-9,]*(?:\.\d{1,2})?)"
+                  ),
+                  (
+                      r"\$"
+                      r"([0-9][0-9,]*(?:\.\d{1,2})?)"
+                      r"\s*(?:usd\s*)?"
+                      r"(?:bounty|reward|prize)"
+                  ),
+                  (
+                      r"(?:bounty|reward|prize)"
+                      r"\s*(?:of|is|:|=)?\s*\$"
+                      r"([0-9][0-9,]*(?:\.\d{1,2})?)"
+                  ),
+                  (
+                      r"(?:pay|payment|paid)"
+                      r"\s*(?:of|is|:|=)?\s*\$"
+                      r"([0-9][0-9,]*(?:\.\d{1,2})?)"
+                  ),
               ]
 
               rewards = []
 
               for pattern in patterns:
-                  for match in re.finditer(pattern, text, re.I):
-                      rewards.append(
-                          float(match.group(1).replace(",", ""))
-                      )
+                  for match in re.finditer(
+                      pattern,
+                      text,
+                      re.I,
+                  ):
+                      try:
+                          rewards.append(
+                              float(
+                                  match.group(1).replace(
+                                      ",",
+                                      "",
+                                  )
+                              )
+                          )
+                      except ValueError:
+                          pass
 
-              return max(rewards, default=0.0)
+              return max(
+                  rewards,
+                  default=0.0,
+              )
 
-          def is_aggregator(issue, title, body):
+          def issue_identity(issue):
               repository = (
                   issue.get("repository_url") or ""
-              ).split("/repos/")[-1].lower()
+              ).split("/repos/")[-1]
+
+              number = int(
+                  issue.get("number") or 0
+              )
+
+              return repository, number
+
+          def is_aggregator(
+              issue,
+              title,
+              body,
+          ):
+              repository, _ = issue_identity(issue)
+              repository = repository.lower()
 
               author = (
-                  (issue.get("user") or {}).get("login") or ""
+                  (issue.get("user") or {}).get(
+                      "login"
+                  )
+                  or ""
               ).lower()
 
               labels = {
                   (label.get("name") or "").lower()
-                  for label in issue.get("labels", [])
+                  for label in issue.get(
+                      "labels",
+                      [],
+                  )
               }
 
               title_lower = title.lower()
               body_lower = body.lower()
 
+              aggregator_phrases = [
+                  "bounty alert",
+                  "new opportunities",
+                  "new opportunityies",
+                  "opportunities found",
+                  "opportunityies found",
+                  "top opportunities",
+                  "new bounties found",
+              ]
+
               if "bountyscout" in repository:
                   return True
 
-              if "bounty alert" in title_lower:
+              if any(
+                  phrase in title_lower
+                  for phrase in aggregator_phrases
+              ):
                   return True
 
-              if "new opportunities" in title_lower:
+              if (
+                  "bounty-alert" in labels
+                  or "bounty alert" in labels
+              ):
                   return True
 
-              if "new opportunityies" in title_lower:
-                  return True
-
-              if "opportunities found" in title_lower:
-                  return True
-
-              if "opportunityies found" in title_lower:
-                  return True
-
-              if "bounty-alert" in labels:
-                  return True
-
-              if "bounty alert" in labels:
-                  return True
-
-              if author == "github-actions[bot]":
-                  return True
-
-              if author.endswith("[bot]"):
+              if (
+                  author == "github-actions[bot]"
+                  or author.endswith("[bot]")
+              ):
                   return True
 
               linked_issues = re.findall(
-                  r"https://github\.com/[^/\s]+/[^/\s]+/issues/\d+",
+                  (
+                      r"https://github\.com/"
+                      r"[^/\s]+/[^/\s]+/issues/\d+"
+                  ),
                   body,
                   re.I,
               )
@@ -150,189 +367,793 @@ jobs:
               if len(set(linked_issues)) >= 3:
                   return True
 
-              if "top opportunities" in body_lower:
-                  return True
-
-              if "new bounties found" in body_lower:
+              if any(
+                  phrase in body_lower
+                  for phrase in aggregator_phrases
+              ):
                   return True
 
               return False
 
-          issues = {}
+          def load_previous():
+              if not CURRENT_FILE.exists():
+                  return {}
 
-          for query in queries:
+              try:
+                  payload = json.loads(
+                      CURRENT_FILE.read_text(
+                          encoding="utf-8"
+                      )
+                  )
+
+                  return {
+                      item.get("url"): item
+                      for item in payload.get(
+                          "all_verified_results",
+                          [],
+                      )
+                      if item.get("url")
+                  }
+
+              except Exception:
+                  return {}
+
+          def load_history():
+              if not HISTORY_FILE.exists():
+                  return []
+
+              try:
+                  data = json.loads(
+                      HISTORY_FILE.read_text(
+                          encoding="utf-8"
+                      )
+                  )
+
+                  return (
+                      data
+                      if isinstance(data, list)
+                      else []
+                  )
+
+              except Exception:
+                  return []
+
+          def collect_issue_comments(
+              repository,
+              number,
+          ):
+              encoded_repo = urllib.parse.quote(
+                  repository,
+                  safe="/",
+              )
+
+              url = (
+                  "https://api.github.com/repos/"
+                  f"{encoded_repo}/issues/"
+                  f"{number}/comments?per_page=100"
+              )
+
+              data = safe_api_get(url)
+
+              return (
+                  data
+                  if isinstance(data, list)
+                  else []
+              )
+
+          def collect_timeline(
+              repository,
+              number,
+          ):
+              encoded_repo = urllib.parse.quote(
+                  repository,
+                  safe="/",
+              )
+
+              url = (
+                  "https://api.github.com/repos/"
+                  f"{encoded_repo}/issues/"
+                  f"{number}/timeline?per_page=100"
+              )
+
+              data = safe_api_get(
+                  url,
+                  accept=(
+                      "application/vnd.github+json"
+                  ),
+              )
+
+              return (
+                  data
+                  if isinstance(data, list)
+                  else []
+              )
+
+          def search_linked_pull_requests(
+              repository,
+              number,
+              issue_url,
+          ):
+              queries = [
+                  (
+                      f'repo:{repository} '
+                      f'is:pr is:open "#{number}"'
+                  ),
+                  (
+                      f'repo:{repository} '
+                      f'is:pr "{issue_url}"'
+                  ),
+              ]
+
+              found = {}
+
+              for query in queries:
+                  encoded = urllib.parse.quote(query)
+
+                  url = (
+                      "https://api.github.com/"
+                      "search/issues"
+                      f"?q={encoded}"
+                      "&sort=updated"
+                      "&order=desc"
+                      "&per_page=30"
+                  )
+
+                  data = safe_api_get(url)
+
+                  if not isinstance(data, dict):
+                      continue
+
+                  for item in data.get(
+                      "items",
+                      [],
+                  ):
+                      if "pull_request" not in item:
+                          continue
+
+                      html_url = (
+                          item.get("html_url") or ""
+                      )
+
+                      if html_url:
+                          found[html_url] = item
+
+              return list(found.values())
+
+          def verify_candidate(issue):
+              title = issue.get("title") or ""
+              body = issue.get("body") or ""
+              issue_url = (
+                  issue.get("html_url") or ""
+              )
+
+              repository, number = issue_identity(
+                  issue
+              )
+
+              labels = sorted(
+                  {
+                      (
+                          label.get("name") or ""
+                      ).strip()
+                      for label in issue.get(
+                          "labels",
+                          [],
+                      )
+                      if (
+                          label.get("name") or ""
+                      ).strip()
+                  }
+              )
+
+              comments = collect_issue_comments(
+                  repository,
+                  number,
+              )
+
+              timeline = collect_timeline(
+                  repository,
+                  number,
+              )
+
+              linked_prs = (
+                  search_linked_pull_requests(
+                      repository,
+                      number,
+                      issue_url,
+                  )
+              )
+
+              comment_text = "\n".join(
+                  comment.get("body") or ""
+                  for comment in comments
+              )
+
+              combined_text = (
+                  f"{title}\n"
+                  f"{body}\n"
+                  f"{comment_text}"
+              )
+
+              lowered = combined_text.lower()
+
+              timeline_pr_urls = set()
+
+              for event in timeline:
+                  source_issue = (
+                      (
+                          event.get("source") or {}
+                      ).get("issue")
+                      or {}
+                  )
+
+                  if "pull_request" in source_issue:
+                      url = (
+                          source_issue.get(
+                              "html_url"
+                          )
+                          or ""
+                      )
+
+                      if url:
+                          timeline_pr_urls.add(url)
+
+              linked_pr_map = {
+                  pr.get("html_url"): pr
+                  for pr in linked_prs
+                  if pr.get("html_url")
+              }
+
+              for url in timeline_pr_urls:
+                  linked_pr_map.setdefault(
+                      url,
+                      {
+                          "html_url": url,
+                          "title": (
+                              "Pull request linked "
+                              "through issue timeline"
+                          ),
+                          "state": "unknown",
+                          "user": {},
+                          "created_at": "",
+                          "updated_at": "",
+                      },
+                  )
+
+              pr_summaries = []
+              open_pr_count = 0
+              merged_pr_count = 0
+
+              for pr in linked_pr_map.values():
+                  state = (
+                      pr.get("state") or "unknown"
+                  ).lower()
+
+                  pull_data = (
+                      pr.get("pull_request") or {}
+                  )
+
+                  merged_at = pull_data.get(
+                      "merged_at"
+                  )
+
+                  if merged_at:
+                      merged_pr_count += 1
+
+                  elif state == "open":
+                      open_pr_count += 1
+
+                  pr_summaries.append(
+                      {
+                          "title": (
+                              pr.get("title")
+                              or "Linked pull request"
+                          ),
+                          "url": (
+                              pr.get("html_url")
+                              or ""
+                          ),
+                          "state": (
+                              "merged"
+                              if merged_at
+                              else state
+                          ),
+                          "author": (
+                              (
+                                  pr.get("user")
+                                  or {}
+                              ).get("login")
+                              or ""
+                          ),
+                          "created_at": (
+                              pr.get("created_at")
+                              or ""
+                          ),
+                          "updated_at": (
+                              pr.get("updated_at")
+                              or ""
+                          ),
+                      }
+                  )
+
+              assignees = [
+                  person.get("login") or ""
+                  for person in issue.get(
+                      "assignees",
+                      [],
+                  )
+                  if person.get("login")
+              ]
+
+              reward = extract_reward(
+                  f"{title}\n{body}"
+              )
+
+              created_age = age_days(
+                  issue.get("created_at")
+              )
+
+              updated_age = age_days(
+                  issue.get("updated_at")
+              )
+
+              detail = len(body.strip())
+
+              preferred_matches = sorted(
+                  {
+                      term
+                      for term in PREFERRED_TERMS
+                      if term in lowered
+                  }
+              )
+
+              complexity_matches = sorted(
+                  {
+                      term
+                      for term in COMPLEXITY_TERMS
+                      if term in lowered
+                  }
+              )
+
+              payment_signals = sorted(
+                  {
+                      term
+                      for term in PAYMENT_EVIDENCE_TERMS
+                      if term in lowered
+                  }
+              )
+
+              score = 0
+              reasons = []
+              risks = []
+
+              if reward >= 1000:
+                  score += 25
+                  reasons.append(
+                      "Very large stated reward"
+                  )
+
+              elif reward >= 500:
+                  score += 23
+                  reasons.append(
+                      "Large stated reward"
+                  )
+
+              elif reward >= 150:
+                  score += 20
+                  reasons.append(
+                      "Strong stated reward"
+                  )
+
+              elif reward >= 50:
+                  score += 16
+                  reasons.append(
+                      "Good stated reward"
+                  )
+
+              else:
+                  score += 10
+                  reasons.append(
+                      "Stated paid reward"
+                  )
+
+              if detail >= 1200:
+                  score += 15
+                  reasons.append(
+                      "Detailed requirements"
+                  )
+
+              elif detail >= 500:
+                  score += 11
+                  reasons.append(
+                      "Useful requirements"
+                  )
+
+              elif detail >= 150:
+                  score += 6
+                  reasons.append(
+                      "Basic requirements"
+                  )
+
+              else:
+                  score -= 8
+                  risks.append(
+                      "Requirements are too brief"
+                  )
+
+              score += min(
+                  18,
+                  len(preferred_matches) * 3,
+              )
+
+              if preferred_matches:
+                  reasons.append(
+                      "Capability match: "
+                      + ", ".join(
+                          preferred_matches[:6]
+                      )
+                  )
+
+              if complexity_matches:
+                  score -= min(
+                      15,
+                      len(complexity_matches) * 4,
+                  )
+
+                  risks.append(
+                      "Potentially high complexity: "
+                      + ", ".join(
+                          complexity_matches[:4]
+                      )
+                  )
+
+              visible_discussion = len(comments)
+
+              if visible_discussion == 0:
+                  score += 10
+                  reasons.append(
+                      "No visible comments"
+                  )
+
+              elif visible_discussion <= 3:
+                  score += 6
+                  reasons.append(
+                      "Low visible discussion"
+                  )
+
+              elif visible_discussion <= 8:
+                  score += 1
+                  risks.append(
+                      "Moderate visible discussion"
+                  )
+
+              else:
+                  score -= 8
+                  risks.append(
+                      "Heavy visible discussion"
+                  )
+
+              if created_age is not None:
+                  if created_age <= 1:
+                      score += 14
+                      reasons.append(
+                          "Posted within 24 hours"
+                      )
+
+                  elif created_age <= 7:
+                      score += 10
+                      reasons.append(
+                          "Posted within 7 days"
+                      )
+
+                  elif created_age <= 30:
+                      score += 5
+                      reasons.append(
+                          "Posted within 30 days"
+                      )
+
+                  elif created_age > 180:
+                      score -= 12
+                      risks.append(
+                          "Issue may be stale"
+                      )
+
+              if (
+                  updated_age is not None
+                  and updated_age <= 7
+              ):
+                  score += 4
+                  reasons.append(
+                      "Recently updated"
+                  )
+
+              if "acceptance criteria" in lowered:
+                  score += 10
+                  reasons.append(
+                      "Explicit acceptance criteria"
+                  )
+
+              elif (
+                  "expected behavior" in lowered
+                  or "definition of done" in lowered
+              ):
+                  score += 7
+                  reasons.append(
+                      "Expected result is described"
+                  )
+
+              elif detail >= 500:
+                  score += 3
+                  reasons.append(
+                      "Review path appears usable"
+                  )
+
+              else:
+                  risks.append(
+                      "Acceptance path requires "
+                      "manual confirmation"
+                  )
+
+              if assignees:
+                  score -= 18
+                  risks.append(
+                      "Issue already has an assignee"
+                  )
+
+              if open_pr_count == 1:
+                  score -= 20
+                  risks.append(
+                      "One competing pull request "
+                      "detected"
+                  )
+
+              elif open_pr_count >= 2:
+                  score -= 30
+                  risks.append(
+                      f"{open_pr_count} competing "
+                      "pull requests detected"
+                  )
+
+              if merged_pr_count:
+                  score -= 45
+                  risks.append(
+                      "A linked pull request "
+                      "appears merged"
+                  )
+
+              if issue.get("locked"):
+                  score -= 8
+                  risks.append(
+                      "Issue discussion is locked"
+                  )
+
+              if payment_signals:
+                  score += 5
+                  reasons.append(
+                      "Payment-related signal mentioned"
+                  )
+
+              score = max(
+                  0,
+                  min(100, score),
+              )
+
+              if merged_pr_count:
+                  availability = (
+                      "LIKELY CLOSED BY WORK"
+                  )
+                  decision = "REJECT"
+
+              elif assignees and open_pr_count:
+                  availability = (
+                      "ASSIGNED AND CONTESTED"
+                  )
+                  decision = "REJECT"
+
+              elif open_pr_count:
+                  availability = "CONTESTED"
+
+                  decision = (
+                      "PRIORITY REVIEW"
+                      if score >= 55
+                      else "WATCHLIST"
+                  )
+
+              elif assignees:
+                  availability = "ASSIGNED"
+
+                  decision = (
+                      "WATCHLIST"
+                      if score >= 55
+                      else "REJECT"
+                  )
+
+              elif score >= 72:
+                  availability = (
+                      "OPEN - VERIFY BEFORE WORK"
+                  )
+                  decision = "PURSUE"
+
+              elif score >= 56:
+                  availability = (
+                      "OPEN - NEEDS REVIEW"
+                  )
+                  decision = "PRIORITY REVIEW"
+
+              elif score >= 40:
+                  availability = "UNCERTAIN"
+                  decision = "WATCHLIST"
+
+              else:
+                  availability = (
+                      "LOW VALUE OR HIGH RISK"
+                  )
+                  decision = "REJECT"
+
+              payment_verification = (
+                  "SIGNALS FOUND - "
+                  "STILL VERIFY MANUALLY"
+                  if payment_signals
+                  else "UNVERIFIED"
+              )
+
+              return {
+                  "title": title,
+                  "url": issue_url,
+                  "repository": repository,
+                  "issue_number": number,
+                  "author": (
+                      (
+                          issue.get("user") or {}
+                      ).get("login")
+                      or ""
+                  ),
+                  "reward": reward,
+                  "score": score,
+                  "decision": decision,
+                  "availability": availability,
+                  "created_at": (
+                      issue.get("created_at")
+                      or ""
+                  ),
+                  "updated_at": (
+                      issue.get("updated_at")
+                      or ""
+                  ),
+                  "comments": visible_discussion,
+                  "labels": labels,
+                  "assignees": assignees,
+                  "open_competing_prs": (
+                      open_pr_count
+                  ),
+                  "merged_linked_prs": (
+                      merged_pr_count
+                  ),
+                  "linked_pull_requests": sorted(
+                      pr_summaries,
+                      key=lambda pr: (
+                          pr.get("updated_at") or ""
+                      ),
+                      reverse=True,
+                  ),
+                  "payment_verification": (
+                      payment_verification
+                  ),
+                  "manual_verification_required": (
+                      True
+                  ),
+                  "reasons": reasons,
+                  "risks": risks,
+              }
+
+          previous_by_url = load_previous()
+          raw_issues = {}
+          searches_completed = 0
+
+          for query in SEARCH_QUERIES:
               encoded = urllib.parse.quote(query)
 
               url = (
-                  "https://api.github.com/search/issues"
-                  f"?q={encoded}&sort=created&order=desc&per_page=50"
+                  "https://api.github.com/"
+                  "search/issues"
+                  f"?q={encoded}"
+                  "&sort=updated"
+                  "&order=desc"
+                  "&per_page=100"
               )
 
-              try:
-                  data = api_get(url)
-              except Exception as error:
-                  print(f"Search failed: {error}")
+              data = safe_api_get(url)
+
+              if not isinstance(data, dict):
                   continue
 
-              for issue in data.get("items", []):
+              searches_completed += 1
+
+              for issue in data.get(
+                  "items",
+                  [],
+              ):
                   if "pull_request" in issue:
                       continue
 
-                  issue_url = issue.get("html_url") or ""
+                  issue_url = (
+                      issue.get("html_url") or ""
+                  )
 
                   if issue_url:
-                      issues[issue_url] = issue
+                      raw_issues[issue_url] = issue
 
-          results = []
+          initial_candidates = []
           rejected_aggregators = 0
+          rejected_unsafe = 0
+          rejected_no_reward = 0
 
-          for issue in issues.values():
+          for issue in raw_issues.values():
               title = issue.get("title") or ""
               body = issue.get("body") or ""
               text = f"{title}\n{body}"
               lowered = text.lower()
 
-              if is_aggregator(issue, title, body):
+              if is_aggregator(
+                  issue,
+                  title,
+                  body,
+              ):
                   rejected_aggregators += 1
                   continue
 
-              if any(term in lowered for term in blocked):
+              if any(
+                  term in lowered
+                  for term in BLOCKED_TERMS
+              ):
+                  rejected_unsafe += 1
                   continue
 
               reward = extract_reward(text)
 
               if reward <= 0:
+                  rejected_no_reward += 1
                   continue
 
-              score = 0
-              reasons = []
+              initial_candidates.append(issue)
 
-              if reward >= 500:
-                  score += 25
-                  reasons.append("Large stated reward")
-              elif reward >= 150:
-                  score += 22
-                  reasons.append("Strong stated reward")
-              elif reward >= 50:
-                  score += 18
-                  reasons.append("Good stated reward")
-              else:
-                  score += 12
-                  reasons.append("Stated paid reward")
+          initial_candidates.sort(
+              key=lambda issue: (
+                  extract_reward(
+                      (
+                          f"{issue.get('title') or ''}"
+                          "\n"
+                          f"{issue.get('body') or ''}"
+                      )
+                  ),
+                  issue.get("updated_at") or "",
+              ),
+              reverse=True,
+          )
 
-              detail = len(body.strip())
+          # Deep verification is capped to control API use.
+          verification_queue = (
+              initial_candidates[:25]
+          )
 
-              if detail >= 800:
-                  score += 15
-                  reasons.append("Detailed requirements")
-              elif detail >= 300:
-                  score += 10
-                  reasons.append("Useful requirements")
-              elif detail >= 100:
-                  score += 5
-                  reasons.append("Basic requirements")
-              else:
-                  reasons.append("Requirements need review")
+          verified_results = []
 
-              matches = sorted({
-                  word for word in preferred
-                  if word in lowered
-              })
-
-              score += min(20, len(matches) * 4)
-
-              if matches:
-                  reasons.append(
-                      "Capability match: " + ", ".join(matches[:5])
-                  )
-
-              comments = int(issue.get("comments") or 0)
-
-              if comments == 0:
-                  score += 15
-                  reasons.append("No visible discussion")
-              elif comments <= 3:
-                  score += 10
-                  reasons.append("Low visible competition")
-              elif comments <= 8:
-                  score += 4
-                  reasons.append("Moderate competition")
-              else:
-                  score -= 8
-                  reasons.append("Heavy discussion")
-
-              created_at = issue.get("created_at") or ""
-
-              try:
-                  created = datetime.fromisoformat(
-                      created_at.replace("Z", "+00:00")
-                  )
-
-                  age_days = (
-                      datetime.now(timezone.utc) - created
-                  ).total_seconds() / 86400
-
-                  if age_days <= 1:
-                      score += 15
-                      reasons.append("Posted within 24 hours")
-                  elif age_days <= 7:
-                      score += 10
-                      reasons.append("Posted within 7 days")
-                  elif age_days <= 30:
-                      score += 5
-                      reasons.append("Posted within 30 days")
-                  elif age_days > 180:
-                      score -= 8
-                      reasons.append("May be stale")
-              except Exception:
-                  pass
-
-              if "acceptance criteria" in lowered:
-                  score += 10
-                  reasons.append("Clear acceptance criteria")
-              elif "expected behavior" in lowered:
-                  score += 7
-                  reasons.append("Expected behavior described")
-              elif detail >= 300:
-                  score += 4
-                  reasons.append("Review path appears usable")
-
-              score = max(0, min(100, score))
-
-              if score >= 70:
-                  decision = "PURSUE"
-              elif score >= 55:
-                  decision = "PRIORITY REVIEW"
-              elif score >= 40:
-                  decision = "WATCHLIST"
-              else:
-                  decision = "REJECT"
-
-              repository = (
-                  issue.get("repository_url") or ""
-              ).split("/repos/")[-1]
-
-              author = (
-                  (issue.get("user") or {}).get("login") or ""
+          for index, issue in enumerate(
+              verification_queue,
+              start=1,
+          ):
+              print(
+                  "Verifying candidate "
+                  f"{index}/"
+                  f"{len(verification_queue)}: "
+                  f"{issue.get('html_url')}"
               )
 
-              results.append(
-                  {
-                      "title": title,
-                      "url": issue.get("html_url") or "",
-                      "repository": repository,
-                      "author": author,
-                      "reward": reward,
-                      "score": score,
-                      "decision": decision,
-                      "comments": comments,
-                      "created_at": created_at,
-                      "manual_verification_required": True,
-                      "reasons": reasons,
-                  }
+              verified_results.append(
+                  verify_candidate(issue)
               )
 
-          results.sort(
+          verified_results.sort(
               key=lambda item: (
                   item["score"],
                   item["reward"],
@@ -340,159 +1161,733 @@ jobs:
               reverse=True,
           )
 
-          top_results = results[:10]
+          meaningful_changes = []
+
+          for item in verified_results:
+              previous = previous_by_url.get(
+                  item["url"]
+              )
+
+              if not previous:
+                  item["change"] = "NEW"
+
+                  meaningful_changes.append(
+                      {
+                          "type": "NEW",
+                          "title": item["title"],
+                          "url": item["url"],
+                          "decision": (
+                              item["decision"]
+                          ),
+                      }
+                  )
+
+                  continue
+
+              changed_fields = []
+
+              for field in (
+                  "decision",
+                  "availability",
+                  "reward",
+                  "assignees",
+                  "open_competing_prs",
+                  "merged_linked_prs",
+              ):
+                  if (
+                      previous.get(field)
+                      != item.get(field)
+                  ):
+                      changed_fields.append(field)
+
+              if changed_fields:
+                  item["change"] = (
+                      "CHANGED: "
+                      + ", ".join(changed_fields)
+                  )
+
+                  meaningful_changes.append(
+                      {
+                          "type": "CHANGED",
+                          "title": item["title"],
+                          "url": item["url"],
+                          "fields": changed_fields,
+                          "decision": (
+                              item["decision"]
+                          ),
+                      }
+                  )
+
+              else:
+                  item["change"] = "UNCHANGED"
 
           counts = {
-              "PURSUE": sum(
-                  item["decision"] == "PURSUE"
-                  for item in results
+              decision: sum(
+                  item["decision"] == decision
+                  for item in verified_results
+              )
+              for decision in (
+                  "PURSUE",
+                  "PRIORITY REVIEW",
+                  "WATCHLIST",
+                  "REJECT",
+              )
+          }
+
+          contested_count = sum(
+              item["open_competing_prs"] > 0
+              for item in verified_results
+          )
+
+          assigned_count = sum(
+              bool(item["assignees"])
+              for item in verified_results
+          )
+
+          top_results = verified_results[:12]
+
+          strong_targets = [
+              item
+              for item in verified_results
+              if item["decision"] == "PURSUE"
+              and item["open_competing_prs"] == 0
+              and not item["assignees"]
+          ]
+
+          status = "HEALTHY"
+
+          if searches_completed == 0:
+              status = "FAILED"
+
+          elif api_errors:
+              status = "DEGRADED"
+
+          payload = {
+              "version": "V4",
+              "owner": "Mazen Farkouh",
+              "generated_at": GENERATED_AT,
+              "system_status": status,
+              "manual_verification_required": True,
+              "automation_boundary": (
+                  "Atlas discovers, scores, and "
+                  "monitors opportunities. It does "
+                  "not claim work, submit code, "
+                  "or guarantee payment."
               ),
-              "PRIORITY REVIEW": sum(
-                  item["decision"] == "PRIORITY REVIEW"
-                  for item in results
+              "searches_completed": (
+                  searches_completed
               ),
-              "WATCHLIST": sum(
-                  item["decision"] == "WATCHLIST"
-                  for item in results
+              "api_calls": api_calls,
+              "api_errors": api_errors,
+              "raw_issues_found": len(raw_issues),
+              "aggregator_pages_rejected": (
+                  rejected_aggregators
               ),
-              "REJECT": sum(
-                  item["decision"] == "REJECT"
-                  for item in results
+              "unsafe_items_rejected": (
+                  rejected_unsafe
+              ),
+              (
+                  "items_without_extractable_"
+                  "reward_rejected"
+              ): rejected_no_reward,
+              "eligible_candidates_found": (
+                  len(initial_candidates)
+              ),
+              "deep_verified_candidates": (
+                  len(verified_results)
+              ),
+              "counts": counts,
+              "contested_count": (
+                  contested_count
+              ),
+              "assigned_count": assigned_count,
+              "strong_uncontested_targets": (
+                  len(strong_targets)
+              ),
+              "meaningful_changes": (
+                  meaningful_changes
+              ),
+              "top_results": top_results,
+              "all_verified_results": (
+                  verified_results
               ),
           }
 
-          generated_at = datetime.now(timezone.utc).strftime(
-              "%Y-%m-%d %H:%M UTC"
-          )
-
-          Path("data").mkdir(exist_ok=True)
-          Path("docs").mkdir(exist_ok=True)
-
-          Path("data/opportunities.json").write_text(
+          CURRENT_FILE.write_text(
               json.dumps(
-                  {
-                      "owner": "Mazen Farkouh",
-                      "generated_at": generated_at,
-                      "manual_verification_required": True,
-                      "aggregator_pages_rejected": rejected_aggregators,
-                      "counts": counts,
-                      "top_results": top_results,
-                  },
+                  payload,
                   indent=2,
+                  ensure_ascii=False,
               ),
               encoding="utf-8",
           )
 
-          rows = ""
+          history = load_history()
+
+          history.append(
+              {
+                  "generated_at": GENERATED_AT,
+                  "system_status": status,
+                  "raw_issues_found": (
+                      len(raw_issues)
+                  ),
+                  "eligible_candidates_found": (
+                      len(initial_candidates)
+                  ),
+                  "deep_verified_candidates": (
+                      len(verified_results)
+                  ),
+                  "counts": counts,
+                  "contested_count": (
+                      contested_count
+                  ),
+                  "assigned_count": (
+                      assigned_count
+                  ),
+                  "strong_uncontested_targets": (
+                      len(strong_targets)
+                  ),
+                  "meaningful_change_count": (
+                      len(meaningful_changes)
+                  ),
+              }
+          )
+
+          HISTORY_FILE.write_text(
+              json.dumps(
+                  history[-500:],
+                  indent=2,
+                  ensure_ascii=False,
+              ),
+              encoding="utf-8",
+          )
+
+          def badge_class(decision):
+              return {
+                  "PURSUE": "pursue",
+                  "PRIORITY REVIEW": "review",
+                  "WATCHLIST": "watch",
+                  "REJECT": "reject",
+              }.get(
+                  decision,
+                  "watch",
+              )
+
+          rows = []
 
           for item in top_results:
-              rows += (
+              title = html.escape(
+                  item["title"]
+              )
+
+              url = html.escape(
+                  item["url"],
+                  quote=True,
+              )
+
+              decision = html.escape(
+                  item["decision"]
+              )
+
+              availability = html.escape(
+                  item["availability"]
+              )
+
+              change = html.escape(
+                  item["change"]
+              )
+
+              risks = html.escape(
+                  "; ".join(
+                      item["risks"][:3]
+                  )
+                  or "None detected"
+              )
+
+              rows.append(
                   "<tr>"
-                  f"<td>{item['decision']}</td>"
+                  f"<td><span class='badge "
+                  f"{badge_class(item['decision'])}'>"
+                  f"{decision}</span></td>"
                   f"<td>{item['score']}</td>"
-                  f"<td>${item['reward']:.2f}</td>"
-                  f"<td><a href='{item['url']}'>{item['title']}</a></td>"
+                  f"<td>${item['reward']:,.2f}</td>"
+                  f"<td><a href='{url}' "
+                  "target='_blank' rel='noopener'>"
+                  f"{title}</a>"
+                  "<div class='small'>"
+                  f"{html.escape(item['repository'])} "
+                  f"#{item['issue_number']}"
+                  "</div></td>"
+                  f"<td>{availability}</td>"
+                  f"<td>"
+                  f"{item['open_competing_prs']}"
+                  "</td>"
+                  f"<td>"
+                  f"{', '.join(html.escape(a) for a in item['assignees']) or 'None'}"
+                  "</td>"
+                  f"<td>{change}</td>"
+                  f"<td class='small'>{risks}</td>"
                   "</tr>"
               )
 
+          change_items = "".join(
+              "<li>"
+              f"<strong>"
+              f"{html.escape(change['type'])}"
+              "</strong>: "
+              f"<a href='"
+              f"{html.escape(change['url'], quote=True)}"
+              "' target='_blank' rel='noopener'>"
+              f"{html.escape(change['title'])}"
+              "</a> — "
+              f"{html.escape(change.get('decision', ''))}"
+              "</li>"
+              for change in meaningful_changes[:15]
+          ) or (
+              "<li>No meaningful changes detected "
+              "in verified candidates.</li>"
+          )
+
+          error_items = "".join(
+              "<li>"
+              f"{html.escape(error['error'])}"
+              "</li>"
+              for error in api_errors[:10]
+          ) or "<li>None</li>"
+
           dashboard = f"""<!doctype html>
-          <html>
+          <html lang="en">
           <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>Atlas Opportunity Hunter</title>
+            <meta charset="utf-8">
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            >
+            <meta
+              http-equiv="refresh"
+              content="900"
+            >
+            <title>
+              Atlas Opportunity Hunter V4
+            </title>
             <style>
+              :root {{
+                color-scheme: light dark;
+              }}
+
               body {{
-                font-family: system-ui;
-                max-width: 1000px;
+                font-family:
+                  system-ui,
+                  -apple-system,
+                  BlinkMacSystemFont,
+                  "Segoe UI",
+                  sans-serif;
+                max-width: 1500px;
                 margin: auto;
                 padding: 20px;
+                line-height: 1.45;
+              }}
+
+              .grid {{
+                display: grid;
+                grid-template-columns:
+                  repeat(
+                    auto-fit,
+                    minmax(150px, 1fr)
+                  );
+                gap: 12px;
+                margin: 18px 0;
+              }}
+
+              .card {{
+                border: 1px solid #8885;
+                border-radius: 12px;
+                padding: 14px;
+              }}
+
+              .value {{
+                font-size: 1.7rem;
+                font-weight: 750;
+              }}
+
+              .warning {{
+                background: #fff3cd;
+                color: #3d3300;
+                padding: 14px;
+                border-radius: 10px;
+              }}
+
+              .status {{
+                font-weight: 800;
+              }}
+
+              .table-wrap {{
+                overflow-x: auto;
               }}
 
               table {{
                 width: 100%;
                 border-collapse: collapse;
+                min-width: 1150px;
               }}
 
-              th, td {{
-                border: 1px solid #ccc;
-                padding: 8px;
+              th,
+              td {{
+                border: 1px solid #8885;
+                padding: 9px;
                 text-align: left;
+                vertical-align: top;
               }}
 
-              .warning {{
+              th {{
+                position: sticky;
+                top: 0;
+                background: Canvas;
+              }}
+
+              .badge {{
+                display: inline-block;
+                padding: 4px 8px;
+                border-radius: 999px;
+                font-weight: 750;
+              }}
+
+              .pursue {{
+                background: #d1e7dd;
+                color: #0f5132;
+              }}
+
+              .review {{
+                background: #cff4fc;
+                color: #055160;
+              }}
+
+              .watch {{
                 background: #fff3cd;
-                padding: 12px;
-                border-radius: 8px;
+                color: #664d03;
+              }}
+
+              .reject {{
+                background: #f8d7da;
+                color: #842029;
+              }}
+
+              .small {{
+                font-size: .85rem;
+                opacity: .78;
+                margin-top: 4px;
+              }}
+
+              a {{
+                overflow-wrap: anywhere;
               }}
             </style>
           </head>
           <body>
-            <h1>Atlas Opportunity Hunter</h1>
-            <p>Owner: Mazen Farkouh</p>
-            <p>Last scan: {generated_at}</p>
+            <h1>
+              Atlas Opportunity Hunter V4
+            </h1>
 
-            <p class="warning">
-              Atlas candidates are not payment-verified.
-              Every opportunity requires manual verification
-              before work begins.
+            <p>
+              <strong>Owner:</strong>
+              Mazen Farkouh
             </p>
 
             <p>
-              Aggregator pages rejected: {rejected_aggregators} |
-              Pursue: {counts['PURSUE']} |
-              Priority Review: {counts['PRIORITY REVIEW']} |
-              Watchlist: {counts['WATCHLIST']} |
-              Reject: {counts['REJECT']}
+              <strong>Last scan:</strong>
+              {html.escape(GENERATED_AT)}
             </p>
 
-            <h2>Top 10 Paid Candidates Requiring Manual Verification</h2>
+            <p>
+              <strong>System status:</strong>
+              <span class="status">
+                {html.escape(status)}
+              </span>
+            </p>
 
-            <table>
-              <tr>
-                <th>Decision</th>
-                <th>Score</th>
-                <th>Stated Reward</th>
-                <th>Opportunity</th>
-              </tr>
-              {rows}
-            </table>
+            <div class="warning">
+              Atlas does not verify that money is
+              funded, guarantee payment, claim work,
+              or submit code. Every candidate
+              requires human verification of
+              funding, eligibility, competition,
+              rules, acceptance criteria, and
+              payment terms before work begins.
+            </div>
+
+            <div class="grid">
+              <div class="card">
+                <div class="value">
+                  {len(raw_issues)}
+                </div>
+                <div>Raw Issues</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {len(initial_candidates)}
+                </div>
+                <div>Eligible Candidates</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {len(verified_results)}
+                </div>
+                <div>Deep Verified</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {counts['PURSUE']}
+                </div>
+                <div>Pursue</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {counts['PRIORITY REVIEW']}
+                </div>
+                <div>Priority Review</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {contested_count}
+                </div>
+                <div>Contested</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {assigned_count}
+                </div>
+                <div>Assigned</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {len(strong_targets)}
+                </div>
+                <div>Strong Uncontested</div>
+              </div>
+            </div>
+
+            <h2>Meaningful Changes</h2>
+
+            <ul>
+              {change_items}
+            </ul>
+
+            <h2>Top Verified Candidates</h2>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Decision</th>
+                    <th>Score</th>
+                    <th>Reward</th>
+                    <th>Opportunity</th>
+                    <th>Availability</th>
+                    <th>Open PRs</th>
+                    <th>Assignees</th>
+                    <th>Change</th>
+                    <th>Main Risks</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {''.join(rows)}
+                </tbody>
+              </table>
+            </div>
+
+            <h2>API Errors</h2>
+
+            <ul>
+              {error_items}
+            </ul>
+
+            <p class="small">
+              V4 deep-verifies up to 25 candidates
+              per run to reduce unnecessary API use.
+              The page refreshes every 15 minutes.
+            </p>
           </body>
           </html>
           """
 
-          Path("docs/index.html").write_text(
+          DASHBOARD_FILE.write_text(
               dashboard,
               encoding="utf-8",
           )
 
-          print(
-              f"Atlas checked {len(issues)} issues; "
-              f"rejected {rejected_aggregators} aggregator pages; "
-              f"found {len(results)} paid candidates requiring manual verification; "
-              f"{counts['PURSUE']} pursue; "
-              f"{counts['PRIORITY REVIEW']} priority review; "
-              f"{counts['WATCHLIST']} watchlist."
+          summary_lines = [
+              "# Atlas Opportunity Hunter V4",
+              "",
+              (
+                  f"- System status: "
+                  f"**{status}**"
+              ),
+              (
+                  f"- Generated: "
+                  f"**{GENERATED_AT}**"
+              ),
+              (
+                  f"- Raw issues found: "
+                  f"**{len(raw_issues)}**"
+              ),
+              (
+                  f"- Eligible paid candidates: "
+                  f"**{len(initial_candidates)}**"
+              ),
+              (
+                  f"- Deep verified: "
+                  f"**{len(verified_results)}**"
+              ),
+              (
+                  f"- Pursue: "
+                  f"**{counts['PURSUE']}**"
+              ),
+              (
+                  f"- Priority review: "
+                  f"**{counts['PRIORITY REVIEW']}**"
+              ),
+              (
+                  f"- Contested: "
+                  f"**{contested_count}**"
+              ),
+              (
+                  f"- Assigned: "
+                  f"**{assigned_count}**"
+              ),
+              (
+                  f"- Strong uncontested targets: "
+                  f"**{len(strong_targets)}**"
+              ),
+              (
+                  f"- Meaningful changes: "
+                  f"**{len(meaningful_changes)}**"
+              ),
+              (
+                  f"- API errors: "
+                  f"**{len(api_errors)}**"
+              ),
+              "",
+              (
+                  "> Manual verification is "
+                  "required before any work begins."
+              ),
+              "",
+              "## Top Candidates",
+          ]
+
+          for item in top_results[:8]:
+              summary_lines.append(
+                  f"- **{item['decision']}** | "
+                  f"Score {item['score']} | "
+                  f"${item['reward']:,.2f} | "
+                  f"{item['title']} | "
+                  f"{item['availability']}"
+              )
+
+          summary_path = os.environ.get(
+              "GITHUB_STEP_SUMMARY"
           )
 
-          for item in top_results:
-              print(
-                  f"{item['decision']} | "
-                  f"Score {item['score']} | "
-                  f"${item['reward']:.2f} stated reward | "
-                  f"{item['title']}"
+          if summary_path:
+              Path(summary_path).write_text(
+                  "\n".join(summary_lines) + "\n",
+                  encoding="utf-8",
+              )
+
+          github_output = os.environ.get(
+              "GITHUB_OUTPUT"
+          )
+
+          if github_output:
+              with open(
+                  github_output,
+                  "a",
+                  encoding="utf-8",
+              ) as output:
+                  output.write(
+                      f"system_status={status}\n"
+                  )
+
+                  output.write(
+                      "pursue_count="
+                      f"{counts['PURSUE']}\n"
+                  )
+
+                  output.write(
+                      "contested_count="
+                      f"{contested_count}\n"
+                  )
+
+                  output.write(
+                      "meaningful_change_count="
+                      f"{len(meaningful_changes)}\n"
+                  )
+
+          print(
+              f"Atlas V4 status={status}; "
+              f"checked {len(raw_issues)} "
+              "raw issues; "
+              f"found {len(initial_candidates)} "
+              "eligible candidates; "
+              f"deep-verified "
+              f"{len(verified_results)}; "
+              f"pursue={counts['PURSUE']}; "
+              "priority-review="
+              f"{counts['PRIORITY REVIEW']}; "
+              f"contested={contested_count}; "
+              f"assigned={assigned_count}; "
+              "meaningful-changes="
+              f"{len(meaningful_changes)}."
+          )
+
+          if searches_completed == 0:
+              raise SystemExit(
+                  "Atlas V4 could not complete "
+                  "any GitHub search query."
               )
           PY
 
-      - name: Save Atlas results
+      - name: Save Atlas V4 results
+        env:
+          BRANCH_NAME: ${{ github.ref_name }}
         run: |
-          git config user.name "Atlas Opportunity Hunter"
-          git config user.email "atlas-bot@users.noreply.github.com"
-          git add data/opportunities.json docs/index.html
+          set -euo pipefail
+
+          git config \
+            user.name \
+            "Atlas Opportunity Hunter"
+
+          git config \
+            user.email \
+            "atlas-bot@users.noreply.github.com"
+
+          git add \
+            data/opportunities.json \
+            data/opportunity-history.json \
+            docs/index.html
 
           if git diff --cached --quiet
           then
-            echo "No result changes to save."
-          else
-            git commit -m "Atlas improved opportunity scan"
-            git push
+            echo "No Atlas result changes to save."
+            exit 0
           fi
+
+          git commit \
+            -m "Atlas V4 opportunity scan"
+
+          git pull \
+            --rebase \
+            origin \
+            "$BRANCH_NAME"
+
+          git push \
+            origin \
+            "HEAD:$BRANCH_NAME"
