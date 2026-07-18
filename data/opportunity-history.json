@@ -1,0 +1,19 @@
+[
+  {
+    "generated_at": "2026-07-18 00:38 UTC",
+    "system_status": "DEGRADED",
+    "raw_issues_found": 373,
+    "eligible_candidates_found": 53,
+    "deep_verified_candidates": 25,
+    "counts": {
+      "PURSUE": 1,
+      "PRIORITY REVIEW": 6,
+      "WATCHLIST": 17,
+      "REJECT": 1
+    },
+    "contested_count": 15,
+    "assigned_count": 2,
+    "strong_uncontested_targets": 1,
+    "meaningful_change_count": 25
+  }
+]
