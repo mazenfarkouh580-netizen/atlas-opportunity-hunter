@@ -1,27 +1,81 @@
 {
   "owner": "Mazen Farkouh",
-  "generated_at": "2026-07-18 10:48 UTC",
+  "generated_at": "2026-07-18 14:36 UTC",
   "counts": {
-    "PURSUE": 31,
-    "PRIORITY REVIEW": 17,
+    "PURSUE": 24,
+    "PRIORITY REVIEW": 10,
     "WATCHLIST": 1,
     "REJECT": 0
   },
   "top_results": [
     {
+      "title": "\ud83c\udfaf Bounty Alert: 5 New Opportunityies found",
+      "url": "https://github.com/freedom-winds/BountyScout/issues/139",
+      "repository": "freedom-winds/BountyScout",
+      "reward": 7500.0,
+      "score": 82,
+      "decision": "PURSUE",
+      "comments": 0,
+      "created_at": "2026-07-18T11:01:31Z",
+      "reasons": [
+        "Excellent verified reward",
+        "Detailed requirements",
+        "Capability match: bug, python",
+        "No visible discussion",
+        "Posted within 24 hours",
+        "Review path appears usable"
+      ]
+    },
+    {
+      "title": "\ud83c\udfaf Bounty Alert: 8 New Opportunityies found",
+      "url": "https://github.com/dev-kp-eloper/BountyScout/issues/519",
+      "repository": "dev-kp-eloper/BountyScout",
+      "reward": 7500.0,
+      "score": 78,
+      "decision": "PURSUE",
+      "comments": 0,
+      "created_at": "2026-07-18T11:06:14Z",
+      "reasons": [
+        "Excellent verified reward",
+        "Detailed requirements",
+        "Capability match: bug",
+        "No visible discussion",
+        "Posted within 24 hours",
+        "Review path appears usable"
+      ]
+    },
+    {
+      "title": "\ud83c\udfaf Bounty Alert: 5 New Opportunityies found",
+      "url": "https://github.com/vansh-09/BountyScout/issues/413",
+      "repository": "vansh-09/BountyScout",
+      "reward": 7500.0,
+      "score": 78,
+      "decision": "PURSUE",
+      "comments": 0,
+      "created_at": "2026-07-18T11:01:52Z",
+      "reasons": [
+        "Excellent verified reward",
+        "Detailed requirements",
+        "Capability match: bug",
+        "No visible discussion",
+        "Posted within 24 hours",
+        "Review path appears usable"
+      ]
+    },
+    {
       "title": "Add is-katakana-letter-wo-present API utility",
       "url": "https://github.com/xevrion-v2/agent-playground/issues/8085",
       "repository": "xevrion-v2/agent-playground",
       "reward": 50.0,
-      "score": 80,
+      "score": 75,
       "decision": "PURSUE",
-      "comments": 0,
+      "comments": 1,
       "created_at": "2026-07-18T10:19:21Z",
       "reasons": [
         "Good verified reward",
         "Useful requirements",
         "Capability match: test, tests, typescript",
-        "No visible discussion",
+        "Low visible competition",
         "Posted within 24 hours",
         "Clear acceptance criteria"
       ]
@@ -31,15 +85,15 @@
       "url": "https://github.com/xevrion-v2/agent-playground/issues/8084",
       "repository": "xevrion-v2/agent-playground",
       "reward": 50.0,
-      "score": 80,
+      "score": 75,
       "decision": "PURSUE",
-      "comments": 0,
+      "comments": 1,
       "created_at": "2026-07-18T10:19:20Z",
       "reasons": [
         "Good verified reward",
         "Useful requirements",
         "Capability match: test, tests, typescript",
-        "No visible discussion",
+        "Low visible competition",
         "Posted within 24 hours",
         "Clear acceptance criteria"
       ]
@@ -49,15 +103,15 @@
       "url": "https://github.com/xevrion-v2/agent-playground/issues/8083",
       "repository": "xevrion-v2/agent-playground",
       "reward": 50.0,
-      "score": 80,
+      "score": 75,
       "decision": "PURSUE",
-      "comments": 0,
+      "comments": 1,
       "created_at": "2026-07-18T10:19:19Z",
       "reasons": [
         "Good verified reward",
         "Useful requirements",
         "Capability match: test, tests, typescript",
-        "No visible discussion",
+        "Low visible competition",
         "Posted within 24 hours",
         "Clear acceptance criteria"
       ]
@@ -67,15 +121,15 @@
       "url": "https://github.com/xevrion-v2/agent-playground/issues/8082",
       "repository": "xevrion-v2/agent-playground",
       "reward": 50.0,
-      "score": 80,
+      "score": 75,
       "decision": "PURSUE",
-      "comments": 0,
+      "comments": 1,
       "created_at": "2026-07-18T10:19:18Z",
       "reasons": [
         "Good verified reward",
         "Useful requirements",
         "Capability match: test, tests, typescript",
-        "No visible discussion",
+        "Low visible competition",
         "Posted within 24 hours",
         "Clear acceptance criteria"
       ]
@@ -85,15 +139,15 @@
       "url": "https://github.com/xevrion-v2/agent-playground/issues/8081",
       "repository": "xevrion-v2/agent-playground",
       "reward": 50.0,
-      "score": 80,
+      "score": 75,
       "decision": "PURSUE",
-      "comments": 0,
+      "comments": 1,
       "created_at": "2026-07-18T10:19:17Z",
       "reasons": [
         "Good verified reward",
         "Useful requirements",
         "Capability match: test, tests, typescript",
-        "No visible discussion",
+        "Low visible competition",
         "Posted within 24 hours",
         "Clear acceptance criteria"
       ]
@@ -103,15 +157,15 @@
       "url": "https://github.com/xevrion-v2/agent-playground/issues/8073",
       "repository": "xevrion-v2/agent-playground",
       "reward": 50.0,
-      "score": 80,
+      "score": 75,
       "decision": "PURSUE",
-      "comments": 0,
+      "comments": 1,
       "created_at": "2026-07-18T08:48:41Z",
       "reasons": [
         "Good verified reward",
         "Useful requirements",
         "Capability match: test, tests, typescript",
-        "No visible discussion",
+        "Low visible competition",
         "Posted within 24 hours",
         "Clear acceptance criteria"
       ]
@@ -121,69 +175,15 @@
       "url": "https://github.com/xevrion-v2/agent-playground/issues/8072",
       "repository": "xevrion-v2/agent-playground",
       "reward": 50.0,
-      "score": 80,
+      "score": 75,
       "decision": "PURSUE",
-      "comments": 0,
+      "comments": 1,
       "created_at": "2026-07-18T08:48:40Z",
       "reasons": [
         "Good verified reward",
         "Useful requirements",
         "Capability match: test, tests, typescript",
-        "No visible discussion",
-        "Posted within 24 hours",
-        "Clear acceptance criteria"
-      ]
-    },
-    {
-      "title": "Add is-katakana-letter-ru-present API utility",
-      "url": "https://github.com/xevrion-v2/agent-playground/issues/8071",
-      "repository": "xevrion-v2/agent-playground",
-      "reward": 50.0,
-      "score": 80,
-      "decision": "PURSUE",
-      "comments": 0,
-      "created_at": "2026-07-18T08:48:39Z",
-      "reasons": [
-        "Good verified reward",
-        "Useful requirements",
-        "Capability match: test, tests, typescript",
-        "No visible discussion",
-        "Posted within 24 hours",
-        "Clear acceptance criteria"
-      ]
-    },
-    {
-      "title": "Add is-katakana-letter-ri-present API utility",
-      "url": "https://github.com/xevrion-v2/agent-playground/issues/8070",
-      "repository": "xevrion-v2/agent-playground",
-      "reward": 50.0,
-      "score": 80,
-      "decision": "PURSUE",
-      "comments": 0,
-      "created_at": "2026-07-18T08:48:38Z",
-      "reasons": [
-        "Good verified reward",
-        "Useful requirements",
-        "Capability match: test, tests, typescript",
-        "No visible discussion",
-        "Posted within 24 hours",
-        "Clear acceptance criteria"
-      ]
-    },
-    {
-      "title": "Add is-katakana-letter-ra-present API utility",
-      "url": "https://github.com/xevrion-v2/agent-playground/issues/8069",
-      "repository": "xevrion-v2/agent-playground",
-      "reward": 50.0,
-      "score": 80,
-      "decision": "PURSUE",
-      "comments": 0,
-      "created_at": "2026-07-18T08:48:37Z",
-      "reasons": [
-        "Good verified reward",
-        "Useful requirements",
-        "Capability match: test, tests, typescript",
-        "No visible discussion",
+        "Low visible competition",
         "Posted within 24 hours",
         "Clear acceptance criteria"
       ]
