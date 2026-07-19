@@ -13,9 +13,9 @@
     "title": "[Bounty] [weilixiong/TentOfTrials] [$25 BOUNTY] [Python] Add independent log parser fixtu",
     "repository": "zhangjiayang6835-cyber/bounty-plaza",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-19 07:34 UTC",
-    "last_decision": "PURSUE",
-    "last_availability": "OPEN - READY FOR FINAL CLAIM CHECK",
+    "last_verified": "2026-07-19 08:02 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "REPOSITORY MISMATCH - MANUAL VERIFY",
     "last_reward": 25.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -43,7 +43,7 @@
     "title": "[ Brainfuck ] Implement a program that prints the first 20 prime numbers",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-19 07:34 UTC",
+    "last_verified": "2026-07-19 08:02 UTC",
     "last_decision": "PURSUE",
     "last_availability": "OPEN - READY FOR FINAL CLAIM CHECK",
     "last_reward": 20.0,
@@ -113,7 +113,7 @@
     "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
     "repository": "claude-builders-bounty/claude-builders-bounty",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-19 07:34 UTC",
+    "last_verified": "2026-07-19 08:02 UTC",
     "last_decision": "WATCHLIST",
     "last_availability": "CONTESTED",
     "last_reward": 50.0,
@@ -298,5 +298,95 @@
     "last_availability": "CONTESTED",
     "last_reward": 50.0,
     "verification_state": "NOT REVERIFIED THIS RUN"
+  },
+  "https://github.com/UnsafeLabs/Bounty-Hunters/issues/787": {
+    "title": "[ Laravel ] Fix logging config to separate error logs and add JSON structured logging",
+    "repository": "UnsafeLabs/Bounty-Hunters",
+    "first_seen": "2026-07-19 08:02 UTC",
+    "last_verified": "2026-07-19 08:02 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "OPEN - READY FOR FINAL CLAIM CHECK",
+    "last_reward": 20.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/UnsafeLabs/Bounty-Hunters/issues/651": {
+    "title": "[ Brainfuck ] Implement FizzBuzz that prints numbers 1 to 100 with correct FizzBuzz substitutions",
+    "repository": "UnsafeLabs/Bounty-Hunters",
+    "first_seen": "2026-07-19 08:02 UTC",
+    "last_verified": "2026-07-19 08:02 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "OPEN - READY FOR FINAL CLAIM CHECK",
+    "last_reward": 20.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/UnsafeLabs/Bounty-Hunters/issues/653": {
+    "title": "[ Brainfuck ] Implement ROT13 cipher that reads input and prints ROT13-encoded output",
+    "repository": "UnsafeLabs/Bounty-Hunters",
+    "first_seen": "2026-07-19 08:02 UTC",
+    "last_verified": "2026-07-19 08:02 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "OPEN - READY FOR FINAL CLAIM CHECK",
+    "last_reward": 20.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/UnsafeLabs/Bounty-Hunters/issues/655": {
+    "title": "[ Brainfuck ] Implement a program that converts decimal input to binary output",
+    "repository": "UnsafeLabs/Bounty-Hunters",
+    "first_seen": "2026-07-19 08:02 UTC",
+    "last_verified": "2026-07-19 08:02 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "OPEN - READY FOR FINAL CLAIM CHECK",
+    "last_reward": 20.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/UnsafeLabs/Bounty-Hunters/issues/794": {
+    "title": "[ Laravel ] Fix phpunit.xml coverage config and add route and model test suites",
+    "repository": "UnsafeLabs/Bounty-Hunters",
+    "first_seen": "2026-07-19 08:02 UTC",
+    "last_verified": "2026-07-19 08:02 UTC",
+    "last_decision": "PRIORITY REVIEW",
+    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_reward": 55.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/UnsafeLabs/Bounty-Hunters/issues/654": {
+    "title": "[ Brainfuck ] Implement a program that sorts an input string alphabetically",
+    "repository": "UnsafeLabs/Bounty-Hunters",
+    "first_seen": "2026-07-19 08:02 UTC",
+    "last_verified": "2026-07-19 08:02 UTC",
+    "last_decision": "PRIORITY REVIEW",
+    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_reward": 20.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3": {
+    "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
+    "repository": "claude-builders-bounty/claude-builders-bounty",
+    "first_seen": "2026-07-19 08:02 UTC",
+    "last_verified": "2026-07-19 08:02 UTC",
+    "last_decision": "PRIORITY REVIEW",
+    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_reward": 100.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2": {
+    "title": "[BOUNTY $75] TEMPLATE: CLAUDE.md for a Next.js + SQLite SaaS project",
+    "repository": "claude-builders-bounty/claude-builders-bounty",
+    "first_seen": "2026-07-19 08:02 UTC",
+    "last_verified": "2026-07-19 08:02 UTC",
+    "last_decision": "PRIORITY REVIEW",
+    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_reward": 75.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/527": {
+    "title": "[Bounty] La función suma() resta en vez de sumar",
+    "repository": "zhangjiayang6835-cyber/bounty-plaza",
+    "first_seen": "2026-07-19 08:02 UTC",
+    "last_verified": "2026-07-19 08:02 UTC",
+    "last_decision": "PRIORITY REVIEW",
+    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
   }
 }
