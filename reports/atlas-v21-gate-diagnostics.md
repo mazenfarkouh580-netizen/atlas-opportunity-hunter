@@ -1,99 +1,87 @@
 # Atlas + Alex V21 Gate Diagnostics
 
-Generated: 2026-07-19 12:05 UTC
+Generated: 2026-07-19 12:27 UTC
 
 ## Decision Counts
 
-- PURSUE: 0
-- PRIORITY REVIEW: 22
-- WATCHLIST: 8
+- PURSUE: 8
+- PRIORITY REVIEW: 12
+- WATCHLIST: 10
 - REJECT: 0
 
 ## Gate Counts
 
-- PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED: 22
-- TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE: 5
-- REPOSITORY MISMATCH - MANUAL VERIFY: 3
+- PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED: 12
+- QUICK WIN - SMALL REWARD PAYMENT RISK ACCEPTED: 8
+- OVER $250 - WATCHLIST ONLY: 5
+- TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE: 4
+- REPOSITORY MISMATCH - MANUAL VERIFY: 1
 
 ## Candidate Details
 
-### zhangjiayang6835-cyber/bounty-plaza #483
-- Decision: WATCHLIST
-- Gate: TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE
-- Reward: $90.00
-- Payment: UNVERIFIED
-- Payout source: Unverified
-- Claimable: False
-- Atlas executable: True
-- URL: https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/483
-
-### claude-builders-bounty/claude-builders-bounty #5
-- Decision: PRIORITY REVIEW
-- Gate: PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED
-- Reward: $200.00
-- Payment: UNVERIFIED
-- Payout source: Payout program repository: claude-builders-bounty/claude-builders-bounty
-- Claimable: False
-- Atlas executable: True
-- URL: https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5
-
 ### claude-builders-bounty/claude-builders-bounty #1
-- Decision: PRIORITY REVIEW
-- Gate: PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED
+- Decision: PURSUE
+- Gate: QUICK WIN - SMALL REWARD PAYMENT RISK ACCEPTED
 - Reward: $50.00
-- Payment: UNVERIFIED
+- Payment: SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO
 - Payout source: Payout program repository: claude-builders-bounty/claude-builders-bounty
 - Claimable: False
+- Quick-win risk accepted: True
 - Atlas executable: True
 - URL: https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1
 
 ### claude-builders-bounty/claude-builders-bounty #3
-- Decision: PRIORITY REVIEW
-- Gate: PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED
+- Decision: PURSUE
+- Gate: QUICK WIN - SMALL REWARD PAYMENT RISK ACCEPTED
 - Reward: $100.00
-- Payment: UNVERIFIED
+- Payment: SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO
 - Payout source: Payout program repository: claude-builders-bounty/claude-builders-bounty
 - Claimable: False
+- Quick-win risk accepted: True
 - Atlas executable: True
 - URL: https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3
 
 ### claude-builders-bounty/claude-builders-bounty #2855
-- Decision: PRIORITY REVIEW
-- Gate: PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED
+- Decision: PURSUE
+- Gate: QUICK WIN - SMALL REWARD PAYMENT RISK ACCEPTED
 - Reward: $25.00
-- Payment: UNVERIFIED
+- Payment: SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO
 - Payout source: Payout program repository: claude-builders-bounty/claude-builders-bounty
 - Claimable: False
+- Quick-win risk accepted: True
 - Atlas executable: True
 - URL: https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2855
 
 ### claude-builders-bounty/claude-builders-bounty #2853
-- Decision: PRIORITY REVIEW
-- Gate: PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED
+- Decision: PURSUE
+- Gate: QUICK WIN - SMALL REWARD PAYMENT RISK ACCEPTED
 - Reward: $50.00
-- Payment: UNVERIFIED
+- Payment: SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO
 - Payout source: Payout program repository: claude-builders-bounty/claude-builders-bounty
 - Claimable: False
+- Quick-win risk accepted: True
 - Atlas executable: True
 - URL: https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2853
 
 ### claude-builders-bounty/claude-builders-bounty #2882
-- Decision: PRIORITY REVIEW
-- Gate: PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED
+- Decision: PURSUE
+- Gate: QUICK WIN - SMALL REWARD PAYMENT RISK ACCEPTED
 - Reward: $30.00
-- Payment: UNVERIFIED
+- Payment: SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO
 - Payout source: Payout program repository: claude-builders-bounty/claude-builders-bounty
 - Claimable: False
+- Quick-win risk accepted: True
 - Atlas executable: True
 - URL: https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2882
 
 ### aporthq/aport-integrations #4
-- Decision: PRIORITY REVIEW
-- Gate: PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED
+- Decision: PURSUE
+- Gate: QUICK WIN - SMALL REWARD PAYMENT RISK ACCEPTED
 - Reward: $50.00
-- Payment: UNVERIFIED
+- Payment: SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO
 - Payout source: Payout program repository: aporthq/aport-integrations
 - Claimable: False
+- Quick-win risk accepted: True
 - Atlas executable: True
 - URL: https://github.com/aporthq/aport-integrations/issues/4
 
@@ -104,6 +92,7 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Unverified
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: True
 - URL: https://github.com/cuentaprueba244w-dotcom/zeroeye/issues/7
 
@@ -114,6 +103,7 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Payout program repository: unsafelabs/bounty-hunters
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/UnsafeLabs/Bounty-Hunters/issues/794
 
@@ -124,6 +114,7 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Payout program repository: unsafelabs/bounty-hunters
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/UnsafeLabs/Bounty-Hunters/issues/652
 
@@ -134,38 +125,9 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Unverified
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: True
 - URL: https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/494
-
-### UnsafeLabs/Bounty-Hunters #270
-- Decision: PRIORITY REVIEW
-- Gate: PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED
-- Reward: $1.00
-- Payment: UNVERIFIED
-- Payout source: Payout program repository: unsafelabs/bounty-hunters
-- Claimable: False
-- Atlas executable: False
-- URL: https://github.com/UnsafeLabs/Bounty-Hunters/issues/270
-
-### zhangjiayang6835-cyber/bounty-plaza #484
-- Decision: WATCHLIST
-- Gate: REPOSITORY MISMATCH - MANUAL VERIFY
-- Reward: $200.00
-- Payment: UNVERIFIED
-- Payout source: Unverified
-- Claimable: False
-- Atlas executable: True
-- URL: https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/484
-
-### Vikingr2023/awesome-agent-bounties #225
-- Decision: WATCHLIST
-- Gate: REPOSITORY MISMATCH - MANUAL VERIFY
-- Reward: $200.00
-- Payment: UNVERIFIED
-- Payout source: Unverified
-- Claimable: False
-- Atlas executable: True
-- URL: https://github.com/Vikingr2023/awesome-agent-bounties/issues/225
 
 ### UnsafeLabs/Bounty-Hunters #787
 - Decision: PRIORITY REVIEW
@@ -174,6 +136,7 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Payout program repository: unsafelabs/bounty-hunters
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/UnsafeLabs/Bounty-Hunters/issues/787
 
@@ -184,6 +147,7 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Payout program repository: unsafelabs/bounty-hunters
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/UnsafeLabs/Bounty-Hunters/issues/651
 
@@ -194,6 +158,7 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Payout program repository: unsafelabs/bounty-hunters
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/UnsafeLabs/Bounty-Hunters/issues/653
 
@@ -204,6 +169,7 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Payout program repository: unsafelabs/bounty-hunters
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/UnsafeLabs/Bounty-Hunters/issues/655
 
@@ -214,16 +180,18 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Payout program repository: unsafelabs/bounty-hunters
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/UnsafeLabs/Bounty-Hunters/issues/654
 
 ### aporthq/aport-integrations #31
-- Decision: PRIORITY REVIEW
-- Gate: PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED
+- Decision: PURSUE
+- Gate: QUICK WIN - SMALL REWARD PAYMENT RISK ACCEPTED
 - Reward: $10.00
-- Payment: UNVERIFIED
+- Payment: SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO
 - Payout source: Payout program repository: aporthq/aport-integrations
 - Claimable: False
+- Quick-win risk accepted: True
 - Atlas executable: True
 - URL: https://github.com/aporthq/aport-integrations/issues/31
 
@@ -234,16 +202,18 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Payout program repository: claude-builders-bounty/claude-builders-bounty
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2
 
 ### tscircuit/jlcsearch #92
-- Decision: PRIORITY REVIEW
-- Gate: PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED
+- Decision: PURSUE
+- Gate: QUICK WIN - SMALL REWARD PAYMENT RISK ACCEPTED
 - Reward: $75.00
-- Payment: UNVERIFIED
+- Payment: SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO
 - Payout source: Payout program repository: tscircuit/jlcsearch
 - Claimable: False
+- Quick-win risk accepted: True
 - Atlas executable: True
 - URL: https://github.com/tscircuit/jlcsearch/issues/92
 
@@ -254,8 +224,64 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Unverified
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/527
+
+### zhangjiayang6835-cyber/bounty-plaza #479
+- Decision: WATCHLIST
+- Gate: OVER $250 - WATCHLIST ONLY
+- Reward: $3,000.00
+- Payment: UNVERIFIED
+- Payout source: Unverified
+- Claimable: True
+- Quick-win risk accepted: False
+- Atlas executable: False
+- URL: https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/479
+
+### Vikingr2023/awesome-agent-bounties #76
+- Decision: WATCHLIST
+- Gate: OVER $250 - WATCHLIST ONLY
+- Reward: $3,000.00
+- Payment: UNVERIFIED
+- Payout source: Unverified
+- Claimable: True
+- Quick-win risk accepted: False
+- Atlas executable: False
+- URL: https://github.com/Vikingr2023/awesome-agent-bounties/issues/76
+
+### Vikingr2023/awesome-agent-bounties #167
+- Decision: WATCHLIST
+- Gate: OVER $250 - WATCHLIST ONLY
+- Reward: $3,000.00
+- Payment: UNVERIFIED
+- Payout source: Unverified
+- Claimable: True
+- Quick-win risk accepted: False
+- Atlas executable: False
+- URL: https://github.com/Vikingr2023/awesome-agent-bounties/issues/167
+
+### Vikingr2023/awesome-agent-bounties #52
+- Decision: WATCHLIST
+- Gate: OVER $250 - WATCHLIST ONLY
+- Reward: $3,000.00
+- Payment: UNVERIFIED
+- Payout source: Unverified
+- Claimable: True
+- Quick-win risk accepted: False
+- Atlas executable: False
+- URL: https://github.com/Vikingr2023/awesome-agent-bounties/issues/52
+
+### zhangjiayang6835-cyber/bounty-plaza #477
+- Decision: WATCHLIST
+- Gate: OVER $250 - WATCHLIST ONLY
+- Reward: $3,000.00
+- Payment: UNVERIFIED
+- Payout source: Unverified
+- Claimable: True
+- Quick-win risk accepted: False
+- Atlas executable: False
+- URL: https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/477
 
 ### tscircuit/dsn-converter #54
 - Decision: PRIORITY REVIEW
@@ -264,6 +290,7 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Payout program repository: tscircuit/dsn-converter
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/tscircuit/dsn-converter/issues/54
 
@@ -274,6 +301,7 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Unverified
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/demetriodiazdeleon-pixel/morriganprueba/issues/1
 
@@ -284,6 +312,7 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Unverified
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/lablab-ai/community-content/issues/462
 
@@ -294,6 +323,7 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Payout program repository: tscircuit/schematic-trace-solver
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/tscircuit/schematic-trace-solver/issues/34
 
@@ -304,6 +334,7 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Payout program repository: tscircuit/file-server
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/tscircuit/file-server/issues/5
 
@@ -314,5 +345,6 @@ Generated: 2026-07-19 12:05 UTC
 - Payment: UNVERIFIED
 - Payout source: Payout program repository: tscircuit/footprinter
 - Claimable: False
+- Quick-win risk accepted: False
 - Atlas executable: False
 - URL: https://github.com/tscircuit/footprinter/issues/371
