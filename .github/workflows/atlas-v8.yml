@@ -51,4 +51,5 @@ jobs:
           DATA_DIR = Path("data")
           DOCS_DIR = Path("docs")
           DATA_DIR.mkdir(exist_ok=True)
+          PY
 
