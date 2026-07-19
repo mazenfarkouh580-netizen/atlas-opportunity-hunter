@@ -1,4 +1,4 @@
-name: Atlas + Alex V20 — Trusted Payout Sources
+name: Atlas + Alex V21 — Payout Program Review
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ on:
     - cron: "12,27,42,57 * * * *"
 
 concurrency:
-  group: atlas-alex-opportunity-hunter-v20
+  group: atlas-alex-opportunity-hunter-v21
   cancel-in-progress: false
 
 permissions:
@@ -311,8 +311,18 @@ jobs:
           }
 
           TRUSTED_PAYOUT_REPOSITORIES = {
-              # Repository-specific programs may be added here only after
-              # repeated payout evidence or a clearly documented payout policy.
+              # Add only after independently verified payout history.
+          }
+
+          PAYOUT_PROGRAM_REPOSITORIES = {
+              "tscircuit/dsn-converter",
+              "tscircuit/file-server",
+              "tscircuit/footprinter",
+              "tscircuit/schematic-trace-solver",
+              "tscircuit/jlcsearch",
+              "aporthq/aport-integrations",
+              "claude-builders-bounty/claude-builders-bounty",
+              "unsafelabs/bounty-hunters",
           }
 
           FAST_PAYMENT_TERMS = [
@@ -422,12 +432,12 @@ jobs:
               EARNINGS_FILE.write_text("[]\n", encoding="utf-8")
 
           operations = load_json_file(OPERATIONS_FILE, {
-              "version": "V20",
+              "version": "V21",
               "pipeline": [],
               "last_updated": GENERATED_AT,
           })
           if not isinstance(operations, dict):
-              operations = {"version": "V20", "pipeline": [], "last_updated": GENERATED_AT}
+              operations = {"version": "V21", "pipeline": [], "last_updated": GENERATED_AT}
 
           maintenance = load_json_file(MAINTENANCE_FILE, {
               "doctor": "Dr. Alex",
@@ -483,7 +493,7 @@ jobs:
                           "Accept": accept,
                           "X-GitHub-Api-Version": API_VERSION,
                           "User-Agent": (
-                              "Atlas-Opportunity-Hunter-V20"
+                              "Atlas-Opportunity-Hunter-V21"
                           ),
                       },
                   )
@@ -1099,19 +1109,18 @@ jobs:
                   None,
               )
 
-              repository_url_match = re.search(
-                  r"github\.com/([^/]+/[^/]+)",
-                  url,
-                  re.IGNORECASE,
-              )
               repository_full_name = (
-                  repository_url_match.group(1).lower()
-                  if repository_url_match
+                  repository.lower()
+                  if repository
                   else ""
               )
               trusted_repository = (
                   repository_full_name
                   in TRUSTED_PAYOUT_REPOSITORIES
+              )
+              payout_program_repository = (
+                  repository_full_name
+                  in PAYOUT_PROGRAM_REPOSITORIES
               )
 
               funded_payment_platform = bool(
@@ -1556,6 +1565,12 @@ jobs:
                   )
                   decision = "WATCHLIST"
 
+              elif not instant_payment_verified and payout_program_repository:
+                  availability = (
+                      "PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED"
+                  )
+                  decision = "PRIORITY REVIEW"
+
               elif not instant_payment_verified:
                   availability = (
                       "TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE"
@@ -1699,7 +1714,12 @@ jobs:
                   "trusted_payout_source": trusted_payout_source,
                   "trusted_platform": trusted_platform,
                   "trusted_repository": trusted_repository,
-                  "payout_source": payout_source,
+                  "payout_program_repository": payout_program_repository,
+                  "payout_source": (
+                      f"Payout program repository: {repository_full_name}"
+                      if payout_program_repository and not trusted_payout_source
+                      else payout_source
+                  ),
                   "claimable_now": claimable_now,
                   "claimability_signals": claimability_signals,
                   "atlas_can_execute": atlas_can_execute,
@@ -2067,6 +2087,11 @@ jobs:
               item for item in ready_small_wins
               if item.get("trusted_payout_source")
           ]
+          payout_program_reviews = [
+              item for item in verified_results
+              if item.get("payout_program_repository")
+              and item.get("decision") == "PRIORITY REVIEW"
+          ]
           small_target_met = len(ready_small_wins) >= 2
           small_target_status = (
               "ACHIEVED"
@@ -2224,6 +2249,50 @@ jobs:
                   "REJECT",
               )
           }
+
+          gate_counts = {}
+          for item in verified_results:
+              gate = item.get("availability") or "UNKNOWN"
+              gate_counts[gate] = gate_counts.get(gate, 0) + 1
+
+          diagnostic_lines = [
+              "# Atlas + Alex V21 Gate Diagnostics",
+              "",
+              f"Generated: {GENERATED_AT}",
+              "",
+              "## Decision Counts",
+              "",
+          ]
+          for decision, value in counts.items():
+              diagnostic_lines.append(f"- {decision}: {value}")
+
+          diagnostic_lines.extend(["", "## Gate Counts", ""])
+          for gate, value in sorted(
+              gate_counts.items(),
+              key=lambda pair: pair[1],
+              reverse=True,
+          ):
+              diagnostic_lines.append(f"- {gate}: {value}")
+
+          diagnostic_lines.extend(["", "## Candidate Details", ""])
+          for item in verified_results:
+              diagnostic_lines.extend([
+                  f"### {item.get('repository')} #{item.get('issue_number')}",
+                  f"- Decision: {item.get('decision')}",
+                  f"- Gate: {item.get('availability')}",
+                  f"- Reward: ${float(item.get('reward', 0) or 0):,.2f}",
+                  f"- Payment: {item.get('payment_verification')}",
+                  f"- Payout source: {item.get('payout_source')}",
+                  f"- Claimable: {item.get('claimable_now')}",
+                  f"- Atlas executable: {item.get('atlas_can_execute')}",
+                  f"- URL: {item.get('url')}",
+                  "",
+              ])
+
+          Path("reports/atlas-v21-gate-diagnostics.md").write_text(
+              "\n".join(diagnostic_lines),
+              encoding="utf-8",
+          )
 
           contested_count = sum(
               item["open_competing_prs"] > 0
@@ -2390,7 +2459,7 @@ jobs:
           )
           execution_queue = execution_queue[:int(config.get("queue_size", 20))]
 
-          operations["version"] = "V20"
+          operations["version"] = "V21"
           operations["last_updated"] = GENERATED_AT
           operations["pipeline"] = execution_queue
           OPERATIONS_FILE.write_text(json.dumps(operations, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -2446,7 +2515,7 @@ jobs:
           ALERTS_FILE.write_text(json.dumps(alerts, indent=2), encoding="utf-8")
 
           payload = {
-              "version": "V20",
+              "version": "V21",
               "owner": "Mazen Farkouh",
               "generated_at": GENERATED_AT,
               "config": config,
@@ -2506,7 +2575,7 @@ jobs:
           WORKER_HEALTH_FILE.write_text(
               json.dumps(
                   {
-                      "version": "V20",
+                      "version": "V21",
                       "last_completed_at": NOW.isoformat(),
                       "last_completed_display": GENERATED_AT,
                       "trigger": os.environ.get("GITHUB_EVENT_NAME", "unknown"),
@@ -3189,7 +3258,7 @@ jobs:
               f"<tr><td>{i}</td><td>{html.escape(item['decision'])}</td><td>${item['reward']:,.2f}</td><td>${item['expected_value']:,.2f}</td><td>{html.escape(item['title'])}</td></tr>"
               for i, item in enumerate(execution_queue, 1)
           )
-          report_html = f"""<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Atlas + Alex V20 Report</title><style>body{{font-family:Arial,sans-serif;margin:28px}}table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #999;padding:8px;text-align:left}}@media print{{button{{display:none}}}}</style></head><body><button onclick='window.print()'>Print</button><h1>Atlas + Alex Opportunity Hunter V20 Report</h1><p>Generated: {html.escape(GENERATED_AT)}</p><p>Status: <strong>{html.escape(status)}</strong></p><h2>Earnings</h2><p>Today ${earnings['today']:,.2f} · Week ${earnings['week']:,.2f} · Month ${earnings['month']:,.2f} · Year ${earnings['year']:,.2f} · Lifetime ${earnings['lifetime']:,.2f}</p><h2>Allocation</h2><p>Tax ${allocations['tax']:,.2f} · Reinvesting ${allocations['reinvesting']:,.2f} · Mazen ${allocations['mazen']:,.2f}</p><h2>Execution Queue</h2><table><thead><tr><th>#</th><th>Decision</th><th>Reward</th><th>Expected Value</th><th>Opportunity</th></tr></thead><tbody>{report_rows}</tbody></table></body></html>"""
+          report_html = f"""<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Atlas + Alex V21 Report</title><style>body{{font-family:Arial,sans-serif;margin:28px}}table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #999;padding:8px;text-align:left}}@media print{{button{{display:none}}}}</style></head><body><button onclick='window.print()'>Print</button><h1>Atlas + Alex Opportunity Hunter V20 Report</h1><p>Generated: {html.escape(GENERATED_AT)}</p><p>Status: <strong>{html.escape(status)}</strong></p><h2>Earnings</h2><p>Today ${earnings['today']:,.2f} · Week ${earnings['week']:,.2f} · Month ${earnings['month']:,.2f} · Year ${earnings['year']:,.2f} · Lifetime ${earnings['lifetime']:,.2f}</p><h2>Allocation</h2><p>Tax ${allocations['tax']:,.2f} · Reinvesting ${allocations['reinvesting']:,.2f} · Mazen ${allocations['mazen']:,.2f}</p><h2>Execution Queue</h2><table><thead><tr><th>#</th><th>Decision</th><th>Reward</th><th>Expected Value</th><th>Opportunity</th></tr></thead><tbody>{report_rows}</tbody></table></body></html>"""
           (REPORTS_DIR / "latest.html").write_text(report_html, encoding="utf-8")
           csv_lines = ["rank,decision,reward,expected_value,payment_confidence,competition_advantage,title,url"]
           for i, item in enumerate(execution_queue, 1):
@@ -3316,7 +3385,7 @@ jobs:
                   )
 
           print(
-              f"Atlas + Alex V20 status={status}; "
+              f"Atlas + Alex V21 status={status}; "
               f"checked {len(raw_issues)} "
               "raw issues; "
               f"found {len(initial_candidates)} "
@@ -3334,12 +3403,12 @@ jobs:
 
           if searches_completed == 0:
               raise SystemExit(
-                  "Atlas + Alex V20 could not complete "
+                  "Atlas + Alex V21 could not complete "
                   "any GitHub search query."
               )
           PY
 
-      - name: Save Atlas + Alex V20 results
+      - name: Save Atlas + Alex V21 results
         env:
           BRANCH_NAME: ${{ github.ref_name }}
         run: |
@@ -3362,7 +3431,7 @@ jobs:
           fi
 
           git commit \
-            -m "Atlas + Alex V20 opportunity scan"
+            -m "Atlas + Alex V21 opportunity scan"
 
           git pull \
             --rebase \
@@ -3390,7 +3459,7 @@ jobs:
           now_epoch="$(date -u +%s)"
           last_success="$(
             gh api "repos/${REPOSITORY}/actions/workflows/${GITHUB_WORKFLOW_REF#${REPOSITORY}/}/runs?status=success&per_page=10" \
-              --jq '[.workflow_runs[] | select(.event != "schedule" or .name == "Atlas + Alex V20 — Trusted Payout Sources")][0].updated_at // empty' \
+              --jq '[.workflow_runs[] | select(.event != "schedule" or .name == "Atlas + Alex V21 — Trusted Payout Sources")][0].updated_at // empty' \
               2>/dev/null || true
           )"
 
@@ -3429,4 +3498,5 @@ jobs:
           else
             echo "Main hunt is current. No recovery run is needed."
           fi
+
 
