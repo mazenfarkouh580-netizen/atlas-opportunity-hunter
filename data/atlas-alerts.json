@@ -1,12 +1,12 @@
 [
   {
     "level": "HIGH",
-    "message": "9 pursue candidate(s) found",
-    "generated_at": "2026-07-19 06:57 UTC"
+    "message": "8 pursue candidate(s) found",
+    "generated_at": "2026-07-19 07:34 UTC"
   },
   {
     "level": "WARNING",
-    "message": "Atlas health is DEGRADED: 6 API error(s)",
-    "generated_at": "2026-07-19 06:57 UTC"
+    "message": "Atlas health is DEGRADED: 11 API error(s)",
+    "generated_at": "2026-07-19 07:34 UTC"
   }
 ]

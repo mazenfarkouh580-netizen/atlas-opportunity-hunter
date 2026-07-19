@@ -1,5 +1,5 @@
 {
-  "version": "V11",
+  "version": "V12",
   "pipeline": [
     {
       "title": "[Bounty] [claude-builders-bounty/claude-builders-bounty] [BOUNTY $50] SKILL: Generate a s",
@@ -44,7 +44,9 @@
         "No assignee and no competing pull request"
       ],
       "risks": [],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 80.0,
       "competition_score": 100,
       "clarity_score": 50,
@@ -99,7 +101,9 @@
       "risks": [
         "Moderate visible discussion"
       ],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 95.0,
       "competition_score": 100,
       "clarity_score": 50,
@@ -134,7 +138,7 @@
       "linked_pull_requests": [
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/705",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/732",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -143,6 +147,22 @@
         {
           "title": "Pull request linked through issue timeline",
           "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/6732",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/900",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/705",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -166,7 +186,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/6523",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/8013",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -174,7 +194,15 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/718",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/7902",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/7070",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -206,31 +234,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/900",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/8013",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/7902",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/948",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/6523",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -246,7 +250,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/732",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/948",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -254,7 +258,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/7070",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/718",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -284,7 +288,9 @@
       "risks": [
         "Heavy visible discussion"
       ],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 68.3,
       "competition_score": 100,
       "clarity_score": 50,
@@ -332,98 +338,14 @@
         "No assignee and no competing pull request"
       ],
       "risks": [],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 78.8,
       "competition_score": 100,
       "clarity_score": 50,
       "effort_risk": 45,
       "expected_value": 21.88
-    },
-    {
-      "title": "[Hacktoberfest] Create a Custom n8n Node for APort Verification",
-      "url": "https://github.com/aporthq/aport-integrations/issues/4",
-      "repository": "aporthq/aport-integrations",
-      "issue_number": 4,
-      "author": "uchibeke",
-      "reward": 50.0,
-      "reward_priority": "HIGHEST",
-      "score": 62,
-      "decision": "PURSUE",
-      "availability": "OPEN - READY FOR FINAL CLAIM CHECK",
-      "created_at": "2025-10-02T00:11:05Z",
-      "updated_at": "2026-05-17T17:07:05Z",
-      "comments": 4,
-      "labels": [
-        "agent-framework",
-        "hacktoberfest",
-        "high-impact",
-        "integration",
-        "low-code",
-        "n8n"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aporthq/aport-integrations/pull/75",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aporthq/aport-integrations/pull/111",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aporthq/aport-integrations/pull/74",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aporthq/aport-integrations/pull/89",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        }
-      ],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Good stated reward",
-        "Useful requirements",
-        "Capability match: docs, documentation, javascript, n8n, test, tests",
-        "Explicit acceptance criteria",
-        "Highest-priority first-payment reward band",
-        "No assignee and no competing pull request"
-      ],
-      "risks": [
-        "Moderate visible discussion",
-        "Issue may be stale"
-      ],
-      "change": "NEW",
-      "payment_confidence": 55.3,
-      "competition_score": 100,
-      "clarity_score": 50,
-      "effort_risk": 65,
-      "expected_value": 10.63
     },
     {
       "title": "📱 #4: Platform Integration & App Store Submission",
@@ -462,7 +384,9 @@
         "No assignee and no competing pull request"
       ],
       "risks": [],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 67.7,
       "competition_score": 100,
       "clarity_score": 50,
@@ -513,7 +437,9 @@
       "risks": [
         "Potentially high complexity: architecture"
       ],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 78.3,
       "competition_score": 100,
       "clarity_score": 50,
@@ -573,7 +499,9 @@
         "No assignee and no competing pull request"
       ],
       "risks": [],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 79.4,
       "competition_score": 100,
       "clarity_score": 50,
@@ -622,7 +550,9 @@
         "No assignee and no competing pull request"
       ],
       "risks": [],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 72.2,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1006,183 +936,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/74",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/86",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/11",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/21",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/29",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/67",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/47",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
           "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/120",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/84",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/121",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/15",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/66",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/93",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/119",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/122",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/60",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/82",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/90",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/110",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/115",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/56",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/8",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/125",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -1198,7 +952,79 @@
         },
         {
           "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/50",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/67",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/119",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/93",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/60",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/121",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/66",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
           "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/104",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/11",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/47",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -1214,6 +1040,70 @@
         },
         {
           "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/74",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/56",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/90",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/86",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/82",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/125",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/29",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/21",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
           "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/41",
           "state": "unknown",
           "author": "",
@@ -1222,7 +1112,47 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/50",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/84",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/115",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/8",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/122",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/15",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/110",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -1251,7 +1181,9 @@
         "Heavy visible discussion",
         "42 competing pull requests detected"
       ],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 0,
       "competition_score": 0,
       "clarity_score": 50,
@@ -1259,18 +1191,18 @@
       "expected_value": 0.0
     },
     {
-      "title": "Add is-double-quote-symbol-present API utility",
-      "url": "https://github.com/xevrion-v2/agent-playground/issues/4811",
+      "title": "Add is-close-brace-symbol-present API utility",
+      "url": "https://github.com/xevrion-v2/agent-playground/issues/4807",
       "repository": "xevrion-v2/agent-playground",
-      "issue_number": 4811,
+      "issue_number": 4807,
       "author": "ChaiXinLong-tech",
       "reward": 50.0,
       "reward_priority": "HIGHEST",
       "score": 55,
       "decision": "PRIORITY REVIEW",
       "availability": "OPEN - NEEDS FINAL REVIEW",
-      "created_at": "2026-07-03T14:41:54Z",
-      "updated_at": "2026-07-13T23:43:17Z",
+      "created_at": "2026-07-03T14:41:37Z",
+      "updated_at": "2026-07-13T23:43:09Z",
       "comments": 2,
       "labels": [],
       "assignees": [],
@@ -1279,7 +1211,7 @@
       "linked_pull_requests": [
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/xevrion-v2/agent-playground/pull/4812",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/4808",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -1287,7 +1219,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/xevrion-v2/agent-playground/pull/7104",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/7102",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -1295,7 +1227,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/xevrion-v2/agent-playground/pull/5338",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/5336",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -1322,7 +1254,9 @@
       "risks": [
         "Acceptance path requires manual confirmation"
       ],
-      "change": "NEW",
+      "change": "CHANGED: decision, availability, open_competing_prs",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 50.8,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1330,19 +1264,19 @@
       "expected_value": 11.53
     },
     {
-      "title": "Add is-backslash-symbol-present API utility",
-      "url": "https://github.com/xevrion-v2/agent-playground/issues/4809",
+      "title": "Add is-open-brace-symbol-present API utility",
+      "url": "https://github.com/xevrion-v2/agent-playground/issues/4790",
       "repository": "xevrion-v2/agent-playground",
-      "issue_number": 4809,
+      "issue_number": 4790,
       "author": "ChaiXinLong-tech",
       "reward": 50.0,
       "reward_priority": "HIGHEST",
       "score": 55,
       "decision": "PRIORITY REVIEW",
       "availability": "OPEN - NEEDS FINAL REVIEW",
-      "created_at": "2026-07-03T14:41:46Z",
-      "updated_at": "2026-07-13T23:43:13Z",
-      "comments": 2,
+      "created_at": "2026-07-03T14:12:34Z",
+      "updated_at": "2026-07-13T23:43:05Z",
+      "comments": 3,
       "labels": [],
       "assignees": [],
       "open_competing_prs": 0,
@@ -1350,7 +1284,7 @@
       "linked_pull_requests": [
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/xevrion-v2/agent-playground/pull/7103",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/7101",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -1358,7 +1292,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/xevrion-v2/agent-playground/pull/5337",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/5335",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -1366,7 +1300,15 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/xevrion-v2/agent-playground/pull/4810",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/4791",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/4803",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -1393,7 +1335,9 @@
       "risks": [
         "Acceptance path requires manual confirmation"
       ],
-      "change": "NEW",
+      "change": "CHANGED: decision, availability, open_competing_prs",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 50.8,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1452,7 +1396,9 @@
         "Moderate visible discussion",
         "Issue already has an assignee"
       ],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 37.2,
       "competition_score": 75,
       "clarity_score": 50,
@@ -1517,7 +1463,9 @@
         "Moderate visible discussion",
         "One competing pull request detected"
       ],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 38.0,
       "competition_score": 70,
       "clarity_score": 50,
@@ -1556,14 +1504,6 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/jose-compu/QuorumTrust/pull/33",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
           "url": "https://github.com/jose-compu/QuorumTrust/pull/44",
           "state": "unknown",
           "author": "",
@@ -1580,6 +1520,14 @@
         },
         {
           "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/jose-compu/QuorumTrust/pull/34",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
           "url": "https://github.com/jose-compu/QuorumTrust/pull/45",
           "state": "unknown",
           "author": "",
@@ -1588,7 +1536,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/jose-compu/QuorumTrust/pull/34",
+          "url": "https://github.com/jose-compu/QuorumTrust/pull/33",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -1618,12 +1566,142 @@
         "Issue already has an assignee",
         "One competing pull request detected"
       ],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 4.3,
       "competition_score": 45,
       "clarity_score": 50,
       "effort_risk": 75,
       "expected_value": 0.06
+    },
+    {
+      "title": "[Hacktoberfest] Create a Custom n8n Node for APort Verification",
+      "url": "https://github.com/aporthq/aport-integrations/issues/4",
+      "repository": "aporthq/aport-integrations",
+      "issue_number": 4,
+      "author": "uchibeke",
+      "reward": 50.0,
+      "reward_priority": "HIGHEST",
+      "score": 24,
+      "decision": "WATCHLIST",
+      "availability": "CONTESTED",
+      "created_at": "2025-10-02T00:11:05Z",
+      "updated_at": "2026-05-17T17:07:05Z",
+      "comments": 4,
+      "labels": [
+        "agent-framework",
+        "hacktoberfest",
+        "high-impact",
+        "integration",
+        "low-code",
+        "n8n"
+      ],
+      "assignees": [],
+      "open_competing_prs": 8,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [
+        {
+          "title": "feat: add APort GitHub PR verification app",
+          "url": "https://github.com/aporthq/aport-integrations/pull/95",
+          "state": "open",
+          "author": "jamilahmadzai",
+          "created_at": "2026-05-12T08:55:43Z",
+          "updated_at": "2026-05-22T13:39:34Z"
+        },
+        {
+          "title": "feat: add Flask APort verification example",
+          "url": "https://github.com/aporthq/aport-integrations/pull/113",
+          "state": "open",
+          "author": "JeremyZeng77",
+          "created_at": "2026-05-17T15:23:24Z",
+          "updated_at": "2026-05-17T15:23:24Z"
+        },
+        {
+          "title": "feat: add n8n APort verification node",
+          "url": "https://github.com/aporthq/aport-integrations/pull/111",
+          "state": "open",
+          "author": "onlyoasis",
+          "created_at": "2026-05-17T14:58:27Z",
+          "updated_at": "2026-05-17T15:00:23Z"
+        },
+        {
+          "title": "[BOUNTY #2] LangChain Tool Guard — APort verification for LangChain tools",
+          "url": "https://github.com/aporthq/aport-integrations/pull/94",
+          "state": "open",
+          "author": "JustABiologist",
+          "created_at": "2026-05-12T07:52:54Z",
+          "updated_at": "2026-05-12T14:53:11Z"
+        },
+        {
+          "title": "feat: add n8n APort verification node",
+          "url": "https://github.com/aporthq/aport-integrations/pull/89",
+          "state": "open",
+          "author": "AnkushBL6",
+          "created_at": "2026-05-11T12:34:15Z",
+          "updated_at": "2026-05-11T12:34:15Z"
+        },
+        {
+          "title": "feat: add APort n8n passport router",
+          "url": "https://github.com/aporthq/aport-integrations/pull/74",
+          "state": "open",
+          "author": "M4dotsuki",
+          "created_at": "2026-05-10T23:51:24Z",
+          "updated_at": "2026-05-10T23:51:54Z"
+        },
+        {
+          "title": "feat(woocommerce): Add APort WooCommerce verification plugin",
+          "url": "https://github.com/aporthq/aport-integrations/pull/67",
+          "state": "open",
+          "author": "sungdark",
+          "created_at": "2026-03-29T09:26:01Z",
+          "updated_at": "2026-03-29T09:28:31Z"
+        },
+        {
+          "title": " added the aport verification into langgraph",
+          "url": "https://github.com/aporthq/aport-integrations/pull/38",
+          "state": "open",
+          "author": "Spartan1-1-7",
+          "created_at": "2025-10-03T01:17:52Z",
+          "updated_at": "2025-10-03T17:30:55Z"
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/aporthq/aport-integrations/pull/75",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        }
+      ],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Good stated reward",
+        "Useful requirements",
+        "Capability match: docs, documentation, javascript, n8n, test, tests",
+        "Explicit acceptance criteria",
+        "Highest-priority first-payment reward band"
+      ],
+      "risks": [
+        "Moderate visible discussion",
+        "Issue may be stale",
+        "8 competing pull requests detected"
+      ],
+      "change": "CHANGED: decision, availability, open_competing_prs",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
+      "payment_confidence": 0,
+      "competition_score": 0,
+      "clarity_score": 50,
+      "effort_risk": 75,
+      "expected_value": 0.0
     },
     {
       "title": "Add is-space-symbol-present API utility",
@@ -1698,7 +1776,9 @@
         "Acceptance path requires manual confirmation",
         "4 competing pull requests detected"
       ],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 0,
       "competition_score": 0,
       "clarity_score": 50,
@@ -1775,11 +1855,159 @@
         "Issue may be stale",
         "2 competing pull requests detected"
       ],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 0,
       "competition_score": 40,
       "clarity_score": 50,
       "effort_risk": 75,
+      "expected_value": 0.0
+    },
+    {
+      "title": "Add is-double-quote-symbol-present API utility",
+      "url": "https://github.com/xevrion-v2/agent-playground/issues/4811",
+      "repository": "xevrion-v2/agent-playground",
+      "issue_number": 4811,
+      "author": "ChaiXinLong-tech",
+      "reward": 50.0,
+      "reward_priority": "HIGHEST",
+      "score": 17,
+      "decision": "WATCHLIST",
+      "availability": "CONTESTED",
+      "created_at": "2026-07-03T14:41:54Z",
+      "updated_at": "2026-07-13T23:43:17Z",
+      "comments": 2,
+      "labels": [],
+      "assignees": [],
+      "open_competing_prs": 3,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [
+        {
+          "title": "feat: add isDoubleQuoteSymbolPresent utility (fixes #4811)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/7104",
+          "state": "open",
+          "author": "elevasyncsolutions-jpg",
+          "created_at": "2026-07-13T23:43:16Z",
+          "updated_at": "2026-07-13T23:43:16Z"
+        },
+        {
+          "title": "[agent] feat(api): add is-double-quote-symbol-present helper (#4811)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/5338",
+          "state": "open",
+          "author": "yanyishuai",
+          "created_at": "2026-07-05T11:13:04Z",
+          "updated_at": "2026-07-05T11:13:04Z"
+        },
+        {
+          "title": "Add is-double-quote-symbol-present API utility",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/4812",
+          "state": "open",
+          "author": "ChaiXinLong-tech",
+          "created_at": "2026-07-03T14:41:59Z",
+          "updated_at": "2026-07-03T14:42:03Z"
+        }
+      ],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Good stated reward",
+        "Basic requirements",
+        "Low visible discussion",
+        "Posted within 30 days",
+        "Recently updated",
+        "Highest-priority first-payment reward band"
+      ],
+      "risks": [
+        "Acceptance path requires manual confirmation",
+        "3 competing pull requests detected"
+      ],
+      "change": "CHANGED: decision, availability, open_competing_prs",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
+      "payment_confidence": 0,
+      "competition_score": 10,
+      "clarity_score": 50,
+      "effort_risk": 65,
+      "expected_value": 0.0
+    },
+    {
+      "title": "Add is-backslash-symbol-present API utility",
+      "url": "https://github.com/xevrion-v2/agent-playground/issues/4809",
+      "repository": "xevrion-v2/agent-playground",
+      "issue_number": 4809,
+      "author": "ChaiXinLong-tech",
+      "reward": 50.0,
+      "reward_priority": "HIGHEST",
+      "score": 17,
+      "decision": "WATCHLIST",
+      "availability": "CONTESTED",
+      "created_at": "2026-07-03T14:41:46Z",
+      "updated_at": "2026-07-13T23:43:13Z",
+      "comments": 2,
+      "labels": [],
+      "assignees": [],
+      "open_competing_prs": 3,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [
+        {
+          "title": "feat: add isBackslashSymbolPresent utility (fixes #4809)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/7103",
+          "state": "open",
+          "author": "elevasyncsolutions-jpg",
+          "created_at": "2026-07-13T23:43:12Z",
+          "updated_at": "2026-07-13T23:43:12Z"
+        },
+        {
+          "title": "[agent] feat(api): add is-backslash-symbol-present helper (#4809)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/5337",
+          "state": "open",
+          "author": "yanyishuai",
+          "created_at": "2026-07-05T11:12:56Z",
+          "updated_at": "2026-07-05T11:12:56Z"
+        },
+        {
+          "title": "Add is-backslash-symbol-present API utility",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/4810",
+          "state": "open",
+          "author": "ChaiXinLong-tech",
+          "created_at": "2026-07-03T14:41:51Z",
+          "updated_at": "2026-07-03T14:41:55Z"
+        }
+      ],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Good stated reward",
+        "Basic requirements",
+        "Low visible discussion",
+        "Posted within 30 days",
+        "Recently updated",
+        "Highest-priority first-payment reward band"
+      ],
+      "risks": [
+        "Acceptance path requires manual confirmation",
+        "3 competing pull requests detected"
+      ],
+      "change": "CHANGED: decision, availability, open_competing_prs",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
+      "payment_confidence": 0,
+      "competition_score": 10,
+      "clarity_score": 50,
+      "effort_risk": 65,
       "expected_value": 0.0
     },
     {
@@ -1846,163 +2074,15 @@
         "Acceptance path requires manual confirmation",
         "3 competing pull requests detected"
       ],
-      "change": "NEW",
+      "change": "UNCHANGED",
+      "first_seen": "2026-07-19 07:34 UTC",
+      "last_verified": "2026-07-19 07:34 UTC",
       "payment_confidence": 0,
       "competition_score": 10,
-      "clarity_score": 50,
-      "effort_risk": 65,
-      "expected_value": 0.0
-    },
-    {
-      "title": "Add is-close-brace-symbol-present API utility",
-      "url": "https://github.com/xevrion-v2/agent-playground/issues/4807",
-      "repository": "xevrion-v2/agent-playground",
-      "issue_number": 4807,
-      "author": "ChaiXinLong-tech",
-      "reward": 50.0,
-      "reward_priority": "HIGHEST",
-      "score": 17,
-      "decision": "WATCHLIST",
-      "availability": "CONTESTED",
-      "created_at": "2026-07-03T14:41:37Z",
-      "updated_at": "2026-07-13T23:43:09Z",
-      "comments": 2,
-      "labels": [],
-      "assignees": [],
-      "open_competing_prs": 3,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [
-        {
-          "title": "feat: add isCloseBraceSymbolPresent utility (fixes #4807)",
-          "url": "https://github.com/xevrion-v2/agent-playground/pull/7102",
-          "state": "open",
-          "author": "elevasyncsolutions-jpg",
-          "created_at": "2026-07-13T23:43:08Z",
-          "updated_at": "2026-07-13T23:43:08Z"
-        },
-        {
-          "title": "[agent] feat(api): add is-close-brace-symbol-present helper (#4807)",
-          "url": "https://github.com/xevrion-v2/agent-playground/pull/5336",
-          "state": "open",
-          "author": "yanyishuai",
-          "created_at": "2026-07-05T11:12:48Z",
-          "updated_at": "2026-07-05T11:12:48Z"
-        },
-        {
-          "title": "Add is-close-brace-symbol-present API utility",
-          "url": "https://github.com/xevrion-v2/agent-playground/pull/4808",
-          "state": "open",
-          "author": "ChaiXinLong-tech",
-          "created_at": "2026-07-03T14:41:42Z",
-          "updated_at": "2026-07-03T14:41:46Z"
-        }
-      ],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Good stated reward",
-        "Basic requirements",
-        "Low visible discussion",
-        "Posted within 30 days",
-        "Recently updated",
-        "Highest-priority first-payment reward band"
-      ],
-      "risks": [
-        "Acceptance path requires manual confirmation",
-        "3 competing pull requests detected"
-      ],
-      "change": "NEW",
-      "payment_confidence": 0,
-      "competition_score": 10,
-      "clarity_score": 50,
-      "effort_risk": 65,
-      "expected_value": 0.0
-    },
-    {
-      "title": "Add is-open-brace-symbol-present API utility",
-      "url": "https://github.com/xevrion-v2/agent-playground/issues/4790",
-      "repository": "xevrion-v2/agent-playground",
-      "issue_number": 4790,
-      "author": "ChaiXinLong-tech",
-      "reward": 50.0,
-      "reward_priority": "HIGHEST",
-      "score": 17,
-      "decision": "WATCHLIST",
-      "availability": "CONTESTED",
-      "created_at": "2026-07-03T14:12:34Z",
-      "updated_at": "2026-07-13T23:43:05Z",
-      "comments": 3,
-      "labels": [],
-      "assignees": [],
-      "open_competing_prs": 4,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [
-        {
-          "title": "[agent] feat(api): add is-open-brace-symbol-present helper (#4790)",
-          "url": "https://github.com/xevrion-v2/agent-playground/pull/5335",
-          "state": "open",
-          "author": "yanyishuai",
-          "created_at": "2026-07-05T11:12:40Z",
-          "updated_at": "2026-07-16T12:43:05Z"
-        },
-        {
-          "title": "feat: add isOpenBraceSymbolPresent utility (fixes #4790)",
-          "url": "https://github.com/xevrion-v2/agent-playground/pull/7101",
-          "state": "open",
-          "author": "elevasyncsolutions-jpg",
-          "created_at": "2026-07-13T23:43:04Z",
-          "updated_at": "2026-07-13T23:43:04Z"
-        },
-        {
-          "title": "Add is-open-brace-symbol-present API utility",
-          "url": "https://github.com/xevrion-v2/agent-playground/pull/4803",
-          "state": "open",
-          "author": "ZHTWangK",
-          "created_at": "2026-07-03T14:38:18Z",
-          "updated_at": "2026-07-03T14:38:18Z"
-        },
-        {
-          "title": "Add is-open-brace-symbol-present API utility",
-          "url": "https://github.com/xevrion-v2/agent-playground/pull/4791",
-          "state": "open",
-          "author": "ChaiXinLong-tech",
-          "created_at": "2026-07-03T14:12:38Z",
-          "updated_at": "2026-07-03T14:12:42Z"
-        }
-      ],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Good stated reward",
-        "Basic requirements",
-        "Low visible discussion",
-        "Posted within 30 days",
-        "Recently updated",
-        "Highest-priority first-payment reward band"
-      ],
-      "risks": [
-        "Acceptance path requires manual confirmation",
-        "4 competing pull requests detected"
-      ],
-      "change": "NEW",
-      "payment_confidence": 0,
-      "competition_score": 0,
       "clarity_score": 50,
       "effort_risk": 65,
       "expected_value": 0.0
     }
   ],
-  "last_updated": "2026-07-19 06:57 UTC"
+  "last_updated": "2026-07-19 07:34 UTC"
 }
