@@ -1,12 +1,14 @@
-name: Atlas Opportunity Hunter V13
+name: Atlas + Alex Opportunity Hunter V15
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [atlas-scheduled-run, atlas-watchdog-recovery]
   schedule:
     - cron: "7,22,37,52 * * * *"
 
 concurrency:
-  group: atlas-opportunity-hunter-v13
+  group: atlas-alex-opportunity-hunter-v15
   cancel-in-progress: false
 
 permissions:
@@ -17,7 +19,7 @@ permissions:
 jobs:
   hunt:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Download repository
@@ -25,7 +27,7 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Scan and verify paid opportunities
+      - name: Atlas search with Alex rapid-decision assistance
         id: atlas
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -55,7 +57,7 @@ jobs:
           CURRENT_FILE = DATA_DIR / "opportunities.json"
           HISTORY_FILE = DATA_DIR / "opportunity-history.json"
           CANDIDATE_LIFECYCLE_FILE = DATA_DIR / "candidate-lifecycle.json"
-          SEARCH_STATE_FILE = DATA_DIR / "search-state.json"
+          DISCOVERY_CACHE_FILE = DATA_DIR / "discovery-cache.json"
           DASHBOARD_FILE = DOCS_DIR / "index.html"
           MONEY_WINDOW_FILE = DOCS_DIR / "money.html"
           CONFIG_FILE = DATA_DIR / "atlas-config.json"
@@ -63,6 +65,7 @@ jobs:
           MAINTENANCE_FILE = DATA_DIR / "dr-alex-maintenance.json"
           EARNINGS_FILE = DATA_DIR / "earnings-ledger.json"
           ALERTS_FILE = DATA_DIR / "atlas-alerts.json"
+          WORKER_HEALTH_FILE = DATA_DIR / "worker-health.json"
           REPORTS_DIR = DOCS_DIR / "reports"
           REPORTS_DIR.mkdir(exist_ok=True)
 
@@ -314,12 +317,12 @@ jobs:
               EARNINGS_FILE.write_text("[]\n", encoding="utf-8")
 
           operations = load_json_file(OPERATIONS_FILE, {
-              "version": "V13",
+              "version": "V14",
               "pipeline": [],
               "last_updated": GENERATED_AT,
           })
           if not isinstance(operations, dict):
-              operations = {"version": "V13", "pipeline": [], "last_updated": GENERATED_AT}
+              operations = {"version": "V14", "pipeline": [], "last_updated": GENERATED_AT}
 
           maintenance = load_json_file(MAINTENANCE_FILE, {
               "doctor": "Dr. Alex",
@@ -375,7 +378,7 @@ jobs:
                           "Accept": accept,
                           "X-GitHub-Api-Version": API_VERSION,
                           "User-Agent": (
-                              "Atlas-Opportunity-Hunter-V13"
+                              "Atlas-Opportunity-Hunter-V14"
                           ),
                       },
                   )
@@ -1001,6 +1004,69 @@ jobs:
                       )
                   )
               )
+ 
+              claimability_signals = sorted({
+                  term for term in (
+                      "claim this issue",
+                      "comment to claim",
+                      "open to contributors",
+                      "submit a pull request",
+                      "first accepted",
+                      "available bounty",
+                      "unassigned",
+                      "ready to claim",
+                  )
+                  if term in lowered
+              })
+              blocked_claim_signals = sorted({
+                  term for term in (
+                      "do not start",
+                      "wait for approval",
+                      "reserved",
+                      "already claimed",
+                      "not accepting",
+                      "internal only",
+                  )
+                  if term in lowered
+              })
+              atlas_capability_signals = sorted({
+                  term for term in (
+                      "python",
+                      "javascript",
+                      "typescript",
+                      "documentation",
+                      "unit test",
+                      "parser",
+                      "api",
+                      "automation",
+                      "data",
+                      "bug fix",
+                      "cli",
+                  )
+                  if term in lowered
+              })
+              external_execution_blockers = sorted({
+                  term for term in (
+                      "app store submission",
+                      "google play submission",
+                      "hardware required",
+                      "physical device required",
+                      "paid account required",
+                      "identity verification required",
+                      "on-site",
+                  )
+                  if term in lowered
+              })
+
+              claimable_now = bool(
+                  claimability_signals
+                  and not blocked_claim_signals
+                  and not assignees
+              )
+              atlas_can_execute = bool(
+                  atlas_capability_signals
+                  and not external_execution_blockers
+              )
 
               score = 0
               reasons = []
@@ -1244,6 +1310,28 @@ jobs:
                       "bounty platform detected"
                   )
 
+              if claimable_now:
+                  score += 12
+                  reasons.append(
+                      "Explicitly claimable with no current assignee"
+                  )
+              else:
+                  score -= 12
+                  risks.append(
+                      "Claim path is missing, blocked, or ambiguous"
+                  )
+
+              if atlas_can_execute:
+                  score += 10
+                  reasons.append(
+                      "Task matches Atlas execution capabilities"
+                  )
+              else:
+                  score -= 20
+                  risks.append(
+                      "Task is not clearly executable by Atlas"
+                  )
+
               if 5 <= reward <= 50:
                   score += 10
                   reasons.append("Highest-priority first-payment reward band")
@@ -1312,6 +1400,14 @@ jobs:
                       "PAYMENT NOT PROVEN - MANUAL VERIFY"
                   )
                   decision = "PRIORITY REVIEW"
+
+              elif not claimable_now:
+                  availability = "CLAIM PATH NOT CONFIRMED"
+                  decision = "PRIORITY REVIEW"
+
+              elif not atlas_can_execute:
+                  availability = "NOT EXECUTION-READY FOR ATLAS"
+                  decision = "WATCHLIST"
 
               elif score >= 62:
                   availability = (
@@ -1429,6 +1525,11 @@ jobs:
                   "ai_eligibility": ai_eligibility,
                   "approval_authority": approval_authority,
                   "direct_payment_proof": direct_payment_proof,
+                  "claimable_now": claimable_now,
+                  "claimability_signals": claimability_signals,
+                  "atlas_can_execute": atlas_can_execute,
+                  "atlas_capability_signals": atlas_capability_signals,
+                  "external_execution_blockers": external_execution_blockers,
                   "repository_mismatch": repository_mismatch,
                   "advertised_repository": advertised_repository,
                   "fast_pay_candidate": fast_pay_candidate,
@@ -1436,6 +1537,8 @@ jobs:
                   "manual_verification_required": bool(
                       repository_mismatch
                       or not direct_payment_proof
+                      or not claimable_now
+                      or not atlas_can_execute
                       or not (
                           fast_pay_candidate
                           and ai_allowed_signals
@@ -1447,39 +1550,22 @@ jobs:
               }
 
           previous_by_url = load_previous()
-          raw_issues = {}
+          discovery_cache = load_json_file(
+              DISCOVERY_CACHE_FILE,
+              {"issues": {}},
+          )
+          cached_issues = discovery_cache.get("issues", {})
+          raw_issues = {
+              url: issue
+              for url, issue in cached_issues.items()
+              if isinstance(issue, dict)
+          }
           searches_completed = 0
+          fresh_discovery_urls = set()
 
-          search_state = load_json_file(
-              SEARCH_STATE_FILE,
-              {"offset": 0},
-          )
-          rotating_queries = SEARCH_QUERIES[4:]
-          always_queries = SEARCH_QUERIES[:4]
-          batch_size = 12
-          offset = int(search_state.get("offset", 0) or 0)
-
-          selected_queries = list(always_queries)
-          if rotating_queries:
-              for index in range(
-                  min(batch_size, len(rotating_queries))
-              ):
-                  selected_queries.append(
-                      rotating_queries[
-                          (offset + index)
-                          % len(rotating_queries)
-                      ]
-                  )
-              search_state["offset"] = (
-                  offset + batch_size
-              ) % len(rotating_queries)
-
-          SEARCH_STATE_FILE.write_text(
-              json.dumps(search_state, indent=2),
-              encoding="utf-8",
-          )
-
-          for query in selected_queries:
+          # Full discovery breadth restored. Every configured query is
+          # attempted each run. Opportunity quality is controlled after discovery.
+          for query in SEARCH_QUERIES:
               if api_rate_limited:
                   break
               encoded = urllib.parse.quote(query)
@@ -1513,6 +1599,20 @@ jobs:
 
                   if issue_url:
                       raw_issues[issue_url] = issue
+                      fresh_discovery_urls.add(issue_url)
+
+          DISCOVERY_CACHE_FILE.write_text(
+              json.dumps(
+                  {
+                      "updated_at": GENERATED_AT,
+                      "issues": raw_issues,
+                      "fresh_urls": sorted(fresh_discovery_urls),
+                  },
+                  indent=2,
+                  ensure_ascii=False,
+              ),
+              encoding="utf-8",
+          )
 
           initial_candidates = []
           rejected_aggregators = 0
@@ -1637,7 +1737,7 @@ jobs:
           queued_urls = set()
 
           for url in previous_actionable_urls:
-              if len(verification_queue) >= 12:
+              if len(verification_queue) >= 20:
                   break
               verification_queue.append(issue_by_url[url])
               queued_urls.add(url)
@@ -1648,7 +1748,7 @@ jobs:
                   continue
               verification_queue.append(issue)
               queued_urls.add(url)
-              if len(verification_queue) >= 12:
+              if len(verification_queue) >= 20:
                   break
 
           verified_results = []
@@ -1992,7 +2092,7 @@ jobs:
           )
           execution_queue = execution_queue[:int(config.get("queue_size", 20))]
 
-          operations["version"] = "V13"
+          operations["version"] = "V14"
           operations["last_updated"] = GENERATED_AT
           operations["pipeline"] = execution_queue
           OPERATIONS_FILE.write_text(json.dumps(operations, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -2048,7 +2148,7 @@ jobs:
           ALERTS_FILE.write_text(json.dumps(alerts, indent=2), encoding="utf-8")
 
           payload = {
-              "version": "V13",
+              "version": "V14",
               "owner": "Mazen Farkouh",
               "generated_at": GENERATED_AT,
               "config": config,
@@ -2104,6 +2204,23 @@ jobs:
                   verified_results
               ),
           }
+
+          WORKER_HEALTH_FILE.write_text(
+              json.dumps(
+                  {
+                      "version": "V15",
+                      "last_completed_at": NOW.isoformat(),
+                      "last_completed_display": GENERATED_AT,
+                      "trigger": os.environ.get("GITHUB_EVENT_NAME", "unknown"),
+                      "status": status,
+                      "target_interval_minutes": 15,
+                      "atlas_role": "full search and verification",
+                      "alex_role": "small-reward priority and rapid decision support",
+                  },
+                  indent=2,
+              ),
+              encoding="utf-8",
+          )
 
           CURRENT_FILE.write_text(
               json.dumps(
@@ -2285,7 +2402,7 @@ jobs:
               content="{int(config.get('dashboard_refresh_seconds', 900))}"
             >
             <title>
-              Atlas Opportunity Hunter V13
+              Atlas Opportunity Hunter V14
             </title>
             <style>
               :root {{
@@ -2402,7 +2519,7 @@ jobs:
           </head>
           <body>
             <h1>
-              Atlas Opportunity Hunter V13
+              Atlas Opportunity Hunter V14
             </h1>
 
             <p>
@@ -2570,11 +2687,12 @@ jobs:
             </ul>
 
             <p class="small">
-              V13 rotates 12 discovery searches plus four core searches
-              and deep-verifies up to 12 candidates per run. It stops immediately
-              after a confirmed GitHub rate limit, rejects repository-title
-              mismatches from PURSUE, and requires direct payment proof before
-              automatic pursuit. The page refreshes every 15 minutes.
+              V15 keeps the complete configured search universe on every
+              run and keeps a discovery cache so temporary API limits do not erase
+              sources. Up to 20 candidates are deeply verified. PURSUE requires
+              payment proof, a confirmed claim path, repository integrity, and a
+              task Atlas can realistically execute. The page refreshes every
+              15 minutes.
             </p>
           </body>
           </html>
@@ -2671,7 +2789,7 @@ jobs:
                 <div><a href="index.html">Open full Atlas dashboard</a></div>
               </section>
 
-              <div class="footer">Automatically refreshes every 15 minutes. Atlas records money only after the ledger marks payment as received.</div>
+              <div class="footer">Target schedule: every 15 minutes. Actual completion time is recorded and monitored. Atlas records money only after the ledger marks payment as received.</div>
             </main>
           </body>
           </html>
@@ -2682,7 +2800,7 @@ jobs:
               f"<tr><td>{i}</td><td>{html.escape(item['decision'])}</td><td>${item['reward']:,.2f}</td><td>${item['expected_value']:,.2f}</td><td>{html.escape(item['title'])}</td></tr>"
               for i, item in enumerate(execution_queue, 1)
           )
-          report_html = f"""<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Atlas V13 Report</title><style>body{{font-family:Arial,sans-serif;margin:28px}}table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #999;padding:8px;text-align:left}}@media print{{button{{display:none}}}}</style></head><body><button onclick='window.print()'>Print</button><h1>Atlas Opportunity Hunter V13 Report</h1><p>Generated: {html.escape(GENERATED_AT)}</p><p>Status: <strong>{html.escape(status)}</strong></p><h2>Earnings</h2><p>Today ${earnings['today']:,.2f} · Week ${earnings['week']:,.2f} · Month ${earnings['month']:,.2f} · Year ${earnings['year']:,.2f} · Lifetime ${earnings['lifetime']:,.2f}</p><h2>Allocation</h2><p>Tax ${allocations['tax']:,.2f} · Reinvesting ${allocations['reinvesting']:,.2f} · Mazen ${allocations['mazen']:,.2f}</p><h2>Execution Queue</h2><table><thead><tr><th>#</th><th>Decision</th><th>Reward</th><th>Expected Value</th><th>Opportunity</th></tr></thead><tbody>{report_rows}</tbody></table></body></html>"""
+          report_html = f"""<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Atlas + Alex V15 Report</title><style>body{{font-family:Arial,sans-serif;margin:28px}}table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #999;padding:8px;text-align:left}}@media print{{button{{display:none}}}}</style></head><body><button onclick='window.print()'>Print</button><h1>Atlas Opportunity Hunter V14 Report</h1><p>Generated: {html.escape(GENERATED_AT)}</p><p>Status: <strong>{html.escape(status)}</strong></p><h2>Earnings</h2><p>Today ${earnings['today']:,.2f} · Week ${earnings['week']:,.2f} · Month ${earnings['month']:,.2f} · Year ${earnings['year']:,.2f} · Lifetime ${earnings['lifetime']:,.2f}</p><h2>Allocation</h2><p>Tax ${allocations['tax']:,.2f} · Reinvesting ${allocations['reinvesting']:,.2f} · Mazen ${allocations['mazen']:,.2f}</p><h2>Execution Queue</h2><table><thead><tr><th>#</th><th>Decision</th><th>Reward</th><th>Expected Value</th><th>Opportunity</th></tr></thead><tbody>{report_rows}</tbody></table></body></html>"""
           (REPORTS_DIR / "latest.html").write_text(report_html, encoding="utf-8")
           csv_lines = ["rank,decision,reward,expected_value,payment_confidence,competition_advantage,title,url"]
           for i, item in enumerate(execution_queue, 1):
@@ -2694,14 +2812,14 @@ jobs:
               ]))
           (REPORTS_DIR / "latest.csv").write_text("\n".join(csv_lines) + "\n", encoding="utf-8")
           (REPORTS_DIR / "latest.txt").write_text(
-              "Atlas Opportunity Hunter V13\n" +
+              "Atlas Opportunity Hunter V14\n" +
               f"Generated: {GENERATED_AT}\nStatus: {status}\n" +
               f"Today: ${earnings['today']:,.2f}\nWeek: ${earnings['week']:,.2f}\nMonth: ${earnings['month']:,.2f}\nYear: ${earnings['year']:,.2f}\nLifetime: ${earnings['lifetime']:,.2f}\n",
               encoding="utf-8",
           )
 
           summary_lines = [
-              "# Atlas Opportunity Hunter V13",
+              "# Atlas Opportunity Hunter V14",
               "",
               (
                   f"- System status: "
@@ -2809,7 +2927,7 @@ jobs:
                   )
 
           print(
-              f"Atlas V13 status={status}; "
+              f"Atlas + Alex V15 status={status}; "
               f"checked {len(raw_issues)} "
               "raw issues; "
               f"found {len(initial_candidates)} "
@@ -2827,12 +2945,12 @@ jobs:
 
           if searches_completed == 0:
               raise SystemExit(
-                  "Atlas V13 could not complete "
+                  "Atlas + Alex V15 could not complete "
                   "any GitHub search query."
               )
           PY
 
-      - name: Save Atlas V13 results
+      - name: Save Atlas + Alex V15 results
         env:
           BRANCH_NAME: ${{ github.ref_name }}
         run: |
@@ -2855,7 +2973,7 @@ jobs:
           fi
 
           git commit \
-            -m "Atlas V13 opportunity scan"
+            -m "Atlas + Alex V15 opportunity scan"
 
           git pull \
             --rebase \
