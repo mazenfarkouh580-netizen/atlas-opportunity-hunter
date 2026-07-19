@@ -1,0 +1,3527 @@
+name: Atlas + Alex V22 — Quick Win Risk Lane
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [atlas-scheduled-run, atlas-watchdog-recovery]
+  schedule:
+    # Main hunt: every 15 minutes.
+    - cron: "7,22,37,52 * * * *"
+    # Watchdog: five minutes after each main slot.
+    - cron: "12,27,42,57 * * * *"
+
+concurrency:
+  group: atlas-alex-opportunity-hunter-v21
+  cancel-in-progress: false
+
+permissions:
+  actions: write
+  contents: write
+  issues: read
+  pull-requests: read
+
+jobs:
+  hunt:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'repository_dispatch' ||
+      github.event.schedule == '7,22,37,52 * * * *'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Run Atlas and Alex as independent opportunity hunters
+        id: atlas
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python <<'PY'
+          import html
+          import json
+          import os
+          import re
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          TOKEN = os.environ["GITHUB_TOKEN"]
+          API_VERSION = "2022-11-28"
+          NOW = datetime.now(timezone.utc)
+          GENERATED_AT = NOW.strftime("%Y-%m-%d %H:%M UTC")
+
+          DATA_DIR = Path("data")
+          DOCS_DIR = Path("docs")
+          DATA_DIR.mkdir(exist_ok=True)
+          DOCS_DIR.mkdir(exist_ok=True)
+
+          CURRENT_FILE = DATA_DIR / "opportunities.json"
+          HISTORY_FILE = DATA_DIR / "opportunity-history.json"
+          CANDIDATE_LIFECYCLE_FILE = DATA_DIR / "candidate-lifecycle.json"
+          DISCOVERY_CACHE_FILE = DATA_DIR / "discovery-cache.json"
+          DASHBOARD_FILE = DOCS_DIR / "index.html"
+          MONEY_WINDOW_FILE = DOCS_DIR / "money.html"
+          CONFIG_FILE = DATA_DIR / "atlas-config.json"
+          OPERATIONS_FILE = DATA_DIR / "atlas-operations.json"
+          MAINTENANCE_FILE = DATA_DIR / "dr-alex-maintenance.json"
+          EARNINGS_FILE = DATA_DIR / "earnings-ledger.json"
+          ALERTS_FILE = DATA_DIR / "atlas-alerts.json"
+          WORKER_HEALTH_FILE = DATA_DIR / "worker-health.json"
+          REPORTS_DIR = DOCS_DIR / "reports"
+          REPORTS_DIR.mkdir(exist_ok=True)
+
+          ATLAS_SEARCH_QUERIES = [
+              # Core paid-work discovery.
+              'is:issue is:open bounty in:title,body',
+              'is:issue is:open reward in:title,body',
+              'is:issue is:open label:bounty',
+              'is:issue is:open label:reward',
+              'is:issue is:open label:"help wanted" "$" in:body',
+              'is:issue is:open label:"good first issue" bounty in:title,body',
+              'is:issue is:open label:"good first issue" reward in:title,body',
+
+              # Simple AI, automation, and agent opportunities.
+              'is:issue is:open AI bounty in:title,body',
+              'is:issue is:open AI reward in:title,body',
+              'is:issue is:open LLM bounty in:title,body',
+              'is:issue is:open LLM reward in:title,body',
+              'is:issue is:open "AI agent" bounty in:title,body',
+              'is:issue is:open "AI agent" reward in:title,body',
+              'is:issue is:open prompt bounty in:title,body',
+              'is:issue is:open prompt reward in:title,body',
+              'is:issue is:open RAG bounty in:title,body',
+              'is:issue is:open chatbot bounty in:title,body',
+              'is:issue is:open n8n bounty in:title,body',
+              'is:issue is:open automation bounty in:title,body',
+              'is:issue is:open "data annotation" reward in:title,body',
+              'is:issue is:open "model evaluation" reward in:title,body',
+              'is:issue is:open OpenAI bounty in:title,body',
+              'is:issue is:open Claude bounty in:title,body',
+              'is:issue is:open LangChain bounty in:title,body',
+
+              # Quick-win reward bands requested by the CEO.
+              'is:issue is:open "$5" in:title,body',
+              'is:issue is:open "$10" in:title,body',
+              'is:issue is:open "$15" in:title,body',
+              'is:issue is:open "$20" in:title,body',
+              'is:issue is:open "$25" in:title,body',
+              'is:issue is:open "$30" in:title,body',
+              'is:issue is:open "$40" in:title,body',
+              'is:issue is:open "$50" in:title,body',
+              'is:issue is:open "$75" in:title,body',
+              'is:issue is:open "$100" in:title,body',
+
+              # Fast-payment and PayPal micro-bounty discovery.
+              'is:issue is:open PayPal bounty in:title,body',
+              'is:issue is:open PayPal reward in:title,body',
+              'is:issue is:open "paid via PayPal" in:title,body',
+              'is:issue is:open "payment by PayPal" in:title,body',
+              'is:issue is:open "instant payment" bounty in:title,body',
+              'is:issue is:open "same day payment" bounty in:title,body',
+              'is:issue is:open "upon acceptance" PayPal in:title,body',
+              'is:issue is:open "first accepted" bounty in:title,body',
+
+              # Fast-claim and low-complexity discovery.
+              'is:issue is:open "first come first served" bounty in:title,body',
+              'is:issue is:open "claim this" reward in:title,body',
+              'is:issue is:open "micro bounty" in:title,body',
+              'is:issue is:open beginner bounty in:title,body',
+              'is:issue is:open easy bounty in:title,body',
+              'is:issue is:open documentation bounty in:title,body',
+              'is:issue is:open tests bounty in:title,body',
+              'is:issue is:open "bug fix" reward in:title,body',
+              'is:issue is:open "OpenAI API" reward in:title,body',
+              'is:issue is:open "prompt engineering" reward in:title,body',
+              'is:issue is:open "AI evaluation" reward in:title,body',
+              'is:issue is:open "data cleanup" reward in:title,body',
+
+              # Funded bounty ecosystems and maintainer-run payment signals.
+              'is:issue is:open Algora bounty in:title,body',
+              'is:issue is:open IssueHunt bounty in:title,body',
+              'is:issue is:open "paid on merge" in:title,body',
+              'is:issue is:open "payment upon merge" in:title,body',
+              'is:issue is:open "payment within hours" in:title,body',
+              'is:issue is:open "AI tools permitted" reward in:title,body',
+          ]
+
+
+          # Alex is a genuine second hunter. His search universe is intentionally
+          # optimized for small, fast, claimable work rather than duplicating Atlas.
+          ALEX_SEARCH_QUERIES = [
+              'is:issue is:open "instant payout" "$" in:title,body',
+              'is:issue is:open "paid immediately" "$" in:title,body',
+              'is:issue is:open "payment upon merge" "$" in:title,body',
+              'is:issue is:open "payment upon acceptance" "$" in:title,body',
+              'is:issue is:open "same day payment" "$" in:title,body',
+              'is:issue is:open "$0.10" in:title,body',
+              'is:issue is:open "$0.25" in:title,body',
+              'is:issue is:open "$0.50" in:title,body',
+              'is:issue is:open "$0.75" in:title,body',
+              'is:issue is:open "$1" in:title,body',
+              'is:issue is:open "$2" in:title,body',
+              'is:issue is:open "$3" in:title,body',
+              'is:issue is:open "$4" in:title,body',
+              'is:issue is:open "$5" in:title,body',
+              'is:issue is:open "$1" "good first issue" in:title,body',
+              'is:issue is:open "$2" "good first issue" in:title,body',
+              'is:issue is:open "$3" "good first issue" in:title,body',
+              'is:issue is:open "$4" "good first issue" in:title,body',
+              'is:issue is:open "$5" "good first issue" in:title,body',
+              'is:issue is:open "$10" "good first issue" in:title,body',
+              'is:issue is:open "$15" "good first issue" in:title,body',
+              'is:issue is:open "$20" "good first issue" in:title,body',
+              'is:issue is:open "$25" "good first issue" in:title,body',
+              'is:issue is:open "$30" "good first issue" in:title,body',
+              'is:issue is:open "$40" "good first issue" in:title,body',
+              'is:issue is:open "$50" "good first issue" in:title,body',
+              'is:issue is:open "$75" "good first issue" in:title,body',
+              'is:issue is:open "$100" "good first issue" in:title,body',
+              'is:issue is:open "micro bounty" in:title,body',
+              'is:issue is:open "quick bounty" in:title,body',
+              'is:issue is:open "small bounty" in:title,body',
+              'is:issue is:open "easy bounty" in:title,body',
+              'is:issue is:open beginner reward in:title,body',
+              'is:issue is:open documentation reward in:title,body',
+              'is:issue is:open docs reward in:title,body',
+              'is:issue is:open typo reward in:title,body',
+              'is:issue is:open tests reward in:title,body',
+              'is:issue is:open "unit test" reward in:title,body',
+              'is:issue is:open "bug fix" "$" in:title,body',
+              'is:issue is:open "small fix" "$" in:title,body',
+              'is:issue is:open "quick fix" "$" in:title,body',
+              'is:issue is:open "first come first served" reward in:title,body',
+              'is:issue is:open "claim this issue" reward in:title,body',
+              'is:issue is:open "paid on merge" "$" in:title,body',
+              'is:issue is:open "payment upon acceptance" "$" in:title,body',
+              'is:issue is:open PayPal "$10" in:title,body',
+              'is:issue is:open PayPal "$20" in:title,body',
+              'is:issue is:open PayPal "$25" in:title,body',
+              'is:issue is:open PayPal "$50" in:title,body',
+              'is:issue is:open Algora "$" "good first issue" in:title,body',
+              'is:issue is:open Polar bounty "good first issue" in:title,body',
+              'is:issue is:open label:"good first issue" label:bounty',
+              'is:issue is:open label:"help wanted" documentation "$" in:body',
+              'is:issue is:open label:"help wanted" tests "$" in:body',
+              'is:issue is:open workflow reward in:title,body',
+              'is:issue is:open "github actions" reward in:title,body',
+              'is:issue is:open automation reward in:title,body',
+              'is:issue is:open prompt reward in:title,body',
+          ]
+
+          BLOCKED_TERMS = [
+              "phishing",
+              "malware",
+              "ransomware",
+              "credential theft",
+              "steal credentials",
+              "unauthorized access",
+              "bypass authentication",
+              "ddos",
+              "fake account",
+              "account farming",
+              "exploit users",
+              "stolen data",
+          ]
+
+          PREFERRED_TERMS = [
+              "bug",
+              "fix",
+              "test",
+              "tests",
+              "documentation",
+              "docs",
+              "python",
+              "javascript",
+              "typescript",
+              "workflow",
+              "github actions",
+              "ci",
+              "data cleanup",
+              "refactor",
+              "prompt",
+              "prompt engineering",
+              "llm",
+              "rag",
+              "ai agent",
+              "agent workflow",
+              "evaluation",
+              "dataset",
+              "data annotation",
+              "n8n",
+              "automation",
+              "api integration",
+              "chatbot",
+              "openai",
+              "claude",
+              "langchain",
+          ]
+
+          COMPLEXITY_TERMS = [
+              "architecture",
+              "rewrite",
+              "redesign",
+              "production ready",
+              "full implementation",
+              "mobile app",
+              "blockchain",
+              "smart contract",
+              "machine learning model",
+              "security audit",
+          ]
+
+          PAYMENT_EVIDENCE_TERMS = [
+              "paid bounty",
+              "payment sent",
+              "payment received",
+              "bounty paid",
+              "reward paid",
+              "funded bounty",
+              "escrow",
+              "algora",
+              "polar bounty",
+          ]
+
+          PAYPAL_TERMS = [
+              "paypal",
+              "paid via paypal",
+              "payment by paypal",
+              "paypal payment",
+          ]
+
+          TRUSTED_PAYOUT_PLATFORMS = {
+              "algora": {
+                  "confidence": 0.90,
+                  "timing": "Platform-managed payout after accepted completion",
+              },
+              "polar": {
+                  "confidence": 0.88,
+                  "timing": "Platform-managed payout after accepted completion",
+              },
+              "issuehunt": {
+                  "confidence": 0.85,
+                  "timing": "Platform-managed bounty payout after acceptance",
+              },
+          }
+
+          TRUSTED_PAYOUT_REPOSITORIES = {
+              # Add only after independently verified payout history.
+          }
+
+          PAYOUT_PROGRAM_REPOSITORIES = {
+              "tscircuit/dsn-converter",
+              "tscircuit/file-server",
+              "tscircuit/footprinter",
+              "tscircuit/schematic-trace-solver",
+              "tscircuit/jlcsearch",
+              "aporthq/aport-integrations",
+              "claude-builders-bounty/claude-builders-bounty",
+              "unsafelabs/bounty-hunters",
+          }
+
+          FAST_PAYMENT_TERMS = [
+              "instant payment",
+              "instant payout",
+              "paid instantly",
+              "paid immediately",
+              "immediate payment",
+              "immediate payout",
+              "same day payment",
+              "same-day payment",
+              "same day payout",
+              "payment upon acceptance",
+              "pay upon acceptance",
+              "paid on acceptance",
+              "payment on acceptance",
+              "payment upon merge",
+              "pay upon merge",
+              "paid on merge",
+              "payout on merge",
+              "automatic payout",
+              "auto payout",
+              "first accepted",
+              "first valid submission",
+          ]
+
+          AI_ALLOWED_TERMS = [
+              "ai allowed",
+              "ai-assisted allowed",
+              "ai assisted allowed",
+              "automation allowed",
+              "agents allowed",
+              "bot submissions allowed",
+              "llm allowed",
+              "claude code",
+              "openai",
+              "ai agent",
+          ]
+
+          HUMAN_ONLY_TERMS = [
+              "human only",
+              "no ai",
+              "ai prohibited",
+              "no bots",
+              "no automation",
+              "manual work only",
+              "must be completed by a human",
+              "identity verification required",
+              "live interview required",
+          ]
+
+          APPROVAL_AUTHORITY_TERMS = [
+              "maintainer approval",
+              "owner approval",
+              "bounty issuer",
+              "repository owner",
+              "upon merge",
+              "upon acceptance",
+              "accepted submission",
+          ]
+
+          api_errors = []
+          api_calls = 0
+          api_rate_limited = False
+
+          def load_json_file(path, default):
+              try:
+                  if path.exists():
+                      value = json.loads(path.read_text(encoding="utf-8"))
+                      return value
+              except Exception as error:
+                  api_errors.append({
+                      "stage": f"load {path.name}",
+                      "error": str(error),
+                  })
+              return default
+
+          default_config = {
+              "minimum_reward": 5,
+              "minimum_payment_confidence": 55,
+              "minimum_expected_value": 2,
+              "queue_size": 20,
+              "dashboard_refresh_seconds": 900,
+              "tax_percent": 25,
+              "reinvest_percent": 25,
+              "mazen_percent": 50,
+          }
+          config = load_json_file(CONFIG_FILE, default_config)
+          for key, value in default_config.items():
+              config.setdefault(key, value)
+
+          split_total = sum(float(config.get(key, 0)) for key in (
+              "tax_percent", "reinvest_percent", "mazen_percent"
+          ))
+          if split_total <= 0:
+              config.update({"tax_percent": 25, "reinvest_percent": 25, "mazen_percent": 50})
+              split_total = 100
+          if abs(split_total - 100) > 0.01:
+              for key in ("tax_percent", "reinvest_percent", "mazen_percent"):
+                  config[key] = round(float(config.get(key, 0)) * 100 / split_total, 2)
+
+          CONFIG_FILE.write_text(json.dumps(config, indent=2), encoding="utf-8")
+
+          ledger = load_json_file(EARNINGS_FILE, [])
+          if not isinstance(ledger, list):
+              ledger = []
+              EARNINGS_FILE.write_text("[]\n", encoding="utf-8")
+
+          operations = load_json_file(OPERATIONS_FILE, {
+              "version": "V21",
+              "pipeline": [],
+              "last_updated": GENERATED_AT,
+          })
+          if not isinstance(operations, dict):
+              operations = {"version": "V21", "pipeline": [], "last_updated": GENERATED_AT}
+
+          maintenance = load_json_file(MAINTENANCE_FILE, {
+              "doctor": "Dr. Alex",
+              "health": "HEALTHY",
+              "last_check": GENERATED_AT,
+              "repairs": [],
+              "diagnostics": [],
+          })
+          if not isinstance(maintenance, dict):
+              maintenance = {"doctor": "Dr. Alex", "health": "HEALTHY", "last_check": GENERATED_AT, "repairs": [], "diagnostics": []}
+
+          def parse_datetime(value):
+              if not value:
+                  return None
+              try:
+                  return datetime.fromisoformat(
+                      value.replace("Z", "+00:00")
+                  )
+              except (TypeError, ValueError):
+                  return None
+
+          def age_days(value):
+              parsed = parse_datetime(value)
+
+              if not parsed:
+                  return None
+
+              return max(
+                  0.0,
+                  (NOW - parsed).total_seconds() / 86400,
+              )
+
+          def api_get(
+              url,
+              accept="application/vnd.github+json",
+              retries=3,
+          ):
+              global api_calls, api_rate_limited
+
+              if api_rate_limited:
+                  raise RuntimeError(
+                      "GitHub API rate limit already reached; "
+                      "remaining calls skipped"
+                  )
+
+              last_error = None
+
+              for attempt in range(1, retries + 1):
+                  request = urllib.request.Request(
+                      url,
+                      headers={
+                          "Authorization": f"Bearer {TOKEN}",
+                          "Accept": accept,
+                          "X-GitHub-Api-Version": API_VERSION,
+                          "User-Agent": (
+                              "Atlas-Opportunity-Hunter-V21"
+                          ),
+                      },
+                  )
+
+                  try:
+                      api_calls += 1
+
+                      with urllib.request.urlopen(
+                          request,
+                          timeout=30,
+                      ) as response:
+                          return json.loads(
+                              response.read().decode("utf-8")
+                          )
+
+                  except urllib.error.HTTPError as error:
+                      body = error.read().decode(
+                          "utf-8",
+                          errors="replace",
+                      )[:300]
+
+                      last_error = (
+                          f"HTTP {error.code}: {body}"
+                      )
+
+                      if error.code in (403, 429):
+                          api_rate_limited = True
+                          break
+
+                      if (
+                          500 <= error.code < 600
+                          and attempt < retries
+                      ):
+                          time.sleep(attempt * 2)
+                          continue
+
+                      break
+
+                  except Exception as error:
+                      last_error = str(error)
+
+                      if attempt < retries:
+                          time.sleep(attempt * 2)
+                          continue
+
+                      break
+
+              raise RuntimeError(
+                  last_error
+                  or "Unknown GitHub API error"
+              )
+
+          def safe_api_get(
+              url,
+              accept="application/vnd.github+json",
+          ):
+              try:
+                  return api_get(
+                      url,
+                      accept=accept,
+                  )
+
+              except Exception as error:
+                  message = str(error)
+                  if not (
+                      "rate limit already reached" in message
+                      and any(
+                          "rate limit" in item.get("error", "").lower()
+                          for item in api_errors
+                      )
+                  ):
+                      api_errors.append(
+                          {
+                              "url": url,
+                              "error": message,
+                          }
+                      )
+
+                  return None
+
+          def extract_reward(text):
+              patterns = [
+                  (
+                      r"/bounty\s*\$"
+                      r"([0-9][0-9,]*(?:\.\d{1,2})?)"
+                  ),
+                  (
+                      r"\$"
+                      r"([0-9][0-9,]*(?:\.\d{1,2})?)"
+                      r"\s*(?:usd\s*)?"
+                      r"(?:bounty|reward|prize)"
+                  ),
+                  (
+                      r"(?:bounty|reward|prize)"
+                      r"\s*(?:of|is|:|=)?\s*\$"
+                      r"([0-9][0-9,]*(?:\.\d{1,2})?)"
+                  ),
+                  (
+                      r"(?:pay|payment|paid)"
+                      r"\s*(?:of|is|:|=)?\s*\$"
+                      r"([0-9][0-9,]*(?:\.\d{1,2})?)"
+                  ),
+              ]
+
+              rewards = []
+
+              for pattern in patterns:
+                  for match in re.finditer(
+                      pattern,
+                      text,
+                      re.I,
+                  ):
+                      try:
+                          rewards.append(
+                              float(
+                                  match.group(1).replace(
+                                      ",",
+                                      "",
+                                  )
+                              )
+                          )
+                      except ValueError:
+                          pass
+
+              return max(
+                  rewards,
+                  default=0.0,
+              )
+
+          def issue_identity(issue):
+              repository = (
+                  issue.get("repository_url") or ""
+              ).split("/repos/")[-1]
+
+              number = int(
+                  issue.get("number") or 0
+              )
+
+              return repository, number
+
+          def title_repository_mismatch(title, repository):
+              title_repositories = re.findall(
+                  r"\[([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)\]",
+                  title or "",
+              )
+              if not title_repositories:
+                  return False, ""
+
+              actual = (repository or "").lower()
+              for advertised in title_repositories:
+                  if advertised.lower() != actual:
+                      return True, advertised
+
+              return False, ""
+
+          def is_aggregator(
+              issue,
+              title,
+              body,
+          ):
+              repository, _ = issue_identity(issue)
+              repository = repository.lower()
+
+              author = (
+                  (issue.get("user") or {}).get(
+                      "login"
+                  )
+                  or ""
+              ).lower()
+
+              labels = {
+                  (label.get("name") or "").lower()
+                  for label in issue.get(
+                      "labels",
+                      [],
+                  )
+              }
+
+              title_lower = title.lower()
+              body_lower = body.lower()
+
+              aggregator_phrases = [
+                  "bounty alert",
+                  "new opportunities",
+                  "new opportunityies",
+                  "opportunities found",
+                  "opportunityies found",
+                  "top opportunities",
+                  "new bounties found",
+              ]
+
+              if "bountyscout" in repository:
+                  return True
+
+              if any(
+                  phrase in title_lower
+                  for phrase in aggregator_phrases
+              ):
+                  return True
+
+              if (
+                  "bounty-alert" in labels
+                  or "bounty alert" in labels
+              ):
+                  return True
+
+              if (
+                  author == "github-actions[bot]"
+                  or author.endswith("[bot]")
+              ):
+                  return True
+
+              linked_issues = re.findall(
+                  (
+                      r"https://github\.com/"
+                      r"[^/\s]+/[^/\s]+/issues/\d+"
+                  ),
+                  body,
+                  re.I,
+              )
+
+              if len(set(linked_issues)) >= 3:
+                  return True
+
+              if any(
+                  phrase in body_lower
+                  for phrase in aggregator_phrases
+              ):
+                  return True
+
+              return False
+
+          def load_previous():
+              if not CURRENT_FILE.exists():
+                  return {}
+
+              try:
+                  payload = json.loads(
+                      CURRENT_FILE.read_text(
+                          encoding="utf-8"
+                      )
+                  )
+
+                  return {
+                      item.get("url"): item
+                      for item in payload.get(
+                          "all_verified_results",
+                          [],
+                      )
+                      if item.get("url")
+                  }
+
+              except Exception:
+                  return {}
+
+          def load_history():
+              if not HISTORY_FILE.exists():
+                  return []
+
+              try:
+                  data = json.loads(
+                      HISTORY_FILE.read_text(
+                          encoding="utf-8"
+                      )
+                  )
+
+                  return (
+                      data
+                      if isinstance(data, list)
+                      else []
+                  )
+
+              except Exception:
+                  return []
+
+          def load_candidate_lifecycle():
+              if not CANDIDATE_LIFECYCLE_FILE.exists():
+                  return {}
+              try:
+                  data = json.loads(
+                      CANDIDATE_LIFECYCLE_FILE.read_text(
+                          encoding="utf-8"
+                      )
+                  )
+                  return data if isinstance(data, dict) else {}
+              except Exception:
+                  return {}
+
+          def collect_issue_comments(
+              repository,
+              number,
+          ):
+              encoded_repo = urllib.parse.quote(
+                  repository,
+                  safe="/",
+              )
+
+              url = (
+                  "https://api.github.com/repos/"
+                  f"{encoded_repo}/issues/"
+                  f"{number}/comments?per_page=100"
+              )
+
+              data = safe_api_get(url)
+
+              return (
+                  data
+                  if isinstance(data, list)
+                  else []
+              )
+
+          def collect_timeline(
+              repository,
+              number,
+          ):
+              encoded_repo = urllib.parse.quote(
+                  repository,
+                  safe="/",
+              )
+
+              url = (
+                  "https://api.github.com/repos/"
+                  f"{encoded_repo}/issues/"
+                  f"{number}/timeline?per_page=100"
+              )
+
+              data = safe_api_get(
+                  url,
+                  accept=(
+                      "application/vnd.github+json"
+                  ),
+              )
+
+              return (
+                  data
+                  if isinstance(data, list)
+                  else []
+              )
+
+          def search_linked_pull_requests(
+              repository,
+              number,
+              issue_url,
+          ):
+              queries = [
+                  (
+                      f'repo:{repository} '
+                      f'is:pr is:open "#{number}"'
+                  ),
+                  (
+                      f'repo:{repository} '
+                      f'is:pr "{issue_url}"'
+                  ),
+              ]
+
+              found = {}
+
+              for query in queries:
+                  encoded = urllib.parse.quote(query)
+
+                  url = (
+                      "https://api.github.com/"
+                      "search/issues"
+                      f"?q={encoded}"
+                      "&sort=updated"
+                      "&order=desc"
+                      "&per_page=30"
+                  )
+
+                  data = safe_api_get(url)
+
+                  if not isinstance(data, dict):
+                      continue
+
+                  for item in data.get(
+                      "items",
+                      [],
+                  ):
+                      if "pull_request" not in item:
+                          continue
+
+                      html_url = (
+                          item.get("html_url") or ""
+                      )
+
+                      if html_url:
+                          found[html_url] = item
+
+              return list(found.values())
+
+          def verify_candidate(issue):
+              title = issue.get("title") or ""
+              body = issue.get("body") or ""
+              issue_url = (
+                  issue.get("html_url") or ""
+              )
+
+              repository, number = issue_identity(
+                  issue
+              )
+
+              labels = sorted(
+                  {
+                      (
+                          label.get("name") or ""
+                      ).strip()
+                      for label in issue.get(
+                          "labels",
+                          [],
+                      )
+                      if (
+                          label.get("name") or ""
+                      ).strip()
+                  }
+              )
+
+              comments = collect_issue_comments(
+                  repository,
+                  number,
+              )
+
+              timeline = collect_timeline(
+                  repository,
+                  number,
+              )
+
+              linked_prs = (
+                  search_linked_pull_requests(
+                      repository,
+                      number,
+                      issue_url,
+                  )
+              )
+
+              comment_text = "\n".join(
+                  comment.get("body") or ""
+                  for comment in comments
+              )
+
+              combined_text = (
+                  f"{title}\n"
+                  f"{body}\n"
+                  f"{comment_text}"
+              )
+
+              lowered = combined_text.lower()
+
+              timeline_pr_urls = set()
+
+              for event in timeline:
+                  source_issue = (
+                      (
+                          event.get("source") or {}
+                      ).get("issue")
+                      or {}
+                  )
+
+                  if "pull_request" in source_issue:
+                      url = (
+                          source_issue.get(
+                              "html_url"
+                          )
+                          or ""
+                      )
+
+                      if url:
+                          timeline_pr_urls.add(url)
+
+              linked_pr_map = {
+                  pr.get("html_url"): pr
+                  for pr in linked_prs
+                  if pr.get("html_url")
+              }
+
+              for url in timeline_pr_urls:
+                  linked_pr_map.setdefault(
+                      url,
+                      {
+                          "html_url": url,
+                          "title": (
+                              "Pull request linked "
+                              "through issue timeline"
+                          ),
+                          "state": "unknown",
+                          "user": {},
+                          "created_at": "",
+                          "updated_at": "",
+                      },
+                  )
+
+              pr_summaries = []
+              open_pr_count = 0
+              merged_pr_count = 0
+
+              for pr in linked_pr_map.values():
+                  state = (
+                      pr.get("state") or "unknown"
+                  ).lower()
+
+                  pull_data = (
+                      pr.get("pull_request") or {}
+                  )
+
+                  merged_at = pull_data.get(
+                      "merged_at"
+                  )
+
+                  if merged_at:
+                      merged_pr_count += 1
+
+                  elif state == "open":
+                      open_pr_count += 1
+
+                  pr_summaries.append(
+                      {
+                          "title": (
+                              pr.get("title")
+                              or "Linked pull request"
+                          ),
+                          "url": (
+                              pr.get("html_url")
+                              or ""
+                          ),
+                          "state": (
+                              "merged"
+                              if merged_at
+                              else state
+                          ),
+                          "author": (
+                              (
+                                  pr.get("user")
+                                  or {}
+                              ).get("login")
+                              or ""
+                          ),
+                          "created_at": (
+                              pr.get("created_at")
+                              or ""
+                          ),
+                          "updated_at": (
+                              pr.get("updated_at")
+                              or ""
+                          ),
+                      }
+                  )
+
+              assignees = [
+                  person.get("login") or ""
+                  for person in issue.get(
+                      "assignees",
+                      [],
+                  )
+                  if person.get("login")
+              ]
+
+              reward = extract_reward(
+                  f"{title}\n{body}"
+              )
+
+              created_age = age_days(
+                  issue.get("created_at")
+              )
+
+              updated_age = age_days(
+                  issue.get("updated_at")
+              )
+
+              detail = len(body.strip())
+
+              preferred_matches = sorted(
+                  {
+                      term
+                      for term in PREFERRED_TERMS
+                      if term in lowered
+                  }
+              )
+
+              complexity_matches = sorted(
+                  {
+                      term
+                      for term in COMPLEXITY_TERMS
+                      if term in lowered
+                  }
+              )
+
+              payment_signals = sorted(
+                  {
+                      term
+                      for term in PAYMENT_EVIDENCE_TERMS
+                      if term in lowered
+                  }
+              )
+
+              paypal_signals = sorted({term for term in PAYPAL_TERMS if term in lowered})
+              fast_payment_signals = sorted({term for term in FAST_PAYMENT_TERMS if term in lowered})
+              ai_allowed_signals = sorted({term for term in AI_ALLOWED_TERMS if term in lowered})
+              human_only_signals = sorted({term for term in HUMAN_ONLY_TERMS if term in lowered})
+              approval_authority_signals = sorted({term for term in APPROVAL_AUTHORITY_TERMS if term in lowered})
+
+              repository_mismatch, advertised_repository = (
+                  title_repository_mismatch(
+                      title,
+                      repository,
+                  )
+              )
+
+              trusted_platform = next(
+                  (
+                      name
+                      for name in TRUSTED_PAYOUT_PLATFORMS
+                      if name in lowered
+                  ),
+                  None,
+              )
+
+              repository_full_name = (
+                  repository.lower()
+                  if repository
+                  else ""
+              )
+              trusted_repository = (
+                  repository_full_name
+                  in TRUSTED_PAYOUT_REPOSITORIES
+              )
+              payout_program_repository = (
+                  repository_full_name
+                  in PAYOUT_PROGRAM_REPOSITORIES
+              )
+
+              funded_payment_platform = bool(
+                  trusted_platform
+                  or "escrow" in lowered
+              )
+
+              trusted_payout_source = bool(
+                  trusted_platform
+                  or trusted_repository
+              )
+
+              direct_payment_proof = bool(
+                  (
+                      fast_payment_signals
+                      and (
+                          payment_signals
+                          or paypal_signals
+                          or funded_payment_platform
+                          or any(
+                              term in lowered
+                              for term in (
+                                  "paid on merge",
+                                  "payment upon merge",
+                                  "pay upon merge",
+                                  "payment upon acceptance",
+                                  "pay upon acceptance",
+                                  "automatic payout",
+                                  "instant payout",
+                              )
+                          )
+                      )
+                  )
+                  or trusted_payout_source
+              )
+
+              instant_payment_verified = bool(
+                  (
+                      direct_payment_proof
+                      and fast_payment_signals
+                  )
+                  or trusted_payout_source
+              )
+
+              payout_source = (
+                  f"Trusted platform: {trusted_platform}"
+                  if trusted_platform
+                  else f"Trusted repository: {repository_full_name}"
+                  if trusted_repository
+                  else "Issue-level payment evidence"
+                  if direct_payment_proof
+                  else "Unverified"
+              )
+ 
+              claimability_signals = sorted({
+                  term for term in (
+                      "claim this issue",
+                      "comment to claim",
+                      "open to contributors",
+                      "submit a pull request",
+                      "first accepted",
+                      "available bounty",
+                      "unassigned",
+                      "ready to claim",
+                  )
+                  if term in lowered
+              })
+              blocked_claim_signals = sorted({
+                  term for term in (
+                      "do not start",
+                      "wait for approval",
+                      "reserved",
+                      "already claimed",
+                      "not accepting",
+                      "internal only",
+                  )
+                  if term in lowered
+              })
+              atlas_capability_signals = sorted({
+                  term for term in (
+                      "python",
+                      "javascript",
+                      "typescript",
+                      "documentation",
+                      "unit test",
+                      "parser",
+                      "api",
+                      "automation",
+                      "data",
+                      "bug fix",
+                      "cli",
+                  )
+                  if term in lowered
+              })
+              external_execution_blockers = sorted({
+                  term for term in (
+                      "app store submission",
+                      "google play submission",
+                      "hardware required",
+                      "physical device required",
+                      "paid account required",
+                      "identity verification required",
+                      "on-site",
+                  )
+                  if term in lowered
+              })
+
+              claimable_now = bool(
+                  claimability_signals
+                  and not blocked_claim_signals
+                  and not assignees
+              )
+              atlas_can_execute = bool(
+                  atlas_capability_signals
+                  and not external_execution_blockers
+              )
+
+              score = 0
+              reasons = []
+              risks = []
+
+              if reward >= 1000:
+                  score += 25
+                  reasons.append(
+                      "Very large stated reward"
+                  )
+
+              elif reward >= 500:
+                  score += 23
+                  reasons.append(
+                      "Large stated reward"
+                  )
+
+              elif reward >= 150:
+                  score += 20
+                  reasons.append(
+                      "Strong stated reward"
+                  )
+
+              elif reward >= 50:
+                  score += 16
+                  reasons.append(
+                      "Good stated reward"
+                  )
+
+              else:
+                  score += 10
+                  reasons.append(
+                      "Stated paid reward"
+                  )
+
+              if detail >= 1200:
+                  score += 15
+                  reasons.append(
+                      "Detailed requirements"
+                  )
+
+              elif detail >= 500:
+                  score += 11
+                  reasons.append(
+                      "Useful requirements"
+                  )
+
+              elif detail >= 150:
+                  score += 6
+                  reasons.append(
+                      "Basic requirements"
+                  )
+
+              else:
+                  score -= 8
+                  risks.append(
+                      "Requirements are too brief"
+                  )
+
+              score += min(
+                  18,
+                  len(preferred_matches) * 3,
+              )
+
+              if preferred_matches:
+                  reasons.append(
+                      "Capability match: "
+                      + ", ".join(
+                          preferred_matches[:6]
+                      )
+                  )
+
+              if complexity_matches:
+                  score -= min(
+                      15,
+                      len(complexity_matches) * 4,
+                  )
+
+                  risks.append(
+                      "Potentially high complexity: "
+                      + ", ".join(
+                          complexity_matches[:4]
+                      )
+                  )
+
+              visible_discussion = len(comments)
+
+              if visible_discussion == 0:
+                  score += 10
+                  reasons.append(
+                      "No visible comments"
+                  )
+
+              elif visible_discussion <= 3:
+                  score += 6
+                  reasons.append(
+                      "Low visible discussion"
+                  )
+
+              elif visible_discussion <= 8:
+                  score += 1
+                  risks.append(
+                      "Moderate visible discussion"
+                  )
+
+              else:
+                  score -= 8
+                  risks.append(
+                      "Heavy visible discussion"
+                  )
+
+              if created_age is not None:
+                  if created_age <= 1:
+                      score += 14
+                      reasons.append(
+                          "Posted within 24 hours"
+                      )
+
+                  elif created_age <= 7:
+                      score += 10
+                      reasons.append(
+                          "Posted within 7 days"
+                      )
+
+                  elif created_age <= 30:
+                      score += 5
+                      reasons.append(
+                          "Posted within 30 days"
+                      )
+
+                  elif created_age > 180:
+                      score -= 12
+                      risks.append(
+                          "Issue may be stale"
+                      )
+
+              if (
+                  updated_age is not None
+                  and updated_age <= 7
+              ):
+                  score += 4
+                  reasons.append(
+                      "Recently updated"
+                  )
+
+              if "acceptance criteria" in lowered:
+                  score += 10
+                  reasons.append(
+                      "Explicit acceptance criteria"
+                  )
+
+              elif (
+                  "expected behavior" in lowered
+                  or "definition of done" in lowered
+              ):
+                  score += 7
+                  reasons.append(
+                      "Expected result is described"
+                  )
+
+              elif detail >= 500:
+                  score += 3
+                  reasons.append(
+                      "Review path appears usable"
+                  )
+
+              else:
+                  risks.append(
+                      "Acceptance path requires "
+                      "manual confirmation"
+                  )
+
+              if assignees:
+                  score -= 18
+                  risks.append(
+                      "Issue already has an assignee"
+                  )
+
+              if open_pr_count == 1:
+                  score -= 20
+                  risks.append(
+                      "One competing pull request "
+                      "detected"
+                  )
+
+              elif open_pr_count >= 2:
+                  score -= 30
+                  risks.append(
+                      f"{open_pr_count} competing "
+                      "pull requests detected"
+                  )
+
+              if merged_pr_count:
+                  score -= 45
+                  risks.append(
+                      "A linked pull request "
+                      "appears merged"
+                  )
+
+              if issue.get("locked"):
+                  score -= 8
+                  risks.append(
+                      "Issue discussion is locked"
+                  )
+
+              if payment_signals:
+                  score += 5
+                  reasons.append("Payment-related signal mentioned")
+
+              if paypal_signals:
+                  score += 6
+                  reasons.append("PayPal payment explicitly mentioned")
+
+              if fast_payment_signals:
+                  score += 6
+                  reasons.append("Fast-payment timing explicitly mentioned")
+
+              if ai_allowed_signals:
+                  score += 5
+                  reasons.append("AI/automation participation appears allowed")
+
+              quick_win_risk_accepted = False
+
+              if human_only_signals:
+                  score -= 35
+                  risks.append("Human-only or AI-prohibited language detected")
+
+              if approval_authority_signals:
+                  score += 5
+                  reasons.append("Acceptance authority or approval trigger is described")
+
+              if repository_mismatch:
+                  score -= 45
+                  risks.append(
+                      "Advertised repository does not match "
+                      "the GitHub issue repository"
+                  )
+
+              if not direct_payment_proof:
+                  score -= 18
+                  risks.append(
+                      "No direct payment proof or funded "
+                      "bounty platform detected"
+                  )
+
+              if claimable_now:
+                  score += 12
+                  reasons.append(
+                      "Explicitly claimable with no current assignee"
+                  )
+              else:
+                  score -= 12
+                  risks.append(
+                      "Claim path is missing, blocked, or ambiguous"
+                  )
+
+              if atlas_can_execute:
+                  score += 10
+                  reasons.append(
+                      "Task matches Atlas execution capabilities"
+                  )
+              else:
+                  score -= 20
+                  risks.append(
+                      "Task is not clearly executable by Atlas"
+                  )
+
+              if 0.10 <= reward <= 100:
+                  score += 10
+                  reasons.append("Highest-priority first-payment reward band")
+              elif reward <= 100:
+                  score += 7
+                  reasons.append("High-priority small reward band")
+              elif reward <= 250:
+                  score += 4
+                  reasons.append("Priority reward band")
+
+              if not assignees and open_pr_count == 0:
+                  score += 8
+                  reasons.append("No assignee and no competing pull request")
+
+              if updated_age is not None and updated_age <= 3:
+                  score += 5
+                  reasons.append("Very recent activity")
+
+              score = max(
+                  0,
+                  min(100, score),
+              )
+
+              if human_only_signals:
+                  availability = "HUMAN-ONLY OR AI PROHIBITED"
+                  decision = "REJECT"
+
+              elif merged_pr_count:
+                  availability = (
+                      "LIKELY CLOSED BY WORK"
+                  )
+                  decision = "REJECT"
+
+              elif assignees and open_pr_count:
+                  availability = (
+                      "ASSIGNED AND CONTESTED"
+                  )
+                  decision = "REJECT"
+
+              elif open_pr_count:
+                  availability = "CONTESTED"
+
+                  decision = (
+                      "PRIORITY REVIEW"
+                      if score >= 62
+                      else "WATCHLIST"
+                  )
+
+              elif assignees:
+                  availability = "ASSIGNED"
+
+                  decision = (
+                      "WATCHLIST"
+                      if score >= 50
+                      else "REJECT"
+                  )
+
+              elif repository_mismatch:
+                  availability = (
+                      "REPOSITORY MISMATCH - MANUAL VERIFY"
+                  )
+                  decision = "WATCHLIST"
+
+              elif not instant_payment_verified and payout_program_repository:
+                  if (
+                      0.10 <= reward <= 100
+                      and atlas_can_execute
+                      and not assignees
+                      and open_pr_count == 0
+                      and not repository_mismatch
+                  ):
+                      quick_win_risk_accepted = True
+                      availability = (
+                          "QUICK WIN - SMALL REWARD PAYMENT RISK ACCEPTED"
+                      )
+                      decision = "PURSUE"
+                  else:
+                      availability = (
+                          "PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED"
+                      )
+                      decision = "PRIORITY REVIEW"
+
+              elif not instant_payment_verified:
+                  availability = (
+                      "TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE"
+                  )
+                  decision = "WATCHLIST"
+
+              elif not direct_payment_proof:
+                  availability = (
+                      "PAYMENT NOT PROVEN - MANUAL VERIFY"
+                  )
+                  decision = "WATCHLIST"
+
+              elif not claimable_now:
+                  availability = "CLAIM PATH NOT CONFIRMED"
+                  decision = "PRIORITY REVIEW"
+
+              elif not atlas_can_execute:
+                  availability = "NOT EXECUTION-READY FOR ATLAS"
+                  decision = "WATCHLIST"
+
+              elif score >= 62:
+                  availability = (
+                      "OPEN - READY FOR FINAL CLAIM CHECK"
+                  )
+                  decision = "PURSUE"
+
+              elif score >= 48:
+                  availability = (
+                      "OPEN - NEEDS FINAL REVIEW"
+                  )
+                  decision = "PRIORITY REVIEW"
+
+              elif score >= 36:
+                  availability = "UNCERTAIN"
+                  decision = "WATCHLIST"
+
+              else:
+                  availability = (
+                      "LOW VALUE OR HIGH RISK"
+                  )
+                  decision = "REJECT"
+
+              # CEO reward law: over $250 stays visible but never enters the main pursue queue.
+              if reward > 250 and decision not in {"REJECT"}:
+                  availability = "OVER $250 - WATCHLIST ONLY"
+                  decision = "WATCHLIST"
+
+              payment_verification = (
+                  "SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO"
+                  if quick_win_risk_accepted
+                  else "TRUSTED PAYOUT SOURCE VERIFIED"
+                  if trusted_payout_source
+                  else "FAST PAYMENT TERMS + PAYMENT METHOD VERIFIED"
+                  if instant_payment_verified
+                  else "FAST-PAY WORDING FOUND - PAYMENT SOURCE NOT VERIFIED"
+                  if fast_payment_signals
+                  else "PAYMENT SOURCE FOUND - TIMING NOT VERIFIED"
+                  if payment_signals or paypal_signals or funded_payment_platform
+                  else "UNVERIFIED"
+              )
+
+              ai_eligibility = (
+                  "PROHIBITED" if human_only_signals
+                  else "EXPLICITLY ALLOWED" if ai_allowed_signals
+                  else "UNCLEAR - MANUAL VERIFICATION REQUIRED"
+              )
+
+              approval_authority = (
+                  "OWNER/MAINTAINER APPROVAL PATH DESCRIBED"
+                  if approval_authority_signals
+                  else "NOT VERIFIED"
+              )
+
+              fast_pay_candidate = bool(
+                  0.10 <= reward <= 100
+                  and paypal_signals
+                  and fast_payment_signals
+                  and not human_only_signals
+                  and not assignees
+                  and open_pr_count == 0
+                  and merged_pr_count == 0
+              )
+
+              fast_pay_status = (
+                  "INSTANT-PAY CANDIDATE - FINAL OWNER/PLATFORM CHECK REQUIRED"
+                  if fast_pay_candidate
+                  else "NOT INSTANT-PAY VERIFIED"
+              )
+
+              return {
+                  "title": title,
+                  "url": issue_url,
+                  "repository": repository,
+                  "issue_number": number,
+                  "author": (
+                      (
+                          issue.get("user") or {}
+                      ).get("login")
+                      or ""
+                  ),
+                  "reward": reward,
+                  "reward_priority": (
+                      "HIGHEST" if 0.10 <= reward <= 100
+                      else "HIGH" if reward <= 100
+                      else "PRIORITY" if reward <= 250
+                      else "WATCHLIST"
+                  ),
+                  "score": score,
+                  "decision": decision,
+                  "availability": availability,
+                  "created_at": (
+                      issue.get("created_at")
+                      or ""
+                  ),
+                  "updated_at": (
+                      issue.get("updated_at")
+                      or ""
+                  ),
+                  "comments": visible_discussion,
+                  "labels": labels,
+                  "assignees": assignees,
+                  "open_competing_prs": (
+                      open_pr_count
+                  ),
+                  "merged_linked_prs": (
+                      merged_pr_count
+                  ),
+                  "linked_pull_requests": sorted(
+                      pr_summaries,
+                      key=lambda pr: (
+                          pr.get("updated_at") or ""
+                      ),
+                      reverse=True,
+                  ),
+                  "payment_verification": payment_verification,
+                  "paypal_signals": paypal_signals,
+                  "fast_payment_signals": fast_payment_signals,
+                  "ai_eligibility": ai_eligibility,
+                  "approval_authority": approval_authority,
+                  "direct_payment_proof": direct_payment_proof,
+                  "instant_payment_verified": instant_payment_verified,
+                  "funded_payment_platform": funded_payment_platform,
+                  "trusted_payout_source": trusted_payout_source,
+                  "trusted_platform": trusted_platform,
+                  "trusted_repository": trusted_repository,
+                  "payout_program_repository": payout_program_repository,
+                  "payout_source": (
+                      f"Payout program repository: {repository_full_name}"
+                      if payout_program_repository and not trusted_payout_source
+                      else payout_source
+                  ),
+                  "claimable_now": claimable_now,
+                  "quick_win_risk_accepted": quick_win_risk_accepted,
+                  "claimability_signals": claimability_signals,
+                  "atlas_can_execute": atlas_can_execute,
+                  "atlas_capability_signals": atlas_capability_signals,
+                  "external_execution_blockers": external_execution_blockers,
+                  "repository_mismatch": repository_mismatch,
+                  "advertised_repository": advertised_repository,
+                  "fast_pay_candidate": fast_pay_candidate,
+                  "fast_pay_status": fast_pay_status,
+                  "manual_verification_required": bool(
+                      repository_mismatch
+                      or not direct_payment_proof
+                      or not claimable_now
+                      or not atlas_can_execute
+                      or not (
+                          fast_pay_candidate
+                          and ai_allowed_signals
+                          and approval_authority_signals
+                      )
+                  ),
+                  "reasons": reasons,
+                  "risks": risks,
+              }
+
+          previous_by_url = load_previous()
+          discovery_cache = load_json_file(
+              DISCOVERY_CACHE_FILE,
+              {"issues": {}, "discovered_by": {}},
+          )
+          cached_issues = discovery_cache.get("issues", {})
+          raw_issues = {
+              url: issue
+              for url, issue in cached_issues.items()
+              if isinstance(issue, dict)
+          }
+          discovered_by = {
+              url: set(workers)
+              for url, workers in discovery_cache.get("discovered_by", {}).items()
+              if isinstance(workers, list)
+          }
+          worker_fresh_urls = {"Atlas": set(), "Alex": set()}
+          worker_searches_completed = {"Atlas": 0, "Alex": 0}
+          worker_raw_hits = {"Atlas": 0, "Alex": 0}
+
+          def run_worker_search(worker_name, queries, sort_mode):
+              for query in queries:
+                  if api_rate_limited:
+                      break
+
+                  encoded = urllib.parse.quote(query)
+                  url = (
+                      "https://api.github.com/search/issues"
+                      f"?q={encoded}"
+                      f"&sort={sort_mode}"
+                      "&order=desc"
+                      "&per_page=100"
+                  )
+                  data = safe_api_get(url)
+
+                  if not isinstance(data, dict):
+                      continue
+
+                  worker_searches_completed[worker_name] += 1
+
+                  for issue in data.get("items", []):
+                      if "pull_request" in issue:
+                          continue
+
+                      issue_url = issue.get("html_url") or ""
+                      if not issue_url:
+                          continue
+
+                      worker_raw_hits[worker_name] += 1
+                      raw_issues[issue_url] = issue
+                      worker_fresh_urls[worker_name].add(issue_url)
+                      discovered_by.setdefault(issue_url, set()).add(worker_name)
+
+          # Atlas searches the broad universe by recent activity.
+          run_worker_search(
+              "Atlas",
+              ATLAS_SEARCH_QUERIES,
+              "updated",
+          )
+
+          # Alex independently searches small/fast work by newest creation.
+          run_worker_search(
+              "Alex",
+              ALEX_SEARCH_QUERIES,
+              "created",
+          )
+
+          fresh_discovery_urls = (
+              worker_fresh_urls["Atlas"]
+              | worker_fresh_urls["Alex"]
+          )
+          searches_completed = sum(worker_searches_completed.values())
+
+          DISCOVERY_CACHE_FILE.write_text(
+              json.dumps(
+                  {
+                      "updated_at": GENERATED_AT,
+                      "issues": raw_issues,
+                      "fresh_urls": sorted(fresh_discovery_urls),
+                      "discovered_by": {
+                          url: sorted(workers)
+                          for url, workers in discovered_by.items()
+                      },
+                      "worker_stats": {
+                          worker: {
+                              "queries_completed": worker_searches_completed[worker],
+                              "raw_hits": worker_raw_hits[worker],
+                              "unique_fresh": len(worker_fresh_urls[worker]),
+                          }
+                          for worker in ("Atlas", "Alex")
+                      },
+                  },
+                  indent=2,
+                  ensure_ascii=False,
+              ),
+              encoding="utf-8",
+          )
+
+          initial_candidates = []
+          rejected_aggregators = 0
+          rejected_unsafe = 0
+          rejected_no_reward = 0
+
+          for issue in raw_issues.values():
+              title = issue.get("title") or ""
+              body = issue.get("body") or ""
+              text = f"{title}\n{body}"
+              lowered = text.lower()
+
+              if is_aggregator(
+                  issue,
+                  title,
+                  body,
+              ):
+                  rejected_aggregators += 1
+                  continue
+
+              if any(
+                  term in lowered
+                  for term in BLOCKED_TERMS
+              ):
+                  rejected_unsafe += 1
+                  continue
+
+              reward = extract_reward(text)
+
+              if reward <= 0:
+                  rejected_no_reward += 1
+                  continue
+
+              initial_candidates.append(issue)
+
+          def discovery_priority(issue):
+              title = issue.get("title") or ""
+              body = issue.get("body") or ""
+              lowered = f"{title}\n{body}".lower()
+              reward = extract_reward(f"{title}\n{body}")
+
+              if 0.10 <= reward <= 100:
+                  reward_band = 5
+              elif reward <= 100:
+                  reward_band = 4
+              elif reward <= 250:
+                  reward_band = 3
+              elif reward <= 500:
+                  reward_band = 1
+              else:
+                  reward_band = 0
+
+              funded_signal = sum(
+                  1 for term in (
+                      "algora",
+                      "polar bounty",
+                      "issuehunt",
+                      "funded bounty",
+                      "escrow",
+                      "paid on merge",
+                      "payment upon acceptance",
+                      "pay upon acceptance",
+                  )
+                  if term in lowered
+              )
+
+              easy_signal = sum(
+                  1 for term in (
+                      "good first issue",
+                      "documentation",
+                      "docs",
+                      "test",
+                      "tests",
+                      "small fix",
+                      "quick fix",
+                      "beginner",
+                      "easy",
+                      "typo",
+                      "workflow",
+                      "github actions",
+                  )
+                  if term in lowered
+              )
+
+              complexity_signal = sum(
+                  1 for term in COMPLEXITY_TERMS
+                  if term in lowered
+              )
+
+              return (
+                  reward_band,
+                  funded_signal,
+                  easy_signal,
+                  -complexity_signal,
+                  issue.get("updated_at") or "",
+              )
+
+          initial_candidates.sort(
+              key=discovery_priority,
+              reverse=True,
+          )
+
+          # V20 reserves verification capacity for both hunters and for
+          # small rewards so they cannot disappear behind large speculative items.
+          issue_by_url = {
+              issue.get("html_url"): issue
+              for issue in initial_candidates
+              if issue.get("html_url")
+          }
+
+          previous_actionable_urls = [
+              url
+              for url, item in previous_by_url.items()
+              if item.get("decision") in {
+                  "PURSUE",
+                  "PRIORITY REVIEW",
+              }
+              and url in issue_by_url
+          ]
+
+          atlas_candidates = [
+              issue for issue in initial_candidates
+              if "Atlas" in discovered_by.get(issue.get("html_url"), set())
+          ]
+          alex_candidates = [
+              issue for issue in initial_candidates
+              if "Alex" in discovered_by.get(issue.get("html_url"), set())
+          ]
+          small_candidates = [
+              issue for issue in initial_candidates
+              if 0.10 <= extract_reward(
+                  f"{issue.get('title') or ''}\n{issue.get('body') or ''}"
+              ) <= 100
+          ]
+          alex_small_candidates = [
+              issue for issue in small_candidates
+              if "Alex" in discovered_by.get(issue.get("html_url"), set())
+          ]
+          atlas_small_candidates = [
+              issue for issue in small_candidates
+              if "Atlas" in discovered_by.get(issue.get("html_url"), set())
+          ]
+
+          verification_queue = []
+          queued_urls = set()
+
+          def add_candidates(candidates, limit):
+              added = 0
+              for issue in candidates:
+                  if added >= limit or len(verification_queue) >= 30:
+                      break
+                  url = issue.get("html_url")
+                  if not url or url in queued_urls:
+                      continue
+                  verification_queue.append(issue)
+                  queued_urls.add(url)
+                  added += 1
+
+          # Preserve active work, then guarantee both workers' small-reward output.
+          add_candidates(
+              [issue_by_url[url] for url in previous_actionable_urls],
+              5,
+          )
+          add_candidates(alex_small_candidates, 10)
+          add_candidates(atlas_small_candidates, 7)
+          add_candidates(alex_candidates, 4)
+          add_candidates(atlas_candidates, 4)
+          add_candidates(initial_candidates, 30)
+
+          verified_results = []
+
+          for index, issue in enumerate(
+              verification_queue,
+              start=1,
+          ):
+              print(
+                  "Verifying candidate "
+                  f"{index}/"
+                  f"{len(verification_queue)}: "
+                  f"{issue.get('html_url')}"
+              )
+
+              verified_item = verify_candidate(issue)
+              verified_item["discovered_by"] = sorted(
+                  discovered_by.get(
+                      issue.get("html_url"),
+                      set(),
+                  )
+              )
+              verified_item["primary_hunter"] = (
+                  "BOTH"
+                  if len(verified_item["discovered_by"]) > 1
+                  else verified_item["discovered_by"][0]
+                  if verified_item["discovered_by"]
+                  else "CACHE"
+              )
+              verified_results.append(verified_item)
+
+          verified_results.sort(
+              key=lambda item: (
+                  item["score"],
+                  item["reward"],
+              ),
+              reverse=True,
+          )
+
+          small_fast_wins = [
+              item for item in verified_results
+              if 0.10 <= item.get("reward", 0) <= 100
+              and item.get("decision") != "REJECT"
+          ]
+          small_fast_wins.sort(
+              key=lambda item: (
+                  item.get("decision") == "PURSUE",
+                  item.get("direct_payment_proof", False),
+                  item.get("claimable_now", False),
+                  item.get("atlas_can_execute", False),
+                  item.get("score", 0),
+                  -item.get("reward", 0),
+              ),
+              reverse=True,
+          )
+          atlas_small_wins = [
+              item for item in small_fast_wins
+              if "Atlas" in item.get("discovered_by", [])
+          ]
+          alex_small_wins = [
+              item for item in small_fast_wins
+              if "Alex" in item.get("discovered_by", [])
+          ]
+          ready_small_wins = [
+              item for item in small_fast_wins
+              if (
+                  item.get("decision") == "PURSUE"
+                  and (
+                      item.get("instant_payment_verified")
+                      or item.get("quick_win_risk_accepted")
+                  )
+              )
+          ]
+
+          micro_rewards = [
+              item for item in small_fast_wins
+              if 0.10 <= item.get("reward", 0) < 5
+          ]
+          trusted_payout_ready = [
+              item for item in ready_small_wins
+              if item.get("trusted_payout_source")
+          ]
+          payout_program_reviews = [
+              item for item in verified_results
+              if item.get("payout_program_repository")
+              and item.get("decision") == "PRIORITY REVIEW"
+          ]
+          small_target_met = len(ready_small_wins) >= 2
+          small_target_status = (
+              "ACHIEVED"
+              if small_target_met
+              else "NOT ACHIEVED"
+          )
+
+          meaningful_changes = []
+
+          for item in verified_results:
+              previous = previous_by_url.get(
+                  item["url"]
+              )
+
+              if not previous:
+                  item["change"] = "NEW"
+
+                  meaningful_changes.append(
+                      {
+                          "type": "NEW",
+                          "title": item["title"],
+                          "url": item["url"],
+                          "decision": (
+                              item["decision"]
+                          ),
+                      }
+                  )
+
+                  continue
+
+              changed_fields = []
+
+              for field in (
+                  "decision",
+                  "availability",
+                  "reward",
+                  "assignees",
+                  "open_competing_prs",
+                  "merged_linked_prs",
+              ):
+                  if (
+                      previous.get(field)
+                      != item.get(field)
+                  ):
+                      changed_fields.append(field)
+
+              if changed_fields:
+                  item["change"] = (
+                      "CHANGED: "
+                      + ", ".join(changed_fields)
+                  )
+
+                  meaningful_changes.append(
+                      {
+                          "type": "CHANGED",
+                          "title": item["title"],
+                          "url": item["url"],
+                          "fields": changed_fields,
+                          "decision": (
+                              item["decision"]
+                          ),
+                      }
+                  )
+
+              else:
+                  item["change"] = "UNCHANGED"
+
+          candidate_lifecycle = load_candidate_lifecycle()
+          current_verified_urls = {
+              item["url"] for item in verified_results
+          }
+
+          lifecycle_new = 0
+          lifecycle_still_active = 0
+          lifecycle_changed = 0
+
+          for item in verified_results:
+              url = item["url"]
+              record = candidate_lifecycle.get(url, {})
+              first_seen = record.get("first_seen") or GENERATED_AT
+
+              if not record:
+                  lifecycle_new += 1
+              elif item.get("change", "").startswith("CHANGED"):
+                  lifecycle_changed += 1
+              else:
+                  lifecycle_still_active += 1
+
+              item["first_seen"] = first_seen
+              item["last_verified"] = GENERATED_AT
+
+              candidate_lifecycle[url] = {
+                  "title": item.get("title"),
+                  "repository": item.get("repository"),
+                  "first_seen": first_seen,
+                  "last_verified": GENERATED_AT,
+                  "last_decision": item.get("decision"),
+                  "last_availability": item.get("availability"),
+                  "last_reward": item.get("reward"),
+                  "verification_state": "VERIFIED THIS RUN",
+              }
+
+          not_reverified_urls = [
+              url
+              for url in previous_by_url
+              if url not in current_verified_urls
+          ]
+
+          for url in not_reverified_urls:
+              previous_item = previous_by_url[url]
+              record = candidate_lifecycle.get(url, {})
+              candidate_lifecycle[url] = {
+                  "title": previous_item.get("title"),
+                  "repository": previous_item.get("repository"),
+                  "first_seen": (
+                      record.get("first_seen")
+                      or previous_item.get("first_seen")
+                      or GENERATED_AT
+                  ),
+                  "last_verified": (
+                      record.get("last_verified")
+                      or previous_item.get("last_verified")
+                  ),
+                  "last_decision": previous_item.get("decision"),
+                  "last_availability": previous_item.get("availability"),
+                  "last_reward": previous_item.get("reward"),
+                  "verification_state": "NOT REVERIFIED THIS RUN",
+              }
+
+          CANDIDATE_LIFECYCLE_FILE.write_text(
+              json.dumps(
+                  candidate_lifecycle,
+                  indent=2,
+                  ensure_ascii=False,
+              ),
+              encoding="utf-8",
+          )
+
+          lifecycle_summary = {
+              "new_this_run": lifecycle_new,
+              "still_active": lifecycle_still_active,
+              "changed": lifecycle_changed,
+              "not_reverified": len(not_reverified_urls),
+          }
+
+          counts = {
+              decision: sum(
+                  item["decision"] == decision
+                  for item in verified_results
+              )
+              for decision in (
+                  "PURSUE",
+                  "PRIORITY REVIEW",
+                  "WATCHLIST",
+                  "REJECT",
+              )
+          }
+
+          gate_counts = {}
+          for item in verified_results:
+              gate = item.get("availability") or "UNKNOWN"
+              gate_counts[gate] = gate_counts.get(gate, 0) + 1
+
+          diagnostic_lines = [
+              "# Atlas + Alex V21 Gate Diagnostics",
+              "",
+              f"Generated: {GENERATED_AT}",
+              "",
+              "## Decision Counts",
+              "",
+          ]
+          for decision, value in counts.items():
+              diagnostic_lines.append(f"- {decision}: {value}")
+
+          diagnostic_lines.extend(["", "## Gate Counts", ""])
+          for gate, value in sorted(
+              gate_counts.items(),
+              key=lambda pair: pair[1],
+              reverse=True,
+          ):
+              diagnostic_lines.append(f"- {gate}: {value}")
+
+          diagnostic_lines.extend(["", "## Candidate Details", ""])
+          for item in verified_results:
+              diagnostic_lines.extend([
+                  f"### {item.get('repository')} #{item.get('issue_number')}",
+                  f"- Decision: {item.get('decision')}",
+                  f"- Gate: {item.get('availability')}",
+                  f"- Reward: ${float(item.get('reward', 0) or 0):,.2f}",
+                  f"- Payment: {item.get('payment_verification')}",
+                  f"- Payout source: {item.get('payout_source')}",
+                  f"- Claimable: {item.get('claimable_now')}",
+                  f"- Quick-win risk accepted: {item.get('quick_win_risk_accepted', False)}",
+                  f"- Atlas executable: {item.get('atlas_can_execute')}",
+                  f"- URL: {item.get('url')}",
+                  "",
+              ])
+
+          reports_dir = Path("reports")
+          reports_dir.mkdir(parents=True, exist_ok=True)
+
+          Path("reports/atlas-v21-gate-diagnostics.md").write_text(
+              "\n".join(diagnostic_lines),
+              encoding="utf-8",
+          )
+
+          contested_count = sum(
+              item["open_competing_prs"] > 0
+              for item in verified_results
+          )
+
+          assigned_count = sum(
+              bool(item["assignees"])
+              for item in verified_results
+          )
+
+          top_results = verified_results[:12]
+
+          strong_targets = [
+              item
+              for item in verified_results
+              if item["decision"] == "PURSUE"
+              and item["open_competing_prs"] == 0
+              and not item["assignees"]
+          ]
+
+          status = "HEALTHY"
+
+          if searches_completed == 0:
+              status = "FAILED"
+
+          elif api_errors:
+              status = "DEGRADED"
+
+          def money_total(start=None, end=None, statuses=("paid", "received", "completed")):
+              total = 0.0
+              for entry in ledger:
+                  try:
+                      amount = float(entry.get("amount", 0) or 0)
+                  except (TypeError, ValueError):
+                      continue
+                  status_value = str(entry.get("status", "paid")).lower()
+                  if status_value not in statuses:
+                      continue
+                  when = parse_datetime(entry.get("paid_at") or entry.get("date") or entry.get("created_at"))
+                  if start and (not when or when < start):
+                      continue
+                  if end and when and when >= end:
+                      continue
+                  total += amount
+              return round(total, 2)
+
+          today_start = NOW.replace(hour=0, minute=0, second=0, microsecond=0)
+          week_start = today_start.replace(day=max(1, today_start.day - today_start.weekday()))
+          month_start = today_start.replace(day=1)
+          year_start = today_start.replace(month=1, day=1)
+
+          waiting_today = 0.0
+          waiting_later = 0.0
+          overdue = 0.0
+          waiting_unknown = 0.0
+          payment_schedule = []
+          for entry in ledger:
+              status_value = str(entry.get("status", "")).lower()
+              if status_value not in ("pending", "waiting", "submitted", "approved"):
+                  continue
+              try:
+                  amount = float(entry.get("amount", 0) or 0)
+              except (TypeError, ValueError):
+                  amount = 0.0
+              expected = parse_datetime(entry.get("expected_at"))
+              if expected is None:
+                  bucket = "UNKNOWN"
+                  waiting_unknown += amount
+              elif expected < today_start:
+                  bucket = "OVERDUE"
+                  overdue += amount
+              elif expected < today_start.replace(hour=23, minute=59, second=59):
+                  bucket = "TODAY"
+                  waiting_today += amount
+              else:
+                  bucket = "LATER"
+                  waiting_later += amount
+              payment_schedule.append({
+                  "title": entry.get("title", "Untitled payment"),
+                  "amount": amount,
+                  "expected_at": entry.get("expected_at"),
+                  "bucket": bucket,
+                  "status": status_value,
+              })
+
+          earnings = {
+              "today": money_total(today_start),
+              "week": money_total(week_start),
+              "month": money_total(month_start),
+              "year": money_total(year_start),
+              "lifetime": money_total(),
+              "waiting_today": round(waiting_today, 2),
+              "waiting_later": round(waiting_later, 2),
+              "overdue": round(overdue, 2),
+              "waiting_unknown": round(waiting_unknown, 2),
+          }
+          earnings["waiting_total"] = round(waiting_today + waiting_later + overdue + waiting_unknown, 2)
+          allocations = {
+              "tax": round(earnings["year"] * float(config["tax_percent"]) / 100, 2),
+              "reinvesting": round(earnings["year"] * float(config["reinvest_percent"]) / 100, 2),
+              "mazen": round(earnings["year"] * float(config["mazen_percent"]) / 100, 2),
+          }
+
+          execution_queue = []
+          for item in verified_results:
+              payment_confidence = max(
+                  0,
+                  min(
+                      100,
+                      15
+                      + item.get("score", 0) * 0.65
+                      + (15 if item.get("paypal_signals") else 0)
+                      + (12 if item.get("approval_authority") != "NOT VERIFIED" else 0)
+                      + (10 if item.get("fast_payment_signals") else 0)
+                      - item.get("open_competing_prs", 0) * 18
+                      - (22 if item.get("assignees") else 0),
+                  ),
+              )
+              if not item.get("direct_payment_proof"):
+                  payment_confidence = min(
+                      payment_confidence,
+                      49,
+                  )
+              if item.get("repository_mismatch"):
+                  payment_confidence = min(
+                      payment_confidence,
+                      25,
+                  )
+
+              competition_score = max(0, 100 - item.get("open_competing_prs", 0) * 30 - (25 if item.get("assignees") else 0))
+              clarity_score = max(0, min(100, 50 + (10 if item.get("acceptance_criteria") else 0) + min(30, len(item.get("evidence", [])) * 5)))
+              effort_risk = max(5, min(100, 45 + len(item.get("risks", [])) * 10))
+              expected_value = round(item.get("reward", 0) * (payment_confidence / 100) * (competition_score / 100) / max(1, effort_risk / 25), 2)
+              queue_item = dict(item)
+              queue_item.update({
+                  "payment_confidence": round(payment_confidence, 1),
+                  "competition_score": round(competition_score, 1),
+                  "clarity_score": round(clarity_score, 1),
+                  "effort_risk": round(effort_risk, 1),
+                  "expected_value": expected_value,
+              })
+              execution_queue.append(queue_item)
+          def reward_priority_rank(item):
+              reward = float(item.get("reward", 0) or 0)
+              if 0.10 <= reward <= 100:
+                  return 3
+              if reward <= 100:
+                  return 2
+              if reward <= 250:
+                  return 1
+              return 0
+
+          execution_queue.sort(
+              key=lambda x: (
+                  x["decision"] == "PURSUE",
+                  reward_priority_rank(x),
+                  bool(x.get("fast_pay_candidate")),
+                  x.get("ai_eligibility") == "EXPLICITLY ALLOWED",
+                  x["expected_value"],
+                  x.get("score", 0),
+              ),
+              reverse=True,
+          )
+          execution_queue = execution_queue[:int(config.get("queue_size", 20))]
+
+          operations["version"] = "V21"
+          operations["last_updated"] = GENERATED_AT
+          operations["pipeline"] = execution_queue
+          OPERATIONS_FILE.write_text(json.dumps(operations, indent=2, ensure_ascii=False), encoding="utf-8")
+
+          quick_wins = [
+              item for item in execution_queue
+              if 5 <= float(item.get("reward", 0)) <= 100
+              and not item.get("assignees")
+              and int(item.get("open_competing_prs", 0)) == 0
+          ]
+          fast_paypal_candidates = [item for item in execution_queue if item.get("fast_pay_candidate")]
+          ai_clear_candidates = [item for item in execution_queue if item.get("ai_eligibility") == "EXPLICITLY ALLOWED"]
+          approval_path_candidates = [item for item in execution_queue if item.get("approval_authority") != "NOT VERIFIED"]
+          alex_recommendation = (
+              f"Immediately review {len(fast_paypal_candidates)} verified fast-PayPal candidate(s); owner approval remains required."
+              if fast_paypal_candidates
+              else f"Review {len(quick_wins)} unassigned quick-win candidate(s) first; verify AI permission and payer authority."
+              if quick_wins
+              else "No clean fast-pay quick win found in this scan; continue scanning."
+          )
+          maintenance.update({
+              "doctor": "Dr. Alex",
+              "health": status,
+              "last_check": GENERATED_AT,
+              "api_errors": len(api_errors),
+              "searches_completed": searches_completed,
+              "quick_wins_found": len(quick_wins),
+              "fast_paypal_candidates": len(fast_paypal_candidates),
+              "ai_explicitly_allowed_candidates": len(ai_clear_candidates),
+              "approval_path_candidates": len(approval_path_candidates),
+              "priority_reviews": counts.get("PRIORITY REVIEW", 0),
+              "pursue_candidates": counts.get("PURSUE", 0),
+              "best_immediate_target": (
+                  execution_queue[0].get("url")
+                  if execution_queue
+                  else None
+              ),
+              "recommendation": alex_recommendation,
+              "instant_money_warning": (
+                  "Small PayPal bounties may pay quickly after acceptance, but only the bounty owner or platform can approve work and release payment. "
+                  "Atlas now prioritizes explicit PayPal terms, fast-payment language, AI eligibility, no assignee, and no competing PR."
+              ),
+          })
+          MAINTENANCE_FILE.write_text(json.dumps(maintenance, indent=2, ensure_ascii=False), encoding="utf-8")
+
+          alerts = []
+          if counts["PURSUE"]:
+              alerts.append({"level": "HIGH", "message": f"{counts['PURSUE']} pursue candidate(s) found", "generated_at": GENERATED_AT})
+          if api_errors:
+              alerts.append({"level": "WARNING", "message": f"Atlas health is {status}: {len(api_errors)} API error(s)", "generated_at": GENERATED_AT})
+          if overdue:
+              alerts.append({"level": "PAYMENT", "message": f"${overdue:,.2f} is overdue", "generated_at": GENERATED_AT})
+          ALERTS_FILE.write_text(json.dumps(alerts, indent=2), encoding="utf-8")
+
+          payload = {
+              "version": "V21",
+              "owner": "Mazen Farkouh",
+              "generated_at": GENERATED_AT,
+              "config": config,
+              "earnings": earnings,
+              "allocations": allocations,
+              "payment_schedule": payment_schedule,
+              "execution_queue": execution_queue,
+              "alerts": alerts,
+              "system_status": status,
+              "manual_verification_required": True,
+              "automation_boundary": (
+                  "Atlas discovers, scores, and "
+                  "monitors opportunities. It does "
+                  "not claim work, submit code, "
+                  "or guarantee payment."
+              ),
+              "searches_completed": (
+                  searches_completed
+              ),
+              "api_calls": api_calls,
+              "api_errors": api_errors,
+              "raw_issues_found": len(raw_issues),
+              "aggregator_pages_rejected": (
+                  rejected_aggregators
+              ),
+              "unsafe_items_rejected": (
+                  rejected_unsafe
+              ),
+              (
+                  "items_without_extractable_"
+                  "reward_rejected"
+              ): rejected_no_reward,
+              "eligible_candidates_found": (
+                  len(initial_candidates)
+              ),
+              "deep_verified_candidates": (
+                  len(verified_results)
+              ),
+              "counts": counts,
+              "contested_count": (
+                  contested_count
+              ),
+              "assigned_count": assigned_count,
+              "strong_uncontested_targets": (
+                  len(strong_targets)
+              ),
+              "meaningful_changes": (
+                  meaningful_changes
+              ),
+              "lifecycle_summary": lifecycle_summary,
+              "top_results": top_results,
+              "all_verified_results": (
+                  verified_results
+              ),
+          }
+
+          WORKER_HEALTH_FILE.write_text(
+              json.dumps(
+                  {
+                      "version": "V21",
+                      "last_completed_at": NOW.isoformat(),
+                      "last_completed_display": GENERATED_AT,
+                      "trigger": os.environ.get("GITHUB_EVENT_NAME", "unknown"),
+                      "status": status,
+                      "target_interval_minutes": 15,
+                      "atlas_role": "full search and verification",
+                      "alex_role": "small-reward priority and rapid decision support",
+                  },
+                  indent=2,
+              ),
+              encoding="utf-8",
+          )
+
+          CURRENT_FILE.write_text(
+              json.dumps(
+                  payload,
+                  indent=2,
+                  ensure_ascii=False,
+              ),
+              encoding="utf-8",
+          )
+
+          history = load_history()
+
+          history.append(
+              {
+                  "generated_at": GENERATED_AT,
+                  "system_status": status,
+                  "raw_issues_found": (
+                      len(raw_issues)
+                  ),
+                  "eligible_candidates_found": (
+                      len(initial_candidates)
+                  ),
+                  "deep_verified_candidates": (
+                      len(verified_results)
+                  ),
+                  "counts": counts,
+                  "contested_count": (
+                      contested_count
+                  ),
+                  "assigned_count": (
+                      assigned_count
+                  ),
+                  "strong_uncontested_targets": (
+                      len(strong_targets)
+                  ),
+                  "meaningful_change_count": (
+                      len(meaningful_changes)
+                  ),
+                  "lifecycle_summary": lifecycle_summary,
+              }
+          )
+
+          HISTORY_FILE.write_text(
+              json.dumps(
+                  history[-500:],
+                  indent=2,
+                  ensure_ascii=False,
+              ),
+              encoding="utf-8",
+          )
+
+          def badge_class(decision):
+              return {
+                  "PURSUE": "pursue",
+                  "PRIORITY REVIEW": "review",
+                  "WATCHLIST": "watch",
+                  "REJECT": "reject",
+              }.get(
+                  decision,
+                  "watch",
+              )
+
+          rows = []
+
+          for item in top_results:
+              title = html.escape(
+                  item["title"]
+              )
+
+              url = html.escape(
+                  item["url"],
+                  quote=True,
+              )
+
+              decision = html.escape(
+                  item["decision"]
+              )
+
+              availability = html.escape(
+                  item["availability"]
+              )
+
+              change = html.escape(
+                  item["change"]
+              )
+
+              risks = html.escape(
+                  "; ".join(
+                      item["risks"][:3]
+                  )
+                  or "None detected"
+              )
+
+              rows.append(
+                  "<tr>"
+                  f"<td><span class='badge "
+                  f"{badge_class(item['decision'])}'>"
+                  f"{decision}</span></td>"
+                  f"<td>{item['score']}</td>"
+                  f"<td>${item['reward']:,.2f}</td>"
+                  f"<td><a href='{url}' "
+                  "target='_blank' rel='noopener'>"
+                  f"{title}</a>"
+                  "<div class='small'>"
+                  f"{html.escape(item['repository'])} "
+                  f"#{item['issue_number']}"
+                  "</div></td>"
+                  f"<td>{availability}</td>"
+                  f"<td>"
+                  f"{item['open_competing_prs']}"
+                  "</td>"
+                  f"<td>"
+                  f"{', '.join(html.escape(a) for a in item['assignees']) or 'None'}"
+                  "</td>"
+                  f"<td>{change}</td>"
+                  f"<td class='small'>{html.escape(str(item.get('first_seen', 'Unknown')))}</td>"
+                  f"<td class='small'>{html.escape(str(item.get('last_verified', 'Unknown')))}</td>"
+                  f"<td class='small'>{risks}</td>"
+                  "</tr>"
+              )
+
+          change_items = "".join(
+              "<li>"
+              f"<strong>"
+              f"{html.escape(change['type'])}"
+              "</strong>: "
+              f"<a href='"
+              f"{html.escape(change['url'], quote=True)}"
+              "' target='_blank' rel='noopener'>"
+              f"{html.escape(change['title'])}"
+              "</a> — "
+              f"{html.escape(change.get('decision', ''))}"
+              "</li>"
+              for change in meaningful_changes[:15]
+          ) or (
+              "<li>No meaningful changes detected "
+              "in verified candidates.</li>"
+          )
+
+          error_items = "".join(
+              "<li>"
+              f"{html.escape(error['error'])}"
+              "</li>"
+              for error in api_errors[:10]
+          ) or "<li>None</li>"
+
+          queue_rows = "".join(
+              "<tr>"
+              f"<td>{index}</td>"
+              f"<td><span class='badge {badge_class(item['decision'])}'>{html.escape(item['decision'])}</span></td>"
+              f"<td>${item['expected_value']:,.2f}</td>"
+              f"<td>{item['payment_confidence']:.0f}%</td>"
+              f"<td>{item['competition_score']:.0f}%</td>"
+              f"<td><a href='{html.escape(item['url'], quote=True)}' target='_blank' rel='noopener'>{html.escape(item['title'])}</a></td>"
+              "</tr>"
+              for index, item in enumerate(execution_queue[:12], 1)
+          ) or "<tr><td colspan='6'>No queued opportunities.</td></tr>"
+
+          payment_rows = "".join(
+              "<tr>"
+              f"<td>{html.escape(str(item['title']))}</td>"
+              f"<td>${item['amount']:,.2f}</td>"
+              f"<td>{html.escape(str(item.get('expected_at') or 'Unknown'))}</td>"
+              f"<td>{html.escape(item['bucket'])}</td>"
+              "</tr>"
+              for item in payment_schedule[:20]
+          ) or "<tr><td colspan='4'>No pending payments recorded.</td></tr>"
+
+          def small_win_row(item):
+              hunter = html.escape(item.get("primary_hunter", "Unknown"))
+              decision = html.escape(item.get("decision", "Unknown"))
+              reward = float(item.get("reward", 0) or 0)
+              title = html.escape(item.get("title", "Untitled"))
+              url = html.escape(item.get("url", "#"))
+              claimable = "Yes" if item.get("claimable_now") else "No"
+              payable = "Yes" if item.get("direct_payment_proof") else "No"
+              executable = "Yes" if item.get("atlas_can_execute") else "No"
+              blockers = "; ".join(item.get("risks", [])[:3]) or "None detected"
+              return (
+                  "<tr>"
+                  f"<td>{hunter}</td>"
+                  f"<td><span class='badge review'>{decision}</span></td>"
+                  f"<td>${reward:,.2f}</td>"
+                  f"<td>{claimable}</td>"
+                  f"<td>{payable}</td>"
+                  f"<td>{executable}</td>"
+                  f"<td><a href='{url}'>{title}</a></td>"
+                  f"<td class='small'>{html.escape(blockers)}</td>"
+                  "</tr>"
+              )
+
+          small_rows = "".join(
+              small_win_row(item)
+              for item in small_fast_wins
+          )
+          if not small_rows:
+              small_rows = (
+                  "<tr><td colspan='8'>"
+                  "No verified paid reward of $0.10 or more qualified in this run. "
+                  "The count is explicitly zero; small rewards are not hidden."
+                  "</td></tr>"
+              )
+
+          dashboard = f"""<!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            >
+            <meta
+              http-equiv="refresh"
+              content="{int(config.get('dashboard_refresh_seconds', 900))}"
+            >
+            <title>
+              Atlas + Alex Opportunity Hunter V20
+            </title>
+            <style>
+              :root {{
+                color-scheme: light dark;
+              }}
+
+              body {{
+                font-family:
+                  system-ui,
+                  -apple-system,
+                  BlinkMacSystemFont,
+                  "Segoe UI",
+                  sans-serif;
+                max-width: 1500px;
+                margin: auto;
+                padding: 20px;
+                line-height: 1.45;
+              }}
+
+              .grid {{
+                display: grid;
+                grid-template-columns:
+                  repeat(
+                    auto-fit,
+                    minmax(150px, 1fr)
+                  );
+                gap: 12px;
+                margin: 18px 0;
+              }}
+
+              .card {{
+                border: 1px solid #8885;
+                border-radius: 12px;
+                padding: 14px;
+              }}
+
+              .value {{
+                font-size: 1.7rem;
+                font-weight: 750;
+              }}
+
+              .warning {{
+                background: #fff3cd;
+                color: #3d3300;
+                padding: 14px;
+                border-radius: 10px;
+              }}
+
+              .status {{
+                font-weight: 800;
+              }}
+
+              .table-wrap {{
+                overflow-x: auto;
+              }}
+
+              table {{
+                width: 100%;
+                border-collapse: collapse;
+                min-width: 1150px;
+              }}
+
+              th,
+              td {{
+                border: 1px solid #8885;
+                padding: 9px;
+                text-align: left;
+                vertical-align: top;
+              }}
+
+              th {{
+                position: sticky;
+                top: 0;
+                background: Canvas;
+              }}
+
+              .badge {{
+                display: inline-block;
+                padding: 4px 8px;
+                border-radius: 999px;
+                font-weight: 750;
+              }}
+
+              .pursue {{
+                background: #d1e7dd;
+                color: #0f5132;
+              }}
+
+              .review {{
+                background: #cff4fc;
+                color: #055160;
+              }}
+
+              .watch {{
+                background: #fff3cd;
+                color: #664d03;
+              }}
+
+              .reject {{
+                background: #f8d7da;
+                color: #842029;
+              }}
+
+              .small {{
+                font-size: .85rem;
+                opacity: .78;
+                margin-top: 4px;
+              }}
+
+              a {{
+                overflow-wrap: anywhere;
+              }}
+            </style>
+          </head>
+          <body>
+            <h1>
+              Atlas + Alex Opportunity Hunter V20
+            </h1>
+
+            <p>
+              <strong>Owner:</strong>
+              Mazen Farkouh
+            </p>
+
+            <p>
+              <strong>Last scan:</strong>
+              {html.escape(GENERATED_AT)}
+            </p>
+
+            <p>
+              <strong>System status:</strong>
+              <span class="status">
+                {html.escape(status)}
+              </span>
+            </p>
+
+            <div class="warning">
+              Atlas does not verify that money is
+              funded, guarantee payment, claim work,
+              or submit code. Every candidate
+              requires human verification of
+              funding, eligibility, competition,
+              rules, acceptance criteria, and
+              payment terms before work begins.
+            </div>
+
+            <div class="grid">
+              <div class="card">
+                <div class="value">
+                  {len(raw_issues)}
+                </div>
+                <div>Raw Issues</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {len(initial_candidates)}
+                </div>
+                <div>Eligible Candidates</div>
+              </div>
+
+              <div class="card">
+                <div class="value">{worker_searches_completed['Atlas']}</div>
+                <div>Atlas Searches</div>
+              </div>
+
+              <div class="card">
+                <div class="value">{worker_searches_completed['Alex']}</div>
+                <div>Alex Searches</div>
+              </div>
+
+              <div class="card">
+                <div class="value">{len(worker_fresh_urls['Atlas'])}</div>
+                <div>Atlas Fresh Discoveries</div>
+              </div>
+
+              <div class="card">
+                <div class="value">{len(worker_fresh_urls['Alex'])}</div>
+                <div>Alex Fresh Discoveries</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {len(verified_results)}
+                </div>
+                <div>Deep Verified</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {counts['PURSUE']}
+                </div>
+                <div>Pursue</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {counts['PRIORITY REVIEW']}
+                </div>
+                <div>Priority Review</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {contested_count}
+                </div>
+                <div>Contested</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {assigned_count}
+                </div>
+                <div>Assigned</div>
+              </div>
+
+              <div class="card">
+                <div class="value">
+                  {len(strong_targets)}
+                </div>
+                <div>Strong Uncontested</div>
+              </div>
+            </div>
+
+            <h2>Instant-Payment Rewards — Atlas + Alex</h2>
+            <div class="note">
+              <strong>Important:</strong> Reward is the advertised payment.
+              Expected Value is a risk-adjusted estimate and is not the amount paid.
+              Execution is allowed when either a trusted payout source is detected,
+              or the issue itself clearly states fast payment and a payment method.
+              Anything else remains Watchlist and is not worked.
+            </div>
+
+            <div class="grid">
+              <div class="card"><div class="value">{len(small_fast_wins)}</div><div>Total Verified $0.10–$100</div></div>
+              <div class="card"><div class="value">{len(atlas_small_wins)}</div><div>Atlas Small Rewards</div></div>
+              <div class="card"><div class="value">{len(alex_small_wins)}</div><div>Alex Small Rewards</div></div>
+              <div class="card"><div class="value">{len(ready_small_wins)}</div><div>Fast/Trusted Pay Ready</div></div>
+              <div class="card"><div class="value">{len(trusted_payout_ready)}</div><div>Trusted-Source Ready</div></div>
+              <div class="card"><div class="value">{len(micro_rewards)}</div><div>Actual Rewards $0.10–$4.99</div></div>
+              <div class="card"><div class="value">{small_target_status}</div><div>At Least 2 Fast/Trusted-Pay Ready Per Run</div></div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Hunter</th>
+                    <th>Decision</th>
+                    <th>Reward</th>
+                    <th>Claimable</th>
+                    <th>Payment Proof</th>
+                    <th>Executable</th>
+                    <th>Opportunity</th>
+                    <th>Remaining Blockers</th>
+                  </tr>
+                </thead>
+                <tbody>{small_rows}</tbody>
+              </table>
+            </div>
+
+            <h2>Money</h2>
+            <p><a href="money.html"><strong>Open permanent MONEY MADE window</strong></a></p>
+            <div class="grid">
+              <div class="card"><div class="value">${earnings['today']:,.2f}</div><div>Today</div></div>
+              <div class="card"><div class="value">${earnings['week']:,.2f}</div><div>This Week</div></div>
+              <div class="card"><div class="value">${earnings['month']:,.2f}</div><div>This Month</div></div>
+              <div class="card"><div class="value">${earnings['year']:,.2f}</div><div>This Year</div></div>
+              <div class="card"><div class="value">${earnings['lifetime']:,.2f}</div><div>Lifetime</div></div>
+              <div class="card"><div class="value">${earnings['waiting_total']:,.2f}</div><div>Waiting Total</div></div>
+              <div class="card"><div class="value">${earnings['waiting_today']:,.2f}</div><div>Waiting Today</div></div>
+              <div class="card"><div class="value">${earnings['waiting_later']:,.2f}</div><div>Waiting Later</div></div>
+              <div class="card"><div class="value">${earnings['overdue']:,.2f}</div><div>Overdue</div></div>
+            </div>
+
+            <h2>Year Allocation</h2>
+            <div class="grid">
+              <div class="card"><div class="value">${allocations['tax']:,.2f}</div><div>Tax ({config['tax_percent']}%)</div></div>
+              <div class="card"><div class="value">${allocations['reinvesting']:,.2f}</div><div>Reinvesting ({config['reinvest_percent']}%)</div></div>
+              <div class="card"><div class="value">${allocations['mazen']:,.2f}</div><div>Mazen ({config['mazen_percent']}%)</div></div>
+              <div class="card"><div class="value">{html.escape(str(maintenance.get('health', status)))}</div><div>Dr. Alex Status</div></div>
+            </div>
+
+            <p><a href="reports/latest.html">Open printable report</a> · <a href="reports/latest.csv">Download CSV report</a></p>
+
+            <h2>Execution Queue</h2>
+            <div class="table-wrap"><table><thead><tr><th>#</th><th>Decision</th><th>Expected Value</th><th>Payment Confidence</th><th>Competition Advantage</th><th>Opportunity</th></tr></thead><tbody>{queue_rows}</tbody></table></div>
+
+            <h2>Payment Timing</h2>
+            <div class="table-wrap"><table><thead><tr><th>Payment</th><th>Amount</th><th>Expected</th><th>Timing</th></tr></thead><tbody>{payment_rows}</tbody></table></div>
+
+            <h2>Opportunity History</h2>
+            <div class="grid">
+              <div class="card"><div class="value">{lifecycle_summary['new_this_run']}</div><div>New This Run</div></div>
+              <div class="card"><div class="value">{lifecycle_summary['still_active']}</div><div>Still Active</div></div>
+              <div class="card"><div class="value">{lifecycle_summary['changed']}</div><div>Status Changed</div></div>
+              <div class="card"><div class="value">{lifecycle_summary['not_reverified']}</div><div>Not Reverified This Run</div></div>
+            </div>
+            <p class="small">
+              “Not reverified” does not mean closed. It means the candidate was outside this run’s API-safe verification queue.
+            </p>
+
+            <h2>Meaningful Changes</h2>
+
+            <ul>
+              {change_items}
+            </ul>
+
+            <h2>Top Verified Candidates</h2>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Decision</th>
+                    <th>Score</th>
+                    <th>Reward</th>
+                    <th>Opportunity</th>
+                    <th>Availability</th>
+                    <th>Open PRs</th>
+                    <th>Assignees</th>
+                    <th>Change</th>
+                    <th>First Seen</th>
+                    <th>Last Verified</th>
+                    <th>Main Risks</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {''.join(rows)}
+                </tbody>
+              </table>
+            </div>
+
+            <h2>API Errors</h2>
+
+            <ul>
+              {error_items}
+            </ul>
+
+            <p class="small">
+              V20 runs two independent search universes on every
+              run and keeps a discovery cache so temporary API limits do not erase
+              sources. Up to 30 candidates are deeply verified, with reserved capacity for small rewards from both workers. PURSUE requires
+              payment proof, a confirmed claim path, repository integrity, and a
+              task Atlas can realistically execute. The page refreshes every
+              15 minutes.
+            </p>
+          </body>
+          </html>
+          """
+
+          DASHBOARD_FILE.write_text(
+              dashboard,
+              encoding="utf-8",
+          )
+
+          received_entries = [
+              entry for entry in ledger
+              if str(entry.get("status", "")).strip().lower()
+              in {"received", "paid", "completed", "deposited"}
+          ]
+          last_received = None
+          if received_entries:
+              last_received = max(
+                  received_entries,
+                  key=lambda entry: parse_datetime(
+                      entry.get("received_at")
+                      or entry.get("paid_at")
+                      or entry.get("date")
+                  )
+                  or datetime.min.replace(tzinfo=timezone.utc),
+              )
+
+          last_payment_text = (
+              f"${float(last_received.get('amount', 0) or 0):,.2f}"
+              if last_received
+              else "No verified payment yet"
+          )
+
+          money_window = f"""<!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width,initial-scale=1">
+            <meta http-equiv="refresh" content="{int(config.get('dashboard_refresh_seconds', 900))}">
+            <title>Atlas Money Made</title>
+            <style>
+              :root {{ color-scheme: dark; }}
+              * {{ box-sizing: border-box; }}
+              body {{
+                margin: 0;
+                min-height: 100vh;
+                display: grid;
+                place-items: center;
+                padding: 18px;
+                font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+                background: #080c11;
+                color: #f4f7fb;
+              }}
+              .window {{
+                width: min(820px,100%);
+                padding: 28px;
+                border: 1px solid #303945;
+                border-radius: 24px;
+                background: #111821;
+                box-shadow: 0 22px 70px #0009;
+              }}
+              h1 {{ margin: 0; text-align: center; letter-spacing: .12em; font-size: 1.2rem; }}
+              .hero {{ text-align: center; font-size: clamp(3.4rem,13vw,7rem); font-weight: 850; margin: 24px 0 2px; }}
+              .subtitle {{ text-align: center; opacity: .72; margin-bottom: 26px; }}
+              .grid {{ display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }}
+              .card {{ padding: 17px; border: 1px solid #303945; border-radius: 15px; background: #0b1118; }}
+              .value {{ font-size: 1.65rem; font-weight: 780; }}
+              .name {{ margin-top: 4px; opacity: .7; }}
+              .status {{ margin-top: 18px; padding-top: 16px; border-top: 1px solid #303945; line-height: 1.75; }}
+              .footer {{ margin-top: 18px; text-align: center; opacity: .65; font-size: .88rem; }}
+              a {{ color: inherit; }}
+              @media (max-width:560px) {{ .grid {{ grid-template-columns:1fr; }} .window {{ padding:20px; }} }}
+            </style>
+          </head>
+          <body>
+            <main class="window">
+              <h1>MONEY MADE</h1>
+              <div class="hero">${earnings['lifetime']:,.2f}</div>
+              <div class="subtitle">Verified received earnings only</div>
+
+              <section class="grid">
+                <div class="card"><div class="value">${earnings['today']:,.2f}</div><div class="name">Today</div></div>
+                <div class="card"><div class="value">${earnings['week']:,.2f}</div><div class="name">This week</div></div>
+                <div class="card"><div class="value">${earnings['month']:,.2f}</div><div class="name">This month</div></div>
+                <div class="card"><div class="value">${earnings['waiting_total']:,.2f}</div><div class="name">Pending / waiting</div></div>
+              </section>
+
+              <section class="status">
+                <div><strong>Last payment:</strong> {html.escape(last_payment_text)}</div>
+                <div><strong>Atlas:</strong> {html.escape(status)} — scanning every 15 minutes</div>
+                <div><strong>Alex:</strong> independently searching newest $0.10–$100 tasks, then verifying claimability, payment proof, competition, and execution readiness</div>
+                <div><strong>Pursue:</strong> {counts['PURSUE']} &nbsp; <strong>Priority review:</strong> {counts['PRIORITY REVIEW']}</div>
+                <div><strong>Last updated:</strong> {html.escape(GENERATED_AT)}</div>
+                <div><a href="index.html">Open full Atlas dashboard</a></div>
+              </section>
+
+              <div class="footer">Target schedule: every 15 minutes. Actual completion time is recorded and monitored. Atlas records money only after the ledger marks payment as received.</div>
+            </main>
+          </body>
+          </html>
+          """
+          MONEY_WINDOW_FILE.write_text(money_window, encoding="utf-8")
+
+          report_rows = "".join(
+              f"<tr><td>{i}</td><td>{html.escape(item['decision'])}</td><td>${item['reward']:,.2f}</td><td>${item['expected_value']:,.2f}</td><td>{html.escape(item['title'])}</td></tr>"
+              for i, item in enumerate(execution_queue, 1)
+          )
+          report_html = f"""<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Atlas + Alex V21 Report</title><style>body{{font-family:Arial,sans-serif;margin:28px}}table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #999;padding:8px;text-align:left}}@media print{{button{{display:none}}}}</style></head><body><button onclick='window.print()'>Print</button><h1>Atlas + Alex Opportunity Hunter V20 Report</h1><p>Generated: {html.escape(GENERATED_AT)}</p><p>Status: <strong>{html.escape(status)}</strong></p><h2>Earnings</h2><p>Today ${earnings['today']:,.2f} · Week ${earnings['week']:,.2f} · Month ${earnings['month']:,.2f} · Year ${earnings['year']:,.2f} · Lifetime ${earnings['lifetime']:,.2f}</p><h2>Allocation</h2><p>Tax ${allocations['tax']:,.2f} · Reinvesting ${allocations['reinvesting']:,.2f} · Mazen ${allocations['mazen']:,.2f}</p><h2>Execution Queue</h2><table><thead><tr><th>#</th><th>Decision</th><th>Reward</th><th>Expected Value</th><th>Opportunity</th></tr></thead><tbody>{report_rows}</tbody></table></body></html>"""
+          (REPORTS_DIR / "latest.html").write_text(report_html, encoding="utf-8")
+          csv_lines = ["rank,decision,reward,expected_value,payment_confidence,competition_advantage,title,url"]
+          for i, item in enumerate(execution_queue, 1):
+              def csv_value(value):
+                  return '"' + str(value).replace('"', '""') + '"'
+              csv_lines.append(",".join([
+                  str(i), csv_value(item['decision']), str(item['reward']), str(item['expected_value']),
+                  str(item['payment_confidence']), str(item['competition_score']), csv_value(item['title']), csv_value(item['url'])
+              ]))
+          (REPORTS_DIR / "latest.csv").write_text("\n".join(csv_lines) + "\n", encoding="utf-8")
+          (REPORTS_DIR / "latest.txt").write_text(
+              "Atlas + Alex Opportunity Hunter V20\n" +
+              f"Generated: {GENERATED_AT}\nStatus: {status}\n" +
+              f"Today: ${earnings['today']:,.2f}\nWeek: ${earnings['week']:,.2f}\nMonth: ${earnings['month']:,.2f}\nYear: ${earnings['year']:,.2f}\nLifetime: ${earnings['lifetime']:,.2f}\n",
+              encoding="utf-8",
+          )
+
+          summary_lines = [
+              "# Atlas + Alex Opportunity Hunter V20",
+              "",
+              (
+                  f"- System status: "
+                  f"**{status}**"
+              ),
+              (
+                  f"- Generated: "
+                  f"**{GENERATED_AT}**"
+              ),
+              (
+                  f"- Raw issues found: "
+                  f"**{len(raw_issues)}**"
+              ),
+              (
+                  f"- Eligible paid candidates: "
+                  f"**{len(initial_candidates)}**"
+              ),
+              (
+                  f"- Deep verified: "
+                  f"**{len(verified_results)}**"
+              ),
+              (
+                  f"- Pursue: "
+                  f"**{counts['PURSUE']}**"
+              ),
+              (
+                  f"- Priority review: "
+                  f"**{counts['PRIORITY REVIEW']}**"
+              ),
+              (
+                  f"- Contested: "
+                  f"**{contested_count}**"
+              ),
+              (
+                  f"- Assigned: "
+                  f"**{assigned_count}**"
+              ),
+              (
+                  f"- Strong uncontested targets: "
+                  f"**{len(strong_targets)}**"
+              ),
+              (
+                  f"- Meaningful changes: "
+                  f"**{len(meaningful_changes)}**"
+              ),
+              (
+                  f"- API errors: "
+                  f"**{len(api_errors)}**"
+              ),
+              "",
+              (
+                  "> Manual verification is "
+                  "required before any work begins."
+              ),
+              "",
+              "## Top Candidates",
+          ]
+
+          for item in top_results[:8]:
+              summary_lines.append(
+                  f"- **{item['decision']}** | "
+                  f"Score {item['score']} | "
+                  f"${item['reward']:,.2f} | "
+                  f"{item['title']} | "
+                  f"{item['availability']}"
+              )
+
+          summary_path = os.environ.get(
+              "GITHUB_STEP_SUMMARY"
+          )
+
+          if summary_path:
+              Path(summary_path).write_text(
+                  "\n".join(summary_lines) + "\n",
+                  encoding="utf-8",
+              )
+
+          github_output = os.environ.get(
+              "GITHUB_OUTPUT"
+          )
+
+          if github_output:
+              with open(
+                  github_output,
+                  "a",
+                  encoding="utf-8",
+              ) as output:
+                  output.write(
+                      f"system_status={status}\n"
+                  )
+
+                  output.write(
+                      "pursue_count="
+                      f"{counts['PURSUE']}\n"
+                  )
+
+                  output.write(
+                      "contested_count="
+                      f"{contested_count}\n"
+                  )
+
+                  output.write(
+                      "meaningful_change_count="
+                      f"{len(meaningful_changes)}\n"
+                  )
+
+          print(
+              f"Atlas + Alex V21 status={status}; "
+              f"checked {len(raw_issues)} "
+              "raw issues; "
+              f"found {len(initial_candidates)} "
+              "eligible candidates; "
+              f"deep-verified "
+              f"{len(verified_results)}; "
+              f"pursue={counts['PURSUE']}; "
+              "priority-review="
+              f"{counts['PRIORITY REVIEW']}; "
+              f"contested={contested_count}; "
+              f"assigned={assigned_count}; "
+              "meaningful-changes="
+              f"{len(meaningful_changes)}."
+          )
+
+          if searches_completed == 0:
+              raise SystemExit(
+                  "Atlas + Alex V21 could not complete "
+                  "any GitHub search query."
+              )
+          PY
+
+      - name: Save Atlas + Alex V21 results
+        env:
+          BRANCH_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+
+          git config \
+            user.name \
+            "Atlas Opportunity Hunter"
+
+          git config \
+            user.email \
+            "atlas-bot@users.noreply.github.com"
+
+          git add -A data docs
+          git add -f reports/atlas-v21-gate-diagnostics.md
+
+          if git diff --cached --quiet
+          then
+            echo "No Atlas result changes to save."
+            exit 0
+          fi
+
+          git commit \
+            -m "Atlas + Alex V21 opportunity scan"
+
+          git pull \
+            --rebase \
+            origin \
+            "$BRANCH_NAME"
+
+          git push \
+            origin \
+            "HEAD:$BRANCH_NAME"
+
+  watchdog:
+    if: >-
+      github.event_name == 'schedule' &&
+      github.event.schedule == '12,27,42,57 * * * *'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Recover an overdue main hunt
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          now_epoch="$(date -u +%s)"
+          last_success="$(
+            gh api "repos/${REPOSITORY}/actions/workflows/${GITHUB_WORKFLOW_REF#${REPOSITORY}/}/runs?status=success&per_page=10" \
+              --jq '[.workflow_runs[] | select(.event != "schedule" or .name == "Atlas + Alex V21 — Trusted Payout Sources")][0].updated_at // empty' \
+              2>/dev/null || true
+          )"
+
+          # More reliable fallback: inspect recent successful runs of this workflow ID.
+          workflow_id="${GITHUB_WORKFLOW_REF#${REPOSITORY}/}"
+          workflow_id="${workflow_id%@*}"
+          last_success="$(
+            gh api "repos/${REPOSITORY}/actions/workflows/${workflow_id}/runs?status=success&per_page=20" \
+              --jq '[.workflow_runs[] | select(.run_started_at != null)][0].updated_at // empty' \
+              2>/dev/null || printf '%s' "${last_success}"
+          )"
+
+          dispatch_needed=false
+
+          if [ -z "${last_success}" ]; then
+            echo "No successful main run was found."
+            dispatch_needed=true
+          else
+            last_epoch="$(date -u -d "${last_success}" +%s)"
+            age_minutes="$(( (now_epoch - last_epoch) / 60 ))"
+            echo "Last successful workflow completion: ${last_success}"
+            echo "Age: ${age_minutes} minutes"
+
+            if [ "${age_minutes}" -ge 20 ]; then
+              dispatch_needed=true
+            fi
+          fi
+
+          if [ "${dispatch_needed}" = true ]; then
+            echo "Main hunt is overdue. Sending recovery dispatch."
+            gh api \
+              --method POST \
+              -H "Accept: application/vnd.github+json" \
+              "repos/${REPOSITORY}/dispatches" \
+              -f event_type='atlas-watchdog-recovery'
+          else
+            echo "Main hunt is current. No recovery run is needed."
+          fi
+
