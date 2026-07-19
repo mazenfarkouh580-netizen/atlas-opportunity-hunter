@@ -1,4 +1,4 @@
-name: Atlas Opportunity Hunter V12
+name: Atlas Opportunity Hunter V13
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron: "7,22,37,52 * * * *"
 
 concurrency:
-  group: atlas-opportunity-hunter-v12
+  group: atlas-opportunity-hunter-v13
   cancel-in-progress: false
 
 permissions:
@@ -55,6 +55,7 @@ jobs:
           CURRENT_FILE = DATA_DIR / "opportunities.json"
           HISTORY_FILE = DATA_DIR / "opportunity-history.json"
           CANDIDATE_LIFECYCLE_FILE = DATA_DIR / "candidate-lifecycle.json"
+          SEARCH_STATE_FILE = DATA_DIR / "search-state.json"
           DASHBOARD_FILE = DOCS_DIR / "index.html"
           MONEY_WINDOW_FILE = DOCS_DIR / "money.html"
           CONFIG_FILE = DATA_DIR / "atlas-config.json"
@@ -267,6 +268,7 @@ jobs:
 
           api_errors = []
           api_calls = 0
+          api_rate_limited = False
 
           def load_json_file(path, default):
               try:
@@ -312,12 +314,12 @@ jobs:
               EARNINGS_FILE.write_text("[]\n", encoding="utf-8")
 
           operations = load_json_file(OPERATIONS_FILE, {
-              "version": "V12",
+              "version": "V13",
               "pipeline": [],
               "last_updated": GENERATED_AT,
           })
           if not isinstance(operations, dict):
-              operations = {"version": "V12", "pipeline": [], "last_updated": GENERATED_AT}
+              operations = {"version": "V13", "pipeline": [], "last_updated": GENERATED_AT}
 
           maintenance = load_json_file(MAINTENANCE_FILE, {
               "doctor": "Dr. Alex",
@@ -355,7 +357,13 @@ jobs:
               accept="application/vnd.github+json",
               retries=3,
           ):
-              global api_calls
+              global api_calls, api_rate_limited
+
+              if api_rate_limited:
+                  raise RuntimeError(
+                      "GitHub API rate limit already reached; "
+                      "remaining calls skipped"
+                  )
 
               last_error = None
 
@@ -367,7 +375,7 @@ jobs:
                           "Accept": accept,
                           "X-GitHub-Api-Version": API_VERSION,
                           "User-Agent": (
-                              "Atlas-Opportunity-Hunter-V12"
+                              "Atlas-Opportunity-Hunter-V13"
                           ),
                       },
                   )
@@ -393,12 +401,9 @@ jobs:
                           f"HTTP {error.code}: {body}"
                       )
 
-                      if (
-                          error.code in (403, 429)
-                          and attempt < retries
-                      ):
-                          time.sleep(attempt * 3)
-                          continue
+                      if error.code in (403, 429):
+                          api_rate_limited = True
+                          break
 
                       if (
                           500 <= error.code < 600
@@ -434,12 +439,20 @@ jobs:
                   )
 
               except Exception as error:
-                  api_errors.append(
-                      {
-                          "url": url,
-                          "error": str(error),
-                      }
-                  )
+                  message = str(error)
+                  if not (
+                      "rate limit already reached" in message
+                      and any(
+                          "rate limit" in item.get("error", "").lower()
+                          for item in api_errors
+                      )
+                  ):
+                      api_errors.append(
+                          {
+                              "url": url,
+                              "error": message,
+                          }
+                      )
 
                   return None
 
@@ -502,6 +515,21 @@ jobs:
               )
 
               return repository, number
+
+          def title_repository_mismatch(title, repository):
+              title_repositories = re.findall(
+                  r"\[([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)\]",
+                  title or "",
+              )
+              if not title_repositories:
+                  return False, ""
+
+              actual = (repository or "").lower()
+              for advertised in title_repositories:
+                  if advertised.lower() != actual:
+                      return True, advertised
+
+              return False, ""
 
           def is_aggregator(
               issue,
@@ -947,6 +975,33 @@ jobs:
               human_only_signals = sorted({term for term in HUMAN_ONLY_TERMS if term in lowered})
               approval_authority_signals = sorted({term for term in APPROVAL_AUTHORITY_TERMS if term in lowered})
 
+              repository_mismatch, advertised_repository = (
+                  title_repository_mismatch(
+                      title,
+                      repository,
+                  )
+              )
+
+              direct_payment_proof = bool(
+                  payment_signals
+                  or (
+                      paypal_signals
+                      and fast_payment_signals
+                  )
+                  or any(
+                      platform in lowered
+                      for platform in (
+                          "algora",
+                          "polar bounty",
+                          "issuehunt",
+                          "escrow",
+                          "paid on merge",
+                          "payment upon acceptance",
+                          "pay upon acceptance",
+                      )
+                  )
+              )
+
               score = 0
               reasons = []
               risks = []
@@ -1175,6 +1230,20 @@ jobs:
                   score += 5
                   reasons.append("Acceptance authority or approval trigger is described")
 
+              if repository_mismatch:
+                  score -= 45
+                  risks.append(
+                      "Advertised repository does not match "
+                      "the GitHub issue repository"
+                  )
+
+              if not direct_payment_proof:
+                  score -= 18
+                  risks.append(
+                      "No direct payment proof or funded "
+                      "bounty platform detected"
+                  )
+
               if 5 <= reward <= 50:
                   score += 10
                   reasons.append("Highest-priority first-payment reward band")
@@ -1231,6 +1300,18 @@ jobs:
                       if score >= 50
                       else "REJECT"
                   )
+
+              elif repository_mismatch:
+                  availability = (
+                      "REPOSITORY MISMATCH - MANUAL VERIFY"
+                  )
+                  decision = "WATCHLIST"
+
+              elif not direct_payment_proof:
+                  availability = (
+                      "PAYMENT NOT PROVEN - MANUAL VERIFY"
+                  )
+                  decision = "PRIORITY REVIEW"
 
               elif score >= 62:
                   availability = (
@@ -1347,10 +1428,19 @@ jobs:
                   "fast_payment_signals": fast_payment_signals,
                   "ai_eligibility": ai_eligibility,
                   "approval_authority": approval_authority,
+                  "direct_payment_proof": direct_payment_proof,
+                  "repository_mismatch": repository_mismatch,
+                  "advertised_repository": advertised_repository,
                   "fast_pay_candidate": fast_pay_candidate,
                   "fast_pay_status": fast_pay_status,
-                  "manual_verification_required": not (
-                      fast_pay_candidate and ai_allowed_signals and approval_authority_signals
+                  "manual_verification_required": bool(
+                      repository_mismatch
+                      or not direct_payment_proof
+                      or not (
+                          fast_pay_candidate
+                          and ai_allowed_signals
+                          and approval_authority_signals
+                      )
                   ),
                   "reasons": reasons,
                   "risks": risks,
@@ -1360,7 +1450,38 @@ jobs:
           raw_issues = {}
           searches_completed = 0
 
-          for query in SEARCH_QUERIES:
+          search_state = load_json_file(
+              SEARCH_STATE_FILE,
+              {"offset": 0},
+          )
+          rotating_queries = SEARCH_QUERIES[4:]
+          always_queries = SEARCH_QUERIES[:4]
+          batch_size = 12
+          offset = int(search_state.get("offset", 0) or 0)
+
+          selected_queries = list(always_queries)
+          if rotating_queries:
+              for index in range(
+                  min(batch_size, len(rotating_queries))
+              ):
+                  selected_queries.append(
+                      rotating_queries[
+                          (offset + index)
+                          % len(rotating_queries)
+                      ]
+                  )
+              search_state["offset"] = (
+                  offset + batch_size
+              ) % len(rotating_queries)
+
+          SEARCH_STATE_FILE.write_text(
+              json.dumps(search_state, indent=2),
+              encoding="utf-8",
+          )
+
+          for query in selected_queries:
+              if api_rate_limited:
+                  break
               encoded = urllib.parse.quote(query)
 
               url = (
@@ -1516,7 +1637,7 @@ jobs:
           queued_urls = set()
 
           for url in previous_actionable_urls:
-              if len(verification_queue) >= 24:
+              if len(verification_queue) >= 12:
                   break
               verification_queue.append(issue_by_url[url])
               queued_urls.add(url)
@@ -1527,7 +1648,7 @@ jobs:
                   continue
               verification_queue.append(issue)
               queued_urls.add(url)
-              if len(verification_queue) >= 24:
+              if len(verification_queue) >= 12:
                   break
 
           verified_results = []
@@ -1824,6 +1945,17 @@ jobs:
                       - (22 if item.get("assignees") else 0),
                   ),
               )
+              if not item.get("direct_payment_proof"):
+                  payment_confidence = min(
+                      payment_confidence,
+                      49,
+                  )
+              if item.get("repository_mismatch"):
+                  payment_confidence = min(
+                      payment_confidence,
+                      25,
+                  )
+
               competition_score = max(0, 100 - item.get("open_competing_prs", 0) * 30 - (25 if item.get("assignees") else 0))
               clarity_score = max(0, min(100, 50 + (10 if item.get("acceptance_criteria") else 0) + min(30, len(item.get("evidence", [])) * 5)))
               effort_risk = max(5, min(100, 45 + len(item.get("risks", [])) * 10))
@@ -1860,7 +1992,7 @@ jobs:
           )
           execution_queue = execution_queue[:int(config.get("queue_size", 20))]
 
-          operations["version"] = "V12"
+          operations["version"] = "V13"
           operations["last_updated"] = GENERATED_AT
           operations["pipeline"] = execution_queue
           OPERATIONS_FILE.write_text(json.dumps(operations, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -1916,7 +2048,7 @@ jobs:
           ALERTS_FILE.write_text(json.dumps(alerts, indent=2), encoding="utf-8")
 
           payload = {
-              "version": "V12",
+              "version": "V13",
               "owner": "Mazen Farkouh",
               "generated_at": GENERATED_AT,
               "config": config,
@@ -2153,7 +2285,7 @@ jobs:
               content="{int(config.get('dashboard_refresh_seconds', 900))}"
             >
             <title>
-              Atlas Opportunity Hunter V12
+              Atlas Opportunity Hunter V13
             </title>
             <style>
               :root {{
@@ -2270,7 +2402,7 @@ jobs:
           </head>
           <body>
             <h1>
-              Atlas Opportunity Hunter V12
+              Atlas Opportunity Hunter V13
             </h1>
 
             <p>
@@ -2383,7 +2515,7 @@ jobs:
             <p><a href="reports/latest.html">Open printable report</a> · <a href="reports/latest.csv">Download CSV report</a></p>
 
             <h2>Execution Queue</h2>
-            <div class="table-wrap"><table><thead><tr><th>#</th><th>Decision</th><th>Expected Value</th><th>Payment Confidence</th><th>Competition</th><th>Opportunity</th></tr></thead><tbody>{queue_rows}</tbody></table></div>
+            <div class="table-wrap"><table><thead><tr><th>#</th><th>Decision</th><th>Expected Value</th><th>Payment Confidence</th><th>Competition Advantage</th><th>Opportunity</th></tr></thead><tbody>{queue_rows}</tbody></table></div>
 
             <h2>Payment Timing</h2>
             <div class="table-wrap"><table><thead><tr><th>Payment</th><th>Amount</th><th>Expected</th><th>Timing</th></tr></thead><tbody>{payment_rows}</tbody></table></div>
@@ -2438,10 +2570,11 @@ jobs:
             </ul>
 
             <p class="small">
-              V12 deep-verifies up to 24 candidates per run.
-              Previous PURSUE and PRIORITY REVIEW candidates are rechecked first,
-              reducing GitHub API pressure while preserving continuity.
-              The page refreshes every 15 minutes.
+              V13 rotates 12 discovery searches plus four core searches
+              and deep-verifies up to 12 candidates per run. It stops immediately
+              after a confirmed GitHub rate limit, rejects repository-title
+              mismatches from PURSUE, and requires direct payment proof before
+              automatic pursuit. The page refreshes every 15 minutes.
             </p>
           </body>
           </html>
@@ -2549,9 +2682,9 @@ jobs:
               f"<tr><td>{i}</td><td>{html.escape(item['decision'])}</td><td>${item['reward']:,.2f}</td><td>${item['expected_value']:,.2f}</td><td>{html.escape(item['title'])}</td></tr>"
               for i, item in enumerate(execution_queue, 1)
           )
-          report_html = f"""<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Atlas V12 Report</title><style>body{{font-family:Arial,sans-serif;margin:28px}}table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #999;padding:8px;text-align:left}}@media print{{button{{display:none}}}}</style></head><body><button onclick='window.print()'>Print</button><h1>Atlas Opportunity Hunter V12 Report</h1><p>Generated: {html.escape(GENERATED_AT)}</p><p>Status: <strong>{html.escape(status)}</strong></p><h2>Earnings</h2><p>Today ${earnings['today']:,.2f} · Week ${earnings['week']:,.2f} · Month ${earnings['month']:,.2f} · Year ${earnings['year']:,.2f} · Lifetime ${earnings['lifetime']:,.2f}</p><h2>Allocation</h2><p>Tax ${allocations['tax']:,.2f} · Reinvesting ${allocations['reinvesting']:,.2f} · Mazen ${allocations['mazen']:,.2f}</p><h2>Execution Queue</h2><table><thead><tr><th>#</th><th>Decision</th><th>Reward</th><th>Expected Value</th><th>Opportunity</th></tr></thead><tbody>{report_rows}</tbody></table></body></html>"""
+          report_html = f"""<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Atlas V13 Report</title><style>body{{font-family:Arial,sans-serif;margin:28px}}table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #999;padding:8px;text-align:left}}@media print{{button{{display:none}}}}</style></head><body><button onclick='window.print()'>Print</button><h1>Atlas Opportunity Hunter V13 Report</h1><p>Generated: {html.escape(GENERATED_AT)}</p><p>Status: <strong>{html.escape(status)}</strong></p><h2>Earnings</h2><p>Today ${earnings['today']:,.2f} · Week ${earnings['week']:,.2f} · Month ${earnings['month']:,.2f} · Year ${earnings['year']:,.2f} · Lifetime ${earnings['lifetime']:,.2f}</p><h2>Allocation</h2><p>Tax ${allocations['tax']:,.2f} · Reinvesting ${allocations['reinvesting']:,.2f} · Mazen ${allocations['mazen']:,.2f}</p><h2>Execution Queue</h2><table><thead><tr><th>#</th><th>Decision</th><th>Reward</th><th>Expected Value</th><th>Opportunity</th></tr></thead><tbody>{report_rows}</tbody></table></body></html>"""
           (REPORTS_DIR / "latest.html").write_text(report_html, encoding="utf-8")
-          csv_lines = ["rank,decision,reward,expected_value,payment_confidence,competition_score,title,url"]
+          csv_lines = ["rank,decision,reward,expected_value,payment_confidence,competition_advantage,title,url"]
           for i, item in enumerate(execution_queue, 1):
               def csv_value(value):
                   return '"' + str(value).replace('"', '""') + '"'
@@ -2561,14 +2694,14 @@ jobs:
               ]))
           (REPORTS_DIR / "latest.csv").write_text("\n".join(csv_lines) + "\n", encoding="utf-8")
           (REPORTS_DIR / "latest.txt").write_text(
-              "Atlas Opportunity Hunter V12\n" +
+              "Atlas Opportunity Hunter V13\n" +
               f"Generated: {GENERATED_AT}\nStatus: {status}\n" +
               f"Today: ${earnings['today']:,.2f}\nWeek: ${earnings['week']:,.2f}\nMonth: ${earnings['month']:,.2f}\nYear: ${earnings['year']:,.2f}\nLifetime: ${earnings['lifetime']:,.2f}\n",
               encoding="utf-8",
           )
 
           summary_lines = [
-              "# Atlas Opportunity Hunter V12",
+              "# Atlas Opportunity Hunter V13",
               "",
               (
                   f"- System status: "
@@ -2676,7 +2809,7 @@ jobs:
                   )
 
           print(
-              f"Atlas V12 status={status}; "
+              f"Atlas V13 status={status}; "
               f"checked {len(raw_issues)} "
               "raw issues; "
               f"found {len(initial_candidates)} "
@@ -2694,12 +2827,12 @@ jobs:
 
           if searches_completed == 0:
               raise SystemExit(
-                  "Atlas V12 could not complete "
+                  "Atlas V13 could not complete "
                   "any GitHub search query."
               )
           PY
 
-      - name: Save Atlas V12 results
+      - name: Save Atlas V13 results
         env:
           BRANCH_NAME: ${{ github.ref_name }}
         run: |
@@ -2722,7 +2855,7 @@ jobs:
           fi
 
           git commit \
-            -m "Atlas V12 opportunity scan"
+            -m "Atlas V13 opportunity scan"
 
           git pull \
             --rebase \
