@@ -1,0 +1,10 @@
+{
+  "minimum_reward": 100,
+  "minimum_payment_confidence": 55,
+  "minimum_expected_value": 75,
+  "queue_size": 20,
+  "dashboard_refresh_seconds": 900,
+  "tax_percent": 25,
+  "reinvest_percent": 25,
+  "mazen_percent": 50
+}
