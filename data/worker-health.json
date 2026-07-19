@@ -1,10 +1,10 @@
 {
-  "version": "V21",
-  "last_completed_at": "2026-07-19T12:27:58.104083+00:00",
-  "last_completed_display": "2026-07-19 12:27 UTC",
+  "version": "V23",
+  "last_completed_at": "2026-07-19T13:34:08.526562+00:00",
+  "last_completed_display": "2026-07-19 13:34 UTC",
   "trigger": "workflow_dispatch",
   "status": "DEGRADED",
   "target_interval_minutes": 15,
-  "atlas_role": "full search and verification",
-  "alex_role": "small-reward priority and rapid decision support"
+  "atlas_role": "discover and execute first eligible task",
+  "alex_role": "execute a different eligible task in parallel"
 }

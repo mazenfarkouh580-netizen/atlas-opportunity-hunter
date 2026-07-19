@@ -1,7 +1,7 @@
 {
-  "version": "V21",
+  "version": "V23",
   "owner": "Mazen Farkouh",
-  "generated_at": "2026-07-19 12:27 UTC",
+  "generated_at": "2026-07-19 13:34 UTC",
   "config": {
     "minimum_reward": 100,
     "minimum_payment_confidence": 55,
@@ -10,7 +10,11 @@
     "dashboard_refresh_seconds": 900,
     "tax_percent": 25,
     "reinvest_percent": 25,
-    "mazen_percent": 50
+    "mazen_percent": 50,
+    "automatic_execution": true,
+    "parallel_workers": 2,
+    "maximum_execution_reward": 250,
+    "execution_score_floor": 48
   },
   "earnings": {
     "today": 0.0,
@@ -101,9 +105,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -180,9 +184,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -255,14 +259,93 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
       "effort_risk": 65,
       "expected_value": 4.71
+    },
+    {
+      "title": "[Bounty] [1 USDC autonomous bounty] Seed a useful agent-tooling child bounty",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/483",
+      "repository": "zhangjiayang6835-cyber/bounty-plaza",
+      "issue_number": 483,
+      "author": "zhangjiayang6835-cyber",
+      "reward": 90.0,
+      "reward_priority": "HIGHEST",
+      "score": 74,
+      "decision": "PURSUE",
+      "availability": "EXECUTE NOW - PAYMENT RISK ACCEPTED",
+      "created_at": "2026-07-13T07:33:02Z",
+      "updated_at": "2026-07-13T07:35:54Z",
+      "comments": 0,
+      "labels": [
+        "bounty",
+        "real"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "OWNER/MAINTAINER APPROVAL PATH DESCRIBED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "trusted_repository": false,
+      "payout_program_repository": false,
+      "payout_source": "Unverified",
+      "claimable_now": false,
+      "quick_win_risk_accepted": true,
+      "claimability_signals": [],
+      "atlas_can_execute": true,
+      "atlas_capability_signals": [
+        "automation",
+        "cli"
+      ],
+      "external_execution_blockers": [],
+      "repository_mismatch": false,
+      "advertised_repository": "",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Good stated reward",
+        "Detailed requirements",
+        "Capability match: automation, ci",
+        "No visible comments",
+        "Posted within 7 days",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "Acceptance authority or approval trigger is described",
+        "Task matches Atlas execution capabilities",
+        "Highest-priority first-payment reward band",
+        "No assignee and no competing pull request"
+      ],
+      "risks": [
+        "No direct payment proof or funded bounty platform detected",
+        "Claim path is missing, blocked, or ambiguous"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "NEW",
+      "first_seen": "2026-07-19 10:31 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
+      "payment_confidence": 49,
+      "competition_score": 100,
+      "clarity_score": 50,
+      "effort_risk": 65,
+      "expected_value": 16.96
     },
     {
       "title": "[BOUNTY $50] AGENT: Implement a read tool hook into market platform",
@@ -330,9 +413,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -411,9 +494,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 48.1,
       "competition_score": 100,
       "clarity_score": 50,
@@ -488,9 +571,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 32.5,
       "competition_score": 100,
       "clarity_score": 50,
@@ -562,14 +645,94 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
       "effort_risk": 65,
       "expected_value": 5.65
+    },
+    {
+      "title": "[$25 BOUNTY] [Python] Add complete type hints to build.py functions",
+      "url": "https://github.com/cuentaprueba244w-dotcom/zeroeye/issues/7",
+      "repository": "cuentaprueba244w-dotcom/zeroeye",
+      "issue_number": 7,
+      "author": "cuentaprueba244w-dotcom",
+      "reward": 25.0,
+      "reward_priority": "HIGHEST",
+      "score": 51,
+      "decision": "PURSUE",
+      "availability": "EXECUTE NOW - PAYMENT RISK ACCEPTED",
+      "created_at": "2026-06-18T19:43:49Z",
+      "updated_at": "2026-07-19T08:03:53Z",
+      "comments": 0,
+      "labels": [
+        "bounty",
+        "good first issue",
+        "help wanted",
+        "language:",
+        "python"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "trusted_repository": false,
+      "payout_program_repository": false,
+      "payout_source": "Unverified",
+      "claimable_now": false,
+      "quick_win_risk_accepted": true,
+      "claimability_signals": [],
+      "atlas_can_execute": true,
+      "atlas_capability_signals": [
+        "python"
+      ],
+      "external_execution_blockers": [],
+      "repository_mismatch": false,
+      "advertised_repository": "",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Stated paid reward",
+        "Useful requirements",
+        "Capability match: python",
+        "No visible comments",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "Task matches Atlas execution capabilities",
+        "Highest-priority first-payment reward band",
+        "No assignee and no competing pull request",
+        "Very recent activity"
+      ],
+      "risks": [
+        "No direct payment proof or funded bounty platform detected",
+        "Claim path is missing, blocked, or ambiguous"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "CHANGED: decision, availability",
+      "first_seen": "2026-07-19 09:23 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
+      "payment_confidence": 48.1,
+      "competition_score": 100,
+      "clarity_score": 50,
+      "effort_risk": 65,
+      "expected_value": 4.63
     },
     {
       "title": "[Hacktoberfest] n8n Workflow Node for Policy Checks",
@@ -643,9 +806,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 40.4,
       "competition_score": 100,
       "clarity_score": 50,
@@ -719,9 +882,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 37.8,
       "competition_score": 100,
       "clarity_score": 50,
@@ -799,9 +962,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 46.2,
       "competition_score": 100,
       "clarity_score": 50,
@@ -879,9 +1042,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 42.3,
       "competition_score": 100,
       "clarity_score": 50,
@@ -959,9 +1122,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 40.4,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1039,9 +1202,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 40.4,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1119,9 +1282,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 40.4,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1199,9 +1362,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 40.4,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1279,9 +1442,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 40.4,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1362,9 +1525,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
+      "last_verified": "2026-07-19 13:34 UTC",
       "payment_confidence": 25,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1372,20 +1535,29 @@
       "expected_value": 2.08
     },
     {
-      "title": "We can't convert Smoothie Board to Circuit JSON",
-      "url": "https://github.com/tscircuit/dsn-converter/issues/54",
-      "repository": "tscircuit/dsn-converter",
-      "issue_number": 54,
-      "author": "seveibar",
-      "reward": 70.0,
+      "title": "[ Triage ] Review all open PRs and provide constructive feedback",
+      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/270",
+      "repository": "UnsafeLabs/Bounty-Hunters",
+      "issue_number": 270,
+      "author": "clankerjournalist",
+      "reward": 1.0,
       "reward_priority": "HIGHEST",
-      "score": 14,
+      "score": 40,
       "decision": "PRIORITY REVIEW",
       "availability": "PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED",
-      "created_at": "2024-12-07T14:43:29Z",
-      "updated_at": "2026-07-19T08:39:59Z",
+      "created_at": "2026-05-13T14:41:09Z",
+      "updated_at": "2026-07-13T19:27:41Z",
       "comments": 0,
-      "labels": [],
+      "labels": [
+        "$1",
+        "$9k",
+        "AI Agent friendly",
+        "AI only allowed - no humans",
+        "HIGH PRIORITY",
+        "good first issue",
+        "help wanted",
+        "💎 Bounty"
+      ],
       "assignees": [],
       "open_competing_prs": 0,
       "merged_linked_prs": 0,
@@ -1393,7 +1565,7 @@
       "payment_verification": "UNVERIFIED",
       "paypal_signals": [],
       "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "ai_eligibility": "EXPLICITLY ALLOWED",
       "approval_authority": "NOT VERIFIED",
       "direct_payment_proof": false,
       "instant_payment_verified": false,
@@ -1402,7 +1574,7 @@
       "trusted_platform": null,
       "trusted_repository": false,
       "payout_program_repository": true,
-      "payout_source": "Payout program repository: tscircuit/dsn-converter",
+      "payout_source": "Payout program repository: unsafelabs/bounty-hunters",
       "claimable_now": false,
       "quick_win_risk_accepted": false,
       "claimability_signals": [],
@@ -1415,18 +1587,17 @@
       "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
       "manual_verification_required": true,
       "reasons": [
-        "Good stated reward",
-        "Useful requirements",
-        "Capability match: ci, test, tests",
+        "Stated paid reward",
+        "Detailed requirements",
+        "Capability match: ai agent, ci, claude, fix, openai, prompt",
         "No visible comments",
         "Recently updated",
-        "Review path appears usable",
+        "Explicit acceptance criteria",
+        "AI/automation participation appears allowed",
         "Highest-priority first-payment reward band",
-        "No assignee and no competing pull request",
-        "Very recent activity"
+        "No assignee and no competing pull request"
       ],
       "risks": [
-        "Issue may be stale",
         "No direct payment proof or funded bounty platform detected",
         "Claim path is missing, blocked, or ambiguous",
         "Task is not clearly executable by Atlas"
@@ -1437,417 +1608,302 @@
       "primary_hunter": "Atlas",
       "change": "NEW",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
-      "payment_confidence": 24.1,
+      "last_verified": "2026-07-19 13:34 UTC",
+      "payment_confidence": 41.0,
       "competition_score": 100,
       "clarity_score": 50,
-      "effort_risk": 85,
-      "expected_value": 4.96
-    },
-    {
-      "title": "[Bounty] La función suma() resta en vez de sumar",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/527",
-      "repository": "zhangjiayang6835-cyber/bounty-plaza",
-      "issue_number": 527,
-      "author": "zhangjiayang6835-cyber",
-      "reward": 50.0,
-      "reward_priority": "HIGHEST",
-      "score": 26,
-      "decision": "WATCHLIST",
-      "availability": "TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE",
-      "created_at": "2026-07-19T07:13:43Z",
-      "updated_at": "2026-07-19T11:57:08Z",
-      "comments": 0,
-      "labels": [
-        "bounty",
-        "real"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "trusted_repository": false,
-      "payout_program_repository": false,
-      "payout_source": "Unverified",
-      "claimable_now": false,
-      "quick_win_risk_accepted": false,
-      "claimability_signals": [],
-      "atlas_can_execute": false,
-      "atlas_capability_signals": [],
-      "external_execution_blockers": [],
-      "repository_mismatch": false,
-      "advertised_repository": "",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Good stated reward",
-        "Basic requirements",
-        "Capability match: ci",
-        "No visible comments",
-        "Posted within 24 hours",
-        "Recently updated",
-        "Highest-priority first-payment reward band",
-        "No assignee and no competing pull request",
-        "Very recent activity"
-      ],
-      "risks": [
-        "Acceptance path requires manual confirmation",
-        "No direct payment proof or funded bounty platform detected",
-        "Claim path is missing, blocked, or ambiguous",
-        "Task is not clearly executable by Atlas"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "NEW",
-      "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
-      "payment_confidence": 31.9,
-      "competition_score": 100,
-      "clarity_score": 50,
-      "effort_risk": 85,
-      "expected_value": 4.69
-    },
-    {
-      "title": "[$25 BOUNTY] [Python] Add complete type hints to build.py functions",
-      "url": "https://github.com/cuentaprueba244w-dotcom/zeroeye/issues/7",
-      "repository": "cuentaprueba244w-dotcom/zeroeye",
-      "issue_number": 7,
-      "author": "cuentaprueba244w-dotcom",
-      "reward": 25.0,
-      "reward_priority": "HIGHEST",
-      "score": 51,
-      "decision": "WATCHLIST",
-      "availability": "TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE",
-      "created_at": "2026-06-18T19:43:49Z",
-      "updated_at": "2026-07-19T08:03:53Z",
-      "comments": 0,
-      "labels": [
-        "bounty",
-        "good first issue",
-        "help wanted",
-        "language:",
-        "python"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "trusted_repository": false,
-      "payout_program_repository": false,
-      "payout_source": "Unverified",
-      "claimable_now": false,
-      "quick_win_risk_accepted": false,
-      "claimability_signals": [],
-      "atlas_can_execute": true,
-      "atlas_capability_signals": [
-        "python"
-      ],
-      "external_execution_blockers": [],
-      "repository_mismatch": false,
-      "advertised_repository": "",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Stated paid reward",
-        "Useful requirements",
-        "Capability match: python",
-        "No visible comments",
-        "Recently updated",
-        "Explicit acceptance criteria",
-        "Task matches Atlas execution capabilities",
-        "Highest-priority first-payment reward band",
-        "No assignee and no competing pull request",
-        "Very recent activity"
-      ],
-      "risks": [
-        "No direct payment proof or funded bounty platform detected",
-        "Claim path is missing, blocked, or ambiguous"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "NEW",
-      "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC",
-      "payment_confidence": 48.1,
-      "competition_score": 100,
-      "clarity_score": 50,
-      "effort_risk": 65,
-      "expected_value": 4.63
+      "effort_risk": 75,
+      "expected_value": 0.14
     }
   ],
   "alerts": [
     {
       "level": "HIGH",
-      "message": "8 pursue candidate(s) found",
-      "generated_at": "2026-07-19 12:27 UTC"
+      "message": "10 pursue candidate(s) found",
+      "generated_at": "2026-07-19 13:34 UTC"
     },
     {
       "level": "WARNING",
       "message": "Atlas health is DEGRADED: 1 API error(s)",
-      "generated_at": "2026-07-19 12:27 UTC"
+      "generated_at": "2026-07-19 13:34 UTC"
     }
   ],
   "system_status": "DEGRADED",
-  "manual_verification_required": true,
-  "automation_boundary": "Atlas discovers, scores, and monitors opportunities. It does not claim work, submit code, or guarantee payment.",
+  "manual_verification_required": false,
+  "automatic_execution": true,
+  "selected_executions": [
+    {
+      "worker": "Atlas",
+      "repository": "claude-builders-bounty/claude-builders-bounty",
+      "issue_number": 3,
+      "issue_url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3",
+      "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
+      "reward": 100.0,
+      "score": 68.0,
+      "payment_verification": "SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO",
+      "status": "DISPATCHED",
+      "reserved_at": "2026-07-19T13:34:08.526562+00:00"
+    },
+    {
+      "worker": "Alex",
+      "repository": "zhangjiayang6835-cyber/bounty-plaza",
+      "issue_number": 483,
+      "issue_url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/483",
+      "title": "[Bounty] [1 USDC autonomous bounty] Seed a useful agent-tooling child bounty",
+      "reward": 90.0,
+      "score": 74.0,
+      "payment_verification": "SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO",
+      "status": "DISPATCHED",
+      "reserved_at": "2026-07-19T13:34:08.526562+00:00"
+    }
+  ],
+  "automation_boundary": "Atlas and Alex automatically dispatch up to two simple, uncontested tasks. Submission still depends on configured GitHub and AI credentials; payment remains controlled by maintainers.",
   "searches_completed": 30,
   "api_calls": 31,
   "api_errors": [
     {
       "url": "https://api.github.com/search/issues?q=is%3Aissue%20is%3Aopen%20%22%2440%22%20in%3Atitle%2Cbody&sort=updated&order=desc&per_page=100",
-      "error": "HTTP 403: {\n\t\"message\": \"API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID FC01:19DC37:37F4BDF:392AB0C:6A5CC2F7 and timestamp 2026-07-19 12:28:39 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se"
+      "error": "HTTP 403: {\n\t\"message\": \"API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 7420:1510A1:3D174A7:3E5FD55:6A5CD27A and timestamp 2026-07-19 13:34:50 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se"
     }
   ],
-  "raw_issues_found": 3797,
-  "aggregator_pages_rejected": 1382,
-  "unsafe_items_rejected": 106,
-  "items_without_extractable_reward_rejected": 2254,
+  "raw_issues_found": 4193,
+  "aggregator_pages_rejected": 1525,
+  "unsafe_items_rejected": 107,
+  "items_without_extractable_reward_rejected": 2506,
   "eligible_candidates_found": 55,
   "deep_verified_candidates": 30,
   "counts": {
-    "PURSUE": 8,
-    "PRIORITY REVIEW": 12,
-    "WATCHLIST": 10,
+    "PURSUE": 10,
+    "PRIORITY REVIEW": 14,
+    "WATCHLIST": 6,
     "REJECT": 0
   },
   "contested_count": 0,
   "assigned_count": 0,
-  "strong_uncontested_targets": 8,
+  "strong_uncontested_targets": 10,
   "meaningful_changes": [
     {
       "type": "NEW",
-      "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
-      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "title": "[Bounty] [1 USDC autonomous bounty] Seed a useful agent-tooling child bounty",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/483",
       "decision": "PURSUE"
     },
     {
       "type": "NEW",
-      "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
-      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3",
-      "decision": "PURSUE"
+      "title": "[BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly dev summary",
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5",
+      "decision": "PRIORITY REVIEW"
     },
     {
-      "type": "NEW",
-      "title": "[BOUNTY $25] AGENT: Create a `CLAUDE.md` at the repo root.",
-      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2855",
-      "decision": "PURSUE"
-    },
-    {
-      "type": "NEW",
-      "title": "[BOUNTY $50] AGENT: Implement a read tool hook into market platform",
-      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2853",
-      "decision": "PURSUE"
-    },
-    {
-      "type": "NEW",
-      "title": "[BOUNTY $30] WORKFLOW: OpenClaw or Hermes integration",
-      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2882",
-      "decision": "PURSUE"
-    },
-    {
-      "type": "NEW",
-      "title": "[Hacktoberfest] Create a Custom n8n Node for APort Verification",
-      "url": "https://github.com/aporthq/aport-integrations/issues/4",
-      "decision": "PURSUE"
-    },
-    {
-      "type": "NEW",
+      "type": "CHANGED",
       "title": "[$25 BOUNTY] [Python] Add complete type hints to build.py functions",
       "url": "https://github.com/cuentaprueba244w-dotcom/zeroeye/issues/7",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Laravel ] Fix phpunit.xml coverage config and add route and model test suites",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/794",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Brainfuck ] Implement a program that prints the first 20 prime numbers",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/652",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[Bounty] [weilixiong/TentOfTrials] [$25 BOUNTY] [Python] Add independent log parser fixtu",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/494",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Laravel ] Fix logging config to separate error logs and add JSON structured logging",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/787",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Brainfuck ] Implement FizzBuzz that prints numbers 1 to 100 with correct FizzBuzz substitutions",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/651",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Brainfuck ] Implement ROT13 cipher that reads input and prints ROT13-encoded output",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/653",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Brainfuck ] Implement a program that converts decimal input to binary output",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/655",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Brainfuck ] Implement a program that sorts an input string alphabetically",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/654",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[Hacktoberfest] n8n Workflow Node for Policy Checks",
-      "url": "https://github.com/aporthq/aport-integrations/issues/31",
+      "fields": [
+        "decision",
+        "availability"
+      ],
       "decision": "PURSUE"
     },
     {
       "type": "NEW",
-      "title": "[BOUNTY $75] TEMPLATE: CLAUDE.md for a Next.js + SQLite SaaS project",
-      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2",
+      "title": "[ Triage ] Review all open PRs and provide constructive feedback",
+      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/270",
       "decision": "PRIORITY REVIEW"
     },
     {
       "type": "NEW",
-      "title": "Add `is_extended_promotional ` column to components (from data source)",
-      "url": "https://github.com/tscircuit/jlcsearch/issues/92",
-      "decision": "PURSUE"
+      "title": "[Bounty] [claude-builders-bounty/claude-builders-bounty] [BOUNTY $200] WORKFLOW: n8n + Cl",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/484",
+      "decision": "WATCHLIST"
     },
     {
       "type": "NEW",
+      "title": "[claude-builders-bounty/claude-builders-bounty] [BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly",
+      "url": "https://github.com/Vikingr2023/awesome-agent-bounties/issues/225",
+      "decision": "WATCHLIST"
+    },
+    {
+      "type": "CHANGED",
       "title": "[Bounty] La función suma() resta en vez de sumar",
       "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/527",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "CHANGED",
-      "title": "[Bounty] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-gen",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/479",
       "fields": [
-        "decision",
         "availability"
       ],
       "decision": "WATCHLIST"
     },
     {
       "type": "CHANGED",
-      "title": "[Vikingr2023/awesome-agent-bounties] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collec",
-      "url": "https://github.com/Vikingr2023/awesome-agent-bounties/issues/76",
-      "fields": [
-        "decision",
-        "availability"
-      ],
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "CHANGED",
-      "title": "[aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-generated",
-      "url": "https://github.com/Vikingr2023/awesome-agent-bounties/issues/167",
-      "fields": [
-        "decision",
-        "availability"
-      ],
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "CHANGED",
-      "title": "[aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-generated",
-      "url": "https://github.com/Vikingr2023/awesome-agent-bounties/issues/52",
-      "fields": [
-        "decision",
-        "availability"
-      ],
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "CHANGED",
-      "title": "[Bounty] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-gen",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/477",
-      "fields": [
-        "decision",
-        "availability"
-      ],
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "We can't convert Smoothie Board to Circuit JSON",
-      "url": "https://github.com/tscircuit/dsn-converter/issues/54",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
       "title": "La función suma() resta en vez de sumar",
       "url": "https://github.com/demetriodiazdeleon-pixel/morriganprueba/issues/1",
+      "fields": [
+        "availability"
+      ],
       "decision": "WATCHLIST"
     },
     {
-      "type": "NEW",
+      "type": "CHANGED",
       "title": "Crafting a Comprehensive Tutorial for Vectara Chat",
       "url": "https://github.com/lablab-ai/community-content/issues/462",
+      "fields": [
+        "availability"
+      ],
       "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "Merge same-net trace lines that are close together (make at the same Y or same X)",
-      "url": "https://github.com/tscircuit/schematic-trace-solver/issues/34",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "Create download endpoint `/files/download?...` as well as `/files/download/[[file_path]]`",
-      "url": "https://github.com/tscircuit/file-server/issues/5",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "Implement PDIP-8",
-      "url": "https://github.com/tscircuit/footprinter/issues/371",
-      "decision": "PRIORITY REVIEW"
     }
   ],
   "lifecycle_summary": {
     "new_this_run": 0,
-    "still_active": 25,
-    "changed": 5,
-    "not_reverified": 20
+    "still_active": 26,
+    "changed": 4,
+    "not_reverified": 5
   },
   "top_results": [
+    {
+      "title": "[Bounty] [1 USDC autonomous bounty] Seed a useful agent-tooling child bounty",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/483",
+      "repository": "zhangjiayang6835-cyber/bounty-plaza",
+      "issue_number": 483,
+      "author": "zhangjiayang6835-cyber",
+      "reward": 90.0,
+      "reward_priority": "HIGHEST",
+      "score": 74,
+      "decision": "PURSUE",
+      "availability": "EXECUTE NOW - PAYMENT RISK ACCEPTED",
+      "created_at": "2026-07-13T07:33:02Z",
+      "updated_at": "2026-07-13T07:35:54Z",
+      "comments": 0,
+      "labels": [
+        "bounty",
+        "real"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "OWNER/MAINTAINER APPROVAL PATH DESCRIBED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "trusted_repository": false,
+      "payout_program_repository": false,
+      "payout_source": "Unverified",
+      "claimable_now": false,
+      "quick_win_risk_accepted": true,
+      "claimability_signals": [],
+      "atlas_can_execute": true,
+      "atlas_capability_signals": [
+        "automation",
+        "cli"
+      ],
+      "external_execution_blockers": [],
+      "repository_mismatch": false,
+      "advertised_repository": "",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Good stated reward",
+        "Detailed requirements",
+        "Capability match: automation, ci",
+        "No visible comments",
+        "Posted within 7 days",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "Acceptance authority or approval trigger is described",
+        "Task matches Atlas execution capabilities",
+        "Highest-priority first-payment reward band",
+        "No assignee and no competing pull request"
+      ],
+      "risks": [
+        "No direct payment proof or funded bounty platform detected",
+        "Claim path is missing, blocked, or ambiguous"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "NEW",
+      "first_seen": "2026-07-19 10:31 UTC",
+      "last_verified": "2026-07-19 13:34 UTC"
+    },
+    {
+      "title": "[BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly dev summary",
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5",
+      "repository": "claude-builders-bounty/claude-builders-bounty",
+      "issue_number": 5,
+      "author": "claudebounty",
+      "reward": 200.0,
+      "reward_priority": "PRIORITY",
+      "score": 72,
+      "decision": "PRIORITY REVIEW",
+      "availability": "PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED",
+      "created_at": "2026-03-27T00:55:44Z",
+      "updated_at": "2026-07-19T08:07:22Z",
+      "comments": 0,
+      "labels": [
+        "bounty",
+        "workflow"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "EXPLICITLY ALLOWED",
+      "approval_authority": "NOT VERIFIED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "trusted_repository": false,
+      "payout_program_repository": true,
+      "payout_source": "Payout program repository: claude-builders-bounty/claude-builders-bounty",
+      "claimable_now": false,
+      "quick_win_risk_accepted": false,
+      "claimability_signals": [],
+      "atlas_can_execute": true,
+      "atlas_capability_signals": [
+        "api"
+      ],
+      "external_execution_blockers": [],
+      "repository_mismatch": false,
+      "advertised_repository": "",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Strong stated reward",
+        "Useful requirements",
+        "Capability match: claude, docs, n8n, test, workflow",
+        "No visible comments",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "AI/automation participation appears allowed",
+        "Task matches Atlas execution capabilities",
+        "Priority reward band",
+        "No assignee and no competing pull request",
+        "Very recent activity"
+      ],
+      "risks": [
+        "No direct payment proof or funded bounty platform detected",
+        "Claim path is missing, blocked, or ambiguous"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "NEW",
+      "first_seen": "2026-07-19 10:31 UTC",
+      "last_verified": "2026-07-19 13:34 UTC"
+    },
     {
       "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
       "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
@@ -1918,9 +1974,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
@@ -1992,9 +2048,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[BOUNTY $25] AGENT: Create a `CLAUDE.md` at the repo root.",
@@ -2062,9 +2118,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[BOUNTY $50] AGENT: Implement a read tool hook into market platform",
@@ -2132,9 +2188,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[BOUNTY $30] WORKFLOW: OpenClaw or Hermes integration",
@@ -2201,9 +2257,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[Hacktoberfest] Create a Custom n8n Node for APort Verification",
@@ -2277,9 +2333,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[$25 BOUNTY] [Python] Add complete type hints to build.py functions",
@@ -2290,8 +2346,8 @@
       "reward": 25.0,
       "reward_priority": "HIGHEST",
       "score": 51,
-      "decision": "WATCHLIST",
-      "availability": "TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE",
+      "decision": "PURSUE",
+      "availability": "EXECUTE NOW - PAYMENT RISK ACCEPTED",
       "created_at": "2026-06-18T19:43:49Z",
       "updated_at": "2026-07-19T08:03:53Z",
       "comments": 0,
@@ -2306,7 +2362,7 @@
       "open_competing_prs": 0,
       "merged_linked_prs": 0,
       "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
+      "payment_verification": "SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO",
       "paypal_signals": [],
       "fast_payment_signals": [],
       "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
@@ -2320,7 +2376,7 @@
       "payout_program_repository": false,
       "payout_source": "Unverified",
       "claimable_now": false,
-      "quick_win_risk_accepted": false,
+      "quick_win_risk_accepted": true,
       "claimability_signals": [],
       "atlas_can_execute": true,
       "atlas_capability_signals": [
@@ -2352,9 +2408,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "CHANGED: decision, availability",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[ Laravel ] Fix phpunit.xml coverage config and add route and model test suites",
@@ -2427,9 +2483,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[ Brainfuck ] Implement a program that prints the first 20 prime numbers",
@@ -2502,9 +2558,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[Bounty] [weilixiong/TentOfTrials] [$25 BOUNTY] [Python] Add independent log parser fixtu",
@@ -2580,163 +2636,160 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
-    },
-    {
-      "title": "[ Laravel ] Fix logging config to separate error logs and add JSON structured logging",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/787",
-      "repository": "UnsafeLabs/Bounty-Hunters",
-      "issue_number": 787,
-      "author": "clankerjournalist",
-      "reward": 20.0,
-      "reward_priority": "HIGHEST",
-      "score": 39,
-      "decision": "PRIORITY REVIEW",
-      "availability": "PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED",
-      "created_at": "2026-05-15T07:08:05Z",
-      "updated_at": "2026-07-18T00:18:28Z",
-      "comments": 0,
-      "labels": [
-        "$20",
-        "AI Agent friendly",
-        "AI only allowed - no humans",
-        "good first issue",
-        "help wanted",
-        "💎 Bounty"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "EXPLICITLY ALLOWED",
-      "approval_authority": "NOT VERIFIED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "trusted_repository": false,
-      "payout_program_repository": true,
-      "payout_source": "Payout program repository: unsafelabs/bounty-hunters",
-      "claimable_now": false,
-      "quick_win_risk_accepted": false,
-      "claimability_signals": [],
-      "atlas_can_execute": false,
-      "atlas_capability_signals": [],
-      "external_execution_blockers": [],
-      "repository_mismatch": false,
-      "advertised_repository": "",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Stated paid reward",
-        "Detailed requirements",
-        "Capability match: ai agent, bug, fix, rag",
-        "No visible comments",
-        "Recently updated",
-        "Explicit acceptance criteria",
-        "AI/automation participation appears allowed",
-        "Highest-priority first-payment reward band",
-        "No assignee and no competing pull request",
-        "Very recent activity"
-      ],
-      "risks": [
-        "No direct payment proof or funded bounty platform detected",
-        "Claim path is missing, blocked, or ambiguous",
-        "Task is not clearly executable by Atlas"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "NEW",
-      "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
-    },
-    {
-      "title": "[ Brainfuck ] Implement FizzBuzz that prints numbers 1 to 100 with correct FizzBuzz substitutions",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/651",
-      "repository": "UnsafeLabs/Bounty-Hunters",
-      "issue_number": 651,
-      "author": "clankerjournalist",
-      "reward": 20.0,
-      "reward_priority": "HIGHEST",
-      "score": 39,
-      "decision": "PRIORITY REVIEW",
-      "availability": "PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED",
-      "created_at": "2026-05-14T20:36:10Z",
-      "updated_at": "2026-07-18T00:02:42Z",
-      "comments": 0,
-      "labels": [
-        "$20",
-        "AI Agent friendly",
-        "AI only allowed - no humans",
-        "good first issue",
-        "help wanted",
-        "💎 Bounty"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "EXPLICITLY ALLOWED",
-      "approval_authority": "NOT VERIFIED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "trusted_repository": false,
-      "payout_program_repository": true,
-      "payout_source": "Payout program repository: unsafelabs/bounty-hunters",
-      "claimable_now": false,
-      "quick_win_risk_accepted": false,
-      "claimability_signals": [],
-      "atlas_can_execute": false,
-      "atlas_capability_signals": [],
-      "external_execution_blockers": [],
-      "repository_mismatch": false,
-      "advertised_repository": "",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Stated paid reward",
-        "Detailed requirements",
-        "Capability match: ai agent, ci, claude, openai",
-        "No visible comments",
-        "Recently updated",
-        "Explicit acceptance criteria",
-        "AI/automation participation appears allowed",
-        "Highest-priority first-payment reward band",
-        "No assignee and no competing pull request",
-        "Very recent activity"
-      ],
-      "risks": [
-        "No direct payment proof or funded bounty platform detected",
-        "Claim path is missing, blocked, or ambiguous",
-        "Task is not clearly executable by Atlas"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "NEW",
-      "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     }
   ],
   "all_verified_results": [
     {
+      "title": "[Bounty] [1 USDC autonomous bounty] Seed a useful agent-tooling child bounty",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/483",
+      "repository": "zhangjiayang6835-cyber/bounty-plaza",
+      "issue_number": 483,
+      "author": "zhangjiayang6835-cyber",
+      "reward": 90.0,
+      "reward_priority": "HIGHEST",
+      "score": 74,
+      "decision": "PURSUE",
+      "availability": "EXECUTE NOW - PAYMENT RISK ACCEPTED",
+      "created_at": "2026-07-13T07:33:02Z",
+      "updated_at": "2026-07-13T07:35:54Z",
+      "comments": 0,
+      "labels": [
+        "bounty",
+        "real"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "OWNER/MAINTAINER APPROVAL PATH DESCRIBED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "trusted_repository": false,
+      "payout_program_repository": false,
+      "payout_source": "Unverified",
+      "claimable_now": false,
+      "quick_win_risk_accepted": true,
+      "claimability_signals": [],
+      "atlas_can_execute": true,
+      "atlas_capability_signals": [
+        "automation",
+        "cli"
+      ],
+      "external_execution_blockers": [],
+      "repository_mismatch": false,
+      "advertised_repository": "",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Good stated reward",
+        "Detailed requirements",
+        "Capability match: automation, ci",
+        "No visible comments",
+        "Posted within 7 days",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "Acceptance authority or approval trigger is described",
+        "Task matches Atlas execution capabilities",
+        "Highest-priority first-payment reward band",
+        "No assignee and no competing pull request"
+      ],
+      "risks": [
+        "No direct payment proof or funded bounty platform detected",
+        "Claim path is missing, blocked, or ambiguous"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "NEW",
+      "first_seen": "2026-07-19 10:31 UTC",
+      "last_verified": "2026-07-19 13:34 UTC"
+    },
+    {
+      "title": "[BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly dev summary",
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5",
+      "repository": "claude-builders-bounty/claude-builders-bounty",
+      "issue_number": 5,
+      "author": "claudebounty",
+      "reward": 200.0,
+      "reward_priority": "PRIORITY",
+      "score": 72,
+      "decision": "PRIORITY REVIEW",
+      "availability": "PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED",
+      "created_at": "2026-03-27T00:55:44Z",
+      "updated_at": "2026-07-19T08:07:22Z",
+      "comments": 0,
+      "labels": [
+        "bounty",
+        "workflow"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "EXPLICITLY ALLOWED",
+      "approval_authority": "NOT VERIFIED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "trusted_repository": false,
+      "payout_program_repository": true,
+      "payout_source": "Payout program repository: claude-builders-bounty/claude-builders-bounty",
+      "claimable_now": false,
+      "quick_win_risk_accepted": false,
+      "claimability_signals": [],
+      "atlas_can_execute": true,
+      "atlas_capability_signals": [
+        "api"
+      ],
+      "external_execution_blockers": [],
+      "repository_mismatch": false,
+      "advertised_repository": "",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Strong stated reward",
+        "Useful requirements",
+        "Capability match: claude, docs, n8n, test, workflow",
+        "No visible comments",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "AI/automation participation appears allowed",
+        "Task matches Atlas execution capabilities",
+        "Priority reward band",
+        "No assignee and no competing pull request",
+        "Very recent activity"
+      ],
+      "risks": [
+        "No direct payment proof or funded bounty platform detected",
+        "Claim path is missing, blocked, or ambiguous"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "NEW",
+      "first_seen": "2026-07-19 10:31 UTC",
+      "last_verified": "2026-07-19 13:34 UTC"
+    },
+    {
       "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
       "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
       "repository": "claude-builders-bounty/claude-builders-bounty",
@@ -2806,9 +2859,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
@@ -2880,9 +2933,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[BOUNTY $25] AGENT: Create a `CLAUDE.md` at the repo root.",
@@ -2950,9 +3003,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[BOUNTY $50] AGENT: Implement a read tool hook into market platform",
@@ -3020,9 +3073,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[BOUNTY $30] WORKFLOW: OpenClaw or Hermes integration",
@@ -3089,9 +3142,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[Hacktoberfest] Create a Custom n8n Node for APort Verification",
@@ -3165,9 +3218,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[$25 BOUNTY] [Python] Add complete type hints to build.py functions",
@@ -3178,8 +3231,8 @@
       "reward": 25.0,
       "reward_priority": "HIGHEST",
       "score": 51,
-      "decision": "WATCHLIST",
-      "availability": "TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE",
+      "decision": "PURSUE",
+      "availability": "EXECUTE NOW - PAYMENT RISK ACCEPTED",
       "created_at": "2026-06-18T19:43:49Z",
       "updated_at": "2026-07-19T08:03:53Z",
       "comments": 0,
@@ -3194,7 +3247,7 @@
       "open_competing_prs": 0,
       "merged_linked_prs": 0,
       "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
+      "payment_verification": "SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO",
       "paypal_signals": [],
       "fast_payment_signals": [],
       "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
@@ -3208,7 +3261,7 @@
       "payout_program_repository": false,
       "payout_source": "Unverified",
       "claimable_now": false,
-      "quick_win_risk_accepted": false,
+      "quick_win_risk_accepted": true,
       "claimability_signals": [],
       "atlas_can_execute": true,
       "atlas_capability_signals": [
@@ -3240,9 +3293,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "CHANGED: decision, availability",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[ Laravel ] Fix phpunit.xml coverage config and add route and model test suites",
@@ -3315,9 +3368,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[ Brainfuck ] Implement a program that prints the first 20 prime numbers",
@@ -3390,9 +3443,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[Bounty] [weilixiong/TentOfTrials] [$25 BOUNTY] [Python] Add independent log parser fixtu",
@@ -3468,9 +3521,235 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
+    },
+    {
+      "title": "[ Triage ] Review all open PRs and provide constructive feedback",
+      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/270",
+      "repository": "UnsafeLabs/Bounty-Hunters",
+      "issue_number": 270,
+      "author": "clankerjournalist",
+      "reward": 1.0,
+      "reward_priority": "HIGHEST",
+      "score": 40,
+      "decision": "PRIORITY REVIEW",
+      "availability": "PAYOUT PROGRAM FOUND - FINAL PAYMENT TERMS CHECK REQUIRED",
+      "created_at": "2026-05-13T14:41:09Z",
+      "updated_at": "2026-07-13T19:27:41Z",
+      "comments": 0,
+      "labels": [
+        "$1",
+        "$9k",
+        "AI Agent friendly",
+        "AI only allowed - no humans",
+        "HIGH PRIORITY",
+        "good first issue",
+        "help wanted",
+        "💎 Bounty"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "EXPLICITLY ALLOWED",
+      "approval_authority": "NOT VERIFIED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "trusted_repository": false,
+      "payout_program_repository": true,
+      "payout_source": "Payout program repository: unsafelabs/bounty-hunters",
+      "claimable_now": false,
+      "quick_win_risk_accepted": false,
+      "claimability_signals": [],
+      "atlas_can_execute": false,
+      "atlas_capability_signals": [],
+      "external_execution_blockers": [],
+      "repository_mismatch": false,
+      "advertised_repository": "",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Stated paid reward",
+        "Detailed requirements",
+        "Capability match: ai agent, ci, claude, fix, openai, prompt",
+        "No visible comments",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "AI/automation participation appears allowed",
+        "Highest-priority first-payment reward band",
+        "No assignee and no competing pull request"
+      ],
+      "risks": [
+        "No direct payment proof or funded bounty platform detected",
+        "Claim path is missing, blocked, or ambiguous",
+        "Task is not clearly executable by Atlas"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "NEW",
+      "first_seen": "2026-07-19 10:31 UTC",
+      "last_verified": "2026-07-19 13:34 UTC"
+    },
+    {
+      "title": "[Bounty] [claude-builders-bounty/claude-builders-bounty] [BOUNTY $200] WORKFLOW: n8n + Cl",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/484",
+      "repository": "zhangjiayang6835-cyber/bounty-plaza",
+      "issue_number": 484,
+      "author": "zhangjiayang6835-cyber",
+      "reward": 200.0,
+      "reward_priority": "PRIORITY",
+      "score": 39,
+      "decision": "WATCHLIST",
+      "availability": "REPOSITORY MISMATCH - MANUAL VERIFY",
+      "created_at": "2026-07-13T07:33:02Z",
+      "updated_at": "2026-07-13T07:35:35Z",
+      "comments": 0,
+      "labels": [
+        "bounty",
+        "real"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "EXPLICITLY ALLOWED",
+      "approval_authority": "NOT VERIFIED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "trusted_repository": false,
+      "payout_program_repository": false,
+      "payout_source": "Unverified",
+      "claimable_now": false,
+      "quick_win_risk_accepted": false,
+      "claimability_signals": [],
+      "atlas_can_execute": true,
+      "atlas_capability_signals": [
+        "api"
+      ],
+      "external_execution_blockers": [],
+      "repository_mismatch": true,
+      "advertised_repository": "claude-builders-bounty/claude-builders-bounty",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Strong stated reward",
+        "Detailed requirements",
+        "Capability match: ai agent, claude, docs, n8n, test, workflow",
+        "No visible comments",
+        "Posted within 7 days",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "AI/automation participation appears allowed",
+        "Task matches Atlas execution capabilities",
+        "Priority reward band",
+        "No assignee and no competing pull request"
+      ],
+      "risks": [
+        "Advertised repository does not match the GitHub issue repository",
+        "No direct payment proof or funded bounty platform detected",
+        "Claim path is missing, blocked, or ambiguous"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "NEW",
+      "first_seen": "2026-07-19 10:31 UTC",
+      "last_verified": "2026-07-19 13:34 UTC"
+    },
+    {
+      "title": "[claude-builders-bounty/claude-builders-bounty] [BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly",
+      "url": "https://github.com/Vikingr2023/awesome-agent-bounties/issues/225",
+      "repository": "Vikingr2023/awesome-agent-bounties",
+      "issue_number": 225,
+      "author": "Vikingr2023",
+      "reward": 200.0,
+      "reward_priority": "PRIORITY",
+      "score": 39,
+      "decision": "WATCHLIST",
+      "availability": "REPOSITORY MISMATCH - MANUAL VERIFY",
+      "created_at": "2026-07-13T06:00:26Z",
+      "updated_at": "2026-07-13T06:02:51Z",
+      "comments": 0,
+      "labels": [
+        "bounty",
+        "bounty-hunter",
+        "external-mirror",
+        "workflow"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "EXPLICITLY ALLOWED",
+      "approval_authority": "NOT VERIFIED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "trusted_repository": false,
+      "payout_program_repository": false,
+      "payout_source": "Unverified",
+      "claimable_now": false,
+      "quick_win_risk_accepted": false,
+      "claimability_signals": [],
+      "atlas_can_execute": true,
+      "atlas_capability_signals": [
+        "api"
+      ],
+      "external_execution_blockers": [],
+      "repository_mismatch": true,
+      "advertised_repository": "claude-builders-bounty/claude-builders-bounty",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Strong stated reward",
+        "Detailed requirements",
+        "Capability match: ai agent, claude, docs, n8n, test, workflow",
+        "No visible comments",
+        "Posted within 7 days",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "AI/automation participation appears allowed",
+        "Task matches Atlas execution capabilities",
+        "Priority reward band",
+        "No assignee and no competing pull request"
+      ],
+      "risks": [
+        "Advertised repository does not match the GitHub issue repository",
+        "No direct payment proof or funded bounty platform detected",
+        "Claim path is missing, blocked, or ambiguous"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "NEW",
+      "first_seen": "2026-07-19 10:31 UTC",
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[ Laravel ] Fix logging config to separate error logs and add JSON structured logging",
@@ -3543,9 +3822,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[ Brainfuck ] Implement FizzBuzz that prints numbers 1 to 100 with correct FizzBuzz substitutions",
@@ -3618,9 +3897,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[ Brainfuck ] Implement ROT13 cipher that reads input and prints ROT13-encoded output",
@@ -3693,9 +3972,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[ Brainfuck ] Implement a program that converts decimal input to binary output",
@@ -3768,9 +4047,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[ Brainfuck ] Implement a program that sorts an input string alphabetically",
@@ -3843,9 +4122,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[Hacktoberfest] n8n Workflow Node for Policy Checks",
@@ -3919,9 +4198,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[BOUNTY $75] TEMPLATE: CLAUDE.md for a Next.js + SQLite SaaS project",
@@ -3990,9 +4269,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "Add `is_extended_promotional ` column to components (from data source)",
@@ -4062,9 +4341,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "[Bounty] La función suma() resta en vez de sumar",
@@ -4076,7 +4355,7 @@
       "reward_priority": "HIGHEST",
       "score": 26,
       "decision": "WATCHLIST",
-      "availability": "TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE",
+      "availability": "PAYMENT UNCLEAR - NOT SIMPLE ENOUGH FOR AUTO EXECUTION",
       "created_at": "2026-07-19T07:13:43Z",
       "updated_at": "2026-07-19T11:57:08Z",
       "comments": 0,
@@ -4133,391 +4412,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "CHANGED: availability",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
-    },
-    {
-      "title": "[Bounty] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-gen",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/479",
-      "repository": "zhangjiayang6835-cyber/bounty-plaza",
-      "issue_number": 479,
-      "author": "zhangjiayang6835-cyber",
-      "reward": 3000.0,
-      "reward_priority": "WATCHLIST",
-      "score": 22,
-      "decision": "WATCHLIST",
-      "availability": "OVER $250 - WATCHLIST ONLY",
-      "created_at": "2026-07-13T04:00:36Z",
-      "updated_at": "2026-07-13T04:02:33Z",
-      "comments": 0,
-      "labels": [
-        "bounty",
-        "real"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "EXPLICITLY ALLOWED",
-      "approval_authority": "OWNER/MAINTAINER APPROVAL PATH DESCRIBED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "trusted_repository": false,
-      "payout_program_repository": false,
-      "payout_source": "Unverified",
-      "claimable_now": true,
-      "quick_win_risk_accepted": false,
-      "claimability_signals": [
-        "submit a pull request"
-      ],
-      "atlas_can_execute": false,
-      "atlas_capability_signals": [],
-      "external_execution_blockers": [],
-      "repository_mismatch": true,
-      "advertised_repository": "aLexzzz430/Cognitive-OS",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Detailed requirements",
-        "Capability match: ai agent, claude, openai, prompt",
-        "No visible comments",
-        "Posted within 7 days",
-        "Recently updated",
-        "Review path appears usable",
-        "AI/automation participation appears allowed",
-        "Acceptance authority or approval trigger is described",
-        "Explicitly claimable with no current assignee",
-        "No assignee and no competing pull request"
-      ],
-      "risks": [
-        "Potentially high complexity: architecture",
-        "Advertised repository does not match the GitHub issue repository",
-        "No direct payment proof or funded bounty platform detected",
-        "Task is not clearly executable by Atlas"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "CHANGED: decision, availability",
-      "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
-    },
-    {
-      "title": "[Vikingr2023/awesome-agent-bounties] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collec",
-      "url": "https://github.com/Vikingr2023/awesome-agent-bounties/issues/76",
-      "repository": "Vikingr2023/awesome-agent-bounties",
-      "issue_number": 76,
-      "author": "Vikingr2023",
-      "reward": 3000.0,
-      "reward_priority": "WATCHLIST",
-      "score": 22,
-      "decision": "WATCHLIST",
-      "availability": "OVER $250 - WATCHLIST ONLY",
-      "created_at": "2026-07-13T03:44:09Z",
-      "updated_at": "2026-07-13T03:51:10Z",
-      "comments": 0,
-      "labels": [
-        "bounty",
-        "bounty-hunter",
-        "external-mirror"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "EXPLICITLY ALLOWED",
-      "approval_authority": "OWNER/MAINTAINER APPROVAL PATH DESCRIBED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "trusted_repository": false,
-      "payout_program_repository": false,
-      "payout_source": "Unverified",
-      "claimable_now": true,
-      "quick_win_risk_accepted": false,
-      "claimability_signals": [
-        "submit a pull request"
-      ],
-      "atlas_can_execute": false,
-      "atlas_capability_signals": [],
-      "external_execution_blockers": [],
-      "repository_mismatch": true,
-      "advertised_repository": "aLexzzz430/Cognitive-OS",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Detailed requirements",
-        "Capability match: ai agent, claude, openai, prompt",
-        "No visible comments",
-        "Posted within 7 days",
-        "Recently updated",
-        "Review path appears usable",
-        "AI/automation participation appears allowed",
-        "Acceptance authority or approval trigger is described",
-        "Explicitly claimable with no current assignee",
-        "No assignee and no competing pull request"
-      ],
-      "risks": [
-        "Potentially high complexity: architecture",
-        "Advertised repository does not match the GitHub issue repository",
-        "No direct payment proof or funded bounty platform detected",
-        "Task is not clearly executable by Atlas"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "CHANGED: decision, availability",
-      "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
-    },
-    {
-      "title": "[aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-generated",
-      "url": "https://github.com/Vikingr2023/awesome-agent-bounties/issues/167",
-      "repository": "Vikingr2023/awesome-agent-bounties",
-      "issue_number": 167,
-      "author": "Vikingr2023",
-      "reward": 3000.0,
-      "reward_priority": "WATCHLIST",
-      "score": 22,
-      "decision": "WATCHLIST",
-      "availability": "OVER $250 - WATCHLIST ONLY",
-      "created_at": "2026-07-13T03:48:37Z",
-      "updated_at": "2026-07-13T03:49:55Z",
-      "comments": 0,
-      "labels": [
-        "bounty",
-        "bounty-hunter",
-        "external-mirror",
-        "research",
-        "reward"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "EXPLICITLY ALLOWED",
-      "approval_authority": "OWNER/MAINTAINER APPROVAL PATH DESCRIBED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "trusted_repository": false,
-      "payout_program_repository": false,
-      "payout_source": "Unverified",
-      "claimable_now": true,
-      "quick_win_risk_accepted": false,
-      "claimability_signals": [
-        "submit a pull request"
-      ],
-      "atlas_can_execute": false,
-      "atlas_capability_signals": [],
-      "external_execution_blockers": [],
-      "repository_mismatch": true,
-      "advertised_repository": "aLexzzz430/Cognitive-OS",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Detailed requirements",
-        "Capability match: ai agent, claude, openai, prompt",
-        "No visible comments",
-        "Posted within 7 days",
-        "Recently updated",
-        "Review path appears usable",
-        "AI/automation participation appears allowed",
-        "Acceptance authority or approval trigger is described",
-        "Explicitly claimable with no current assignee",
-        "No assignee and no competing pull request"
-      ],
-      "risks": [
-        "Potentially high complexity: architecture",
-        "Advertised repository does not match the GitHub issue repository",
-        "No direct payment proof or funded bounty platform detected",
-        "Task is not clearly executable by Atlas"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "CHANGED: decision, availability",
-      "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
-    },
-    {
-      "title": "[aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-generated",
-      "url": "https://github.com/Vikingr2023/awesome-agent-bounties/issues/52",
-      "repository": "Vikingr2023/awesome-agent-bounties",
-      "issue_number": 52,
-      "author": "Vikingr2023",
-      "reward": 3000.0,
-      "reward_priority": "WATCHLIST",
-      "score": 22,
-      "decision": "WATCHLIST",
-      "availability": "OVER $250 - WATCHLIST ONLY",
-      "created_at": "2026-07-13T03:43:20Z",
-      "updated_at": "2026-07-13T03:43:56Z",
-      "comments": 0,
-      "labels": [
-        "bounty",
-        "bounty-hunter",
-        "external-mirror",
-        "research",
-        "reward"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "EXPLICITLY ALLOWED",
-      "approval_authority": "OWNER/MAINTAINER APPROVAL PATH DESCRIBED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "trusted_repository": false,
-      "payout_program_repository": false,
-      "payout_source": "Unverified",
-      "claimable_now": true,
-      "quick_win_risk_accepted": false,
-      "claimability_signals": [
-        "submit a pull request"
-      ],
-      "atlas_can_execute": false,
-      "atlas_capability_signals": [],
-      "external_execution_blockers": [],
-      "repository_mismatch": true,
-      "advertised_repository": "aLexzzz430/Cognitive-OS",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Detailed requirements",
-        "Capability match: ai agent, claude, openai, prompt",
-        "No visible comments",
-        "Posted within 7 days",
-        "Recently updated",
-        "Review path appears usable",
-        "AI/automation participation appears allowed",
-        "Acceptance authority or approval trigger is described",
-        "Explicitly claimable with no current assignee",
-        "No assignee and no competing pull request"
-      ],
-      "risks": [
-        "Potentially high complexity: architecture",
-        "Advertised repository does not match the GitHub issue repository",
-        "No direct payment proof or funded bounty platform detected",
-        "Task is not clearly executable by Atlas"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "CHANGED: decision, availability",
-      "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
-    },
-    {
-      "title": "[Bounty] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-gen",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/477",
-      "repository": "zhangjiayang6835-cyber/bounty-plaza",
-      "issue_number": 477,
-      "author": "zhangjiayang6835-cyber",
-      "reward": 3000.0,
-      "reward_priority": "WATCHLIST",
-      "score": 22,
-      "decision": "WATCHLIST",
-      "availability": "OVER $250 - WATCHLIST ONLY",
-      "created_at": "2026-07-13T04:00:35Z",
-      "updated_at": "2026-07-13T04:02:51Z",
-      "comments": 0,
-      "labels": [
-        "bounty",
-        "real"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "EXPLICITLY ALLOWED",
-      "approval_authority": "OWNER/MAINTAINER APPROVAL PATH DESCRIBED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "trusted_repository": false,
-      "payout_program_repository": false,
-      "payout_source": "Unverified",
-      "claimable_now": true,
-      "quick_win_risk_accepted": false,
-      "claimability_signals": [
-        "submit a pull request"
-      ],
-      "atlas_can_execute": false,
-      "atlas_capability_signals": [],
-      "external_execution_blockers": [],
-      "repository_mismatch": true,
-      "advertised_repository": "aLexzzz430/Cognitive-OS",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT INSTANT-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Detailed requirements",
-        "Capability match: ai agent, claude, openai, prompt",
-        "No visible comments",
-        "Posted within 7 days",
-        "Recently updated",
-        "Review path appears usable",
-        "AI/automation participation appears allowed",
-        "Acceptance authority or approval trigger is described",
-        "Explicitly claimable with no current assignee",
-        "No assignee and no competing pull request"
-      ],
-      "risks": [
-        "Potentially high complexity: architecture",
-        "Advertised repository does not match the GitHub issue repository",
-        "No direct payment proof or funded bounty platform detected",
-        "Task is not clearly executable by Atlas"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "CHANGED: decision, availability",
-      "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "We can't convert Smoothie Board to Circuit JSON",
@@ -4583,9 +4480,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "La función suma() resta en vez de sumar",
@@ -4597,7 +4494,7 @@
       "reward_priority": "HIGHEST",
       "score": 12,
       "decision": "WATCHLIST",
-      "availability": "TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE",
+      "availability": "PAYMENT UNCLEAR - NOT SIMPLE ENOUGH FOR AUTO EXECUTION",
       "created_at": "2026-07-19T05:47:08Z",
       "updated_at": "2026-07-19T09:24:49Z",
       "comments": 0,
@@ -4653,9 +4550,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "CHANGED: availability",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "Crafting a Comprehensive Tutorial for Vectara Chat",
@@ -4667,7 +4564,7 @@
       "reward_priority": "HIGHEST",
       "score": 9,
       "decision": "WATCHLIST",
-      "availability": "TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE",
+      "availability": "PAYMENT UNCLEAR - NOT SIMPLE ENOUGH FOR AUTO EXECUTION",
       "created_at": "2024-03-26T17:23:49Z",
       "updated_at": "2026-05-28T09:59:46Z",
       "comments": 0,
@@ -4721,9 +4618,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "CHANGED: availability",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "Merge same-net trace lines that are close together (make at the same Y or same X)",
@@ -4788,9 +4685,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "Create download endpoint `/files/download?...` as well as `/files/download/[[file_path]]`",
@@ -4858,9 +4755,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     },
     {
       "title": "Implement PDIP-8",
@@ -4926,9 +4823,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 12:27 UTC"
+      "last_verified": "2026-07-19 13:34 UTC"
     }
   ]
 }

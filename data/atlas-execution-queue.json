@@ -1,0 +1,33 @@
+{
+  "version": "V23",
+  "generated_at": "2026-07-19 13:34 UTC",
+  "automatic_execution": true,
+  "workers_requested": 2,
+  "tasks_dispatched": 2,
+  "tasks": [
+    {
+      "worker": "Atlas",
+      "repository": "claude-builders-bounty/claude-builders-bounty",
+      "issue_number": 3,
+      "issue_url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3",
+      "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
+      "reward": 100.0,
+      "score": 68.0,
+      "payment_verification": "SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO",
+      "status": "DISPATCHED",
+      "reserved_at": "2026-07-19T13:34:08.526562+00:00"
+    },
+    {
+      "worker": "Alex",
+      "repository": "zhangjiayang6835-cyber/bounty-plaza",
+      "issue_number": 483,
+      "issue_url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/483",
+      "title": "[Bounty] [1 USDC autonomous bounty] Seed a useful agent-tooling child bounty",
+      "reward": 90.0,
+      "score": 74.0,
+      "payment_verification": "SMALL-REWARD PAYMENT RISK ACCEPTED BY CEO",
+      "status": "DISPATCHED",
+      "reserved_at": "2026-07-19T13:34:08.526562+00:00"
+    }
+  ]
+}
