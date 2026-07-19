@@ -1,5 +1,5 @@
-Atlas Opportunity Hunter V13
-Generated: 2026-07-19 08:02 UTC
+Atlas Opportunity Hunter V8
+Generated: 2026-07-19 09:17 UTC
 Status: DEGRADED
 Today: $0.00
 Week: $0.00
