@@ -1,4 +1,4 @@
-name: Atlas + Alex V21 — Payout Program Review
+name: Atlas + Alex V21 FIXED — Payout Program Review
 
 on:
   workflow_dispatch:
@@ -2288,6 +2288,9 @@ jobs:
                   f"- URL: {item.get('url')}",
                   "",
               ])
+
+          reports_dir = Path("reports")
+          reports_dir.mkdir(parents=True, exist_ok=True)
 
           Path("reports/atlas-v21-gate-diagnostics.md").write_text(
               "\n".join(diagnostic_lines),
