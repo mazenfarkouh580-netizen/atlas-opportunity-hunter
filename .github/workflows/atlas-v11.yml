@@ -1,4 +1,4 @@
-name: Atlas Opportunity Hunter V10
+name: Atlas Opportunity Hunter V11
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron: "7,22,37,52 * * * *"
 
 concurrency:
-  group: atlas-opportunity-hunter-v10
+  group: atlas-opportunity-hunter-v11
   cancel-in-progress: false
 
 permissions:
@@ -311,12 +311,12 @@ jobs:
               EARNINGS_FILE.write_text("[]\n", encoding="utf-8")
 
           operations = load_json_file(OPERATIONS_FILE, {
-              "version": "V10",
+              "version": "V11",
               "pipeline": [],
               "last_updated": GENERATED_AT,
           })
           if not isinstance(operations, dict):
-              operations = {"version": "V10", "pipeline": [], "last_updated": GENERATED_AT}
+              operations = {"version": "V11", "pipeline": [], "last_updated": GENERATED_AT}
 
           maintenance = load_json_file(MAINTENANCE_FILE, {
               "doctor": "Dr. Alex",
@@ -366,7 +366,7 @@ jobs:
                           "Accept": accept,
                           "X-GitHub-Api-Version": API_VERSION,
                           "User-Agent": (
-                              "Atlas-Opportunity-Hunter-V10"
+                              "Atlas-Opportunity-Hunter-V11"
                           ),
                       },
                   )
@@ -1158,7 +1158,26 @@ jobs:
                   risks.append("Human-only or AI-prohibited language detected")
 
               if approval_authority_signals:
+                  score += 5
                   reasons.append("Acceptance authority or approval trigger is described")
+
+              if 5 <= reward <= 50:
+                  score += 10
+                  reasons.append("Highest-priority first-payment reward band")
+              elif reward <= 100:
+                  score += 7
+                  reasons.append("High-priority small reward band")
+              elif reward <= 250:
+                  score += 4
+                  reasons.append("Priority reward band")
+
+              if not assignees and open_pr_count == 0:
+                  score += 8
+                  reasons.append("No assignee and no competing pull request")
+
+              if updated_age is not None and updated_age <= 3:
+                  score += 5
+                  reasons.append("Very recent activity")
 
               score = max(
                   0,
@@ -1186,7 +1205,7 @@ jobs:
 
                   decision = (
                       "PRIORITY REVIEW"
-                      if score >= 55
+                      if score >= 62
                       else "WATCHLIST"
                   )
 
@@ -1195,23 +1214,23 @@ jobs:
 
                   decision = (
                       "WATCHLIST"
-                      if score >= 55
+                      if score >= 50
                       else "REJECT"
                   )
 
-              elif score >= 72:
+              elif score >= 62:
                   availability = (
-                      "OPEN - VERIFY BEFORE WORK"
+                      "OPEN - READY FOR FINAL CLAIM CHECK"
                   )
                   decision = "PURSUE"
 
-              elif score >= 56:
+              elif score >= 48:
                   availability = (
-                      "OPEN - NEEDS REVIEW"
+                      "OPEN - NEEDS FINAL REVIEW"
                   )
                   decision = "PRIORITY REVIEW"
 
-              elif score >= 40:
+              elif score >= 36:
                   availability = "UNCERTAIN"
                   decision = "WATCHLIST"
 
@@ -1394,24 +1413,75 @@ jobs:
 
               initial_candidates.append(issue)
 
-          initial_candidates.sort(
-              key=lambda issue: (
-                  extract_reward(
-                      (
-                          f"{issue.get('title') or ''}"
-                          "\n"
-                          f"{issue.get('body') or ''}"
-                      )
-                  ),
+          def discovery_priority(issue):
+              title = issue.get("title") or ""
+              body = issue.get("body") or ""
+              lowered = f"{title}\n{body}".lower()
+              reward = extract_reward(f"{title}\n{body}")
+
+              if 5 <= reward <= 50:
+                  reward_band = 5
+              elif reward <= 100:
+                  reward_band = 4
+              elif reward <= 250:
+                  reward_band = 3
+              elif reward <= 500:
+                  reward_band = 1
+              else:
+                  reward_band = 0
+
+              funded_signal = sum(
+                  1 for term in (
+                      "algora",
+                      "polar bounty",
+                      "issuehunt",
+                      "funded bounty",
+                      "escrow",
+                      "paid on merge",
+                      "payment upon acceptance",
+                      "pay upon acceptance",
+                  )
+                  if term in lowered
+              )
+
+              easy_signal = sum(
+                  1 for term in (
+                      "good first issue",
+                      "documentation",
+                      "docs",
+                      "test",
+                      "tests",
+                      "small fix",
+                      "quick fix",
+                      "beginner",
+                      "easy",
+                      "typo",
+                      "workflow",
+                      "github actions",
+                  )
+                  if term in lowered
+              )
+
+              complexity_signal = sum(
+                  1 for term in COMPLEXITY_TERMS
+                  if term in lowered
+              )
+
+              return (
+                  reward_band,
+                  funded_signal,
+                  easy_signal,
+                  -complexity_signal,
                   issue.get("updated_at") or "",
-              ),
+              )
+
+          initial_candidates.sort(
+              key=discovery_priority,
               reverse=True,
           )
 
-          # Deep verification is capped to control API use.
-          verification_queue = (
-              initial_candidates[:25]
-          )
+          # Verify more carefully selected first-payment candidates.
+          verification_queue = initial_candidates[:30]
 
           verified_results = []
 
@@ -1616,7 +1686,19 @@ jobs:
 
           execution_queue = []
           for item in verified_results:
-              payment_confidence = max(0, min(100, 40 + item.get("score", 0) * 5 - item.get("open_competing_prs", 0) * 15 - (20 if item.get("assignees") else 0)))
+              payment_confidence = max(
+                  0,
+                  min(
+                      100,
+                      15
+                      + item.get("score", 0) * 0.65
+                      + (15 if item.get("paypal_signals") else 0)
+                      + (12 if item.get("approval_authority") != "NOT VERIFIED" else 0)
+                      + (10 if item.get("fast_payment_signals") else 0)
+                      - item.get("open_competing_prs", 0) * 18
+                      - (22 if item.get("assignees") else 0),
+                  ),
+              )
               competition_score = max(0, 100 - item.get("open_competing_prs", 0) * 30 - (25 if item.get("assignees") else 0))
               clarity_score = max(0, min(100, 50 + (10 if item.get("acceptance_criteria") else 0) + min(30, len(item.get("evidence", [])) * 5)))
               effort_risk = max(5, min(100, 45 + len(item.get("risks", [])) * 10))
@@ -1653,7 +1735,7 @@ jobs:
           )
           execution_queue = execution_queue[:int(config.get("queue_size", 20))]
 
-          operations["version"] = "V10"
+          operations["version"] = "V11"
           operations["last_updated"] = GENERATED_AT
           operations["pipeline"] = execution_queue
           OPERATIONS_FILE.write_text(json.dumps(operations, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -1686,6 +1768,11 @@ jobs:
               "approval_path_candidates": len(approval_path_candidates),
               "priority_reviews": counts.get("PRIORITY REVIEW", 0),
               "pursue_candidates": counts.get("PURSUE", 0),
+              "best_immediate_target": (
+                  execution_queue[0].get("url")
+                  if execution_queue
+                  else None
+              ),
               "recommendation": alex_recommendation,
               "instant_money_warning": (
                   "Small PayPal bounties may pay quickly after acceptance, but only the bounty owner or platform can approve work and release payment. "
@@ -1704,7 +1791,7 @@ jobs:
           ALERTS_FILE.write_text(json.dumps(alerts, indent=2), encoding="utf-8")
 
           payload = {
-              "version": "V10",
+              "version": "V11",
               "owner": "Mazen Farkouh",
               "generated_at": GENERATED_AT,
               "config": config,
@@ -1937,7 +2024,7 @@ jobs:
               content="{int(config.get('dashboard_refresh_seconds', 900))}"
             >
             <title>
-              Atlas Opportunity Hunter V10
+              Atlas Opportunity Hunter V11
             </title>
             <style>
               :root {{
@@ -2054,7 +2141,7 @@ jobs:
           </head>
           <body>
             <h1>
-              Atlas Opportunity Hunter V10
+              Atlas Opportunity Hunter V11
             </h1>
 
             <p>
@@ -2319,7 +2406,7 @@ jobs:
               f"<tr><td>{i}</td><td>{html.escape(item['decision'])}</td><td>${item['reward']:,.2f}</td><td>${item['expected_value']:,.2f}</td><td>{html.escape(item['title'])}</td></tr>"
               for i, item in enumerate(execution_queue, 1)
           )
-          report_html = f"""<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Atlas V10 Report</title><style>body{{font-family:Arial,sans-serif;margin:28px}}table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #999;padding:8px;text-align:left}}@media print{{button{{display:none}}}}</style></head><body><button onclick='window.print()'>Print</button><h1>Atlas Opportunity Hunter V10 Report</h1><p>Generated: {html.escape(GENERATED_AT)}</p><p>Status: <strong>{html.escape(status)}</strong></p><h2>Earnings</h2><p>Today ${earnings['today']:,.2f} · Week ${earnings['week']:,.2f} · Month ${earnings['month']:,.2f} · Year ${earnings['year']:,.2f} · Lifetime ${earnings['lifetime']:,.2f}</p><h2>Allocation</h2><p>Tax ${allocations['tax']:,.2f} · Reinvesting ${allocations['reinvesting']:,.2f} · Mazen ${allocations['mazen']:,.2f}</p><h2>Execution Queue</h2><table><thead><tr><th>#</th><th>Decision</th><th>Reward</th><th>Expected Value</th><th>Opportunity</th></tr></thead><tbody>{report_rows}</tbody></table></body></html>"""
+          report_html = f"""<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Atlas V11 Report</title><style>body{{font-family:Arial,sans-serif;margin:28px}}table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #999;padding:8px;text-align:left}}@media print{{button{{display:none}}}}</style></head><body><button onclick='window.print()'>Print</button><h1>Atlas Opportunity Hunter V11 Report</h1><p>Generated: {html.escape(GENERATED_AT)}</p><p>Status: <strong>{html.escape(status)}</strong></p><h2>Earnings</h2><p>Today ${earnings['today']:,.2f} · Week ${earnings['week']:,.2f} · Month ${earnings['month']:,.2f} · Year ${earnings['year']:,.2f} · Lifetime ${earnings['lifetime']:,.2f}</p><h2>Allocation</h2><p>Tax ${allocations['tax']:,.2f} · Reinvesting ${allocations['reinvesting']:,.2f} · Mazen ${allocations['mazen']:,.2f}</p><h2>Execution Queue</h2><table><thead><tr><th>#</th><th>Decision</th><th>Reward</th><th>Expected Value</th><th>Opportunity</th></tr></thead><tbody>{report_rows}</tbody></table></body></html>"""
           (REPORTS_DIR / "latest.html").write_text(report_html, encoding="utf-8")
           csv_lines = ["rank,decision,reward,expected_value,payment_confidence,competition_score,title,url"]
           for i, item in enumerate(execution_queue, 1):
@@ -2331,14 +2418,14 @@ jobs:
               ]))
           (REPORTS_DIR / "latest.csv").write_text("\n".join(csv_lines) + "\n", encoding="utf-8")
           (REPORTS_DIR / "latest.txt").write_text(
-              "Atlas Opportunity Hunter V10\n" +
+              "Atlas Opportunity Hunter V11\n" +
               f"Generated: {GENERATED_AT}\nStatus: {status}\n" +
               f"Today: ${earnings['today']:,.2f}\nWeek: ${earnings['week']:,.2f}\nMonth: ${earnings['month']:,.2f}\nYear: ${earnings['year']:,.2f}\nLifetime: ${earnings['lifetime']:,.2f}\n",
               encoding="utf-8",
           )
 
           summary_lines = [
-              "# Atlas Opportunity Hunter V10",
+              "# Atlas Opportunity Hunter V11",
               "",
               (
                   f"- System status: "
@@ -2446,7 +2533,7 @@ jobs:
                   )
 
           print(
-              f"Atlas V10 status={status}; "
+              f"Atlas V11 status={status}; "
               f"checked {len(raw_issues)} "
               "raw issues; "
               f"found {len(initial_candidates)} "
@@ -2464,12 +2551,12 @@ jobs:
 
           if searches_completed == 0:
               raise SystemExit(
-                  "Atlas V10 could not complete "
+                  "Atlas V11 could not complete "
                   "any GitHub search query."
               )
           PY
 
-      - name: Save Atlas V10 results
+      - name: Save Atlas V11 results
         env:
           BRANCH_NAME: ${{ github.ref_name }}
         run: |
@@ -2492,7 +2579,7 @@ jobs:
           fi
 
           git commit \
-            -m "Atlas V10 opportunity scan"
+            -m "Atlas V11 opportunity scan"
 
           git pull \
             --rebase \
