@@ -1,4 +1,4 @@
-name: Atlas Opportunity Hunter V11
+name: Atlas Opportunity Hunter V12
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron: "7,22,37,52 * * * *"
 
 concurrency:
-  group: atlas-opportunity-hunter-v11
+  group: atlas-opportunity-hunter-v12
   cancel-in-progress: false
 
 permissions:
@@ -54,6 +54,7 @@ jobs:
 
           CURRENT_FILE = DATA_DIR / "opportunities.json"
           HISTORY_FILE = DATA_DIR / "opportunity-history.json"
+          CANDIDATE_LIFECYCLE_FILE = DATA_DIR / "candidate-lifecycle.json"
           DASHBOARD_FILE = DOCS_DIR / "index.html"
           MONEY_WINDOW_FILE = DOCS_DIR / "money.html"
           CONFIG_FILE = DATA_DIR / "atlas-config.json"
@@ -311,12 +312,12 @@ jobs:
               EARNINGS_FILE.write_text("[]\n", encoding="utf-8")
 
           operations = load_json_file(OPERATIONS_FILE, {
-              "version": "V11",
+              "version": "V12",
               "pipeline": [],
               "last_updated": GENERATED_AT,
           })
           if not isinstance(operations, dict):
-              operations = {"version": "V11", "pipeline": [], "last_updated": GENERATED_AT}
+              operations = {"version": "V12", "pipeline": [], "last_updated": GENERATED_AT}
 
           maintenance = load_json_file(MAINTENANCE_FILE, {
               "doctor": "Dr. Alex",
@@ -366,7 +367,7 @@ jobs:
                           "Accept": accept,
                           "X-GitHub-Api-Version": API_VERSION,
                           "User-Agent": (
-                              "Atlas-Opportunity-Hunter-V11"
+                              "Atlas-Opportunity-Hunter-V12"
                           ),
                       },
                   )
@@ -621,6 +622,19 @@ jobs:
 
               except Exception:
                   return []
+
+          def load_candidate_lifecycle():
+              if not CANDIDATE_LIFECYCLE_FILE.exists():
+                  return {}
+              try:
+                  data = json.loads(
+                      CANDIDATE_LIFECYCLE_FILE.read_text(
+                          encoding="utf-8"
+                      )
+                  )
+                  return data if isinstance(data, dict) else {}
+              except Exception:
+                  return {}
 
           def collect_issue_comments(
               repository,
@@ -1480,8 +1494,41 @@ jobs:
               reverse=True,
           )
 
-          # Verify more carefully selected first-payment candidates.
-          verification_queue = initial_candidates[:30]
+          # Recheck prior actionable candidates first, then fill the
+          # API-safe queue with the best newly ranked opportunities.
+          issue_by_url = {
+              issue.get("html_url"): issue
+              for issue in initial_candidates
+              if issue.get("html_url")
+          }
+
+          previous_actionable_urls = [
+              url
+              for url, item in previous_by_url.items()
+              if item.get("decision") in {
+                  "PURSUE",
+                  "PRIORITY REVIEW",
+              }
+              and url in issue_by_url
+          ]
+
+          verification_queue = []
+          queued_urls = set()
+
+          for url in previous_actionable_urls:
+              if len(verification_queue) >= 24:
+                  break
+              verification_queue.append(issue_by_url[url])
+              queued_urls.add(url)
+
+          for issue in initial_candidates:
+              url = issue.get("html_url")
+              if not url or url in queued_urls:
+                  continue
+              verification_queue.append(issue)
+              queued_urls.add(url)
+              if len(verification_queue) >= 24:
+                  break
 
           verified_results = []
 
@@ -1567,6 +1614,84 @@ jobs:
 
               else:
                   item["change"] = "UNCHANGED"
+
+          candidate_lifecycle = load_candidate_lifecycle()
+          current_verified_urls = {
+              item["url"] for item in verified_results
+          }
+
+          lifecycle_new = 0
+          lifecycle_still_active = 0
+          lifecycle_changed = 0
+
+          for item in verified_results:
+              url = item["url"]
+              record = candidate_lifecycle.get(url, {})
+              first_seen = record.get("first_seen") or GENERATED_AT
+
+              if not record:
+                  lifecycle_new += 1
+              elif item.get("change", "").startswith("CHANGED"):
+                  lifecycle_changed += 1
+              else:
+                  lifecycle_still_active += 1
+
+              item["first_seen"] = first_seen
+              item["last_verified"] = GENERATED_AT
+
+              candidate_lifecycle[url] = {
+                  "title": item.get("title"),
+                  "repository": item.get("repository"),
+                  "first_seen": first_seen,
+                  "last_verified": GENERATED_AT,
+                  "last_decision": item.get("decision"),
+                  "last_availability": item.get("availability"),
+                  "last_reward": item.get("reward"),
+                  "verification_state": "VERIFIED THIS RUN",
+              }
+
+          not_reverified_urls = [
+              url
+              for url in previous_by_url
+              if url not in current_verified_urls
+          ]
+
+          for url in not_reverified_urls:
+              previous_item = previous_by_url[url]
+              record = candidate_lifecycle.get(url, {})
+              candidate_lifecycle[url] = {
+                  "title": previous_item.get("title"),
+                  "repository": previous_item.get("repository"),
+                  "first_seen": (
+                      record.get("first_seen")
+                      or previous_item.get("first_seen")
+                      or GENERATED_AT
+                  ),
+                  "last_verified": (
+                      record.get("last_verified")
+                      or previous_item.get("last_verified")
+                  ),
+                  "last_decision": previous_item.get("decision"),
+                  "last_availability": previous_item.get("availability"),
+                  "last_reward": previous_item.get("reward"),
+                  "verification_state": "NOT REVERIFIED THIS RUN",
+              }
+
+          CANDIDATE_LIFECYCLE_FILE.write_text(
+              json.dumps(
+                  candidate_lifecycle,
+                  indent=2,
+                  ensure_ascii=False,
+              ),
+              encoding="utf-8",
+          )
+
+          lifecycle_summary = {
+              "new_this_run": lifecycle_new,
+              "still_active": lifecycle_still_active,
+              "changed": lifecycle_changed,
+              "not_reverified": len(not_reverified_urls),
+          }
 
           counts = {
               decision: sum(
@@ -1735,7 +1860,7 @@ jobs:
           )
           execution_queue = execution_queue[:int(config.get("queue_size", 20))]
 
-          operations["version"] = "V11"
+          operations["version"] = "V12"
           operations["last_updated"] = GENERATED_AT
           operations["pipeline"] = execution_queue
           OPERATIONS_FILE.write_text(json.dumps(operations, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -1791,7 +1916,7 @@ jobs:
           ALERTS_FILE.write_text(json.dumps(alerts, indent=2), encoding="utf-8")
 
           payload = {
-              "version": "V11",
+              "version": "V12",
               "owner": "Mazen Farkouh",
               "generated_at": GENERATED_AT,
               "config": config,
@@ -1841,6 +1966,7 @@ jobs:
               "meaningful_changes": (
                   meaningful_changes
               ),
+              "lifecycle_summary": lifecycle_summary,
               "top_results": top_results,
               "all_verified_results": (
                   verified_results
@@ -1884,6 +2010,7 @@ jobs:
                   "meaningful_change_count": (
                       len(meaningful_changes)
                   ),
+                  "lifecycle_summary": lifecycle_summary,
               }
           )
 
@@ -1960,6 +2087,8 @@ jobs:
                   f"{', '.join(html.escape(a) for a in item['assignees']) or 'None'}"
                   "</td>"
                   f"<td>{change}</td>"
+                  f"<td class='small'>{html.escape(str(item.get('first_seen', 'Unknown')))}</td>"
+                  f"<td class='small'>{html.escape(str(item.get('last_verified', 'Unknown')))}</td>"
                   f"<td class='small'>{risks}</td>"
                   "</tr>"
               )
@@ -2024,7 +2153,7 @@ jobs:
               content="{int(config.get('dashboard_refresh_seconds', 900))}"
             >
             <title>
-              Atlas Opportunity Hunter V11
+              Atlas Opportunity Hunter V12
             </title>
             <style>
               :root {{
@@ -2141,7 +2270,7 @@ jobs:
           </head>
           <body>
             <h1>
-              Atlas Opportunity Hunter V11
+              Atlas Opportunity Hunter V12
             </h1>
 
             <p>
@@ -2259,6 +2388,17 @@ jobs:
             <h2>Payment Timing</h2>
             <div class="table-wrap"><table><thead><tr><th>Payment</th><th>Amount</th><th>Expected</th><th>Timing</th></tr></thead><tbody>{payment_rows}</tbody></table></div>
 
+            <h2>Opportunity History</h2>
+            <div class="grid">
+              <div class="card"><div class="value">{lifecycle_summary['new_this_run']}</div><div>New This Run</div></div>
+              <div class="card"><div class="value">{lifecycle_summary['still_active']}</div><div>Still Active</div></div>
+              <div class="card"><div class="value">{lifecycle_summary['changed']}</div><div>Status Changed</div></div>
+              <div class="card"><div class="value">{lifecycle_summary['not_reverified']}</div><div>Not Reverified This Run</div></div>
+            </div>
+            <p class="small">
+              “Not reverified” does not mean closed. It means the candidate was outside this run’s API-safe verification queue.
+            </p>
+
             <h2>Meaningful Changes</h2>
 
             <ul>
@@ -2279,6 +2419,8 @@ jobs:
                     <th>Open PRs</th>
                     <th>Assignees</th>
                     <th>Change</th>
+                    <th>First Seen</th>
+                    <th>Last Verified</th>
                     <th>Main Risks</th>
                   </tr>
                 </thead>
@@ -2296,8 +2438,9 @@ jobs:
             </ul>
 
             <p class="small">
-              V10 deep-verifies up to 25 candidates
-              per run to reduce unnecessary API use.
+              V12 deep-verifies up to 24 candidates per run.
+              Previous PURSUE and PRIORITY REVIEW candidates are rechecked first,
+              reducing GitHub API pressure while preserving continuity.
               The page refreshes every 15 minutes.
             </p>
           </body>
@@ -2406,7 +2549,7 @@ jobs:
               f"<tr><td>{i}</td><td>{html.escape(item['decision'])}</td><td>${item['reward']:,.2f}</td><td>${item['expected_value']:,.2f}</td><td>{html.escape(item['title'])}</td></tr>"
               for i, item in enumerate(execution_queue, 1)
           )
-          report_html = f"""<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Atlas V11 Report</title><style>body{{font-family:Arial,sans-serif;margin:28px}}table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #999;padding:8px;text-align:left}}@media print{{button{{display:none}}}}</style></head><body><button onclick='window.print()'>Print</button><h1>Atlas Opportunity Hunter V11 Report</h1><p>Generated: {html.escape(GENERATED_AT)}</p><p>Status: <strong>{html.escape(status)}</strong></p><h2>Earnings</h2><p>Today ${earnings['today']:,.2f} · Week ${earnings['week']:,.2f} · Month ${earnings['month']:,.2f} · Year ${earnings['year']:,.2f} · Lifetime ${earnings['lifetime']:,.2f}</p><h2>Allocation</h2><p>Tax ${allocations['tax']:,.2f} · Reinvesting ${allocations['reinvesting']:,.2f} · Mazen ${allocations['mazen']:,.2f}</p><h2>Execution Queue</h2><table><thead><tr><th>#</th><th>Decision</th><th>Reward</th><th>Expected Value</th><th>Opportunity</th></tr></thead><tbody>{report_rows}</tbody></table></body></html>"""
+          report_html = f"""<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Atlas V12 Report</title><style>body{{font-family:Arial,sans-serif;margin:28px}}table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #999;padding:8px;text-align:left}}@media print{{button{{display:none}}}}</style></head><body><button onclick='window.print()'>Print</button><h1>Atlas Opportunity Hunter V12 Report</h1><p>Generated: {html.escape(GENERATED_AT)}</p><p>Status: <strong>{html.escape(status)}</strong></p><h2>Earnings</h2><p>Today ${earnings['today']:,.2f} · Week ${earnings['week']:,.2f} · Month ${earnings['month']:,.2f} · Year ${earnings['year']:,.2f} · Lifetime ${earnings['lifetime']:,.2f}</p><h2>Allocation</h2><p>Tax ${allocations['tax']:,.2f} · Reinvesting ${allocations['reinvesting']:,.2f} · Mazen ${allocations['mazen']:,.2f}</p><h2>Execution Queue</h2><table><thead><tr><th>#</th><th>Decision</th><th>Reward</th><th>Expected Value</th><th>Opportunity</th></tr></thead><tbody>{report_rows}</tbody></table></body></html>"""
           (REPORTS_DIR / "latest.html").write_text(report_html, encoding="utf-8")
           csv_lines = ["rank,decision,reward,expected_value,payment_confidence,competition_score,title,url"]
           for i, item in enumerate(execution_queue, 1):
@@ -2418,14 +2561,14 @@ jobs:
               ]))
           (REPORTS_DIR / "latest.csv").write_text("\n".join(csv_lines) + "\n", encoding="utf-8")
           (REPORTS_DIR / "latest.txt").write_text(
-              "Atlas Opportunity Hunter V11\n" +
+              "Atlas Opportunity Hunter V12\n" +
               f"Generated: {GENERATED_AT}\nStatus: {status}\n" +
               f"Today: ${earnings['today']:,.2f}\nWeek: ${earnings['week']:,.2f}\nMonth: ${earnings['month']:,.2f}\nYear: ${earnings['year']:,.2f}\nLifetime: ${earnings['lifetime']:,.2f}\n",
               encoding="utf-8",
           )
 
           summary_lines = [
-              "# Atlas Opportunity Hunter V11",
+              "# Atlas Opportunity Hunter V12",
               "",
               (
                   f"- System status: "
@@ -2533,7 +2676,7 @@ jobs:
                   )
 
           print(
-              f"Atlas V11 status={status}; "
+              f"Atlas V12 status={status}; "
               f"checked {len(raw_issues)} "
               "raw issues; "
               f"found {len(initial_candidates)} "
@@ -2551,12 +2694,12 @@ jobs:
 
           if searches_completed == 0:
               raise SystemExit(
-                  "Atlas V11 could not complete "
+                  "Atlas V12 could not complete "
                   "any GitHub search query."
               )
           PY
 
-      - name: Save Atlas V11 results
+      - name: Save Atlas V12 results
         env:
           BRANCH_NAME: ${{ github.ref_name }}
         run: |
@@ -2579,7 +2722,7 @@ jobs:
           fi
 
           git commit \
-            -m "Atlas V11 opportunity scan"
+            -m "Atlas V12 opportunity scan"
 
           git pull \
             --rebase \
