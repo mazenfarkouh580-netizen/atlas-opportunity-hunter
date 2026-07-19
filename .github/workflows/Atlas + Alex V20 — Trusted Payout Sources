@@ -1099,8 +1099,15 @@ jobs:
                   None,
               )
 
+              repository_url_match = re.search(
+                  r"github\.com/([^/]+/[^/]+)",
+                  url,
+                  re.IGNORECASE,
+              )
               repository_full_name = (
-                  f"{repo_owner}/{repo_name}".lower()
+                  repository_url_match.group(1).lower()
+                  if repository_url_match
+                  else ""
               )
               trusted_repository = (
                   repository_full_name
