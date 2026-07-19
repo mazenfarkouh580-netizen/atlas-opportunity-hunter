@@ -1,52 +1,6 @@
 {
-  "version": "V8",
+  "version": "V10",
   "pipeline": [
-    {
-      "title": "[Bounty] [External prize collaboration | funding needed] Build with Gemini XPRIZE — launc",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/526",
-      "repository": "zhangjiayang6835-cyber/bounty-plaza",
-      "issue_number": 526,
-      "author": "zhangjiayang6835-cyber",
-      "reward": 2000000.0,
-      "score": 75,
-      "decision": "PURSUE",
-      "availability": "OPEN - VERIFY BEFORE WORK",
-      "created_at": "2026-07-17T20:27:54Z",
-      "updated_at": "2026-07-17T20:29:10Z",
-      "comments": 3,
-      "labels": [
-        "bounty",
-        "real"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Detailed requirements",
-        "Capability match: ci, fix, llm, test",
-        "Low visible discussion",
-        "Posted within 7 days",
-        "Recently updated",
-        "Review path appears usable"
-      ],
-      "risks": [],
-      "change": "NEW",
-      "payment_confidence": 100,
-      "competition_score": 100,
-      "clarity_score": 50,
-      "effort_risk": 45,
-      "expected_value": 1111111.11
-    },
     {
       "title": "[每日信息流] 2026-06-02",
       "url": "https://github.com/Tyaoo/picker/issues/1399",
@@ -54,9 +8,10 @@
       "issue_number": 1399,
       "author": "Tyaoo",
       "reward": 300000.0,
+      "reward_priority": "WATCHLIST",
       "score": 72,
-      "decision": "PURSUE",
-      "availability": "OPEN - VERIFY BEFORE WORK",
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
       "created_at": "2026-06-02T03:03:28Z",
       "updated_at": "2026-06-02T03:03:28Z",
       "comments": 0,
@@ -94,60 +49,16 @@
       "expected_value": 136363.64
     },
     {
-      "title": "spam-detector-pro.streamlit.app",
-      "url": "https://github.com/Narendra404/Iris-Classification/issues/1",
-      "repository": "Narendra404/Iris-Classification",
-      "issue_number": 1,
-      "author": "Danarfr27",
-      "reward": 5000.0,
-      "score": 73,
-      "decision": "PURSUE",
-      "availability": "OPEN - VERIFY BEFORE WORK",
-      "created_at": "2026-06-19T19:43:33Z",
-      "updated_at": "2026-06-19T19:43:33Z",
-      "comments": 0,
-      "labels": [],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "PAYPAL MENTIONED - VERIFY TIMING AND PAYER",
-      "paypal_signals": [
-        "paypal"
-      ],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Detailed requirements",
-        "Capability match: ci, dataset, test",
-        "No visible comments",
-        "Posted within 30 days",
-        "Review path appears usable",
-        "PayPal payment explicitly mentioned"
-      ],
-      "risks": [],
-      "change": "NEW",
-      "payment_confidence": 100,
-      "competition_score": 100,
-      "clarity_score": 50,
-      "effort_risk": 45,
-      "expected_value": 2777.78
-    },
-    {
       "title": "[Bounty] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-gen",
       "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/479",
       "repository": "zhangjiayang6835-cyber/bounty-plaza",
       "issue_number": 479,
       "author": "zhangjiayang6835-cyber",
       "reward": 3000.0,
+      "reward_priority": "WATCHLIST",
       "score": 82,
-      "decision": "PURSUE",
-      "availability": "OPEN - VERIFY BEFORE WORK",
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
       "created_at": "2026-07-13T04:00:36Z",
       "updated_at": "2026-07-13T04:02:33Z",
       "comments": 3,
@@ -195,9 +106,10 @@
       "issue_number": 76,
       "author": "Vikingr2023",
       "reward": 3000.0,
+      "reward_priority": "WATCHLIST",
       "score": 82,
-      "decision": "PURSUE",
-      "availability": "OPEN - VERIFY BEFORE WORK",
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
       "created_at": "2026-07-13T03:44:09Z",
       "updated_at": "2026-07-13T03:51:10Z",
       "comments": 3,
@@ -246,9 +158,10 @@
       "issue_number": 167,
       "author": "Vikingr2023",
       "reward": 3000.0,
+      "reward_priority": "WATCHLIST",
       "score": 82,
-      "decision": "PURSUE",
-      "availability": "OPEN - VERIFY BEFORE WORK",
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
       "created_at": "2026-07-13T03:48:37Z",
       "updated_at": "2026-07-13T03:49:55Z",
       "comments": 3,
@@ -285,7 +198,7 @@
       "risks": [
         "Potentially high complexity: architecture"
       ],
-      "change": "CHANGED: decision, availability",
+      "change": "NEW",
       "payment_confidence": 100,
       "competition_score": 100,
       "clarity_score": 50,
@@ -299,9 +212,10 @@
       "issue_number": 52,
       "author": "Vikingr2023",
       "reward": 3000.0,
+      "reward_priority": "WATCHLIST",
       "score": 82,
-      "decision": "PURSUE",
-      "availability": "OPEN - VERIFY BEFORE WORK",
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
       "created_at": "2026-07-13T03:43:20Z",
       "updated_at": "2026-07-13T03:43:56Z",
       "comments": 3,
@@ -338,7 +252,7 @@
       "risks": [
         "Potentially high complexity: architecture"
       ],
-      "change": "CHANGED: decision, availability",
+      "change": "NEW",
       "payment_confidence": 100,
       "competition_score": 100,
       "clarity_score": 50,
@@ -352,9 +266,10 @@
       "issue_number": 477,
       "author": "zhangjiayang6835-cyber",
       "reward": 3000.0,
+      "reward_priority": "WATCHLIST",
       "score": 79,
-      "decision": "PURSUE",
-      "availability": "OPEN - VERIFY BEFORE WORK",
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
       "created_at": "2026-07-13T04:00:35Z",
       "updated_at": "2026-07-13T04:02:51Z",
       "comments": 3,
@@ -396,77 +311,42 @@
       "expected_value": 1363.64
     },
     {
-      "title": "[Bounty] [Bounty: $7500] Optimise atan/asin/acos (fp32)",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/509",
-      "repository": "zhangjiayang6835-cyber/bounty-plaza",
-      "issue_number": 509,
-      "author": "zhangjiayang6835-cyber",
-      "reward": 7500.0,
-      "score": 55,
+      "title": "[ Crypto ] Fix phantom reward accrual after period expiry in YieldVault",
+      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/914",
+      "repository": "UnsafeLabs/Bounty-Hunters",
+      "issue_number": 914,
+      "author": "clankerjournalist",
+      "reward": 550.0,
+      "reward_priority": "WATCHLIST",
+      "score": 68,
       "decision": "WATCHLIST",
-      "availability": "UNCERTAIN",
-      "created_at": "2026-07-15T18:43:15Z",
-      "updated_at": "2026-07-18T10:39:08Z",
-      "comments": 4,
+      "availability": "OVER $250 - WATCHLIST ONLY",
+      "created_at": "2026-05-15T13:43:13Z",
+      "updated_at": "2026-07-05T15:08:32Z",
+      "comments": 39,
       "labels": [
-        "bounty",
-        "real"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Basic requirements",
-        "Capability match: ci, fix, test",
-        "Posted within 7 days",
-        "Recently updated"
-      ],
-      "risks": [
-        "Moderate visible discussion",
-        "Acceptance path requires manual confirmation"
-      ],
-      "change": "UNCHANGED",
-      "payment_confidence": 100,
-      "competition_score": 100,
-      "clarity_score": 50,
-      "effort_risk": 65,
-      "expected_value": 2884.62
-    },
-    {
-      "title": "[ Bounty $3k ] [ Research ] Collect and compare AI-generated AGI architecture proposals",
-      "url": "https://github.com/aLexzzz430/Cognitive-OS/issues/5",
-      "repository": "aLexzzz430/Cognitive-OS",
-      "issue_number": 5,
-      "author": "aLexzzz430",
-      "reward": 3000.0,
-      "score": 67,
-      "decision": "PRIORITY REVIEW",
-      "availability": "OPEN - NEEDS REVIEW",
-      "created_at": "2026-05-22T20:12:15Z",
-      "updated_at": "2026-07-18T21:11:01Z",
-      "comments": 51,
-      "labels": [
-        "bounty",
-        "research",
-        "reward"
+        "$550",
+        "AI Agent friendly",
+        "AI only allowed - no humans",
+        "good first issue",
+        "help wanted",
+        "💎 Bounty"
       ],
       "assignees": [],
       "open_competing_prs": 0,
       "merged_linked_prs": 0,
       "linked_pull_requests": [
         {
+          "title": "hermes-agent [ Crypto ] Fix phantom reward accrual after period expiry in YieldVault",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/4743",
+          "state": "closed",
+          "author": "KK88100",
+          "created_at": "2026-05-26T02:05:08Z",
+          "updated_at": "2026-05-26T02:33:47Z"
+        },
+        {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/18",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1784",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -474,7 +354,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/6",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/936",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -482,7 +362,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/17",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/5334",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -490,7 +370,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/23",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/5863",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -498,7 +378,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/31",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/4102",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -506,7 +386,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/19",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1159",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -514,7 +394,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/14",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1396",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -522,7 +402,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/27",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/4739",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -530,7 +410,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/11",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1501",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -538,7 +418,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/15",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/4439",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -546,7 +426,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/12",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/3337",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -554,7 +434,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/29",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/3579",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -562,7 +442,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/26",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/6149",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -570,7 +450,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/37",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1910",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -578,7 +458,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/25",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/5191",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -586,7 +466,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/21",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/5499",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -594,7 +474,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/10",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/992",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -602,7 +482,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/13",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1210",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -610,7 +490,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/8",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1631",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -618,7 +498,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/30",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1786",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -626,7 +506,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/20",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1864",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -634,7 +514,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/35",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/5655",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -642,7 +522,7 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/7",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1785",
           "state": "unknown",
           "author": "",
           "created_at": "",
@@ -650,336 +530,161 @@
         },
         {
           "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/9",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/5389",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1810",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/4067",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/5553",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/5646",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/2766",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1136",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/5534",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1780",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1057",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1858",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/5469",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/simisdav55-oss/Bounty-Hunters/pull/29",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/3539",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/995",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/5352",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/1549",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/2549",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/UnsafeLabs/Bounty-Hunters/pull/3252",
           "state": "unknown",
           "author": "",
           "created_at": "",
           "updated_at": ""
         }
       ],
-      "payment_verification": "PAYPAL MENTIONED - VERIFY TIMING AND PAYER",
-      "paypal_signals": [
-        "paypal"
-      ],
+      "payment_verification": "SIGNALS FOUND - STILL VERIFY MANUALLY",
+      "paypal_signals": [],
       "fast_payment_signals": [],
       "ai_eligibility": "EXPLICITLY ALLOWED",
-      "approval_authority": "OWNER/MAINTAINER APPROVAL PATH DESCRIBED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Detailed requirements",
-        "Capability match: ai agent, api integration, bug, ci, claude, dataset",
-        "Recently updated",
-        "Explicit acceptance criteria",
-        "PayPal payment explicitly mentioned",
-        "AI/automation participation appears allowed",
-        "Acceptance authority or approval trigger is described"
-      ],
-      "risks": [
-        "Potentially high complexity: architecture, rewrite",
-        "Heavy visible discussion"
-      ],
-      "change": "CHANGED: decision, availability, open_competing_prs",
-      "payment_confidence": 100,
-      "competition_score": 100,
-      "clarity_score": 50,
-      "effort_risk": 65,
-      "expected_value": 1153.85
-    },
-    {
-      "title": "Including link: ",
-      "url": "https://github.com/Teamintelxsel/Evolving-sun/issues/36",
-      "repository": "Teamintelxsel/Evolving-sun",
-      "issue_number": 36,
-      "author": "enderyou-lang",
-      "reward": 25000.0,
-      "score": 25,
-      "decision": "WATCHLIST",
-      "availability": "CONTESTED",
-      "created_at": "2025-11-27T22:21:52Z",
-      "updated_at": "2025-11-27T22:21:52Z",
-      "comments": 0,
-      "labels": [],
-      "assignees": [],
-      "open_competing_prs": 3,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [
-        {
-          "title": "Integrate SWE-Bench, GPQA, and KEGG benchmark harnesses with unified runner and weekly CI",
-          "url": "https://github.com/Teamintelxsel/Evolving-sun/pull/51",
-          "state": "open",
-          "author": "Copilot",
-          "created_at": "2026-01-10T01:38:25Z",
-          "updated_at": "2026-01-20T21:39:25Z"
-        },
-        {
-          "title": "Implement comprehensive audit system and appraisal package",
-          "url": "https://github.com/Teamintelxsel/Evolving-sun/pull/45",
-          "state": "open",
-          "author": "Copilot",
-          "created_at": "2026-01-04T00:16:14Z",
-          "updated_at": "2026-01-15T14:59:30Z"
-        },
-        {
-          "title": "Add evolution logging structure and conversation import tool",
-          "url": "https://github.com/Teamintelxsel/Evolving-sun/pull/49",
-          "state": "open",
-          "author": "Copilot",
-          "created_at": "2026-01-10T01:01:12Z",
-          "updated_at": "2026-01-15T08:05:24Z"
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/Teamintelxsel/Evolving-sun/pull/50",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        }
-      ],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Detailed requirements",
-        "Capability match: bug, ci, docs, documentation, fix, llm",
-        "No visible comments",
-        "Review path appears usable"
-      ],
-      "risks": [
-        "Potentially high complexity: rewrite",
-        "Issue may be stale",
-        "3 competing pull requests detected"
-      ],
-      "change": "NEW",
-      "payment_confidence": 100,
-      "competition_score": 10,
-      "clarity_score": 50,
-      "effort_risk": 75,
-      "expected_value": 833.33
-    },
-    {
-      "title": "[Bounty $2500] Bring up microsoft/phi-1 on Wormhole",
-      "url": "https://github.com/tenstorrent/tt-metal/issues/18287",
-      "repository": "tenstorrent/tt-metal",
-      "issue_number": 18287,
-      "author": "thenoahhein",
-      "reward": 2500.0,
-      "score": 23,
-      "decision": "REJECT",
-      "availability": "ASSIGNED",
-      "created_at": "2025-02-25T15:39:44Z",
-      "updated_at": "2026-07-18T12:43:08Z",
-      "comments": 100,
-      "labels": [
-        "bounty",
-        "bounty_difficulty/hard"
-      ],
-      "assignees": [
-        "Adraca"
-      ],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [
-        {
-          "title": "Add Phi-1 support in tt_transformers for Wormhole bring-up",
-          "url": "https://github.com/tenstorrent/tt-metal/pull/39081",
-          "state": "closed",
-          "author": "RustamKazmi",
-          "created_at": "2026-03-04T12:59:08Z",
-          "updated_at": "2026-06-12T08:39:09Z"
-        }
-      ],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Detailed requirements",
-        "Capability match: bug, ci, docs, fix, llm, prompt",
-        "Recently updated",
-        "Review path appears usable"
-      ],
-      "risks": [
-        "Potentially high complexity: architecture",
-        "Heavy visible discussion",
-        "Issue may be stale",
-        "Issue already has an assignee"
-      ],
-      "change": "UNCHANGED",
-      "payment_confidence": 100,
-      "competition_score": 75,
-      "clarity_score": 50,
-      "effort_risk": 85,
-      "expected_value": 551.47
-    },
-    {
-      "title": "[Bounty $1500] SAM2 bring up using TTNN APIs",
-      "url": "https://github.com/tenstorrent/tt-metal/issues/48311",
-      "repository": "tenstorrent/tt-metal",
-      "issue_number": 48311,
-      "author": "eyonce",
-      "reward": 1500.0,
-      "score": 40,
-      "decision": "REJECT",
-      "availability": "ASSIGNED",
-      "created_at": "2026-06-26T22:23:53Z",
-      "updated_at": "2026-07-15T16:27:15Z",
-      "comments": 13,
-      "labels": [
-        "bounty",
-        "bounty_difficulty/medium",
-        "community",
-        "model bringup"
-      ],
-      "assignees": [
-        "eyonce"
-      ],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/tenstorrent/tt-metal/pull/49456",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        }
-      ],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Detailed requirements",
-        "Capability match: ci, docs, prompt, python, rag, test",
-        "Posted within 30 days",
-        "Recently updated",
-        "Review path appears usable"
-      ],
-      "risks": [
-        "Potentially high complexity: architecture",
-        "Heavy visible discussion",
-        "Issue already has an assignee"
-      ],
-      "change": "NEW",
-      "payment_confidence": 100,
-      "competition_score": 75,
-      "clarity_score": 50,
-      "effort_risk": 75,
-      "expected_value": 375.0
-    },
-    {
-      "title": "[PAID BOUNTY - $750] Audio Note Recording",
-      "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/issues/9",
-      "repository": "warpspeedopen-source/warpspeed-bounties",
-      "issue_number": 9,
-      "author": "warpspeedopen-source",
-      "reward": 750.0,
-      "score": 65,
-      "decision": "PRIORITY REVIEW",
-      "availability": "OPEN - NEEDS REVIEW",
-      "created_at": "2026-05-28T21:03:15Z",
-      "updated_at": "2026-07-14T16:45:14Z",
-      "comments": 38,
-      "labels": [
-        "audio",
-        "bounty",
-        "frontend",
-        "help wanted",
-        "notes",
-        "open",
-        "paid",
-        "react-native",
-        "typescript",
-        "ui"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/45",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/17",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/19",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/97",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/84",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/76",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/35",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        }
-      ],
-      "payment_verification": "PAYPAL MENTIONED - VERIFY TIMING AND PAYER",
-      "paypal_signals": [
-        "paypal"
-      ],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
       "approval_authority": "NOT VERIFIED",
       "fast_pay_candidate": false,
       "fast_pay_status": "NOT FAST-PAY VERIFIED",
@@ -987,406 +692,20 @@
       "reasons": [
         "Large stated reward",
         "Detailed requirements",
-        "Capability match: api integration, ci, docs, python, rag, test",
-        "Recently updated",
+        "Capability match: ai agent, ci, docs, fix, openai, rag",
         "Explicit acceptance criteria",
         "Payment-related signal mentioned",
-        "PayPal payment explicitly mentioned"
+        "AI/automation participation appears allowed"
       ],
       "risks": [
-        "Potentially high complexity: architecture, mobile app",
         "Heavy visible discussion"
       ],
       "change": "NEW",
       "payment_confidence": 100,
       "competition_score": 100,
-      "clarity_score": 50,
-      "effort_risk": 65,
-      "expected_value": 288.46
-    },
-    {
-      "title": "Threads - (Dev Bounty: $750)",
-      "url": "https://github.com/fluxerapp/fluxer-meta/issues/5",
-      "repository": "fluxerapp/fluxer-meta",
-      "issue_number": 5,
-      "author": "Kamalaja",
-      "reward": 750.0,
-      "score": 58,
-      "decision": "PRIORITY REVIEW",
-      "availability": "OPEN - NEEDS REVIEW",
-      "created_at": "2026-06-03T17:58:31Z",
-      "updated_at": "2026-07-17T19:04:51Z",
-      "comments": 34,
-      "labels": [
-        "Desktop",
-        "Mobile",
-        "Server"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/fluxerapp/fluxer-meta/pull/55",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/fluxerapp/fluxer/pull/1384",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/fluxerapp/fluxer-meta/pull/31",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/fluxerapp/fluxer/pull/1170",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        }
-      ],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Large stated reward",
-        "Detailed requirements",
-        "Capability match: bug, ci, documentation, fix, python, rag",
-        "Recently updated",
-        "Explicit acceptance criteria"
-      ],
-      "risks": [
-        "Potentially high complexity: architecture",
-        "Heavy visible discussion"
-      ],
-      "change": "NEW",
-      "payment_confidence": 100,
-      "competition_score": 100,
-      "clarity_score": 50,
-      "effort_risk": 65,
-      "expected_value": 288.46
-    },
-    {
-      "title": "Security: Hardcoded JWT fallback secret exposes authentication to forgery",
-      "url": "https://github.com/SecureBananaLabs/bug-bounty/issues/11169",
-      "repository": "SecureBananaLabs/bug-bounty",
-      "issue_number": 11169,
-      "author": "Daisuke134",
-      "reward": 700.0,
-      "score": 53,
-      "decision": "WATCHLIST",
-      "availability": "CONTESTED",
-      "created_at": "2026-07-15T04:38:54Z",
-      "updated_at": "2026-07-15T04:40:07Z",
-      "comments": 1,
-      "labels": [],
-      "assignees": [],
-      "open_competing_prs": 1,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [
-        {
-          "title": "fix: require JWT_SECRET with startup validation, remove hardcoded fallback",
-          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/11170",
-          "state": "open",
-          "author": "Daisuke134",
-          "created_at": "2026-07-15T04:40:01Z",
-          "updated_at": "2026-07-15T04:40:01Z"
-        }
-      ],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Large stated reward",
-        "Detailed requirements",
-        "Capability match: automation, bug, ci, fix",
-        "Low visible discussion",
-        "Posted within 7 days",
-        "Recently updated",
-        "Review path appears usable"
-      ],
-      "risks": [
-        "One competing pull request detected"
-      ],
-      "change": "NEW",
-      "payment_confidence": 100,
-      "competition_score": 70,
       "clarity_score": 50,
       "effort_risk": 55,
-      "expected_value": 222.73
-    },
-    {
-      "title": "[PAID BOUNTY - $750] Email Threads API",
-      "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/issues/4",
-      "repository": "warpspeedopen-source/warpspeed-bounties",
-      "issue_number": 4,
-      "author": "warpspeedopen-source",
-      "reward": 750.0,
-      "score": 39,
-      "decision": "WATCHLIST",
-      "availability": "CONTESTED",
-      "created_at": "2026-05-28T19:40:03Z",
-      "updated_at": "2026-07-13T22:55:20Z",
-      "comments": 43,
-      "labels": [
-        "API",
-        "backend",
-        "bounty",
-        "expert",
-        "help wanted",
-        "nodejs",
-        "open",
-        "paid",
-        "prisma",
-        "typescript"
-      ],
-      "assignees": [],
-      "open_competing_prs": 2,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [
-        {
-          "title": "Fix #4: [PAID BOUNTY - $750] Email Threads API",
-          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/106",
-          "state": "open",
-          "author": "thangtran7314",
-          "created_at": "2026-07-08T16:41:18Z",
-          "updated_at": "2026-07-08T16:41:18Z"
-        },
-        {
-          "title": "[JARVIS] Solve issue #4: [PAID BOUNTY - $750] Email Threads API",
-          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/61",
-          "state": "open",
-          "author": "instalaudi",
-          "created_at": "2026-06-05T04:38:20Z",
-          "updated_at": "2026-06-08T06:28:35Z"
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/16",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/44",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/20",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/34",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        }
-      ],
-      "payment_verification": "PAYPAL MENTIONED - VERIFY TIMING AND PAYER",
-      "paypal_signals": [
-        "paypal"
-      ],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Large stated reward",
-        "Detailed requirements",
-        "Capability match: api integration, ci, docs, documentation, fix, python",
-        "Recently updated",
-        "Explicit acceptance criteria",
-        "Payment-related signal mentioned",
-        "PayPal payment explicitly mentioned"
-      ],
-      "risks": [
-        "Potentially high complexity: architecture",
-        "Heavy visible discussion",
-        "2 competing pull requests detected"
-      ],
-      "change": "NEW",
-      "payment_confidence": 100,
-      "competition_score": 40,
-      "clarity_score": 50,
-      "effort_risk": 75,
-      "expected_value": 100.0
-    },
-    {
-      "title": "[Bounty $1500] CosyVoice bring up using TTNN APIs",
-      "url": "https://github.com/tenstorrent/tt-metal/issues/32178",
-      "repository": "tenstorrent/tt-metal",
-      "issue_number": 32178,
-      "author": "tvardhineniTT",
-      "reward": 1500.0,
-      "score": 10,
-      "decision": "REJECT",
-      "availability": "ASSIGNED AND CONTESTED",
-      "created_at": "2025-11-10T17:29:25Z",
-      "updated_at": "2026-07-15T17:13:49Z",
-      "comments": 47,
-      "labels": [
-        "bounty",
-        "bounty_difficulty/medium",
-        "model bringup"
-      ],
-      "assignees": [
-        "brymut"
-      ],
-      "open_competing_prs": 1,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [
-        {
-          "title": "feat: add CosyVoice support and model config, utilities and tests",
-          "url": "https://github.com/tenstorrent/tt-metal/pull/43261",
-          "state": "open",
-          "author": "brymut",
-          "created_at": "2026-04-28T12:52:50Z",
-          "updated_at": "2026-07-14T17:26:25Z"
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/tenstorrent/tt-metal/pull/41471",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        }
-      ],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Detailed requirements",
-        "Capability match: bug, ci, dataset, docs, evaluation, fix",
-        "Recently updated",
-        "Explicit acceptance criteria"
-      ],
-      "risks": [
-        "Potentially high complexity: architecture",
-        "Heavy visible discussion",
-        "Issue may be stale",
-        "Issue already has an assignee",
-        "One competing pull request detected"
-      ],
-      "change": "NEW",
-      "payment_confidence": 55,
-      "competition_score": 45,
-      "clarity_score": 50,
-      "effort_risk": 95,
-      "expected_value": 97.7
-    },
-    {
-      "title": "[Bounty $1500] LLVC (Low-Latency Low-Resource Voice Conversion) bring up using TTNN APIs",
-      "url": "https://github.com/tenstorrent/tt-metal/issues/32187",
-      "repository": "tenstorrent/tt-metal",
-      "issue_number": 32187,
-      "author": "tvardhineniTT",
-      "reward": 1500.0,
-      "score": 3,
-      "decision": "REJECT",
-      "availability": "ASSIGNED AND CONTESTED",
-      "created_at": "2025-11-10T18:07:10Z",
-      "updated_at": "2026-07-18T12:43:36Z",
-      "comments": 58,
-      "labels": [
-        "bounty",
-        "bounty_difficulty/medium",
-        "model bringup"
-      ],
-      "assignees": [
-        "samiyadev786"
-      ],
-      "open_competing_prs": 1,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [
-        {
-          "title": "LLVC (Low-Latency Low-Resource Voice Conversion) bring-up using TTNN APIs",
-          "url": "https://github.com/tenstorrent/tt-metal/pull/49699",
-          "state": "open",
-          "author": "samiyadev786",
-          "created_at": "2026-07-12T20:01:57Z",
-          "updated_at": "2026-07-18T18:59:58Z"
-        },
-        {
-          "title": "Pull request linked through issue timeline",
-          "url": "https://github.com/tenstorrent/tt-metal/pull/38831",
-          "state": "unknown",
-          "author": "",
-          "created_at": "",
-          "updated_at": ""
-        }
-      ],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT FAST-PAY VERIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Very large stated reward",
-        "Detailed requirements",
-        "Capability match: bug, ci, docs, evaluation, fix, prompt",
-        "Recently updated",
-        "Review path appears usable"
-      ],
-      "risks": [
-        "Potentially high complexity: architecture",
-        "Heavy visible discussion",
-        "Issue may be stale",
-        "Issue already has an assignee",
-        "One competing pull request detected"
-      ],
-      "change": "UNCHANGED",
-      "payment_confidence": 20,
-      "competition_score": 45,
-      "clarity_score": 50,
-      "effort_risk": 95,
-      "expected_value": 35.53
+      "expected_value": 250.0
     },
     {
       "title": "[PAID BOUNTY - $960] Attachment Summarizer Service",
@@ -1395,9 +714,10 @@
       "issue_number": 1,
       "author": "warpspeedopen-source",
       "reward": 960.0,
+      "reward_priority": "WATCHLIST",
       "score": 44,
       "decision": "WATCHLIST",
-      "availability": "CONTESTED",
+      "availability": "OVER $250 - WATCHLIST ONLY",
       "created_at": "2026-05-28T19:24:29Z",
       "updated_at": "2026-07-16T07:57:41Z",
       "comments": 67,
@@ -1688,7 +1008,2093 @@
       "clarity_score": 50,
       "effort_risk": 75,
       "expected_value": 0.0
+    },
+    {
+      "title": "Benchmark APIs with p50, p95, p99 latency, RPS, error rate and TTFB",
+      "url": "https://github.com/SecureBananaLabs/bug-bounty/issues/30",
+      "repository": "SecureBananaLabs/bug-bounty",
+      "issue_number": 30,
+      "author": "claim-reviewer",
+      "reward": 750.0,
+      "reward_priority": "WATCHLIST",
+      "score": 44,
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
+      "created_at": "2026-05-17T05:55:52Z",
+      "updated_at": "2026-07-15T22:40:37Z",
+      "comments": 100,
+      "labels": [
+        "$750",
+        "AI agent friendly",
+        "bounty",
+        "bug bounty",
+        "good first issue",
+        "help wanted",
+        "💎 Bounty"
+      ],
+      "assignees": [],
+      "open_competing_prs": 31,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [
+        {
+          "title": "Add API benchmark suite with p50/p95/p99, RPS, error rate, TTFB",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/11116",
+          "state": "closed",
+          "author": "Fourier18",
+          "created_at": "2026-07-12T10:20:13Z",
+          "updated_at": "2026-07-13T10:11:53Z"
+        },
+        {
+          "title": "Add API benchmark smoke suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/5142",
+          "state": "open",
+          "author": "elianguitarra",
+          "created_at": "2026-06-06T04:14:55Z",
+          "updated_at": "2026-07-06T09:10:51Z"
+        },
+        {
+          "title": "test(api): add regression coverage case 30",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/9947",
+          "state": "open",
+          "author": "namdamdoi68-oss",
+          "created_at": "2026-07-04T19:00:56Z",
+          "updated_at": "2026-07-04T19:00:56Z"
+        },
+        {
+          "title": "feat: API benchmark suite — p50/p95/p99 latency, RPS, error rate (#30)",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/9621",
+          "state": "open",
+          "author": "dev-nana27",
+          "created_at": "2026-07-03T23:17:10Z",
+          "updated_at": "2026-07-03T23:17:10Z"
+        },
+        {
+          "title": "feat: add API benchmark suite with smoke gate",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/9594",
+          "state": "open",
+          "author": "SabFabDev",
+          "created_at": "2026-07-03T19:47:50Z",
+          "updated_at": "2026-07-03T22:45:56Z"
+        },
+        {
+          "title": "Add API benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/9187",
+          "state": "open",
+          "author": "tenaxresearchbaekhui",
+          "created_at": "2026-06-30T17:53:07Z",
+          "updated_at": "2026-06-30T17:53:07Z"
+        },
+        {
+          "title": "feat: enhance API benchmarks with JSON output and CI regression gate …",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/9067",
+          "state": "open",
+          "author": "lb1192176991-lab",
+          "created_at": "2026-06-27T14:28:43Z",
+          "updated_at": "2026-06-27T14:28:43Z"
+        },
+        {
+          "title": "Add API benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/8511",
+          "state": "open",
+          "author": "victordb9997",
+          "created_at": "2026-06-25T20:26:37Z",
+          "updated_at": "2026-06-25T20:26:37Z"
+        },
+        {
+          "title": "feat: #30 - API benchmark utility",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/7927",
+          "state": "open",
+          "author": "5AIBountyHunter",
+          "created_at": "2026-06-18T11:04:27Z",
+          "updated_at": "2026-06-18T15:41:40Z"
+        },
+        {
+          "title": "feat: add API benchmark suite with p50/p95/p99/RPS/TTFB metrics and CI gate",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/7825",
+          "state": "open",
+          "author": "XananasX7",
+          "created_at": "2026-06-17T10:18:14Z",
+          "updated_at": "2026-06-17T10:18:17Z"
+        },
+        {
+          "title": "Add API benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/7755",
+          "state": "open",
+          "author": "Monster5860",
+          "created_at": "2026-06-17T04:45:02Z",
+          "updated_at": "2026-06-17T04:50:18Z"
+        },
+        {
+          "title": "chore(api): add benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/7280",
+          "state": "open",
+          "author": "sato820",
+          "created_at": "2026-06-16T03:14:01Z",
+          "updated_at": "2026-06-16T03:14:01Z"
+        },
+        {
+          "title": "fix: prevent override of notification id and read state during creation",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/7250",
+          "state": "open",
+          "author": "nkar123412-hub",
+          "created_at": "2026-06-16T01:37:32Z",
+          "updated_at": "2026-06-16T01:37:32Z"
+        },
+        {
+          "title": "feat: add API benchmark suite (p50/p95/p99, RPS, error rate, TTFB)",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/7087",
+          "state": "open",
+          "author": "XananasX7",
+          "created_at": "2026-06-14T18:23:04Z",
+          "updated_at": "2026-06-14T18:23:04Z"
+        },
+        {
+          "title": "Add API benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/524",
+          "state": "open",
+          "author": "minorstep",
+          "created_at": "2026-05-20T22:59:36Z",
+          "updated_at": "2026-06-12T15:17:51Z"
+        },
+        {
+          "title": "Add reproducible API benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/3128",
+          "state": "open",
+          "author": "wilber123451-design",
+          "created_at": "2026-05-31T16:47:00Z",
+          "updated_at": "2026-06-11T23:48:04Z"
+        },
+        {
+          "title": "[ShanaBoo] Benchmark APIs with p50, p95, p99 latency, RPS, error rate and TTFB",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/631",
+          "state": "open",
+          "author": "genesisrevelationinc-debug",
+          "created_at": "2026-05-22T13:50:04Z",
+          "updated_at": "2026-06-11T13:44:36Z"
+        },
+        {
+          "title": "feat: comprehensive benchmark suite for issue #30",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/6666",
+          "state": "open",
+          "author": "ECZ-Quantum-Labs",
+          "created_at": "2026-06-11T12:14:37Z",
+          "updated_at": "2026-06-11T13:02:55Z"
+        },
+        {
+          "title": "Add API benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/6637",
+          "state": "open",
+          "author": "YfengJ",
+          "created_at": "2026-06-11T04:42:29Z",
+          "updated_at": "2026-06-11T11:45:09Z"
+        },
+        {
+          "title": "Add API benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/6441",
+          "state": "open",
+          "author": "yanziwei",
+          "created_at": "2026-06-10T10:38:44Z",
+          "updated_at": "2026-06-10T11:59:37Z"
+        },
+        {
+          "title": "[SnowfallHD] Benchmark APIs with p50/p95/p99 latency, RPS, error rate, and TTFB",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/5765",
+          "state": "open",
+          "author": "SnowfallHD",
+          "created_at": "2026-06-08T08:23:52Z",
+          "updated_at": "2026-06-09T21:19:31Z"
+        },
+        {
+          "title": "Add MojoBeep Signal Synth pixel art",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/5414",
+          "state": "open",
+          "author": "mojobeeping",
+          "created_at": "2026-06-07T16:59:58Z",
+          "updated_at": "2026-06-07T17:00:01Z"
+        },
+        {
+          "title": "feat: implement Stripe PaymentIntent integration for bounty #6",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/27",
+          "state": "open",
+          "author": "Adamchaua",
+          "created_at": "2026-05-17T05:48:36Z",
+          "updated_at": "2026-06-07T08:45:35Z"
+        },
+        {
+          "title": "feat: add API benchmark suite with latency metrics",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/5247",
+          "state": "open",
+          "author": "779677861-max",
+          "created_at": "2026-06-06T10:10:48Z",
+          "updated_at": "2026-06-06T10:10:48Z"
+        },
+        {
+          "title": "docs(pi): document PI to 2000000 decimal places",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/4775",
+          "state": "open",
+          "author": "modelsbridgeaicom-ship-it",
+          "created_at": "2026-06-05T11:07:43Z",
+          "updated_at": "2026-06-05T11:13:14Z"
+        },
+        {
+          "title": "bench(api): add reproducible endpoint benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/4768",
+          "state": "open",
+          "author": "modelsbridgeaicom-ship-it",
+          "created_at": "2026-06-05T10:57:32Z",
+          "updated_at": "2026-06-05T11:13:14Z"
+        },
+        {
+          "title": "Add API benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/506",
+          "state": "open",
+          "author": "jamilahmadzai",
+          "created_at": "2026-05-20T18:37:00Z",
+          "updated_at": "2026-06-04T23:22:58Z"
+        },
+        {
+          "title": "Add API benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/375",
+          "state": "open",
+          "author": "maikeru199",
+          "created_at": "2026-05-20T01:59:57Z",
+          "updated_at": "2026-06-04T21:04:42Z"
+        },
+        {
+          "title": "Add API benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/2361",
+          "state": "open",
+          "author": "sorinc03",
+          "created_at": "2026-05-30T19:14:04Z",
+          "updated_at": "2026-06-04T13:22:47Z"
+        },
+        {
+          "title": "fix: #30 - Created k6 benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/4032",
+          "state": "open",
+          "author": "Bshes",
+          "created_at": "2026-06-03T17:32:35Z",
+          "updated_at": "2026-06-03T17:32:35Z"
+        },
+        {
+          "title": "feat: add API benchmark suite with k6 (p50/p95/p99 latency, RPS, error rate, TTFB)",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/3978",
+          "state": "open",
+          "author": "Bshes",
+          "created_at": "2026-06-03T13:58:40Z",
+          "updated_at": "2026-06-03T13:58:40Z"
+        },
+        {
+          "title": "fix: resolve bounty #30 — Benchmark APIs with p50, p95, p99 latency, RPS, error rate and TTFB",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/570",
+          "state": "closed",
+          "author": "tiaraimpex410-sudo",
+          "created_at": "2026-05-21T08:32:51Z",
+          "updated_at": "2026-05-21T17:26:14Z"
+        },
+        {
+          "title": "Add reproducible API benchmark suite",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/49",
+          "state": "open",
+          "author": "JeremyZeng77",
+          "created_at": "2026-05-17T09:51:02Z",
+          "updated_at": "2026-05-18T06:34:26Z"
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/39",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/112",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/68",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/32",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/37",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/31",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/54",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/34",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/57",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/84",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/119",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/102",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/81",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/44",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/55",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/33",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/59",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/73",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/48",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/66",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/51",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/41",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/43",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/62",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/26",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/38",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        }
+      ],
+      "payment_verification": "PAYPAL MENTIONED - VERIFY TIMING AND PAYER",
+      "paypal_signals": [
+        "paypal"
+      ],
+      "fast_payment_signals": [],
+      "ai_eligibility": "EXPLICITLY ALLOWED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Large stated reward",
+        "Detailed requirements",
+        "Capability match: ai agent, automation, bug, ci, claude, docs",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "Payment-related signal mentioned",
+        "PayPal payment explicitly mentioned",
+        "AI/automation participation appears allowed"
+      ],
+      "risks": [
+        "Potentially high complexity: full implementation",
+        "Heavy visible discussion",
+        "31 competing pull requests detected"
+      ],
+      "change": "NEW",
+      "payment_confidence": 0,
+      "competition_score": 0,
+      "clarity_score": 50,
+      "effort_risk": 75,
+      "expected_value": 0.0
+    },
+    {
+      "title": "[ Bounty $3k ] [ Research ] Collect and compare AI-generated AGI architecture proposals",
+      "url": "https://github.com/aLexzzz430/Cognitive-OS/issues/5",
+      "repository": "aLexzzz430/Cognitive-OS",
+      "issue_number": 5,
+      "author": "aLexzzz430",
+      "reward": 3000.0,
+      "reward_priority": "WATCHLIST",
+      "score": 37,
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
+      "created_at": "2026-05-22T20:12:15Z",
+      "updated_at": "2026-07-18T21:11:01Z",
+      "comments": 51,
+      "labels": [
+        "bounty",
+        "research",
+        "reward"
+      ],
+      "assignees": [],
+      "open_competing_prs": 23,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [
+        {
+          "title": "Add AGI architecture research packet: 8 AI proposals compared - Fixes #5 ($3,000 bounty)",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/35",
+          "state": "open",
+          "author": "chirag120670598-dotcom",
+          "created_at": "2026-07-11T10:04:45Z",
+          "updated_at": "2026-07-12T06:48:55Z"
+        },
+        {
+          "title": "Add AGI architecture research packet (Issue #5)",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/37",
+          "state": "open",
+          "author": "sureshchouksey8",
+          "created_at": "2026-07-12T06:15:06Z",
+          "updated_at": "2026-07-12T06:15:06Z"
+        },
+        {
+          "title": "Research: AGI architecture proposals from 3 AI systems (GLM-5.2, GPT-5, GPT-OSS)",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/36",
+          "state": "open",
+          "author": "Fuhua-GIF",
+          "created_at": "2026-07-11T13:48:16Z",
+          "updated_at": "2026-07-11T14:09:28Z"
+        },
+        {
+          "title": "Research: AGI architecture proposals from 8 AI systems",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/31",
+          "state": "open",
+          "author": "foxyManTou",
+          "created_at": "2026-07-03T06:11:43Z",
+          "updated_at": "2026-07-03T06:11:50Z"
+        },
+        {
+          "title": "fix: issue #5",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/30",
+          "state": "open",
+          "author": "SKYJAMES777",
+          "created_at": "2026-07-01T09:43:16Z",
+          "updated_at": "2026-07-01T09:43:16Z"
+        },
+        {
+          "title": "Research: Collect and compare AI-generated AGI architecture proposals",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/7",
+          "state": "open",
+          "author": "sureshchouksey8",
+          "created_at": "2026-05-23T04:09:31Z",
+          "updated_at": "2026-06-25T06:07:21Z"
+        },
+        {
+          "title": "feat: AGI architecture research from 8 AI systems",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/29",
+          "state": "open",
+          "author": "zzc18429155766",
+          "created_at": "2026-06-23T08:19:45Z",
+          "updated_at": "2026-06-23T08:19:45Z"
+        },
+        {
+          "title": "fix(#5): [ Bounty $3k ] [ Research ] Collect and compare AI-generated",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/28",
+          "state": "open",
+          "author": "Notime02",
+          "created_at": "2026-06-21T20:02:15Z",
+          "updated_at": "2026-06-21T20:02:15Z"
+        },
+        {
+          "title": "feat: AGI Architecture Research Packet — Bounty #5",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/25",
+          "state": "open",
+          "author": "Bakomebandias",
+          "created_at": "2026-06-11T16:16:51Z",
+          "updated_at": "2026-06-20T09:47:04Z"
+        },
+        {
+          "title": "research: AGI architecture proposals comparison ($3k bounty #5)",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/27",
+          "state": "open",
+          "author": "dotidoti-cao",
+          "created_at": "2026-06-16T16:00:10Z",
+          "updated_at": "2026-06-16T16:00:10Z"
+        },
+        {
+          "title": "Research: AI-generated AGI architecture proposals from 7 outputs across 3 model families",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/16",
+          "state": "open",
+          "author": "hadochhassan25-lgtm",
+          "created_at": "2026-05-30T04:43:55Z",
+          "updated_at": "2026-06-09T23:27:15Z"
+        },
+        {
+          "title": "AGI Architecture Research Packet — 7 AI Model Comparison & Synthesis",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/24",
+          "state": "open",
+          "author": "qingluan-bot",
+          "created_at": "2026-06-06T08:39:46Z",
+          "updated_at": "2026-06-06T08:39:46Z"
+        },
+        {
+          "title": "Research #5: Collect and compare AI-generated AGI architecture proposals",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/23",
+          "state": "open",
+          "author": "18203866068",
+          "created_at": "2026-06-04T09:40:10Z",
+          "updated_at": "2026-06-04T09:40:10Z"
+        },
+        {
+          "title": "Add AGI architecture research packet for bounty #5",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/21",
+          "state": "open",
+          "author": "baconag",
+          "created_at": "2026-06-02T08:22:49Z",
+          "updated_at": "2026-06-02T08:22:49Z"
+        },
+        {
+          "title": "AGI Architecture Research Packet: 8-Model Comparative Study",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/18",
+          "state": "open",
+          "author": "KylinBaBao",
+          "created_at": "2026-06-01T14:32:30Z",
+          "updated_at": "2026-06-01T14:32:30Z"
+        },
+        {
+          "title": "feat: AGI architecture research packet — 8 AI systems compared",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/14",
+          "state": "open",
+          "author": "0xN404T",
+          "created_at": "2026-05-27T17:06:36Z",
+          "updated_at": "2026-05-27T18:54:11Z"
+        },
+        {
+          "title": "[BOUNTY #5] AGI Architecture Research Submission",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/13",
+          "state": "open",
+          "author": "yokuisiti",
+          "created_at": "2026-05-27T11:24:06Z",
+          "updated_at": "2026-05-27T11:24:06Z"
+        },
+        {
+          "title": "research: add real model AGI architecture packet",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/12",
+          "state": "open",
+          "author": "jtc268",
+          "created_at": "2026-05-27T03:41:16Z",
+          "updated_at": "2026-05-27T04:21:47Z"
+        },
+        {
+          "title": "feat(research): add AGI architecture comparison packet with 9 AI system outputs",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/11",
+          "state": "open",
+          "author": "blackcrazyt",
+          "created_at": "2026-05-26T09:23:10Z",
+          "updated_at": "2026-05-26T09:23:10Z"
+        },
+        {
+          "title": "research: AGI architecture research packet (#5)",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/10",
+          "state": "open",
+          "author": "aglichandrap",
+          "created_at": "2026-05-25T09:59:38Z",
+          "updated_at": "2026-05-25T09:59:38Z"
+        },
+        {
+          "title": "Bounty #5: AGI Architecture Research - Multi-perspective Analysis",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/9",
+          "state": "open",
+          "author": "pterking",
+          "created_at": "2026-05-24T13:30:25Z",
+          "updated_at": "2026-05-24T13:30:25Z"
+        },
+        {
+          "title": "feat: Add AI-generated AGI architecture proposals research packet",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/8",
+          "state": "open",
+          "author": "hikali123456789",
+          "created_at": "2026-05-23T17:51:39Z",
+          "updated_at": "2026-05-23T17:51:39Z"
+        },
+        {
+          "title": "[Bounty k] Research: Collect and compare AI-generated AGI architecture proposals (Closes #5)",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/6",
+          "state": "open",
+          "author": "dagangtj",
+          "created_at": "2026-05-22T21:55:57Z",
+          "updated_at": "2026-05-22T21:55:57Z"
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/15",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/17",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/19",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/20",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/aLexzzz430/Cognitive-OS/pull/26",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        }
+      ],
+      "payment_verification": "PAYPAL MENTIONED - VERIFY TIMING AND PAYER",
+      "paypal_signals": [
+        "paypal"
+      ],
+      "fast_payment_signals": [],
+      "ai_eligibility": "EXPLICITLY ALLOWED",
+      "approval_authority": "OWNER/MAINTAINER APPROVAL PATH DESCRIBED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Very large stated reward",
+        "Detailed requirements",
+        "Capability match: ai agent, api integration, bug, ci, claude, dataset",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "PayPal payment explicitly mentioned",
+        "AI/automation participation appears allowed",
+        "Acceptance authority or approval trigger is described"
+      ],
+      "risks": [
+        "Potentially high complexity: architecture, rewrite",
+        "Heavy visible discussion",
+        "23 competing pull requests detected"
+      ],
+      "change": "NEW",
+      "payment_confidence": 0,
+      "competition_score": 0,
+      "clarity_score": 50,
+      "effort_risk": 75,
+      "expected_value": 0.0
+    },
+    {
+      "title": "Calculate the exact value of PI",
+      "url": "https://github.com/xevrion-v2/agent-playground/issues/17",
+      "repository": "xevrion-v2/agent-playground",
+      "issue_number": 17,
+      "author": "xevrion-v2",
+      "reward": 1000.0,
+      "reward_priority": "WATCHLIST",
+      "score": 33,
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
+      "created_at": "2026-06-03T05:56:26Z",
+      "updated_at": "2026-07-18T01:58:08Z",
+      "comments": 63,
+      "labels": [
+        "$1k",
+        "AI agent friendly",
+        "bounty",
+        "good first issue",
+        "💎 Bounty"
+      ],
+      "assignees": [],
+      "open_competing_prs": 30,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [
+        {
+          "title": "[fix] #17 Calculate the exact value of PI",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/7954",
+          "state": "open",
+          "author": "Gaohuilv",
+          "created_at": "2026-07-17T13:56:44Z",
+          "updated_at": "2026-07-17T13:56:44Z"
+        },
+        {
+          "title": "[agent] feat: calculate exact value of PI using Chudnovsky algorithm",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/7932",
+          "state": "open",
+          "author": "gtmdev-br",
+          "created_at": "2026-07-17T00:06:17Z",
+          "updated_at": "2026-07-17T00:06:17Z"
+        },
+        {
+          "title": "[agent] feat: add @taskflow/pi — exact million-digit pi prefixes via binary-splitting Chudnovsky, triple cross-verified (#17)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/7361",
+          "state": "open",
+          "author": "AlbatrossMicrosystems",
+          "created_at": "2026-07-15T12:07:06Z",
+          "updated_at": "2026-07-15T14:38:06Z"
+        },
+        {
+          "title": "feat: calculate exact value of PI to 1000+ decimal places",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/7001",
+          "state": "open",
+          "author": "elevasyncsolutions-jpg",
+          "created_at": "2026-07-13T23:20:05Z",
+          "updated_at": "2026-07-13T23:20:05Z"
+        },
+        {
+          "title": "Provide exact symbolic value of PI (no last decimal exists)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/6729",
+          "state": "closed",
+          "author": "Fourier18",
+          "created_at": "2026-07-12T10:08:27Z",
+          "updated_at": "2026-07-13T10:11:53Z"
+        },
+        {
+          "title": "feat: add @taskflow/pi - high-precision PI calculator (#17)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/6648",
+          "state": "open",
+          "author": "lushan888",
+          "created_at": "2026-07-11T15:30:58Z",
+          "updated_at": "2026-07-11T15:30:58Z"
+        },
+        {
+          "title": "[agent] feat: add high-precision Pi calculator (Closes #17)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/5694",
+          "state": "open",
+          "author": "Pranav-0440",
+          "created_at": "2026-07-06T09:34:03Z",
+          "updated_at": "2026-07-06T09:35:49Z"
+        },
+        {
+          "title": "[agent] Add finite pi prefix calculator",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/989",
+          "state": "open",
+          "author": "elianguitarra",
+          "created_at": "2026-06-06T17:37:21Z",
+          "updated_at": "2026-07-06T09:08:38Z"
+        },
+        {
+          "title": "[agent] Add certified pi interval prefix package",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/5515",
+          "state": "open",
+          "author": "wousp112",
+          "created_at": "2026-07-05T21:04:52Z",
+          "updated_at": "2026-07-05T21:05:55Z"
+        },
+        {
+          "title": "fix(api): validate user creation payloads (#2207)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/5393",
+          "state": "open",
+          "author": "g0spel",
+          "created_at": "2026-07-05T14:07:16Z",
+          "updated_at": "2026-07-05T14:07:16Z"
+        },
+        {
+          "title": "feat: Calculate exact value of PI",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/2243",
+          "state": "open",
+          "author": "sureshchouksey8",
+          "created_at": "2026-06-26T18:40:26Z",
+          "updated_at": "2026-07-05T05:03:51Z"
+        },
+        {
+          "title": "[agent] feat: add PI exact calculation utility",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/167",
+          "state": "open",
+          "author": "Ingenieralejo",
+          "created_at": "2026-06-03T17:45:37Z",
+          "updated_at": "2026-07-03T15:52:40Z"
+        },
+        {
+          "title": "feat: high-precision PI calculation using BBP formula (Fixes #17)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/4421",
+          "state": "open",
+          "author": "lb1192176991-lab",
+          "created_at": "2026-07-02T18:13:36Z",
+          "updated_at": "2026-07-02T18:13:36Z"
+        },
+        {
+          "title": "Improve PI calculation accuracy",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/3883",
+          "state": "open",
+          "author": "reckoning89",
+          "created_at": "2026-07-01T19:52:13Z",
+          "updated_at": "2026-07-01T19:52:13Z"
+        },
+        {
+          "title": "[agent] feat: add @taskflow/pi-stream — Machin PI computation with BBP verification",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/3182",
+          "state": "open",
+          "author": "AISoftMaster",
+          "created_at": "2026-06-30T20:04:20Z",
+          "updated_at": "2026-07-01T00:15:15Z"
+        },
+        {
+          "title": "[agent] feat(math): add Chudnovsky PI estimator and document limits (#17)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/2343",
+          "state": "open",
+          "author": "yanyishuai",
+          "created_at": "2026-06-27T08:44:24Z",
+          "updated_at": "2026-06-27T12:22:11Z"
+        },
+        {
+          "title": "feat: implement Chudnovsky PI calculator (#17)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/2244",
+          "state": "open",
+          "author": "lb1192176991-lab",
+          "created_at": "2026-06-26T19:20:21Z",
+          "updated_at": "2026-06-26T19:20:21Z"
+        },
+        {
+          "title": "[agent] feat: add BBP pi verifier package",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/2063",
+          "state": "open",
+          "author": "123xiaode456-boop",
+          "created_at": "2026-06-21T14:29:11Z",
+          "updated_at": "2026-06-21T14:30:06Z"
+        },
+        {
+          "title": "[agent] Add PI spigot verifier package",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/2059",
+          "state": "open",
+          "author": "jaxassistant55",
+          "created_at": "2026-06-20T10:17:58Z",
+          "updated_at": "2026-06-20T10:18:26Z"
+        },
+        {
+          "title": "feat: add PI calculation script (closes #17)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/1435",
+          "state": "open",
+          "author": "Bakomebandias",
+          "created_at": "2026-06-10T09:44:46Z",
+          "updated_at": "2026-06-20T09:47:24Z"
+        },
+        {
+          "title": "[agent] feat: add finite pi prefix package",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/2023",
+          "state": "open",
+          "author": "snkk2x-collab",
+          "created_at": "2026-06-18T15:14:03Z",
+          "updated_at": "2026-06-19T12:46:14Z"
+        },
+        {
+          "title": "[agent] Add exact π calculation utility using Machin-like formula (Closes #17)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/189",
+          "state": "open",
+          "author": "lb1192176991-lab",
+          "created_at": "2026-06-03T19:27:31Z",
+          "updated_at": "2026-06-17T19:54:13Z"
+        },
+        {
+          "title": "[agent] feat: calculate exact value of PI with arbitrary precision",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/1415",
+          "state": "open",
+          "author": "song11071696",
+          "created_at": "2026-06-10T03:48:28Z",
+          "updated_at": "2026-06-17T11:13:54Z"
+        },
+        {
+          "title": "feat: add PI to 50,000 decimal places with Chudnovsky binary-splitting generator",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/2002",
+          "state": "open",
+          "author": "XananasX7",
+          "created_at": "2026-06-17T10:57:45Z",
+          "updated_at": "2026-06-17T10:57:45Z"
+        },
+        {
+          "title": "feat: calculate exact value of PI",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/1839",
+          "state": "open",
+          "author": "5AIBountyHunter",
+          "created_at": "2026-06-16T10:28:02Z",
+          "updated_at": "2026-06-16T10:28:04Z"
+        },
+        {
+          "title": "fix: xevrion 17 (closes #17)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/1820",
+          "state": "open",
+          "author": "BWM0223",
+          "created_at": "2026-06-16T05:32:25Z",
+          "updated_at": "2026-06-16T05:32:28Z"
+        },
+        {
+          "title": "feat: PI Calculator using Chudnovsky algorithm with BigInt arithmetic",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/1631",
+          "state": "open",
+          "author": "yogeshkampalliwar",
+          "created_at": "2026-06-14T06:55:42Z",
+          "updated_at": "2026-06-14T07:04:13Z"
+        },
+        {
+          "title": "Implement infinite sequence iterator utilities (#15)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/1581",
+          "state": "open",
+          "author": "xiaofengzii",
+          "created_at": "2026-06-13T09:08:55Z",
+          "updated_at": "2026-06-13T09:08:55Z"
+        },
+        {
+          "title": "feat: add PI calculation utility (Fixes #17)",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/1380",
+          "state": "open",
+          "author": "lb1192176991-lab",
+          "created_at": "2026-06-09T17:12:10Z",
+          "updated_at": "2026-06-11T17:06:05Z"
+        },
+        {
+          "title": "feat: implement Chudnovsky algorithm for ? calculation",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/1434",
+          "state": "open",
+          "author": "gcm168",
+          "created_at": "2026-06-10T08:13:41Z",
+          "updated_at": "2026-06-10T08:13:41Z"
+        },
+        {
+          "title": "fix: resolve #17",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/1385",
+          "state": "open",
+          "author": "Shaidyk",
+          "created_at": "2026-06-09T19:25:53Z",
+          "updated_at": "2026-06-09T19:44:37Z"
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/350",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/30",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/444",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/862",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/18",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/902",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/294",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/250",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/794",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/761",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/882",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/276",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/1021",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/200",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/825",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/102",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/402",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/627",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/802",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/510",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/996",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/561",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/563",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/829",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/79",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/xevrion-v2/agent-playground/pull/344",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        }
+      ],
+      "payment_verification": "SIGNALS FOUND - STILL VERIFY MANUALLY",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "EXPLICITLY ALLOWED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Very large stated reward",
+        "Useful requirements",
+        "Capability match: ai agent, bug, ci, docs, documentation, fix",
+        "Recently updated",
+        "Review path appears usable",
+        "Payment-related signal mentioned",
+        "AI/automation participation appears allowed"
+      ],
+      "risks": [
+        "Heavy visible discussion",
+        "30 competing pull requests detected"
+      ],
+      "change": "NEW",
+      "payment_confidence": 0,
+      "competition_score": 0,
+      "clarity_score": 50,
+      "effort_risk": 65,
+      "expected_value": 0.0
+    },
+    {
+      "title": "Low Handing Fruit Automation",
+      "url": "https://github.com/SecureBananaLabs/bug-bounty/issues/743",
+      "repository": "SecureBananaLabs/bug-bounty",
+      "issue_number": 743,
+      "author": "claim-reviewer",
+      "reward": 700.0,
+      "reward_priority": "WATCHLIST",
+      "score": 31,
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
+      "created_at": "2026-05-27T06:32:39Z",
+      "updated_at": "2026-07-18T22:48:25Z",
+      "comments": 100,
+      "labels": [
+        "$700",
+        "AI agent friendly",
+        "bounty",
+        "bug",
+        "bug bounty",
+        "documentation",
+        "good first issue",
+        "help wanted",
+        "💎 Bounty"
+      ],
+      "assignees": [],
+      "open_competing_prs": 4,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [
+        {
+          "title": "Fix freelancer search skill separator",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/1634",
+          "state": "open",
+          "author": "taherdhanera",
+          "created_at": "2026-05-29T13:25:08Z",
+          "updated_at": "2026-06-27T17:31:38Z"
+        },
+        {
+          "title": "[JARVIS] Solve issue #743: Low Handing Fruit Automation",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/5280",
+          "state": "open",
+          "author": "instalaudi",
+          "created_at": "2026-06-06T13:59:49Z",
+          "updated_at": "2026-06-06T13:59:49Z"
+        },
+        {
+          "title": "Validate proposal estimated duration",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/4837",
+          "state": "open",
+          "author": "bozicovichsantiago20-oss",
+          "created_at": "2026-06-05T14:26:27Z",
+          "updated_at": "2026-06-05T22:17:24Z"
+        },
+        {
+          "title": "Require production JWT secret",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/4859",
+          "state": "open",
+          "author": "bozicovichsantiago20-oss",
+          "created_at": "2026-06-05T15:18:18Z",
+          "updated_at": "2026-06-05T22:17:23Z"
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/806",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/791",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/758",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/756",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/765",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/803",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/785",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/775",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/757",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/804",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/805",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/771",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/781",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/780",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/747",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/777",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/794",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/801",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/788",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/784",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        }
+      ],
+      "payment_verification": "SIGNALS FOUND - STILL VERIFY MANUALLY",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "EXPLICITLY ALLOWED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Large stated reward",
+        "Useful requirements",
+        "Capability match: ai agent, automation, bug, ci, docs, documentation",
+        "Recently updated",
+        "Review path appears usable",
+        "Payment-related signal mentioned",
+        "AI/automation participation appears allowed"
+      ],
+      "risks": [
+        "Heavy visible discussion",
+        "4 competing pull requests detected"
+      ],
+      "change": "NEW",
+      "payment_confidence": 100,
+      "competition_score": 0,
+      "clarity_score": 50,
+      "effort_risk": 65,
+      "expected_value": 0.0
+    },
+    {
+      "title": "[Bounty] [External prize collaboration | funding needed] Build with Gemini XPRIZE — launc",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/526",
+      "repository": "zhangjiayang6835-cyber/bounty-plaza",
+      "issue_number": 526,
+      "author": "zhangjiayang6835-cyber",
+      "reward": 2000000.0,
+      "reward_priority": "WATCHLIST",
+      "score": 75,
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
+      "created_at": "2026-07-17T20:27:54Z",
+      "updated_at": "2026-07-17T20:29:10Z",
+      "comments": 3,
+      "labels": [
+        "bounty",
+        "real"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Very large stated reward",
+        "Detailed requirements",
+        "Capability match: ci, fix, llm, test",
+        "Low visible discussion",
+        "Posted within 7 days",
+        "Recently updated",
+        "Review path appears usable"
+      ],
+      "risks": [],
+      "change": "NEW",
+      "payment_confidence": 100,
+      "competition_score": 100,
+      "clarity_score": 50,
+      "effort_risk": 45,
+      "expected_value": 1111111.11
+    },
+    {
+      "title": "Including link: ",
+      "url": "https://github.com/Teamintelxsel/Evolving-sun/issues/36",
+      "repository": "Teamintelxsel/Evolving-sun",
+      "issue_number": 36,
+      "author": "enderyou-lang",
+      "reward": 25000.0,
+      "reward_priority": "WATCHLIST",
+      "score": 55,
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
+      "created_at": "2025-11-27T22:21:52Z",
+      "updated_at": "2025-11-27T22:21:52Z",
+      "comments": 0,
+      "labels": [],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/Teamintelxsel/Evolving-sun/pull/51",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/Teamintelxsel/Evolving-sun/pull/49",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/Teamintelxsel/Evolving-sun/pull/50",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        }
+      ],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Very large stated reward",
+        "Detailed requirements",
+        "Capability match: bug, ci, docs, documentation, fix, llm",
+        "No visible comments",
+        "Review path appears usable"
+      ],
+      "risks": [
+        "Potentially high complexity: rewrite",
+        "Issue may be stale"
+      ],
+      "change": "NEW",
+      "payment_confidence": 100,
+      "competition_score": 100,
+      "clarity_score": 50,
+      "effort_risk": 65,
+      "expected_value": 9615.38
+    },
+    {
+      "title": "spam-detector-pro.streamlit.app",
+      "url": "https://github.com/Narendra404/Iris-Classification/issues/1",
+      "repository": "Narendra404/Iris-Classification",
+      "issue_number": 1,
+      "author": "Danarfr27",
+      "reward": 5000.0,
+      "reward_priority": "WATCHLIST",
+      "score": 73,
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
+      "created_at": "2026-06-19T19:43:33Z",
+      "updated_at": "2026-06-19T19:43:33Z",
+      "comments": 0,
+      "labels": [],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "PAYPAL MENTIONED - VERIFY TIMING AND PAYER",
+      "paypal_signals": [
+        "paypal"
+      ],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Very large stated reward",
+        "Detailed requirements",
+        "Capability match: ci, dataset, test",
+        "No visible comments",
+        "Posted within 30 days",
+        "Review path appears usable",
+        "PayPal payment explicitly mentioned"
+      ],
+      "risks": [],
+      "change": "NEW",
+      "payment_confidence": 100,
+      "competition_score": 100,
+      "clarity_score": 50,
+      "effort_risk": 45,
+      "expected_value": 2777.78
+    },
+    {
+      "title": "[Bounty $2500] Bring up microsoft/phi-1 on Wormhole",
+      "url": "https://github.com/tenstorrent/tt-metal/issues/18287",
+      "repository": "tenstorrent/tt-metal",
+      "issue_number": 18287,
+      "author": "thenoahhein",
+      "reward": 2500.0,
+      "reward_priority": "WATCHLIST",
+      "score": 23,
+      "decision": "REJECT",
+      "availability": "ASSIGNED",
+      "created_at": "2025-02-25T15:39:44Z",
+      "updated_at": "2026-07-18T12:43:08Z",
+      "comments": 100,
+      "labels": [
+        "bounty",
+        "bounty_difficulty/hard"
+      ],
+      "assignees": [
+        "Adraca"
+      ],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [
+        {
+          "title": "Add Phi-1 support in tt_transformers for Wormhole bring-up",
+          "url": "https://github.com/tenstorrent/tt-metal/pull/39081",
+          "state": "closed",
+          "author": "RustamKazmi",
+          "created_at": "2026-03-04T12:59:08Z",
+          "updated_at": "2026-06-12T08:39:09Z"
+        }
+      ],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Very large stated reward",
+        "Detailed requirements",
+        "Capability match: bug, ci, docs, fix, llm, prompt",
+        "Recently updated",
+        "Review path appears usable"
+      ],
+      "risks": [
+        "Potentially high complexity: architecture",
+        "Heavy visible discussion",
+        "Issue may be stale",
+        "Issue already has an assignee"
+      ],
+      "change": "NEW",
+      "payment_confidence": 100,
+      "competition_score": 75,
+      "clarity_score": 50,
+      "effort_risk": 85,
+      "expected_value": 551.47
+    },
+    {
+      "title": "[Bounty $1500] SAM2 bring up using TTNN APIs",
+      "url": "https://github.com/tenstorrent/tt-metal/issues/48311",
+      "repository": "tenstorrent/tt-metal",
+      "issue_number": 48311,
+      "author": "eyonce",
+      "reward": 1500.0,
+      "reward_priority": "WATCHLIST",
+      "score": 40,
+      "decision": "REJECT",
+      "availability": "ASSIGNED",
+      "created_at": "2026-06-26T22:23:53Z",
+      "updated_at": "2026-07-15T16:27:15Z",
+      "comments": 13,
+      "labels": [
+        "bounty",
+        "bounty_difficulty/medium",
+        "community",
+        "model bringup"
+      ],
+      "assignees": [
+        "eyonce"
+      ],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/tenstorrent/tt-metal/pull/49456",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        }
+      ],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Very large stated reward",
+        "Detailed requirements",
+        "Capability match: ci, docs, prompt, python, rag, test",
+        "Posted within 30 days",
+        "Recently updated",
+        "Review path appears usable"
+      ],
+      "risks": [
+        "Potentially high complexity: architecture",
+        "Heavy visible discussion",
+        "Issue already has an assignee"
+      ],
+      "change": "NEW",
+      "payment_confidence": 100,
+      "competition_score": 75,
+      "clarity_score": 50,
+      "effort_risk": 75,
+      "expected_value": 375.0
+    },
+    {
+      "title": "[PAID BOUNTY - $750] Email Threads API",
+      "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/issues/4",
+      "repository": "warpspeedopen-source/warpspeed-bounties",
+      "issue_number": 4,
+      "author": "warpspeedopen-source",
+      "reward": 750.0,
+      "reward_priority": "WATCHLIST",
+      "score": 69,
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
+      "created_at": "2026-05-28T19:40:03Z",
+      "updated_at": "2026-07-13T22:55:20Z",
+      "comments": 43,
+      "labels": [
+        "API",
+        "backend",
+        "bounty",
+        "expert",
+        "help wanted",
+        "nodejs",
+        "open",
+        "paid",
+        "prisma",
+        "typescript"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/34",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/20",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/16",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/61",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/warpspeedopen-source/warpspeed-bounties/pull/44",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        }
+      ],
+      "payment_verification": "PAYPAL MENTIONED - VERIFY TIMING AND PAYER",
+      "paypal_signals": [
+        "paypal"
+      ],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Large stated reward",
+        "Detailed requirements",
+        "Capability match: api integration, ci, docs, documentation, fix, python",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "Payment-related signal mentioned",
+        "PayPal payment explicitly mentioned"
+      ],
+      "risks": [
+        "Potentially high complexity: architecture",
+        "Heavy visible discussion"
+      ],
+      "change": "NEW",
+      "payment_confidence": 100,
+      "competition_score": 100,
+      "clarity_score": 50,
+      "effort_risk": 65,
+      "expected_value": 288.46
+    },
+    {
+      "title": "Security: Hardcoded JWT fallback secret exposes authentication to forgery",
+      "url": "https://github.com/SecureBananaLabs/bug-bounty/issues/11169",
+      "repository": "SecureBananaLabs/bug-bounty",
+      "issue_number": 11169,
+      "author": "Daisuke134",
+      "reward": 700.0,
+      "reward_priority": "WATCHLIST",
+      "score": 53,
+      "decision": "WATCHLIST",
+      "availability": "OVER $250 - WATCHLIST ONLY",
+      "created_at": "2026-07-15T04:38:54Z",
+      "updated_at": "2026-07-15T04:40:07Z",
+      "comments": 1,
+      "labels": [],
+      "assignees": [],
+      "open_competing_prs": 1,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [
+        {
+          "title": "fix: require JWT_SECRET with startup validation, remove hardcoded fallback",
+          "url": "https://github.com/SecureBananaLabs/bug-bounty/pull/11170",
+          "state": "open",
+          "author": "Daisuke134",
+          "created_at": "2026-07-15T04:40:01Z",
+          "updated_at": "2026-07-15T04:40:01Z"
+        }
+      ],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Large stated reward",
+        "Detailed requirements",
+        "Capability match: automation, bug, ci, fix",
+        "Low visible discussion",
+        "Posted within 7 days",
+        "Recently updated",
+        "Review path appears usable"
+      ],
+      "risks": [
+        "One competing pull request detected"
+      ],
+      "change": "NEW",
+      "payment_confidence": 100,
+      "competition_score": 70,
+      "clarity_score": 50,
+      "effort_risk": 55,
+      "expected_value": 222.73
+    },
+    {
+      "title": "[Bounty $1500] CosyVoice bring up using TTNN APIs",
+      "url": "https://github.com/tenstorrent/tt-metal/issues/32178",
+      "repository": "tenstorrent/tt-metal",
+      "issue_number": 32178,
+      "author": "tvardhineniTT",
+      "reward": 1500.0,
+      "reward_priority": "WATCHLIST",
+      "score": 10,
+      "decision": "REJECT",
+      "availability": "ASSIGNED AND CONTESTED",
+      "created_at": "2025-11-10T17:29:25Z",
+      "updated_at": "2026-07-15T17:13:49Z",
+      "comments": 47,
+      "labels": [
+        "bounty",
+        "bounty_difficulty/medium",
+        "model bringup"
+      ],
+      "assignees": [
+        "brymut"
+      ],
+      "open_competing_prs": 1,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [
+        {
+          "title": "feat: add CosyVoice support and model config, utilities and tests",
+          "url": "https://github.com/tenstorrent/tt-metal/pull/43261",
+          "state": "open",
+          "author": "brymut",
+          "created_at": "2026-04-28T12:52:50Z",
+          "updated_at": "2026-07-14T17:26:25Z"
+        },
+        {
+          "title": "Pull request linked through issue timeline",
+          "url": "https://github.com/tenstorrent/tt-metal/pull/41471",
+          "state": "unknown",
+          "author": "",
+          "created_at": "",
+          "updated_at": ""
+        }
+      ],
+      "payment_verification": "UNVERIFIED",
+      "paypal_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "fast_pay_candidate": false,
+      "fast_pay_status": "NOT FAST-PAY VERIFIED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Very large stated reward",
+        "Detailed requirements",
+        "Capability match: bug, ci, dataset, docs, evaluation, fix",
+        "Recently updated",
+        "Explicit acceptance criteria"
+      ],
+      "risks": [
+        "Potentially high complexity: architecture",
+        "Heavy visible discussion",
+        "Issue may be stale",
+        "Issue already has an assignee",
+        "One competing pull request detected"
+      ],
+      "change": "NEW",
+      "payment_confidence": 55,
+      "competition_score": 45,
+      "clarity_score": 50,
+      "effort_risk": 95,
+      "expected_value": 97.7
     }
   ],
-  "last_updated": "2026-07-19 03:37 UTC"
+  "last_updated": "2026-07-19 06:34 UTC"
 }

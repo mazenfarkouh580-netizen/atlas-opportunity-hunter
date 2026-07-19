@@ -1,17 +1,17 @@
 {
   "doctor": "Dr. Alex",
   "health": "DEGRADED",
-  "last_check": "2026-07-19 03:37 UTC",
+  "last_check": "2026-07-19 06:34 UTC",
   "repairs": [],
   "diagnostics": [],
   "api_errors": 8,
-  "searches_completed": 52,
+  "searches_completed": 58,
   "quick_wins_found": 0,
   "fast_paypal_candidates": 0,
-  "ai_explicitly_allowed_candidates": 8,
+  "ai_explicitly_allowed_candidates": 12,
   "approval_path_candidates": 6,
-  "priority_reviews": 3,
-  "pursue_candidates": 8,
+  "priority_reviews": 0,
+  "pursue_candidates": 0,
   "recommendation": "No clean fast-pay quick win found in this scan; continue scanning.",
   "instant_money_warning": "Small PayPal bounties may pay quickly after acceptance, but only the bounty owner or platform can approve work and release payment. Atlas now prioritizes explicit PayPal terms, fast-payment language, AI eligibility, no assignee, and no competing PR."
 }
