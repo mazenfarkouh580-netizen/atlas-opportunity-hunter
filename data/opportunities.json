@@ -1,7 +1,7 @@
 {
   "version": "V21",
   "owner": "Mazen Farkouh",
-  "generated_at": "2026-07-19 11:44 UTC",
+  "generated_at": "2026-07-19 12:05 UTC",
   "config": {
     "minimum_reward": 100,
     "minimum_payment_confidence": 55,
@@ -100,9 +100,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -175,9 +175,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 37.8,
       "competition_score": 100,
       "clarity_score": 50,
@@ -253,9 +253,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -332,9 +332,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 46.2,
       "competition_score": 100,
       "clarity_score": 50,
@@ -406,9 +406,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -485,9 +485,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 42.3,
       "competition_score": 100,
       "clarity_score": 50,
@@ -564,9 +564,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 40.4,
       "competition_score": 100,
       "clarity_score": 50,
@@ -643,9 +643,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 40.4,
       "competition_score": 100,
       "clarity_score": 50,
@@ -722,9 +722,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 40.4,
       "competition_score": 100,
       "clarity_score": 50,
@@ -801,9 +801,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 40.4,
       "competition_score": 100,
       "clarity_score": 50,
@@ -880,9 +880,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 40.4,
       "competition_score": 100,
       "clarity_score": 50,
@@ -962,9 +962,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 25,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1042,9 +1042,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 41.0,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1120,9 +1120,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1194,9 +1194,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1274,9 +1274,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 48.1,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1350,9 +1350,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 32.5,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1423,9 +1423,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1495,9 +1495,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 24.1,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1516,7 +1516,7 @@
       "decision": "WATCHLIST",
       "availability": "TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE",
       "created_at": "2026-07-19T07:13:43Z",
-      "updated_at": "2026-07-19T09:00:49Z",
+      "updated_at": "2026-07-19T11:57:08Z",
       "comments": 0,
       "labels": [
         "bounty",
@@ -1570,9 +1570,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC",
+      "last_verified": "2026-07-19 12:05 UTC",
       "payment_confidence": 31.9,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1584,7 +1584,7 @@
     {
       "level": "WARNING",
       "message": "Atlas health is DEGRADED: 1 API error(s)",
-      "generated_at": "2026-07-19 11:44 UTC"
+      "generated_at": "2026-07-19 12:05 UTC"
     }
   ],
   "system_status": "DEGRADED",
@@ -1595,13 +1595,13 @@
   "api_errors": [
     {
       "url": "https://api.github.com/search/issues?q=is%3Aissue%20is%3Aopen%20%22%2440%22%20in%3Atitle%2Cbody&sort=updated&order=desc&per_page=100",
-      "error": "HTTP 403: {\n\t\"message\": \"API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 601A:20D8D0:42F7FB9:E920CD4:6A5CB8DC and timestamp 2026-07-19 11:45:32 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se"
+      "error": "HTTP 403: {\n\t\"message\": \"API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID C14B:188AD3:3631DC3:375FBCB:6A5CBDBC and timestamp 2026-07-19 12:06:20 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se"
     }
   ],
-  "raw_issues_found": 3181,
-  "aggregator_pages_rejected": 1198,
-  "unsafe_items_rejected": 103,
-  "items_without_extractable_reward_rejected": 1825,
+  "raw_issues_found": 3498,
+  "aggregator_pages_rejected": 1320,
+  "unsafe_items_rejected": 104,
+  "items_without_extractable_reward_rejected": 2019,
   "eligible_candidates_found": 55,
   "deep_verified_candidates": 30,
   "counts": {
@@ -1613,188 +1613,7 @@
   "contested_count": 0,
   "assigned_count": 0,
   "strong_uncontested_targets": 0,
-  "meaningful_changes": [
-    {
-      "type": "NEW",
-      "title": "[Bounty] [1 USDC autonomous bounty] Seed a useful agent-tooling child bounty",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/483",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "[BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly dev summary",
-      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
-      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
-      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[BOUNTY $25] AGENT: Create a `CLAUDE.md` at the repo root.",
-      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2855",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[BOUNTY $50] AGENT: Implement a read tool hook into market platform",
-      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2853",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[BOUNTY $30] WORKFLOW: OpenClaw or Hermes integration",
-      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2882",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[Hacktoberfest] Create a Custom n8n Node for APort Verification",
-      "url": "https://github.com/aporthq/aport-integrations/issues/4",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[$25 BOUNTY] [Python] Add complete type hints to build.py functions",
-      "url": "https://github.com/cuentaprueba244w-dotcom/zeroeye/issues/7",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Laravel ] Fix phpunit.xml coverage config and add route and model test suites",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/794",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Brainfuck ] Implement a program that prints the first 20 prime numbers",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/652",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[Bounty] [weilixiong/TentOfTrials] [$25 BOUNTY] [Python] Add independent log parser fixtu",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/494",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Triage ] Review all open PRs and provide constructive feedback",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/270",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[Bounty] [claude-builders-bounty/claude-builders-bounty] [BOUNTY $200] WORKFLOW: n8n + Cl",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/484",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "[claude-builders-bounty/claude-builders-bounty] [BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly",
-      "url": "https://github.com/Vikingr2023/awesome-agent-bounties/issues/225",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Laravel ] Fix logging config to separate error logs and add JSON structured logging",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/787",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Brainfuck ] Implement FizzBuzz that prints numbers 1 to 100 with correct FizzBuzz substitutions",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/651",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Brainfuck ] Implement ROT13 cipher that reads input and prints ROT13-encoded output",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/653",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Brainfuck ] Implement a program that converts decimal input to binary output",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/655",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Brainfuck ] Implement a program that sorts an input string alphabetically",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/654",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[Hacktoberfest] n8n Workflow Node for Policy Checks",
-      "url": "https://github.com/aporthq/aport-integrations/issues/31",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[BOUNTY $75] TEMPLATE: CLAUDE.md for a Next.js + SQLite SaaS project",
-      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "Add `is_extended_promotional ` column to components (from data source)",
-      "url": "https://github.com/tscircuit/jlcsearch/issues/92",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "[Bounty] La función suma() resta en vez de sumar",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/527",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "We can't convert Smoothie Board to Circuit JSON",
-      "url": "https://github.com/tscircuit/dsn-converter/issues/54",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "La función suma() resta en vez de sumar",
-      "url": "https://github.com/demetriodiazdeleon-pixel/morriganprueba/issues/1",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "Crafting a Comprehensive Tutorial for Vectara Chat",
-      "url": "https://github.com/lablab-ai/community-content/issues/462",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "Merge same-net trace lines that are close together (make at the same Y or same X)",
-      "url": "https://github.com/tscircuit/schematic-trace-solver/issues/34",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "Create download endpoint `/files/download?...` as well as `/files/download/[[file_path]]`",
-      "url": "https://github.com/tscircuit/file-server/issues/5",
-      "decision": "PRIORITY REVIEW"
-    },
-    {
-      "type": "NEW",
-      "title": "Implement PDIP-8",
-      "url": "https://github.com/tscircuit/footprinter/issues/371",
-      "decision": "PRIORITY REVIEW"
-    }
-  ],
+  "meaningful_changes": [],
   "lifecycle_summary": {
     "new_this_run": 0,
     "still_active": 30,
@@ -1871,9 +1690,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly dev summary",
@@ -1943,9 +1762,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
@@ -2016,9 +1835,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
@@ -2089,9 +1908,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[BOUNTY $25] AGENT: Create a `CLAUDE.md` at the repo root.",
@@ -2158,9 +1977,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[BOUNTY $50] AGENT: Implement a read tool hook into market platform",
@@ -2227,9 +2046,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[BOUNTY $30] WORKFLOW: OpenClaw or Hermes integration",
@@ -2295,9 +2114,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[Hacktoberfest] Create a Custom n8n Node for APort Verification",
@@ -2370,9 +2189,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[$25 BOUNTY] [Python] Add complete type hints to build.py functions",
@@ -2444,9 +2263,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[ Laravel ] Fix phpunit.xml coverage config and add route and model test suites",
@@ -2518,9 +2337,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[ Brainfuck ] Implement a program that prints the first 20 prime numbers",
@@ -2592,9 +2411,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[Bounty] [weilixiong/TentOfTrials] [$25 BOUNTY] [Python] Add independent log parser fixtu",
@@ -2669,9 +2488,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     }
   ],
   "all_verified_results": [
@@ -2744,9 +2563,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly dev summary",
@@ -2816,9 +2635,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
@@ -2889,9 +2708,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
@@ -2962,9 +2781,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[BOUNTY $25] AGENT: Create a `CLAUDE.md` at the repo root.",
@@ -3031,9 +2850,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[BOUNTY $50] AGENT: Implement a read tool hook into market platform",
@@ -3100,9 +2919,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[BOUNTY $30] WORKFLOW: OpenClaw or Hermes integration",
@@ -3168,9 +2987,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[Hacktoberfest] Create a Custom n8n Node for APort Verification",
@@ -3243,9 +3062,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[$25 BOUNTY] [Python] Add complete type hints to build.py functions",
@@ -3317,9 +3136,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[ Laravel ] Fix phpunit.xml coverage config and add route and model test suites",
@@ -3391,9 +3210,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[ Brainfuck ] Implement a program that prints the first 20 prime numbers",
@@ -3465,9 +3284,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[Bounty] [weilixiong/TentOfTrials] [$25 BOUNTY] [Python] Add independent log parser fixtu",
@@ -3542,9 +3361,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[ Triage ] Review all open PRs and provide constructive feedback",
@@ -3617,9 +3436,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[Bounty] [claude-builders-bounty/claude-builders-bounty] [BOUNTY $200] WORKFLOW: n8n + Cl",
@@ -3690,9 +3509,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[claude-builders-bounty/claude-builders-bounty] [BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly",
@@ -3765,9 +3584,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[ Laravel ] Fix logging config to separate error logs and add JSON structured logging",
@@ -3839,9 +3658,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[ Brainfuck ] Implement FizzBuzz that prints numbers 1 to 100 with correct FizzBuzz substitutions",
@@ -3913,9 +3732,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[ Brainfuck ] Implement ROT13 cipher that reads input and prints ROT13-encoded output",
@@ -3987,9 +3806,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[ Brainfuck ] Implement a program that converts decimal input to binary output",
@@ -4061,9 +3880,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[ Brainfuck ] Implement a program that sorts an input string alphabetically",
@@ -4135,9 +3954,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[Hacktoberfest] n8n Workflow Node for Policy Checks",
@@ -4210,9 +4029,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[BOUNTY $75] TEMPLATE: CLAUDE.md for a Next.js + SQLite SaaS project",
@@ -4280,9 +4099,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "Add `is_extended_promotional ` column to components (from data source)",
@@ -4351,9 +4170,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "[Bounty] La función suma() resta en vez de sumar",
@@ -4367,7 +4186,7 @@
       "decision": "WATCHLIST",
       "availability": "TRUSTED OR FAST PAYOUT NOT VERIFIED - DO NOT EXECUTE",
       "created_at": "2026-07-19T07:13:43Z",
-      "updated_at": "2026-07-19T09:00:49Z",
+      "updated_at": "2026-07-19T11:57:08Z",
       "comments": 0,
       "labels": [
         "bounty",
@@ -4421,9 +4240,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 08:02 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "We can't convert Smoothie Board to Circuit JSON",
@@ -4488,9 +4307,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "La función suma() resta en vez de sumar",
@@ -4557,9 +4376,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "Crafting a Comprehensive Tutorial for Vectara Chat",
@@ -4624,9 +4443,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "Merge same-net trace lines that are close together (make at the same Y or same X)",
@@ -4690,9 +4509,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 10:31 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "Create download endpoint `/files/download?...` as well as `/files/download/[[file_path]]`",
@@ -4759,9 +4578,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     },
     {
       "title": "Implement PDIP-8",
@@ -4826,9 +4645,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-19 11:44 UTC"
+      "last_verified": "2026-07-19 12:05 UTC"
     }
   ]
 }
