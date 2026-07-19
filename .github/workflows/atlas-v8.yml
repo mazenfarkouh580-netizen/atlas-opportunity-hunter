@@ -64,11 +64,69 @@ jobs:
           REPORTS_DIR.mkdir(exist_ok=True)
 
           SEARCH_QUERIES = [
+              # Core paid-work discovery.
               'is:issue is:open bounty in:title,body',
               'is:issue is:open reward in:title,body',
               'is:issue is:open label:bounty',
               'is:issue is:open label:reward',
               'is:issue is:open label:"help wanted" "$" in:body',
+              'is:issue is:open label:"good first issue" bounty in:title,body',
+              'is:issue is:open label:"good first issue" reward in:title,body',
+
+              # Simple AI, automation, and agent opportunities.
+              'is:issue is:open AI bounty in:title,body',
+              'is:issue is:open AI reward in:title,body',
+              'is:issue is:open LLM bounty in:title,body',
+              'is:issue is:open LLM reward in:title,body',
+              'is:issue is:open "AI agent" bounty in:title,body',
+              'is:issue is:open "AI agent" reward in:title,body',
+              'is:issue is:open prompt bounty in:title,body',
+              'is:issue is:open prompt reward in:title,body',
+              'is:issue is:open RAG bounty in:title,body',
+              'is:issue is:open chatbot bounty in:title,body',
+              'is:issue is:open n8n bounty in:title,body',
+              'is:issue is:open automation bounty in:title,body',
+              'is:issue is:open "data annotation" reward in:title,body',
+              'is:issue is:open "model evaluation" reward in:title,body',
+              'is:issue is:open OpenAI bounty in:title,body',
+              'is:issue is:open Claude bounty in:title,body',
+              'is:issue is:open LangChain bounty in:title,body',
+
+              # Quick-win reward bands requested by the CEO.
+              'is:issue is:open "$5" in:title,body',
+              'is:issue is:open "$10" in:title,body',
+              'is:issue is:open "$15" in:title,body',
+              'is:issue is:open "$20" in:title,body',
+              'is:issue is:open "$25" in:title,body',
+              'is:issue is:open "$30" in:title,body',
+              'is:issue is:open "$40" in:title,body',
+              'is:issue is:open "$50" in:title,body',
+              'is:issue is:open "$75" in:title,body',
+              'is:issue is:open "$100" in:title,body',
+
+              # Fast-payment and PayPal micro-bounty discovery.
+              'is:issue is:open PayPal bounty in:title,body',
+              'is:issue is:open PayPal reward in:title,body',
+              'is:issue is:open "paid via PayPal" in:title,body',
+              'is:issue is:open "payment by PayPal" in:title,body',
+              'is:issue is:open "instant payment" bounty in:title,body',
+              'is:issue is:open "same day payment" bounty in:title,body',
+              'is:issue is:open "upon acceptance" PayPal in:title,body',
+              'is:issue is:open "first accepted" bounty in:title,body',
+
+              # Fast-claim and low-complexity discovery.
+              'is:issue is:open "first come first served" bounty in:title,body',
+              'is:issue is:open "claim this" reward in:title,body',
+              'is:issue is:open "micro bounty" in:title,body',
+              'is:issue is:open beginner bounty in:title,body',
+              'is:issue is:open easy bounty in:title,body',
+              'is:issue is:open documentation bounty in:title,body',
+              'is:issue is:open tests bounty in:title,body',
+              'is:issue is:open "bug fix" reward in:title,body',
+              'is:issue is:open "OpenAI API" reward in:title,body',
+              'is:issue is:open "prompt engineering" reward in:title,body',
+              'is:issue is:open "AI evaluation" reward in:title,body',
+              'is:issue is:open "data cleanup" reward in:title,body',
           ]
 
           BLOCKED_TERMS = [
@@ -101,6 +159,22 @@ jobs:
               "ci",
               "data cleanup",
               "refactor",
+              "prompt",
+              "prompt engineering",
+              "llm",
+              "rag",
+              "ai agent",
+              "agent workflow",
+              "evaluation",
+              "dataset",
+              "data annotation",
+              "n8n",
+              "automation",
+              "api integration",
+              "chatbot",
+              "openai",
+              "claude",
+              "langchain",
           ]
 
           COMPLEXITY_TERMS = [
@@ -128,6 +202,59 @@ jobs:
               "polar bounty",
           ]
 
+          PAYPAL_TERMS = [
+              "paypal",
+              "paid via paypal",
+              "payment by paypal",
+              "paypal payment",
+          ]
+
+          FAST_PAYMENT_TERMS = [
+              "instant payment",
+              "paid immediately",
+              "same day payment",
+              "payment upon acceptance",
+              "pay upon acceptance",
+              "paid on acceptance",
+              "first accepted",
+              "first valid submission",
+          ]
+
+          AI_ALLOWED_TERMS = [
+              "ai allowed",
+              "ai-assisted allowed",
+              "ai assisted allowed",
+              "automation allowed",
+              "agents allowed",
+              "bot submissions allowed",
+              "llm allowed",
+              "claude code",
+              "openai",
+              "ai agent",
+          ]
+
+          HUMAN_ONLY_TERMS = [
+              "human only",
+              "no ai",
+              "ai prohibited",
+              "no bots",
+              "no automation",
+              "manual work only",
+              "must be completed by a human",
+              "identity verification required",
+              "live interview required",
+          ]
+
+          APPROVAL_AUTHORITY_TERMS = [
+              "maintainer approval",
+              "owner approval",
+              "bounty issuer",
+              "repository owner",
+              "upon merge",
+              "upon acceptance",
+              "accepted submission",
+          ]
+
           api_errors = []
           api_calls = 0
 
@@ -144,9 +271,9 @@ jobs:
               return default
 
           default_config = {
-              "minimum_reward": 100,
+              "minimum_reward": 5,
               "minimum_payment_confidence": 55,
-              "minimum_expected_value": 75,
+              "minimum_expected_value": 2,
               "queue_size": 20,
               "dashboard_refresh_seconds": 900,
               "tax_percent": 25,
@@ -791,6 +918,12 @@ jobs:
                   }
               )
 
+              paypal_signals = sorted({term for term in PAYPAL_TERMS if term in lowered})
+              fast_payment_signals = sorted({term for term in FAST_PAYMENT_TERMS if term in lowered})
+              ai_allowed_signals = sorted({term for term in AI_ALLOWED_TERMS if term in lowered})
+              human_only_signals = sorted({term for term in HUMAN_ONLY_TERMS if term in lowered})
+              approval_authority_signals = sorted({term for term in APPROVAL_AUTHORITY_TERMS if term in lowered})
+
               score = 0
               reasons = []
               risks = []
@@ -997,16 +1130,37 @@ jobs:
 
               if payment_signals:
                   score += 5
-                  reasons.append(
-                      "Payment-related signal mentioned"
-                  )
+                  reasons.append("Payment-related signal mentioned")
+
+              if paypal_signals:
+                  score += 6
+                  reasons.append("PayPal payment explicitly mentioned")
+
+              if fast_payment_signals:
+                  score += 6
+                  reasons.append("Fast-payment timing explicitly mentioned")
+
+              if ai_allowed_signals:
+                  score += 5
+                  reasons.append("AI/automation participation appears allowed")
+
+              if human_only_signals:
+                  score -= 35
+                  risks.append("Human-only or AI-prohibited language detected")
+
+              if approval_authority_signals:
+                  reasons.append("Acceptance authority or approval trigger is described")
 
               score = max(
                   0,
                   min(100, score),
               )
 
-              if merged_pr_count:
+              if human_only_signals:
+                  availability = "HUMAN-ONLY OR AI PROHIBITED"
+                  decision = "REJECT"
+
+              elif merged_pr_count:
                   availability = (
                       "LIKELY CLOSED BY WORK"
                   )
@@ -1059,10 +1213,41 @@ jobs:
                   decision = "REJECT"
 
               payment_verification = (
-                  "SIGNALS FOUND - "
-                  "STILL VERIFY MANUALLY"
+                  "PAYPAL + FAST-PAY TERMS FOUND - OWNER APPROVAL STILL REQUIRED"
+                  if paypal_signals and fast_payment_signals
+                  else "PAYPAL MENTIONED - VERIFY TIMING AND PAYER"
+                  if paypal_signals
+                  else "SIGNALS FOUND - STILL VERIFY MANUALLY"
                   if payment_signals
                   else "UNVERIFIED"
+              )
+
+              ai_eligibility = (
+                  "PROHIBITED" if human_only_signals
+                  else "EXPLICITLY ALLOWED" if ai_allowed_signals
+                  else "UNCLEAR - MANUAL VERIFICATION REQUIRED"
+              )
+
+              approval_authority = (
+                  "OWNER/MAINTAINER APPROVAL PATH DESCRIBED"
+                  if approval_authority_signals
+                  else "NOT VERIFIED"
+              )
+
+              fast_pay_candidate = bool(
+                  5 <= reward <= 50
+                  and paypal_signals
+                  and fast_payment_signals
+                  and not human_only_signals
+                  and not assignees
+                  and open_pr_count == 0
+                  and merged_pr_count == 0
+              )
+
+              fast_pay_status = (
+                  "FAST PAYPAL CANDIDATE - OWNER APPROVAL REQUIRED"
+                  if fast_pay_candidate
+                  else "NOT FAST-PAY VERIFIED"
               )
 
               return {
@@ -1104,11 +1289,15 @@ jobs:
                       ),
                       reverse=True,
                   ),
-                  "payment_verification": (
-                      payment_verification
-                  ),
-                  "manual_verification_required": (
-                      True
+                  "payment_verification": payment_verification,
+                  "paypal_signals": paypal_signals,
+                  "fast_payment_signals": fast_payment_signals,
+                  "ai_eligibility": ai_eligibility,
+                  "approval_authority": approval_authority,
+                  "fast_pay_candidate": fast_pay_candidate,
+                  "fast_pay_status": fast_pay_status,
+                  "manual_verification_required": not (
+                      fast_pay_candidate and ai_allowed_signals and approval_authority_signals
                   ),
                   "reasons": reasons,
                   "risks": risks,
@@ -1429,12 +1618,39 @@ jobs:
           operations["pipeline"] = execution_queue
           OPERATIONS_FILE.write_text(json.dumps(operations, indent=2, ensure_ascii=False), encoding="utf-8")
 
+          quick_wins = [
+              item for item in execution_queue
+              if 5 <= float(item.get("reward", 0)) <= 100
+              and not item.get("assignees")
+              and int(item.get("open_competing_prs", 0)) == 0
+          ]
+          fast_paypal_candidates = [item for item in execution_queue if item.get("fast_pay_candidate")]
+          ai_clear_candidates = [item for item in execution_queue if item.get("ai_eligibility") == "EXPLICITLY ALLOWED"]
+          approval_path_candidates = [item for item in execution_queue if item.get("approval_authority") != "NOT VERIFIED"]
+          alex_recommendation = (
+              f"Immediately review {len(fast_paypal_candidates)} verified fast-PayPal candidate(s); owner approval remains required."
+              if fast_paypal_candidates
+              else f"Review {len(quick_wins)} unassigned quick-win candidate(s) first; verify AI permission and payer authority."
+              if quick_wins
+              else "No clean fast-pay quick win found in this scan; continue scanning."
+          )
           maintenance.update({
               "doctor": "Dr. Alex",
               "health": status,
               "last_check": GENERATED_AT,
               "api_errors": len(api_errors),
               "searches_completed": searches_completed,
+              "quick_wins_found": len(quick_wins),
+              "fast_paypal_candidates": len(fast_paypal_candidates),
+              "ai_explicitly_allowed_candidates": len(ai_clear_candidates),
+              "approval_path_candidates": len(approval_path_candidates),
+              "priority_reviews": counts.get("PRIORITY REVIEW", 0),
+              "pursue_candidates": counts.get("PURSUE", 0),
+              "recommendation": alex_recommendation,
+              "instant_money_warning": (
+                  "Small PayPal bounties may pay quickly after acceptance, but only the bounty owner or platform can approve work and release payment. "
+                  "Atlas now prioritizes explicit PayPal terms, fast-payment language, AI eligibility, no assignee, and no competing PR."
+              ),
           })
           MAINTENANCE_FILE.write_text(json.dumps(maintenance, indent=2, ensure_ascii=False), encoding="utf-8")
 
