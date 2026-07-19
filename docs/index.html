@@ -2,297 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
-  <meta
-    http-equiv="refresh"
-    content="900"
-  >
-  <title>
-    Atlas Opportunity Hunter V8
-  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="900">
+  <title>Atlas Money Made</title>
   <style>
-    :root {
-      color-scheme: light dark;
-    }
-
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
     body {
-      font-family:
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-      max-width: 1500px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.45;
-    }
-
-    .grid {
+      margin: 0;
+      min-height: 100vh;
       display: grid;
-      grid-template-columns:
-        repeat(
-          auto-fit,
-          minmax(150px, 1fr)
-        );
-      gap: 12px;
-      margin: 18px 0;
+      place-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #090d12;
+      color: #f5f7fa;
+      padding: 18px;
     }
-
-    .card {
-      border: 1px solid #8885;
-      border-radius: 12px;
-      padding: 14px;
+    .window {
+      width: min(760px, 100%);
+      border: 1px solid #2b3440;
+      border-radius: 22px;
+      background: #111821;
+      padding: 28px;
+      box-shadow: 0 20px 60px #0008;
     }
-
-    .value {
-      font-size: 1.7rem;
-      font-weight: 750;
-    }
-
-    .warning {
-      background: #fff3cd;
-      color: #3d3300;
-      padding: 14px;
-      border-radius: 10px;
-    }
-
-    .status {
-      font-weight: 800;
-    }
-
-    .table-wrap {
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 1150px;
-    }
-
-    th,
-    td {
-      border: 1px solid #8885;
-      padding: 9px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
-      position: sticky;
-      top: 0;
-      background: Canvas;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 4px 8px;
-      border-radius: 999px;
-      font-weight: 750;
-    }
-
-    .pursue {
-      background: #d1e7dd;
-      color: #0f5132;
-    }
-
-    .review {
-      background: #cff4fc;
-      color: #055160;
-    }
-
-    .watch {
-      background: #fff3cd;
-      color: #664d03;
-    }
-
-    .reject {
-      background: #f8d7da;
-      color: #842029;
-    }
-
-    .small {
-      font-size: .85rem;
-      opacity: .78;
-      margin-top: 4px;
-    }
-
-    a {
-      overflow-wrap: anywhere;
-    }
+    h1 { margin: 0; text-align: center; letter-spacing: .08em; font-size: 1.2rem; }
+    .money { text-align: center; font-size: clamp(3.2rem, 12vw, 6.5rem); font-weight: 850; margin: 24px 0 4px; }
+    .label { text-align: center; opacity: .72; margin-bottom: 28px; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .card { border: 1px solid #2b3440; border-radius: 14px; padding: 16px; background: #0c1219; }
+    .value { font-size: 1.6rem; font-weight: 760; }
+    .name { opacity: .7; margin-top: 4px; }
+    .status { margin-top: 18px; border-top: 1px solid #2b3440; padding-top: 16px; line-height: 1.7; }
+    .ok { font-weight: 750; }
+    .small { opacity: .65; font-size: .88rem; text-align: center; margin-top: 18px; }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } .window { padding: 20px; } }
   </style>
 </head>
 <body>
-  <h1>
-    Atlas Opportunity Hunter V8
-  </h1>
+  <main class="window">
+    <h1>MONEY MADE</h1>
+    <div class="money">$0.00</div>
+    <div class="label">Verified money received</div>
 
-  <p>
-    <strong>Owner:</strong>
-    Mazen Farkouh
-  </p>
+    <section class="grid">
+      <div class="card"><div class="value">$0.00</div><div class="name">Today</div></div>
+      <div class="card"><div class="value">$0.00</div><div class="name">Last 7 days</div></div>
+      <div class="card"><div class="value">$0.00</div><div class="name">This month</div></div>
+      <div class="card"><div class="value">$0.00</div><div class="name">Approved / pending</div></div>
+    </section>
 
-  <p>
-    <strong>Last scan:</strong>
-    2026-07-19 03:37 UTC
-  </p>
+    <section class="status">
+      <div><strong>Last payment:</strong> None</div>
+      <div><strong>Atlas:</strong> <span class="ok">HEALTHY — scanning AI-approved $5–$250 tasks</span></div>
+      <div><strong>Alex:</strong> enforcing reward limits, AI permission, PayPal destination, fast-payment rules, duplicates, competition, and workflow health</div>
+      <div><strong>Last scan:</strong> 2026-07-19 05:55 UTC</div>
+    </section>
 
-  <p>
-    <strong>System status:</strong>
-    <span class="status">
-      DEGRADED
-    </span>
-  </p>
-
-  <div class="warning">
-    Atlas does not verify that money is
-    funded, guarantee payment, claim work,
-    or submit code. Every candidate
-    requires human verification of
-    funding, eligibility, competition,
-    rules, acceptance criteria, and
-    payment terms before work begins.
-  </div>
-
-  <div class="grid">
-    <div class="card">
-      <div class="value">
-        3086
-      </div>
-      <div>Raw Issues</div>
-    </div>
-
-    <div class="card">
-      <div class="value">
-        171
-      </div>
-      <div>Eligible Candidates</div>
-    </div>
-
-    <div class="card">
-      <div class="value">
-        25
-      </div>
-      <div>Deep Verified</div>
-    </div>
-
-    <div class="card">
-      <div class="value">
-        8
-      </div>
-      <div>Pursue</div>
-    </div>
-
-    <div class="card">
-      <div class="value">
-        3
-      </div>
-      <div>Priority Review</div>
-    </div>
-
-    <div class="card">
-      <div class="value">
-        11
-      </div>
-      <div>Contested</div>
-    </div>
-
-    <div class="card">
-      <div class="value">
-        5
-      </div>
-      <div>Assigned</div>
-    </div>
-
-    <div class="card">
-      <div class="value">
-        8
-      </div>
-      <div>Strong Uncontested</div>
-    </div>
-  </div>
-
-  <h2>Money</h2>
-  <div class="grid">
-    <div class="card"><div class="value">$0.00</div><div>Today</div></div>
-    <div class="card"><div class="value">$0.00</div><div>This Week</div></div>
-    <div class="card"><div class="value">$0.00</div><div>This Month</div></div>
-    <div class="card"><div class="value">$0.00</div><div>This Year</div></div>
-    <div class="card"><div class="value">$0.00</div><div>Lifetime</div></div>
-    <div class="card"><div class="value">$0.00</div><div>Waiting Total</div></div>
-    <div class="card"><div class="value">$0.00</div><div>Waiting Today</div></div>
-    <div class="card"><div class="value">$0.00</div><div>Waiting Later</div></div>
-    <div class="card"><div class="value">$0.00</div><div>Overdue</div></div>
-  </div>
-
-  <h2>Year Allocation</h2>
-  <div class="grid">
-    <div class="card"><div class="value">$0.00</div><div>Tax (25%)</div></div>
-    <div class="card"><div class="value">$0.00</div><div>Reinvesting (25%)</div></div>
-    <div class="card"><div class="value">$0.00</div><div>Mazen (50%)</div></div>
-    <div class="card"><div class="value">DEGRADED</div><div>Dr. Alex Status</div></div>
-  </div>
-
-  <p><a href="reports/latest.html">Open printable report</a> · <a href="reports/latest.csv">Download CSV report</a></p>
-
-  <h2>Execution Queue</h2>
-  <div class="table-wrap"><table><thead><tr><th>#</th><th>Decision</th><th>Expected Value</th><th>Payment Confidence</th><th>Competition</th><th>Opportunity</th></tr></thead><tbody><tr><td>1</td><td><span class='badge pursue'>PURSUE</span></td><td>$1,111,111.11</td><td>100%</td><td>100%</td><td><a href='https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/526' target='_blank' rel='noopener'>[Bounty] [External prize collaboration | funding needed] Build with Gemini XPRIZE — launc</a></td></tr><tr><td>2</td><td><span class='badge pursue'>PURSUE</span></td><td>$136,363.64</td><td>100%</td><td>100%</td><td><a href='https://github.com/Tyaoo/picker/issues/1399' target='_blank' rel='noopener'>[每日信息流] 2026-06-02</a></td></tr><tr><td>3</td><td><span class='badge pursue'>PURSUE</span></td><td>$2,777.78</td><td>100%</td><td>100%</td><td><a href='https://github.com/Narendra404/Iris-Classification/issues/1' target='_blank' rel='noopener'>spam-detector-pro.streamlit.app</a></td></tr><tr><td>4</td><td><span class='badge pursue'>PURSUE</span></td><td>$1,363.64</td><td>100%</td><td>100%</td><td><a href='https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/479' target='_blank' rel='noopener'>[Bounty] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-gen</a></td></tr><tr><td>5</td><td><span class='badge pursue'>PURSUE</span></td><td>$1,363.64</td><td>100%</td><td>100%</td><td><a href='https://github.com/Vikingr2023/awesome-agent-bounties/issues/76' target='_blank' rel='noopener'>[Vikingr2023/awesome-agent-bounties] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collec</a></td></tr><tr><td>6</td><td><span class='badge pursue'>PURSUE</span></td><td>$1,363.64</td><td>100%</td><td>100%</td><td><a href='https://github.com/Vikingr2023/awesome-agent-bounties/issues/167' target='_blank' rel='noopener'>[aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-generated</a></td></tr><tr><td>7</td><td><span class='badge pursue'>PURSUE</span></td><td>$1,363.64</td><td>100%</td><td>100%</td><td><a href='https://github.com/Vikingr2023/awesome-agent-bounties/issues/52' target='_blank' rel='noopener'>[aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-generated</a></td></tr><tr><td>8</td><td><span class='badge pursue'>PURSUE</span></td><td>$1,363.64</td><td>100%</td><td>100%</td><td><a href='https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/477' target='_blank' rel='noopener'>[Bounty] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-gen</a></td></tr><tr><td>9</td><td><span class='badge watch'>WATCHLIST</span></td><td>$2,884.62</td><td>100%</td><td>100%</td><td><a href='https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/509' target='_blank' rel='noopener'>[Bounty] [Bounty: $7500] Optimise atan/asin/acos (fp32)</a></td></tr><tr><td>10</td><td><span class='badge review'>PRIORITY REVIEW</span></td><td>$1,153.85</td><td>100%</td><td>100%</td><td><a href='https://github.com/aLexzzz430/Cognitive-OS/issues/5' target='_blank' rel='noopener'>[ Bounty $3k ] [ Research ] Collect and compare AI-generated AGI architecture proposals</a></td></tr><tr><td>11</td><td><span class='badge watch'>WATCHLIST</span></td><td>$833.33</td><td>100%</td><td>10%</td><td><a href='https://github.com/Teamintelxsel/Evolving-sun/issues/36' target='_blank' rel='noopener'>Including link: </a></td></tr><tr><td>12</td><td><span class='badge reject'>REJECT</span></td><td>$551.47</td><td>100%</td><td>75%</td><td><a href='https://github.com/tenstorrent/tt-metal/issues/18287' target='_blank' rel='noopener'>[Bounty $2500] Bring up microsoft/phi-1 on Wormhole</a></td></tr></tbody></table></div>
-
-  <h2>Payment Timing</h2>
-  <div class="table-wrap"><table><thead><tr><th>Payment</th><th>Amount</th><th>Expected</th><th>Timing</th></tr></thead><tbody><tr><td colspan='4'>No pending payments recorded.</td></tr></tbody></table></div>
-
-  <h2>Meaningful Changes</h2>
-
-  <ul>
-    <li><strong>NEW</strong>: <a href='https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/479' target='_blank' rel='noopener'>[Bounty] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-gen</a> — PURSUE</li><li><strong>NEW</strong>: <a href='https://github.com/Vikingr2023/awesome-agent-bounties/issues/76' target='_blank' rel='noopener'>[Vikingr2023/awesome-agent-bounties] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collec</a> — PURSUE</li><li><strong>CHANGED</strong>: <a href='https://github.com/Vikingr2023/awesome-agent-bounties/issues/167' target='_blank' rel='noopener'>[aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-generated</a> — PURSUE</li><li><strong>CHANGED</strong>: <a href='https://github.com/Vikingr2023/awesome-agent-bounties/issues/52' target='_blank' rel='noopener'>[aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-generated</a> — PURSUE</li><li><strong>NEW</strong>: <a href='https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/477' target='_blank' rel='noopener'>[Bounty] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-gen</a> — PURSUE</li><li><strong>NEW</strong>: <a href='https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/526' target='_blank' rel='noopener'>[Bounty] [External prize collaboration | funding needed] Build with Gemini XPRIZE — launc</a> — PURSUE</li><li><strong>NEW</strong>: <a href='https://github.com/Narendra404/Iris-Classification/issues/1' target='_blank' rel='noopener'>spam-detector-pro.streamlit.app</a> — PURSUE</li><li><strong>NEW</strong>: <a href='https://github.com/Tyaoo/picker/issues/1399' target='_blank' rel='noopener'>[每日信息流] 2026-06-02</a> — PURSUE</li><li><strong>CHANGED</strong>: <a href='https://github.com/aLexzzz430/Cognitive-OS/issues/5' target='_blank' rel='noopener'>[ Bounty $3k ] [ Research ] Collect and compare AI-generated AGI architecture proposals</a> — PRIORITY REVIEW</li><li><strong>NEW</strong>: <a href='https://github.com/warpspeedopen-source/warpspeed-bounties/issues/9' target='_blank' rel='noopener'>[PAID BOUNTY - $750] Audio Note Recording</a> — PRIORITY REVIEW</li><li><strong>NEW</strong>: <a href='https://github.com/fluxerapp/fluxer-meta/issues/5' target='_blank' rel='noopener'>Threads - (Dev Bounty: $750)</a> — PRIORITY REVIEW</li><li><strong>NEW</strong>: <a href='https://github.com/SecureBananaLabs/bug-bounty/issues/11169' target='_blank' rel='noopener'>Security: Hardcoded JWT fallback secret exposes authentication to forgery</a> — WATCHLIST</li><li><strong>NEW</strong>: <a href='https://github.com/warpspeedopen-source/warpspeed-bounties/issues/1' target='_blank' rel='noopener'>[PAID BOUNTY - $960] Attachment Summarizer Service</a> — WATCHLIST</li><li><strong>NEW</strong>: <a href='https://github.com/SecureBananaLabs/bug-bounty/issues/30' target='_blank' rel='noopener'>Benchmark APIs with p50, p95, p99 latency, RPS, error rate and TTFB</a> — WATCHLIST</li><li><strong>NEW</strong>: <a href='https://github.com/tenstorrent/tt-metal/issues/48311' target='_blank' rel='noopener'>[Bounty $1500] SAM2 bring up using TTNN APIs</a> — REJECT</li>
-  </ul>
-
-  <h2>Top Verified Candidates</h2>
-
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Decision</th>
-          <th>Score</th>
-          <th>Reward</th>
-          <th>Opportunity</th>
-          <th>Availability</th>
-          <th>Open PRs</th>
-          <th>Assignees</th>
-          <th>Change</th>
-          <th>Main Risks</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr><td><span class='badge pursue'>PURSUE</span></td><td>82</td><td>$3,000.00</td><td><a href='https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/479' target='_blank' rel='noopener'>[Bounty] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-gen</a><div class='small'>zhangjiayang6835-cyber/bounty-plaza #479</div></td><td>OPEN - VERIFY BEFORE WORK</td><td>0</td><td>None</td><td>NEW</td><td class='small'>Potentially high complexity: architecture</td></tr><tr><td><span class='badge pursue'>PURSUE</span></td><td>82</td><td>$3,000.00</td><td><a href='https://github.com/Vikingr2023/awesome-agent-bounties/issues/76' target='_blank' rel='noopener'>[Vikingr2023/awesome-agent-bounties] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collec</a><div class='small'>Vikingr2023/awesome-agent-bounties #76</div></td><td>OPEN - VERIFY BEFORE WORK</td><td>0</td><td>None</td><td>NEW</td><td class='small'>Potentially high complexity: architecture</td></tr><tr><td><span class='badge pursue'>PURSUE</span></td><td>82</td><td>$3,000.00</td><td><a href='https://github.com/Vikingr2023/awesome-agent-bounties/issues/167' target='_blank' rel='noopener'>[aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-generated</a><div class='small'>Vikingr2023/awesome-agent-bounties #167</div></td><td>OPEN - VERIFY BEFORE WORK</td><td>0</td><td>None</td><td>CHANGED: decision, availability</td><td class='small'>Potentially high complexity: architecture</td></tr><tr><td><span class='badge pursue'>PURSUE</span></td><td>82</td><td>$3,000.00</td><td><a href='https://github.com/Vikingr2023/awesome-agent-bounties/issues/52' target='_blank' rel='noopener'>[aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-generated</a><div class='small'>Vikingr2023/awesome-agent-bounties #52</div></td><td>OPEN - VERIFY BEFORE WORK</td><td>0</td><td>None</td><td>CHANGED: decision, availability</td><td class='small'>Potentially high complexity: architecture</td></tr><tr><td><span class='badge pursue'>PURSUE</span></td><td>79</td><td>$3,000.00</td><td><a href='https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/477' target='_blank' rel='noopener'>[Bounty] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-gen</a><div class='small'>zhangjiayang6835-cyber/bounty-plaza #477</div></td><td>OPEN - VERIFY BEFORE WORK</td><td>0</td><td>None</td><td>NEW</td><td class='small'>Potentially high complexity: architecture</td></tr><tr><td><span class='badge pursue'>PURSUE</span></td><td>75</td><td>$2,000,000.00</td><td><a href='https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/526' target='_blank' rel='noopener'>[Bounty] [External prize collaboration | funding needed] Build with Gemini XPRIZE — launc</a><div class='small'>zhangjiayang6835-cyber/bounty-plaza #526</div></td><td>OPEN - VERIFY BEFORE WORK</td><td>0</td><td>None</td><td>NEW</td><td class='small'>None detected</td></tr><tr><td><span class='badge pursue'>PURSUE</span></td><td>73</td><td>$5,000.00</td><td><a href='https://github.com/Narendra404/Iris-Classification/issues/1' target='_blank' rel='noopener'>spam-detector-pro.streamlit.app</a><div class='small'>Narendra404/Iris-Classification #1</div></td><td>OPEN - VERIFY BEFORE WORK</td><td>0</td><td>None</td><td>NEW</td><td class='small'>None detected</td></tr><tr><td><span class='badge pursue'>PURSUE</span></td><td>72</td><td>$300,000.00</td><td><a href='https://github.com/Tyaoo/picker/issues/1399' target='_blank' rel='noopener'>[每日信息流] 2026-06-02</a><div class='small'>Tyaoo/picker #1399</div></td><td>OPEN - VERIFY BEFORE WORK</td><td>0</td><td>None</td><td>NEW</td><td class='small'>Potentially high complexity: architecture</td></tr><tr><td><span class='badge review'>PRIORITY REVIEW</span></td><td>67</td><td>$3,000.00</td><td><a href='https://github.com/aLexzzz430/Cognitive-OS/issues/5' target='_blank' rel='noopener'>[ Bounty $3k ] [ Research ] Collect and compare AI-generated AGI architecture proposals</a><div class='small'>aLexzzz430/Cognitive-OS #5</div></td><td>OPEN - NEEDS REVIEW</td><td>0</td><td>None</td><td>CHANGED: decision, availability, open_competing_prs</td><td class='small'>Potentially high complexity: architecture, rewrite; Heavy visible discussion</td></tr><tr><td><span class='badge review'>PRIORITY REVIEW</span></td><td>65</td><td>$750.00</td><td><a href='https://github.com/warpspeedopen-source/warpspeed-bounties/issues/9' target='_blank' rel='noopener'>[PAID BOUNTY - $750] Audio Note Recording</a><div class='small'>warpspeedopen-source/warpspeed-bounties #9</div></td><td>OPEN - NEEDS REVIEW</td><td>0</td><td>None</td><td>NEW</td><td class='small'>Potentially high complexity: architecture, mobile app; Heavy visible discussion</td></tr><tr><td><span class='badge review'>PRIORITY REVIEW</span></td><td>58</td><td>$750.00</td><td><a href='https://github.com/fluxerapp/fluxer-meta/issues/5' target='_blank' rel='noopener'>Threads - (Dev Bounty: $750)</a><div class='small'>fluxerapp/fluxer-meta #5</div></td><td>OPEN - NEEDS REVIEW</td><td>0</td><td>None</td><td>NEW</td><td class='small'>Potentially high complexity: architecture; Heavy visible discussion</td></tr><tr><td><span class='badge watch'>WATCHLIST</span></td><td>55</td><td>$7,500.00</td><td><a href='https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/509' target='_blank' rel='noopener'>[Bounty] [Bounty: $7500] Optimise atan/asin/acos (fp32)</a><div class='small'>zhangjiayang6835-cyber/bounty-plaza #509</div></td><td>UNCERTAIN</td><td>0</td><td>None</td><td>UNCHANGED</td><td class='small'>Moderate visible discussion; Acceptance path requires manual confirmation</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2>API Errors</h2>
-
-  <ul>
-    <li>HTTP 403: {
-	&quot;message&quot;: &quot;API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E000:2BEE12:1CF8177:64B79DB:6A5C469F and timestamp 2026-07-19 03:38:07 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se</li><li>HTTP 403: {
-	&quot;message&quot;: &quot;API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E000:2BEE12:1CFAF85:64C174F:6A5C46A8 and timestamp 2026-07-19 03:38:16 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se</li><li>HTTP 403: {
-	&quot;message&quot;: &quot;API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E000:25658D:22F184B:78D8A9D:6A5C46D8 and timestamp 2026-07-19 03:39:04 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se</li><li>HTTP 403: {
-	&quot;message&quot;: &quot;API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E000:25658D:22F58A1:78E6577:6A5C46E3 and timestamp 2026-07-19 03:39:15 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se</li><li>HTTP 403: {
-	&quot;message&quot;: &quot;API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E000:2BEE12:1D0DC30:650295B:6A5C46EC and timestamp 2026-07-19 03:39:24 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se</li><li>HTTP 403: {
-	&quot;message&quot;: &quot;API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E000:25658D:2305824:791D038:6A5C4712 and timestamp 2026-07-19 03:40:02 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se</li><li>HTTP 403: {
-	&quot;message&quot;: &quot;API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E000:25658D:23094C5:7929F6F:6A5C471C and timestamp 2026-07-19 03:40:12 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se</li><li>HTTP 403: {
-	&quot;message&quot;: &quot;API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID E000:1F6787:202A66C:6F33A88:6A5C4726 and timestamp 2026-07-19 03:40:22 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se</li>
-  </ul>
-
-  <p class="small">
-    V8 deep-verifies up to 25 candidates
-    per run to reduce unnecessary API use.
-    The page refreshes every 15 minutes.
-  </p>
+    <div class="small">Updates automatically every 15 minutes. Only received payments count as money made.</div>
+  </main>
 </body>
 </html>

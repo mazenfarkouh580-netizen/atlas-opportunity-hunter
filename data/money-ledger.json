@@ -1,0 +1,12 @@
+{
+  "updated_at": "2026-07-19 05:55 UTC",
+  "currency": "USD",
+  "payments": [],
+  "totals": {
+    "today": 0.0,
+    "week": 0.0,
+    "month": 0.0,
+    "lifetime": 0.0,
+    "pending": 0
+  }
+}
