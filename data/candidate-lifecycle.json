@@ -13,7 +13,7 @@
     "title": "[Bounty] [weilixiong/TentOfTrials] [$25 BOUNTY] [Python] Add independent log parser fixtu",
     "repository": "zhangjiayang6835-cyber/bounty-plaza",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-19 09:23 UTC",
+    "last_verified": "2026-07-19 10:31 UTC",
     "last_decision": "WATCHLIST",
     "last_availability": "REPOSITORY MISMATCH - MANUAL VERIFY",
     "last_reward": 25.0,
@@ -43,9 +43,9 @@
     "title": "[ Brainfuck ] Implement a program that prints the first 20 prime numbers",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-19 09:23 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 20.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -113,9 +113,9 @@
     "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
     "repository": "claude-builders-bounty/claude-builders-bounty",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-19 09:23 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 50.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -133,9 +133,9 @@
     "title": "[Hacktoberfest] Create a Custom n8n Node for APort Verification",
     "repository": "aporthq/aport-integrations",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-19 09:23 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 50.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -163,9 +163,9 @@
     "title": "[Hacktoberfest] n8n Workflow Node for Policy Checks",
     "repository": "aporthq/aport-integrations",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-19 09:23 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 10.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -303,9 +303,9 @@
     "title": "[ Laravel ] Fix logging config to separate error logs and add JSON structured logging",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-19 08:02 UTC",
-    "last_verified": "2026-07-19 08:02 UTC",
-    "last_decision": "PURSUE",
-    "last_availability": "OPEN - READY FOR FINAL CLAIM CHECK",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 20.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -313,9 +313,9 @@
     "title": "[ Brainfuck ] Implement FizzBuzz that prints numbers 1 to 100 with correct FizzBuzz substitutions",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-19 08:02 UTC",
-    "last_verified": "2026-07-19 08:02 UTC",
-    "last_decision": "PURSUE",
-    "last_availability": "OPEN - READY FOR FINAL CLAIM CHECK",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 20.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -323,9 +323,9 @@
     "title": "[ Brainfuck ] Implement ROT13 cipher that reads input and prints ROT13-encoded output",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-19 08:02 UTC",
-    "last_verified": "2026-07-19 08:02 UTC",
-    "last_decision": "PURSUE",
-    "last_availability": "OPEN - READY FOR FINAL CLAIM CHECK",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 20.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -333,9 +333,9 @@
     "title": "[ Brainfuck ] Implement a program that converts decimal input to binary output",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-19 08:02 UTC",
-    "last_verified": "2026-07-19 08:02 UTC",
-    "last_decision": "PURSUE",
-    "last_availability": "OPEN - READY FOR FINAL CLAIM CHECK",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 20.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -343,9 +343,9 @@
     "title": "[ Laravel ] Fix phpunit.xml coverage config and add route and model test suites",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-19 08:02 UTC",
-    "last_verified": "2026-07-19 08:02 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 55.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -353,9 +353,9 @@
     "title": "[ Brainfuck ] Implement a program that sorts an input string alphabetically",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-19 08:02 UTC",
-    "last_verified": "2026-07-19 08:02 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 20.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -363,9 +363,9 @@
     "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
     "repository": "claude-builders-bounty/claude-builders-bounty",
     "first_seen": "2026-07-19 08:02 UTC",
-    "last_verified": "2026-07-19 08:02 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 100.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -373,9 +373,9 @@
     "title": "[BOUNTY $75] TEMPLATE: CLAUDE.md for a Next.js + SQLite SaaS project",
     "repository": "claude-builders-bounty/claude-builders-bounty",
     "first_seen": "2026-07-19 08:02 UTC",
-    "last_verified": "2026-07-19 08:02 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 75.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -383,9 +383,9 @@
     "title": "[Bounty] La función suma() resta en vez de sumar",
     "repository": "zhangjiayang6835-cyber/bounty-plaza",
     "first_seen": "2026-07-19 08:02 UTC",
-    "last_verified": "2026-07-19 09:23 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 50.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -397,15 +397,15 @@
     "last_decision": "WATCHLIST",
     "last_availability": "OVER $250 - WATCHLIST ONLY",
     "last_reward": 2000000.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2855": {
     "title": "[BOUNTY $25] AGENT: Create a `CLAUDE.md` at the repo root.",
     "repository": "claude-builders-bounty/claude-builders-bounty",
     "first_seen": "2026-07-19 09:23 UTC",
-    "last_verified": "2026-07-19 09:23 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 25.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -417,15 +417,15 @@
     "last_decision": "WATCHLIST",
     "last_availability": "OVER $250 - WATCHLIST ONLY",
     "last_reward": 300000.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2853": {
     "title": "[BOUNTY $50] AGENT: Implement a read tool hook into market platform",
     "repository": "claude-builders-bounty/claude-builders-bounty",
     "first_seen": "2026-07-19 09:23 UTC",
-    "last_verified": "2026-07-19 09:23 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 50.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -433,9 +433,9 @@
     "title": "[BOUNTY $30] WORKFLOW: OpenClaw or Hermes integration",
     "repository": "claude-builders-bounty/claude-builders-bounty",
     "first_seen": "2026-07-19 09:23 UTC",
-    "last_verified": "2026-07-19 09:23 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 30.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -443,9 +443,9 @@
     "title": "[$25 BOUNTY] [Python] Add complete type hints to build.py functions",
     "repository": "cuentaprueba244w-dotcom/zeroeye",
     "first_seen": "2026-07-19 09:23 UTC",
-    "last_verified": "2026-07-19 09:23 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 25.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -457,7 +457,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "OVER $250 - WATCHLIST ONLY",
     "last_reward": 550.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/479": {
     "title": "[Bounty] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-gen",
@@ -467,7 +467,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "OVER $250 - WATCHLIST ONLY",
     "last_reward": 3000.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/Vikingr2023/awesome-agent-bounties/issues/76": {
     "title": "[Vikingr2023/awesome-agent-bounties] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collec",
@@ -477,7 +477,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "OVER $250 - WATCHLIST ONLY",
     "last_reward": 3000.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/Vikingr2023/awesome-agent-bounties/issues/167": {
     "title": "[aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-generated",
@@ -487,7 +487,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "OVER $250 - WATCHLIST ONLY",
     "last_reward": 3000.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/Vikingr2023/awesome-agent-bounties/issues/52": {
     "title": "[aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-generated",
@@ -497,7 +497,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "OVER $250 - WATCHLIST ONLY",
     "last_reward": 3000.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/477": {
     "title": "[Bounty] [aLexzzz430/Cognitive-OS] [ Bounty $3k ] [ Research ] Collect and compare AI-gen",
@@ -507,15 +507,15 @@
     "last_decision": "WATCHLIST",
     "last_availability": "OVER $250 - WATCHLIST ONLY",
     "last_reward": 3000.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/tscircuit/file-server/issues/5": {
     "title": "Create download endpoint `/files/download?...` as well as `/files/download/[[file_path]]`",
     "repository": "tscircuit/file-server",
     "first_seen": "2026-07-19 09:23 UTC",
-    "last_verified": "2026-07-19 09:23 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 10.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -523,9 +523,9 @@
     "title": "Implement PDIP-8",
     "repository": "tscircuit/footprinter",
     "first_seen": "2026-07-19 09:23 UTC",
-    "last_verified": "2026-07-19 09:23 UTC",
-    "last_decision": "PRIORITY REVIEW",
-    "last_availability": "PAYMENT NOT PROVEN - MANUAL VERIFY",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
     "last_reward": 10.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -698,5 +698,105 @@
     "last_availability": "ASSIGNED AND CONTESTED",
     "last_reward": 1500.0,
     "verification_state": "NOT REVERIFIED THIS RUN"
+  },
+  "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/483": {
+    "title": "[Bounty] [1 USDC autonomous bounty] Seed a useful agent-tooling child bounty",
+    "repository": "zhangjiayang6835-cyber/bounty-plaza",
+    "first_seen": "2026-07-19 10:31 UTC",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
+    "last_reward": 90.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5": {
+    "title": "[BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly dev summary",
+    "repository": "claude-builders-bounty/claude-builders-bounty",
+    "first_seen": "2026-07-19 10:31 UTC",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
+    "last_reward": 200.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/UnsafeLabs/Bounty-Hunters/issues/270": {
+    "title": "[ Triage ] Review all open PRs and provide constructive feedback",
+    "repository": "UnsafeLabs/Bounty-Hunters",
+    "first_seen": "2026-07-19 10:31 UTC",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
+    "last_reward": 1.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/484": {
+    "title": "[Bounty] [claude-builders-bounty/claude-builders-bounty] [BOUNTY $200] WORKFLOW: n8n + Cl",
+    "repository": "zhangjiayang6835-cyber/bounty-plaza",
+    "first_seen": "2026-07-19 10:31 UTC",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "REPOSITORY MISMATCH - MANUAL VERIFY",
+    "last_reward": 200.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/Vikingr2023/awesome-agent-bounties/issues/225": {
+    "title": "[claude-builders-bounty/claude-builders-bounty] [BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly",
+    "repository": "Vikingr2023/awesome-agent-bounties",
+    "first_seen": "2026-07-19 10:31 UTC",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "REPOSITORY MISMATCH - MANUAL VERIFY",
+    "last_reward": 200.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/tscircuit/jlcsearch/issues/92": {
+    "title": "Add `is_extended_promotional ` column to components (from data source)",
+    "repository": "tscircuit/jlcsearch",
+    "first_seen": "2026-07-19 10:31 UTC",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
+    "last_reward": 75.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/tscircuit/dsn-converter/issues/54": {
+    "title": "We can't convert Smoothie Board to Circuit JSON",
+    "repository": "tscircuit/dsn-converter",
+    "first_seen": "2026-07-19 10:31 UTC",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
+    "last_reward": 70.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/demetriodiazdeleon-pixel/morriganprueba/issues/1": {
+    "title": "La función suma() resta en vez de sumar",
+    "repository": "demetriodiazdeleon-pixel/morriganprueba",
+    "first_seen": "2026-07-19 10:31 UTC",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/lablab-ai/community-content/issues/462": {
+    "title": "Crafting a Comprehensive Tutorial for Vectara Chat",
+    "repository": "lablab-ai/community-content",
+    "first_seen": "2026-07-19 10:31 UTC",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
+    "last_reward": 60.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/tscircuit/schematic-trace-solver/issues/34": {
+    "title": "Merge same-net trace lines that are close together (make at the same Y or same X)",
+    "repository": "tscircuit/schematic-trace-solver",
+    "first_seen": "2026-07-19 10:31 UTC",
+    "last_verified": "2026-07-19 10:31 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "INSTANT PAYMENT NOT VERIFIED - DO NOT EXECUTE",
+    "last_reward": 100.0,
+    "verification_state": "VERIFIED THIS RUN"
   }
 }

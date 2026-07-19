@@ -237,5 +237,28 @@
       "changed": 0,
       "not_reverified": 17
     }
+  },
+  {
+    "generated_at": "2026-07-19 10:31 UTC",
+    "system_status": "DEGRADED",
+    "raw_issues_found": 2317,
+    "eligible_candidates_found": 55,
+    "deep_verified_candidates": 30,
+    "counts": {
+      "PURSUE": 0,
+      "PRIORITY REVIEW": 0,
+      "WATCHLIST": 30,
+      "REJECT": 0
+    },
+    "contested_count": 0,
+    "assigned_count": 0,
+    "strong_uncontested_targets": 0,
+    "meaningful_change_count": 29,
+    "lifecycle_summary": {
+      "new_this_run": 10,
+      "still_active": 9,
+      "changed": 11,
+      "not_reverified": 8
+    }
   }
 ]
