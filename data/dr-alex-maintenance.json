@@ -1,17 +1,18 @@
 {
   "doctor": "Dr. Alex",
   "health": "DEGRADED",
-  "last_check": "2026-07-19 06:34 UTC",
+  "last_check": "2026-07-19 06:57 UTC",
   "repairs": [],
   "diagnostics": [],
-  "api_errors": 8,
-  "searches_completed": 58,
-  "quick_wins_found": 0,
+  "api_errors": 6,
+  "searches_completed": 59,
+  "quick_wins_found": 11,
   "fast_paypal_candidates": 0,
-  "ai_explicitly_allowed_candidates": 12,
-  "approval_path_candidates": 6,
-  "priority_reviews": 0,
-  "pursue_candidates": 0,
-  "recommendation": "No clean fast-pay quick win found in this scan; continue scanning.",
-  "instant_money_warning": "Small PayPal bounties may pay quickly after acceptance, but only the bounty owner or platform can approve work and release payment. Atlas now prioritizes explicit PayPal terms, fast-payment language, AI eligibility, no assignee, and no competing PR."
+  "ai_explicitly_allowed_candidates": 4,
+  "approval_path_candidates": 0,
+  "priority_reviews": 2,
+  "pursue_candidates": 9,
+  "recommendation": "Review 11 unassigned quick-win candidate(s) first; verify AI permission and payer authority.",
+  "instant_money_warning": "Small PayPal bounties may pay quickly after acceptance, but only the bounty owner or platform can approve work and release payment. Atlas now prioritizes explicit PayPal terms, fast-payment language, AI eligibility, no assignee, and no competing PR.",
+  "best_immediate_target": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/490"
 }
