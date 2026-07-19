@@ -1,1 +1,54 @@
 
+name: Atlas Opportunity Hunter V8
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "7,22,37,52 * * * *"
+
+concurrency:
+  group: atlas-opportunity-hunter-v8
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: read
+  pull-requests: read
+
+jobs:
+  hunt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Scan and verify paid opportunities
+        id: atlas
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python <<'PY'
+          import html
+          import json
+          import os
+          import re
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          TOKEN = os.environ["GITHUB_TOKEN"]
+          API_VERSION = "2022-11-28"
+          NOW = datetime.now(timezone.utc)
+          GENERATED_AT = NOW.strftime("%Y-%m-%d %H:%M UTC")
+
+          DATA_DIR = Path("data")
+          DOCS_DIR = Path("docs")
+          DATA_DIR.mkdir(exist_ok=True)
+
