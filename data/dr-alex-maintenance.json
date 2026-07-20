@@ -1,11 +1,11 @@
 {
   "doctor": "Dr. Alex",
   "health": "DEGRADED",
-  "last_check": "2026-07-20 10:48 UTC",
+  "last_check": "2026-07-20 11:28 UTC",
   "repairs": [],
   "diagnostics": [],
   "api_errors": 1,
-  "searches_completed": 31,
+  "searches_completed": 30,
   "quick_wins_found": 20,
   "fast_paypal_candidates": 18,
   "ai_explicitly_allowed_candidates": 4,
