@@ -1,4 +1,5 @@
-name: Atlas + Alex V35 — Safe-Test Dispatch Repair.
+
+name: Atlas + Alex V35 — Active Search Recovery
 
 on:
   workflow_dispatch:
@@ -66,14 +67,12 @@ jobs:
           import urllib.parse
           import urllib.request
           from datetime import datetime, timezone
-          from zoneinfo import ZoneInfo
           from pathlib import Path
 
           TOKEN = os.environ["GITHUB_TOKEN"]
           API_VERSION = "2022-11-28"
           NOW = datetime.now(timezone.utc)
-          PACIFIC_NOW = NOW.astimezone(ZoneInfo("America/Los_Angeles"))
-          GENERATED_AT = PACIFIC_NOW.strftime("%Y-%m-%d %I:%M %p %Z")
+          GENERATED_AT = NOW.strftime("%Y-%m-%d %H:%M UTC")
 
           DATA_DIR = Path("data")
           DOCS_DIR = Path("docs")
@@ -533,7 +532,7 @@ jobs:
                           "Accept": accept,
                           "X-GitHub-Api-Version": API_VERSION,
                           "User-Agent": (
-                              "Atlas-Opportunity-Hunter-V35"
+                              "Atlas-Opportunity-Hunter-V33"
                           ),
                       },
                   )
@@ -1478,7 +1477,7 @@ jobs:
               # Atlas still requires a real open repository, no crypto, no AI ban,
               # no competing PR, no assignee, matching repository, and executable work.
               quick_win_risk_accepted = bool(
-                  0.10 <= reward <= 100
+                  0.10 <= reward <= 50
                   and not human_only_signals
                   and not crypto_signals
                   and not repository_mismatch
@@ -1491,7 +1490,7 @@ jobs:
               # CEO law: advertised instant/same-day/within-hours fiat tasks receive
               # EXTRA EXTRA priority. This is a ranking signal, not a payment guarantee.
               instant_payment_priority = bool(
-                  0.10 <= reward <= 100
+                  0.10 <= reward <= 50
                   and fast_payment_signals
                   and (fiat_payment_signals or paypal_signals)
                   and not human_only_signals
@@ -1563,7 +1562,7 @@ jobs:
                       "Task is not clearly executable by Atlas"
                   )
 
-              if 0.10 <= reward <= 100:
+              if 0.10 <= reward <= 50:
                   score += 10
                   reasons.append("Highest-priority first-payment reward band")
               elif reward <= 100:
@@ -1722,7 +1721,7 @@ jobs:
               )
 
               fast_pay_candidate = bool(
-                  0.10 <= reward <= 100
+                  0.10 <= reward <= 50
                   and (quick_win_risk_accepted or (fiat_payment_signals and fast_payment_signals))
                   and not human_only_signals
                   and not assignees
@@ -1751,7 +1750,7 @@ jobs:
                   ),
                   "reward": reward,
                   "reward_priority": (
-                      "HIGHEST" if 0.10 <= reward <= 100
+                      "HIGHEST" if 0.10 <= reward <= 50
                       else "HIGH" if reward <= 100
                       else "PRIORITY" if reward <= 250
                       else "WATCHLIST"
@@ -1895,6 +1894,34 @@ jobs:
               "created",
           )
 
+          # V35 operational guarantee: Alex must perform real searches, not merely
+          # appear in telemetry. If the first search pass completes zero queries,
+          # immediately retry with a compact fallback universe.
+          alex_retry_triggered = False
+          alex_search_failure = False
+          if worker_searches_completed["Alex"] == 0:
+              alex_retry_triggered = True
+              alex_fallback_queries = [
+                  'is:issue is:open bounty label:"good first issue"',
+                  'is:issue is:open reward label:"help wanted"',
+                  'is:issue is:open "$50" in:title,body',
+                  'is:issue is:open "$25" in:title,body',
+                  'is:issue is:open "small bounty" in:title,body',
+              ]
+              run_worker_search(
+                  "Alex",
+                  alex_fallback_queries,
+                  "updated",
+              )
+
+          if worker_searches_completed["Alex"] == 0:
+              alex_search_failure = True
+              api_errors.append({
+                  "worker": "Alex",
+                  "stage": "search",
+                  "error": "Alex completed zero search queries after automatic retry",
+              })
+
           fresh_discovery_urls = (
               worker_fresh_urls["Atlas"]
               | worker_fresh_urls["Alex"]
@@ -1990,7 +2017,7 @@ jobs:
               lowered = f"{title}\n{body}".lower()
               reward = extract_reward(f"{title}\n{body}")
 
-              if 0.10 <= reward <= 100:
+              if 0.10 <= reward <= 50:
                   reward_band = 5
               elif reward <= 100:
                   reward_band = 4
@@ -2050,7 +2077,7 @@ jobs:
               reverse=True,
           )
 
-          # V35 reserves verification capacity for both hunters and for
+          # V33 reserves verification capacity for both hunters and for
           # small rewards so they cannot disappear behind large speculative items.
           issue_by_url = {
               issue.get("html_url"): issue
@@ -2396,7 +2423,7 @@ jobs:
                   "",
               ])
 
-          (REPORTS_DIR / "atlas-v35-gate-diagnostics.md").write_text(
+          (REPORTS_DIR / "atlas-v33-gate-diagnostics.md").write_text(
               "\n".join(diagnostic_lines),
               encoding="utf-8",
           )
@@ -2545,7 +2572,7 @@ jobs:
               execution_queue.append(queue_item)
           def reward_priority_rank(item):
               reward = float(item.get("reward", 0) or 0)
-              if 0.10 <= reward <= 100:
+              if 0.10 <= reward <= 50:
                   return 3
               if reward <= 100:
                   return 2
@@ -2572,7 +2599,7 @@ jobs:
           operations["pipeline"] = execution_queue
           OPERATIONS_FILE.write_text(json.dumps(operations, indent=2, ensure_ascii=False), encoding="utf-8")
 
-          # V35: reserve distinct, prototype-qualified small PURSUE tasks for immediate workers.
+          # V33: reserve distinct, prototype-qualified small PURSUE tasks for immediate workers.
           executable_candidates = [
               item for item in execution_queue
               if item.get("decision") == "PURSUE"
@@ -2656,6 +2683,17 @@ jobs:
               "last_check": GENERATED_AT,
               "api_errors": len(api_errors),
               "searches_completed": searches_completed,
+              "atlas_searches_completed": worker_searches_completed["Atlas"],
+              "alex_searches_completed": worker_searches_completed["Alex"],
+              "alex_raw_hits": worker_raw_hits["Alex"],
+              "alex_fresh_discoveries": len(worker_fresh_urls["Alex"]),
+              "alex_retry_triggered": alex_retry_triggered,
+              "alex_search_failure": alex_search_failure,
+              "alex_search_status": (
+                  "FAILED" if alex_search_failure
+                  else "RETRIED_AND_ACTIVE" if alex_retry_triggered
+                  else "ACTIVE"
+              ),
               "quick_wins_found": len(quick_wins),
               "instant_payment_extra_priority_candidates": len(instant_priority_candidates),
               "fast_paypal_candidates": len(fast_paypal_candidates),
@@ -2681,6 +2719,10 @@ jobs:
               alerts.append({"level": "HIGH", "message": f"{counts['PURSUE']} pursue candidate(s) found", "generated_at": GENERATED_AT})
           if api_errors:
               alerts.append({"level": "WARNING", "message": f"Atlas health is {status}: {len(api_errors)} API error(s)", "generated_at": GENERATED_AT})
+          if alex_search_failure:
+              alerts.append({"level": "CRITICAL", "message": "Alex is not searching: zero completed queries after automatic retry", "generated_at": GENERATED_AT})
+          elif alex_retry_triggered:
+              alerts.append({"level": "RECOVERY", "message": f"Alex search recovered automatically and completed {worker_searches_completed['Alex']} fallback queries", "generated_at": GENERATED_AT})
           if overdue:
               alerts.append({"level": "PAYMENT", "message": f"${overdue:,.2f} is overdue", "generated_at": GENERATED_AT})
           ALERTS_FILE.write_text(json.dumps(alerts, indent=2), encoding="utf-8")
@@ -3318,7 +3360,7 @@ jobs:
             </ul>
 
             <p class="small">
-              V35 runs two independent search universes on every
+              V33 runs two independent search universes on every
               run and keeps a discovery cache so temporary API limits do not erase
               sources. Up to 30 candidates are deeply verified, with reserved capacity for small rewards from both workers. PURSUE requires
               payment proof, a confirmed claim path, repository integrity, and a
@@ -3481,7 +3523,7 @@ jobs:
               f"<tr><td>{i}</td><td>{html.escape(item['decision'])}</td><td>${item['reward']:,.2f}</td><td>${item['expected_value']:,.2f}</td><td>{html.escape(item['title'])}</td></tr>"
               for i, item in enumerate(execution_queue, 1)
           )
-          report_html = f"""<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Atlas + Alex V35 Report</title><style>body{{font-family:Arial,sans-serif;margin:28px}}table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #999;padding:8px;text-align:left}}@media print{{button{{display:none}}}}</style></head><body><button onclick='window.print()'>Print</button><h1>Atlas + Alex Opportunity Hunter V35 Report</h1><p>Generated: {html.escape(GENERATED_AT)}</p><p>Status: <strong>{html.escape(status)}</strong></p><h2>Earnings</h2><p>Today ${earnings['today']:,.2f} · Week ${earnings['week']:,.2f} · Month ${earnings['month']:,.2f} · Year ${earnings['year']:,.2f} · Lifetime ${earnings['lifetime']:,.2f}</p><h2>Allocation</h2><p>Tax ${allocations['tax']:,.2f} · Reinvesting ${allocations['reinvesting']:,.2f} · Mazen ${allocations['mazen']:,.2f}</p><h2>Execution Queue</h2><table><thead><tr><th>#</th><th>Decision</th><th>Reward</th><th>Expected Value</th><th>Opportunity</th></tr></thead><tbody>{report_rows}</tbody></table></body></html>"""
+          report_html = f"""<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Atlas + Alex V28 Report</title><style>body{{font-family:Arial,sans-serif;margin:28px}}table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #999;padding:8px;text-align:left}}@media print{{button{{display:none}}}}</style></head><body><button onclick='window.print()'>Print</button><h1>Atlas + Alex Opportunity Hunter V35 Report</h1><p>Generated: {html.escape(GENERATED_AT)}</p><p>Status: <strong>{html.escape(status)}</strong></p><h2>Earnings</h2><p>Today ${earnings['today']:,.2f} · Week ${earnings['week']:,.2f} · Month ${earnings['month']:,.2f} · Year ${earnings['year']:,.2f} · Lifetime ${earnings['lifetime']:,.2f}</p><h2>Allocation</h2><p>Tax ${allocations['tax']:,.2f} · Reinvesting ${allocations['reinvesting']:,.2f} · Mazen ${allocations['mazen']:,.2f}</p><h2>Execution Queue</h2><table><thead><tr><th>#</th><th>Decision</th><th>Reward</th><th>Expected Value</th><th>Opportunity</th></tr></thead><tbody>{report_rows}</tbody></table></body></html>"""
           (REPORTS_DIR / "latest.html").write_text(report_html, encoding="utf-8")
           csv_lines = ["rank,decision,reward,expected_value,payment_confidence,competition_advantage,title,url"]
           for i, item in enumerate(execution_queue, 1):
@@ -3647,7 +3689,9 @@ jobs:
           PY
 
       - name: Save Atlas + Alex V35 results
-        if: ${{ always() }}
+        if: >-
+          ${{ github.event_name != 'workflow_dispatch' ||
+              github.event.inputs.execution_mode != 'safe_test' }}
         env:
           BRANCH_NAME: ${{ github.ref_name }}
         run: |
@@ -3681,9 +3725,6 @@ jobs:
             origin \
             "HEAD:$BRANCH_NAME"
 
-  # V35 autonomous small-reward execution law:
-  # qualifying rewards from $0.10 through $100 proceed without CEO approval.
-  # Safe-test needs OPENAI_API_KEY only; submit additionally needs ATLAS_GITHUB_PAT.
   execute:
     name: Execute ${{ matrix.worker }} task
     needs: hunt
@@ -3712,29 +3753,18 @@ jobs:
           EXECUTION_MODE: ${{ github.event.inputs.execution_mode }}
         run: |
           set -euo pipefail
-          if [ -z "${OPENAI_API_KEY:-}" ]; then
+          if [ -z "${ATLAS_GITHUB_PAT:-}" ] || [ -z "${OPENAI_API_KEY:-}" ]; then
             echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "missing=OPENAI_API_KEY" >> "$GITHUB_OUTPUT"
-            echo "Execution requires repository secret OPENAI_API_KEY."
-          elif [ "$EXECUTION_MODE" = "submit" ] && [ -z "${ATLAS_GITHUB_PAT:-}" ]; then
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "missing=ATLAS_GITHUB_PAT" >> "$GITHUB_OUTPUT"
-            echo "Submit mode requires repository secret ATLAS_GITHUB_PAT."
+            echo "Execution requires repository secrets ATLAS_GITHUB_PAT and OPENAI_API_KEY."
           else
             echo "ready=true" >> "$GITHUB_OUTPUT"
-            echo "missing=" >> "$GITHUB_OUTPUT"
             echo "mode=${EXECUTION_MODE}" >> "$GITHUB_OUTPUT"
-            if [ "$EXECUTION_MODE" = "safe_test" ]; then
-              echo "Safe-test authorized with OPENAI_API_KEY and built-in GITHUB_TOKEN."
-            else
-              echo "Submit mode authorized with OPENAI_API_KEY and ATLAS_GITHUB_PAT."
-            fi
           fi
 
       - name: Prepare task workspace
         if: steps.credentials.outputs.ready == 'true'
         env:
-          GH_TOKEN: ${{ github.event.inputs.execution_mode == 'submit' && secrets.ATLAS_GITHUB_PAT || github.token }}
+          GH_TOKEN: ${{ secrets.ATLAS_GITHUB_PAT }}
           REPOSITORY: ${{ matrix.repository }}
           ISSUE_NUMBER: ${{ matrix.issue_number }}
           WORKER: ${{ matrix.worker }}
@@ -3825,7 +3855,7 @@ jobs:
         if: steps.credentials.outputs.ready == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          GH_TOKEN: ${{ github.event.inputs.execution_mode == 'submit' && secrets.ATLAS_GITHUB_PAT || github.token }}
+          GH_TOKEN: ${{ secrets.ATLAS_GITHUB_PAT }}
           REPOSITORY: ${{ matrix.repository }}
           ISSUE_NUMBER: ${{ matrix.issue_number }}
           ISSUE_TITLE: ${{ matrix.title }}
@@ -3921,7 +3951,7 @@ jobs:
       - name: Record unavailable executor
         if: steps.credentials.outputs.ready != 'true'
         run: |
-          echo "${{ matrix.worker }} selected ${{ matrix.repository }}#${{ matrix.issue_number }}, but execution did not start because ${{ steps.credentials.outputs.missing }} is missing for ${{ github.event.inputs.execution_mode }} mode." >> "$GITHUB_STEP_SUMMARY"
+          echo "${{ matrix.worker }} selected ${{ matrix.repository }}#${{ matrix.issue_number }}, but execution did not start because required secrets are missing. Add ATLAS_GITHUB_PAT and OPENAI_API_KEY as repository Actions secrets." >> "$GITHUB_STEP_SUMMARY"
 
   alex_payment_followup:
     name: Alex payment follow-up
@@ -3957,7 +3987,7 @@ jobs:
               "Authorization": f"Bearer {token}",
               "Accept": "application/vnd.github+json",
               "X-GitHub-Api-Version": "2022-11-28",
-              "User-Agent": "Atlas-Alex-V35",
+              "User-Agent": "Atlas-Alex-V33",
           }
 
           def api(method, url, payload=None):
@@ -4089,7 +4119,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Recover an overdue main hunt
+      - name: Download repository health records
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Recover an overdue main hunt or inactive Alex search
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
@@ -4099,7 +4134,7 @@ jobs:
           now_epoch="$(date -u +%s)"
           last_success="$(
             gh api "repos/${REPOSITORY}/actions/workflows/${GITHUB_WORKFLOW_REF#${REPOSITORY}/}/runs?status=success&per_page=10" \
-              --jq '[.workflow_runs[] | select(.event != "schedule" or .name == "Atlas + Alex V35 — Safe-Test Dispatch Repair")][0].updated_at // empty' \
+              --jq '[.workflow_runs[] | select(.event != "schedule" or .name == "Atlas + Alex V35 — Active Search Recovery")][0].updated_at // empty' \
               2>/dev/null || true
           )"
 
@@ -4113,6 +4148,29 @@ jobs:
           )"
 
           dispatch_needed=false
+
+          # Inspect the committed worker statistics. A green workflow is not
+          # sufficient when Alex performed no searches.
+          if [ -f data/discovery-cache.json ]; then
+            alex_queries="$(python - <<'PY2'
+          import json
+          from pathlib import Path
+          try:
+              data=json.loads(Path('data/discovery-cache.json').read_text())
+              print(int(data.get('worker_stats',{}).get('Alex',{}).get('queries_completed',0) or 0))
+          except Exception:
+              print(0)
+          PY2
+          )"
+            echo "Alex completed queries in latest committed scan: ${alex_queries}"
+            if [ "${alex_queries}" -le 0 ]; then
+              echo "Alex search is inactive even though the workflow may be green."
+              dispatch_needed=true
+            fi
+          else
+            echo "No discovery-cache health record found; recovery is required."
+            dispatch_needed=true
+          fi
 
           if [ -z "${last_success}" ]; then
             echo "No successful main run was found."
