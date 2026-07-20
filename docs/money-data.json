@@ -1,0 +1,12 @@
+{
+  "lifetime": 0.0,
+  "today": 0.0,
+  "week": 0.0,
+  "month": 0.0,
+  "waiting_total": 0.0,
+  "last_payment": "No verified payment yet",
+  "status": "DEGRADED",
+  "pursue": 0,
+  "priority_review": 0,
+  "generated_at": "2026-07-20 08:53 UTC"
+}

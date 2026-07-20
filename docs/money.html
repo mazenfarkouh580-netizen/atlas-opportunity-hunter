@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="refresh" content="900">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>Atlas Money Made</title>
   <style>
     :root { color-scheme: dark; }
@@ -14,6 +16,8 @@
       display: grid;
       place-items: center;
       padding: 18px;
+      padding-top: max(18px, env(safe-area-inset-top));
+      padding-bottom: max(18px, env(safe-area-inset-bottom));
       font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background: #080c11;
       color: #f4f7fb;
@@ -35,33 +39,62 @@
     .name { margin-top: 4px; opacity: .7; }
     .status { margin-top: 18px; padding-top: 16px; border-top: 1px solid #303945; line-height: 1.75; }
     .footer { margin-top: 18px; text-align: center; opacity: .65; font-size: .88rem; }
+    .live { display:inline-block; width:.6em; height:.6em; border-radius:50%; background:#45d483; margin-right:.4em; }
     a { color: inherit; }
     @media (max-width:560px) { .grid { grid-template-columns:1fr; } .window { padding:20px; } }
   </style>
 </head>
 <body>
   <main class="window">
-    <h1>MONEY MADE</h1>
-    <div class="hero">$0.00</div>
-    <div class="subtitle">Verified received earnings only</div>
+    <h1><span class="live"></span>MONEY MADE</h1>
+    <div class="hero" id="lifetime">$0.00</div>
+    <div class="subtitle">Verified received earnings only · live refresh</div>
 
     <section class="grid">
-      <div class="card"><div class="value">$0.00</div><div class="name">Today</div></div>
-      <div class="card"><div class="value">$0.00</div><div class="name">This week</div></div>
-      <div class="card"><div class="value">$0.00</div><div class="name">This month</div></div>
-      <div class="card"><div class="value">$0.00</div><div class="name">Pending / waiting</div></div>
+      <div class="card"><div class="value" id="today">$0.00</div><div class="name">Today</div></div>
+      <div class="card"><div class="value" id="week">$0.00</div><div class="name">This week</div></div>
+      <div class="card"><div class="value" id="month">$0.00</div><div class="name">This month</div></div>
+      <div class="card"><div class="value" id="waiting">$0.00</div><div class="name">Pending / waiting</div></div>
     </section>
 
     <section class="status">
-      <div><strong>Last payment:</strong> No verified payment yet</div>
-      <div><strong>Atlas:</strong> DEGRADED — scanning every 15 minutes</div>
-      <div><strong>Alex:</strong> independently searching newest $0.10–$100 tasks, then verifying claimability, payment proof, competition, and execution readiness</div>
-      <div><strong>Pursue:</strong> 10 &nbsp; <strong>Priority review:</strong> 14</div>
-      <div><strong>Last updated:</strong> 2026-07-19 14:22 UTC</div>
+      <div><strong>Last payment:</strong> <span id="last-payment">No verified payment yet</span></div>
+      <div><strong>Atlas:</strong> <span id="atlas-status">DEGRADED</span> — scanning every 15 minutes</div>
+      <div><strong>Alex:</strong> independently searching and verifying small, executable paid tasks</div>
+      <div><strong>Pursue:</strong> <span id="pursue">0</span> &nbsp; <strong>Priority review:</strong> <span id="priority">0</span></div>
+      <div><strong>Last updated:</strong> <span id="updated">2026-07-20 08:53 UTC</span></div>
       <div><a href="index.html">Open full Atlas dashboard</a></div>
     </section>
 
-    <div class="footer">Target schedule: every 15 minutes. Actual completion time is recorded and monitored. Atlas records money only after the ledger marks payment as received.</div>
+    <div class="footer" id="refresh-note">Checking for updates every 30 seconds. Money is recorded only after the ledger marks payment as received.</div>
   </main>
+  <script>
+    const money = value => '$' + Number(value || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    async function refreshMoney() {
+      try {
+        const response = await fetch('money-data.json?t=' + Date.now(), {cache: 'no-store'});
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const data = await response.json();
+        document.getElementById('lifetime').textContent = money(data.lifetime);
+        document.getElementById('today').textContent = money(data.today);
+        document.getElementById('week').textContent = money(data.week);
+        document.getElementById('month').textContent = money(data.month);
+        document.getElementById('waiting').textContent = money(data.waiting_total);
+        document.getElementById('last-payment').textContent = data.last_payment || 'No verified payment yet';
+        document.getElementById('atlas-status').textContent = data.status || 'UNKNOWN';
+        document.getElementById('pursue').textContent = data.pursue ?? 0;
+        document.getElementById('priority').textContent = data.priority_review ?? 0;
+        document.getElementById('updated').textContent = data.generated_at || 'Unknown';
+        document.getElementById('refresh-note').textContent = 'Live data checked ' + new Date().toLocaleTimeString() + '. Money is recorded only after payment is received.';
+      } catch (error) {
+        document.getElementById('refresh-note').textContent = 'Could not refresh live data. Retrying automatically.';
+      }
+    }
+    refreshMoney();
+    setInterval(refreshMoney, 30000);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshMoney(); });
+    window.addEventListener('pageshow', refreshMoney);
+    window.addEventListener('focus', refreshMoney);
+  </script>
 </body>
 </html>
