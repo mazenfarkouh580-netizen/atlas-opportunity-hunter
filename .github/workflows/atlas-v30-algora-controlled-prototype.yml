@@ -1,4 +1,4 @@
-name: Atlas + Alex V30 — Algora Controlled Prototype
+name: Atlas + Alex V31 — Controlled Prototype Repair
 
 on:
   workflow_dispatch:
@@ -21,7 +21,7 @@ on:
     - cron: "12,27,42,57 * * * *"
 
 concurrency:
-  group: atlas-alex-opportunity-hunter-v30
+  group: atlas-alex-opportunity-hunter-v31
   cancel-in-progress: false
 
 permissions:
@@ -1832,15 +1832,39 @@ jobs:
           )
           searches_completed = sum(worker_searches_completed.values())
 
+          # Keep the repository lightweight. Search results can contain very
+          # large issue bodies, so persist only the 750 most recently updated
+          # records. The current run still evaluates the full in-memory result
+          # set; this cap only controls what is carried into future runs.
+          def cache_sort_key(pair):
+              issue = pair[1]
+              return str(
+                  issue.get("updated_at")
+                  or issue.get("created_at")
+                  or ""
+              )
+
+          cache_items = sorted(
+              raw_issues.items(),
+              key=cache_sort_key,
+              reverse=True,
+          )[:750]
+          cache_issues = dict(cache_items)
+          cache_urls = set(cache_issues)
+
           DISCOVERY_CACHE_FILE.write_text(
               json.dumps(
                   {
                       "updated_at": GENERATED_AT,
-                      "issues": raw_issues,
-                      "fresh_urls": sorted(fresh_discovery_urls),
+                      "cache_limit": 750,
+                      "total_seen_this_run": len(raw_issues),
+                      "issues": cache_issues,
+                      "fresh_urls": sorted(
+                          fresh_discovery_urls & cache_urls
+                      ),
                       "discovered_by": {
-                          url: sorted(workers)
-                          for url, workers in discovered_by.items()
+                          url: sorted(discovered_by.get(url, set()))
+                          for url in cache_issues
                       },
                       "worker_stats": {
                           worker: {
@@ -2266,7 +2290,7 @@ jobs:
               gate_counts[gate] = gate_counts.get(gate, 0) + 1
 
           diagnostic_lines = [
-              "# Atlas + Alex V29 Gate Diagnostics",
+              "# Atlas + Alex V31 Gate Diagnostics",
               "",
               f"Generated: {GENERATED_AT}",
               "",
@@ -2300,7 +2324,7 @@ jobs:
                   "",
               ])
 
-          (REPORTS_DIR / "atlas-v29-gate-diagnostics.md").write_text(
+          (REPORTS_DIR / "atlas-v31-gate-diagnostics.md").write_text(
               "\n".join(diagnostic_lines),
               encoding="utf-8",
           )
@@ -3504,7 +3528,7 @@ jobs:
                   )
 
           print(
-              f"Atlas + Alex V29 status={status}; "
+              f"Atlas + Alex V31 status={status}; "
               f"checked {len(raw_issues)} "
               "raw issues; "
               f"found {len(initial_candidates)} "
@@ -3522,12 +3546,12 @@ jobs:
 
           if searches_completed == 0:
               raise SystemExit(
-                  "Atlas + Alex V29 could not complete "
+                  "Atlas + Alex V31 could not complete "
                   "any GitHub search query."
               )
           PY
 
-      - name: Save Atlas + Alex V29 results
+      - name: Save Atlas + Alex V31 results
         env:
           BRANCH_NAME: ${{ github.ref_name }}
         run: |
@@ -3550,7 +3574,7 @@ jobs:
           fi
 
           git commit \
-            -m "Atlas + Alex V30 opportunity scan"
+            -m "Atlas + Alex V31 opportunity scan"
 
           git pull \
             --rebase \
@@ -3805,7 +3829,7 @@ jobs:
           now_epoch="$(date -u +%s)"
           last_success="$(
             gh api "repos/${REPOSITORY}/actions/workflows/${GITHUB_WORKFLOW_REF#${REPOSITORY}/}/runs?status=success&per_page=10" \
-              --jq '[.workflow_runs[] | select(.event != "schedule" or .name == "Atlas + Alex V30 — Algora Controlled Prototype")][0].updated_at // empty' \
+              --jq '[.workflow_runs[] | select(.event != "schedule" or .name == "Atlas + Alex V31 — Controlled Prototype Repair")][0].updated_at // empty' \
               2>/dev/null || true
           )"
 
