@@ -21,7 +21,7 @@ on:
     - cron: "12,27,42,57 * * * *"
 
 concurrency:
-  group: atlas-alex-opportunity-hunter-v34
+  group: atlas-alex-opportunity-hunter-v35
   cancel-in-progress: false
 
 permissions:
@@ -470,12 +470,12 @@ jobs:
               EARNINGS_FILE.write_text("[]\n", encoding="utf-8")
 
           operations = load_json_file(OPERATIONS_FILE, {
-              "version": "V34",
+              "version": "V35",
               "pipeline": [],
               "last_updated": GENERATED_AT,
           })
           if not isinstance(operations, dict):
-              operations = {"version": "V34", "pipeline": [], "last_updated": GENERATED_AT}
+              operations = {"version": "V35", "pipeline": [], "last_updated": GENERATED_AT}
 
           maintenance = load_json_file(MAINTENANCE_FILE, {
               "doctor": "Dr. Alex",
@@ -531,7 +531,7 @@ jobs:
                           "Accept": accept,
                           "X-GitHub-Api-Version": API_VERSION,
                           "User-Agent": (
-                              "Atlas-Opportunity-Hunter-V33"
+                              "Atlas-Opportunity-Hunter-V35"
                           ),
                       },
                   )
@@ -2048,7 +2048,7 @@ jobs:
               reverse=True,
           )
 
-          # V33 reserves verification capacity for both hunters and for
+          # V35 reserves verification capacity for both hunters and for
           # small rewards so they cannot disappear behind large speculative items.
           issue_by_url = {
               issue.get("html_url"): issue
@@ -2360,7 +2360,7 @@ jobs:
               gate_counts[gate] = gate_counts.get(gate, 0) + 1
 
           diagnostic_lines = [
-              "# Atlas + Alex V34 Gate Diagnostics",
+              "# Atlas + Alex V35 Gate Diagnostics",
               "",
               f"Generated: {GENERATED_AT}",
               "",
@@ -2394,7 +2394,7 @@ jobs:
                   "",
               ])
 
-          (REPORTS_DIR / "atlas-v33-gate-diagnostics.md").write_text(
+          (REPORTS_DIR / "atlas-v35-gate-diagnostics.md").write_text(
               "\n".join(diagnostic_lines),
               encoding="utf-8",
           )
@@ -2565,12 +2565,12 @@ jobs:
           )
           execution_queue = execution_queue[:int(config.get("queue_size", 20))]
 
-          operations["version"] = "V34"
+          operations["version"] = "V35"
           operations["last_updated"] = GENERATED_AT
           operations["pipeline"] = execution_queue
           OPERATIONS_FILE.write_text(json.dumps(operations, indent=2, ensure_ascii=False), encoding="utf-8")
 
-          # V33: reserve distinct, prototype-qualified small PURSUE tasks for immediate workers.
+          # V35: reserve distinct, prototype-qualified small PURSUE tasks for immediate workers.
           executable_candidates = [
               item for item in execution_queue
               if item.get("decision") == "PURSUE"
@@ -2619,7 +2619,7 @@ jobs:
 
           EXECUTION_FILE.write_text(
               json.dumps({
-                  "version": "V34",
+                  "version": "V35",
                   "generated_at": GENERATED_AT,
                   "automatic_execution": True,
                   "workers_requested": int(config.get("parallel_workers", 2)),
@@ -2684,7 +2684,7 @@ jobs:
           ALERTS_FILE.write_text(json.dumps(alerts, indent=2), encoding="utf-8")
 
           payload = {
-              "version": "V34",
+              "version": "V35",
               "owner": "Mazen Farkouh",
               "generated_at": GENERATED_AT,
               "config": config,
@@ -2745,7 +2745,7 @@ jobs:
           WORKER_HEALTH_FILE.write_text(
               json.dumps(
                   {
-                      "version": "V34",
+                      "version": "V35",
                       "last_completed_at": NOW.isoformat(),
                       "last_completed_display": GENERATED_AT,
                       "trigger": os.environ.get("GITHUB_EVENT_NAME", "unknown"),
@@ -3316,7 +3316,7 @@ jobs:
             </ul>
 
             <p class="small">
-              V33 runs two independent search universes on every
+              V35 runs two independent search universes on every
               run and keeps a discovery cache so temporary API limits do not erase
               sources. Up to 30 candidates are deeply verified, with reserved capacity for small rewards from both workers. PURSUE requires
               payment proof, a confirmed claim path, repository integrity, and a
@@ -3617,7 +3617,7 @@ jobs:
                   )
 
           print(
-              f"Atlas + Alex V34 status={status}; "
+              f"Atlas + Alex V35 status={status}; "
               f"checked {len(raw_issues)} "
               "raw issues; "
               f"found {len(initial_candidates)} "
@@ -3639,12 +3639,12 @@ jobs:
 
           if searches_completed == 0:
               raise SystemExit(
-                  "Atlas + Alex V34 could not complete "
+                  "Atlas + Alex V35 could not complete "
                   "any GitHub search query."
               )
           PY
 
-      - name: Save Atlas + Alex V34 results
+      - name: Save Atlas + Alex V35 results
         if: >-
           ${{ github.event_name != 'workflow_dispatch' ||
               github.event.inputs.execution_mode != 'safe_test' }}
@@ -4099,7 +4099,7 @@ jobs:
           now_epoch="$(date -u +%s)"
           last_success="$(
             gh api "repos/${REPOSITORY}/actions/workflows/${GITHUB_WORKFLOW_REF#${REPOSITORY}/}/runs?status=success&per_page=10" \
-              --jq '[.workflow_runs[] | select(.event != "schedule" or .name == "Atlas + Alex V34 — Safe-Test Dispatch Repair")][0].updated_at // empty' \
+              --jq '[.workflow_runs[] | select(.event != "schedule" or .name == "Atlas + Alex V35 — Safe-Test Dispatch Repair")][0].updated_at // empty' \
               2>/dev/null || true
           )"
 
