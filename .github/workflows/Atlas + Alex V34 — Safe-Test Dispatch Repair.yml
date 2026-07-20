@@ -3645,6 +3645,9 @@ jobs:
           PY
 
       - name: Save Atlas + Alex V34 results
+        if: >-
+          ${{ github.event_name != 'workflow_dispatch' ||
+              github.event.inputs.execution_mode != 'safe_test' }}
         env:
           BRANCH_NAME: ${{ github.ref_name }}
         run: |
