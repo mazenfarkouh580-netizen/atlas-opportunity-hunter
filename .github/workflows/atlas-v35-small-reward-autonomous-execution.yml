@@ -1476,7 +1476,7 @@ jobs:
               # Atlas still requires a real open repository, no crypto, no AI ban,
               # no competing PR, no assignee, matching repository, and executable work.
               quick_win_risk_accepted = bool(
-                  0.10 <= reward <= 50
+                  0.10 <= reward <= 100
                   and not human_only_signals
                   and not crypto_signals
                   and not repository_mismatch
@@ -1489,7 +1489,7 @@ jobs:
               # CEO law: advertised instant/same-day/within-hours fiat tasks receive
               # EXTRA EXTRA priority. This is a ranking signal, not a payment guarantee.
               instant_payment_priority = bool(
-                  0.10 <= reward <= 50
+                  0.10 <= reward <= 100
                   and fast_payment_signals
                   and (fiat_payment_signals or paypal_signals)
                   and not human_only_signals
@@ -1561,7 +1561,7 @@ jobs:
                       "Task is not clearly executable by Atlas"
                   )
 
-              if 0.10 <= reward <= 50:
+              if 0.10 <= reward <= 100:
                   score += 10
                   reasons.append("Highest-priority first-payment reward band")
               elif reward <= 100:
@@ -1720,7 +1720,7 @@ jobs:
               )
 
               fast_pay_candidate = bool(
-                  0.10 <= reward <= 50
+                  0.10 <= reward <= 100
                   and (quick_win_risk_accepted or (fiat_payment_signals and fast_payment_signals))
                   and not human_only_signals
                   and not assignees
@@ -1749,7 +1749,7 @@ jobs:
                   ),
                   "reward": reward,
                   "reward_priority": (
-                      "HIGHEST" if 0.10 <= reward <= 50
+                      "HIGHEST" if 0.10 <= reward <= 100
                       else "HIGH" if reward <= 100
                       else "PRIORITY" if reward <= 250
                       else "WATCHLIST"
@@ -1988,7 +1988,7 @@ jobs:
               lowered = f"{title}\n{body}".lower()
               reward = extract_reward(f"{title}\n{body}")
 
-              if 0.10 <= reward <= 50:
+              if 0.10 <= reward <= 100:
                   reward_band = 5
               elif reward <= 100:
                   reward_band = 4
@@ -2543,7 +2543,7 @@ jobs:
               execution_queue.append(queue_item)
           def reward_priority_rank(item):
               reward = float(item.get("reward", 0) or 0)
-              if 0.10 <= reward <= 50:
+              if 0.10 <= reward <= 100:
                   return 3
               if reward <= 100:
                   return 2
@@ -2974,7 +2974,7 @@ jobs:
               content="{int(config.get('dashboard_refresh_seconds', 900))}"
             >
             <title>
-              Atlas + Alex Opportunity Hunter V33
+              Atlas + Alex Opportunity Hunter V35
             </title>
             <style>
               :root {{
@@ -3091,7 +3091,7 @@ jobs:
           </head>
           <body>
             <h1>
-              Atlas + Alex Opportunity Hunter V33
+              Atlas + Alex Opportunity Hunter V35
             </h1>
 
             <p>
@@ -3491,14 +3491,14 @@ jobs:
               ]))
           (REPORTS_DIR / "latest.csv").write_text("\n".join(csv_lines) + "\n", encoding="utf-8")
           (REPORTS_DIR / "latest.txt").write_text(
-              "Atlas + Alex Opportunity Hunter V33\n" +
+              "Atlas + Alex Opportunity Hunter V35\n" +
               f"Generated: {GENERATED_AT}\nStatus: {status}\n" +
               f"Today: ${earnings['today']:,.2f}\nWeek: ${earnings['week']:,.2f}\nMonth: ${earnings['month']:,.2f}\nYear: ${earnings['year']:,.2f}\nLifetime: ${earnings['lifetime']:,.2f}\n",
               encoding="utf-8",
           )
 
           summary_lines = [
-              "# Atlas + Alex Opportunity Hunter V33",
+              "# Atlas + Alex Opportunity Hunter V35",
               "",
               (
                   f"- System status: "
@@ -3670,7 +3670,7 @@ jobs:
           fi
 
           git commit \
-            -m "Atlas + Alex V34 opportunity scan"
+            -m "Atlas + Alex V35 opportunity scan"
 
           git pull \
             --rebase \
@@ -3681,6 +3681,9 @@ jobs:
             origin \
             "HEAD:$BRANCH_NAME"
 
+  # V35 autonomous small-reward execution law:
+  # qualifying rewards from $0.10 through $100 proceed without CEO approval.
+  # Safe-test needs OPENAI_API_KEY only; submit additionally needs ATLAS_GITHUB_PAT.
   execute:
     name: Execute ${{ matrix.worker }} task
     needs: hunt
@@ -3709,18 +3712,29 @@ jobs:
           EXECUTION_MODE: ${{ github.event.inputs.execution_mode }}
         run: |
           set -euo pipefail
-          if [ -z "${ATLAS_GITHUB_PAT:-}" ] || [ -z "${OPENAI_API_KEY:-}" ]; then
+          if [ -z "${OPENAI_API_KEY:-}" ]; then
             echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "Execution requires repository secrets ATLAS_GITHUB_PAT and OPENAI_API_KEY."
+            echo "missing=OPENAI_API_KEY" >> "$GITHUB_OUTPUT"
+            echo "Execution requires repository secret OPENAI_API_KEY."
+          elif [ "$EXECUTION_MODE" = "submit" ] && [ -z "${ATLAS_GITHUB_PAT:-}" ]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "missing=ATLAS_GITHUB_PAT" >> "$GITHUB_OUTPUT"
+            echo "Submit mode requires repository secret ATLAS_GITHUB_PAT."
           else
             echo "ready=true" >> "$GITHUB_OUTPUT"
+            echo "missing=" >> "$GITHUB_OUTPUT"
             echo "mode=${EXECUTION_MODE}" >> "$GITHUB_OUTPUT"
+            if [ "$EXECUTION_MODE" = "safe_test" ]; then
+              echo "Safe-test authorized with OPENAI_API_KEY and built-in GITHUB_TOKEN."
+            else
+              echo "Submit mode authorized with OPENAI_API_KEY and ATLAS_GITHUB_PAT."
+            fi
           fi
 
       - name: Prepare task workspace
         if: steps.credentials.outputs.ready == 'true'
         env:
-          GH_TOKEN: ${{ secrets.ATLAS_GITHUB_PAT }}
+          GH_TOKEN: ${{ github.event.inputs.execution_mode == 'submit' && secrets.ATLAS_GITHUB_PAT || github.token }}
           REPOSITORY: ${{ matrix.repository }}
           ISSUE_NUMBER: ${{ matrix.issue_number }}
           WORKER: ${{ matrix.worker }}
@@ -3811,7 +3825,7 @@ jobs:
         if: steps.credentials.outputs.ready == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          GH_TOKEN: ${{ secrets.ATLAS_GITHUB_PAT }}
+          GH_TOKEN: ${{ github.event.inputs.execution_mode == 'submit' && secrets.ATLAS_GITHUB_PAT || github.token }}
           REPOSITORY: ${{ matrix.repository }}
           ISSUE_NUMBER: ${{ matrix.issue_number }}
           ISSUE_TITLE: ${{ matrix.title }}
@@ -3907,7 +3921,7 @@ jobs:
       - name: Record unavailable executor
         if: steps.credentials.outputs.ready != 'true'
         run: |
-          echo "${{ matrix.worker }} selected ${{ matrix.repository }}#${{ matrix.issue_number }}, but execution did not start because required secrets are missing. Add ATLAS_GITHUB_PAT and OPENAI_API_KEY as repository Actions secrets." >> "$GITHUB_STEP_SUMMARY"
+          echo "${{ matrix.worker }} selected ${{ matrix.repository }}#${{ matrix.issue_number }}, but execution did not start because ${{ steps.credentials.outputs.missing }} is missing for ${{ github.event.inputs.execution_mode }} mode." >> "$GITHUB_STEP_SUMMARY"
 
   alex_payment_followup:
     name: Alex payment follow-up
@@ -3943,7 +3957,7 @@ jobs:
               "Authorization": f"Bearer {token}",
               "Accept": "application/vnd.github+json",
               "X-GitHub-Api-Version": "2022-11-28",
-              "User-Agent": "Atlas-Alex-V33",
+              "User-Agent": "Atlas-Alex-V35",
           }
 
           def api(method, url, payload=None):
