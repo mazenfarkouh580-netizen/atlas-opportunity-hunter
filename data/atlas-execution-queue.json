@@ -1,8 +1,33 @@
 {
-  "version": "V27",
-  "generated_at": "2026-07-20 09:42 UTC",
+  "version": "V33",
+  "generated_at": "2026-07-20 10:48 UTC",
   "automatic_execution": true,
   "workers_requested": 2,
-  "tasks_dispatched": 0,
-  "tasks": []
+  "tasks_dispatched": 2,
+  "tasks": [
+    {
+      "worker": "Atlas",
+      "repository": "claude-builders-bounty/claude-builders-bounty",
+      "issue_number": 1,
+      "issue_url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
+      "reward": 50.0,
+      "score": 100.0,
+      "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
+      "status": "DISPATCHED",
+      "reserved_at": "2026-07-20T10:48:31.543136+00:00"
+    },
+    {
+      "worker": "Alex",
+      "repository": "xevrion-v2/agent-playground",
+      "issue_number": 8168,
+      "issue_url": "https://github.com/xevrion-v2/agent-playground/issues/8168",
+      "title": "Add is-halfwidth-katakana-letter-si-present API utility",
+      "reward": 50.0,
+      "score": 100.0,
+      "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
+      "status": "DISPATCHED",
+      "reserved_at": "2026-07-20T10:48:31.543136+00:00"
+    }
+  ]
 }
