@@ -1,4 +1,4 @@
-name: Atlas + Alex V31 — Controlled Prototype Repair
+name: Atlas + Alex V33 — Instant-Payment Extra Priority
 
 on:
   workflow_dispatch:
@@ -21,7 +21,7 @@ on:
     - cron: "12,27,42,57 * * * *"
 
 concurrency:
-  group: atlas-alex-opportunity-hunter-v31
+  group: atlas-alex-opportunity-hunter-v33
   cancel-in-progress: false
 
 permissions:
@@ -468,12 +468,12 @@ jobs:
               EARNINGS_FILE.write_text("[]\n", encoding="utf-8")
 
           operations = load_json_file(OPERATIONS_FILE, {
-              "version": "V27",
+              "version": "V33",
               "pipeline": [],
               "last_updated": GENERATED_AT,
           })
           if not isinstance(operations, dict):
-              operations = {"version": "V27", "pipeline": [], "last_updated": GENERATED_AT}
+              operations = {"version": "V33", "pipeline": [], "last_updated": GENERATED_AT}
 
           maintenance = load_json_file(MAINTENANCE_FILE, {
               "doctor": "Dr. Alex",
@@ -529,7 +529,7 @@ jobs:
                           "Accept": accept,
                           "X-GitHub-Api-Version": API_VERSION,
                           "User-Agent": (
-                              "Atlas-Opportunity-Hunter-V27"
+                              "Atlas-Opportunity-Hunter-V33"
                           ),
                       },
                   )
@@ -1470,7 +1470,46 @@ jobs:
                   score += 5
                   reasons.append("AI/automation participation appears allowed")
 
-              quick_win_risk_accepted = False
+              # CEO prototype law: for small rewards, payment-proof risk is accepted.
+              # Atlas still requires a real open repository, no crypto, no AI ban,
+              # no competing PR, no assignee, matching repository, and executable work.
+              quick_win_risk_accepted = bool(
+                  0.10 <= reward <= 50
+                  and not human_only_signals
+                  and not crypto_signals
+                  and not repository_mismatch
+                  and not assignees
+                  and open_pr_count == 0
+                  and merged_pr_count == 0
+                  and atlas_can_execute
+              )
+
+              # CEO law: advertised instant/same-day/within-hours fiat tasks receive
+              # EXTRA EXTRA priority. This is a ranking signal, not a payment guarantee.
+              instant_payment_priority = bool(
+                  0.10 <= reward <= 50
+                  and fast_payment_signals
+                  and (fiat_payment_signals or paypal_signals)
+                  and not human_only_signals
+                  and not crypto_signals
+                  and not repository_mismatch
+                  and not assignees
+                  and open_pr_count == 0
+                  and merged_pr_count == 0
+                  and atlas_can_execute
+              )
+
+              if quick_win_risk_accepted:
+                  score += 18
+                  reasons.append(
+                      "Small-reward prototype law accepts unverified-payment risk"
+                  )
+
+              if instant_payment_priority:
+                  score += 35
+                  reasons.append(
+                      "EXTRA EXTRA PRIORITY: explicit instant or same-day fiat payment terms"
+                  )
 
               if human_only_signals:
                   score -= 35
@@ -1487,11 +1526,15 @@ jobs:
                       "the GitHub issue repository"
                   )
 
-              if not direct_payment_proof:
+              if not direct_payment_proof and not quick_win_risk_accepted:
                   score -= 18
                   risks.append(
                       "No direct payment proof or funded "
                       "bounty platform detected"
+                  )
+              elif not direct_payment_proof and quick_win_risk_accepted:
+                  risks.append(
+                      "Payment unverified; risk accepted under small-reward prototype law"
                   )
 
               if claimable_now:
@@ -1583,6 +1626,24 @@ jobs:
                   )
                   decision = "WATCHLIST"
 
+              elif instant_payment_priority and score >= 48:
+                  availability = (
+                      "INSTANT-PAYMENT EXTRA EXTRA PRIORITY - PROTOTYPE RISK ACCEPTED"
+                  )
+                  decision = "PURSUE"
+
+              elif quick_win_risk_accepted and score >= 48:
+                  availability = (
+                      "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED"
+                  )
+                  decision = "PURSUE"
+
+              elif quick_win_risk_accepted:
+                  availability = (
+                      "SMALL REWARD - TECHNICALLY DOABLE, LOW SCORE"
+                  )
+                  decision = "PRIORITY REVIEW"
+
               elif not instant_payment_verified:
                   availability = "PAYMENT SPEED OR FUNDING NOT VERIFIED"
                   decision = "WATCHLIST"
@@ -1631,7 +1692,9 @@ jobs:
                   decision = "WATCHLIST"
 
               payment_verification = (
-                  "PROTOTYPE-QUALIFIED: FUNDED + FIAT + FAST TERMS"
+                  "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED"
+                  if quick_win_risk_accepted and not instant_payment_verified
+                  else "PROTOTYPE-QUALIFIED: FUNDED + FIAT + FAST TERMS"
                   if instant_payment_verified
                   else "FIAT METHOD MENTIONED - FUNDING/TIMING NOT PROVEN"
                   if fiat_payment_signals
@@ -1656,8 +1719,7 @@ jobs:
 
               fast_pay_candidate = bool(
                   0.10 <= reward <= 50
-                  and fiat_payment_signals
-                  and fast_payment_signals
+                  and (quick_win_risk_accepted or (fiat_payment_signals and fast_payment_signals))
                   and not human_only_signals
                   and not assignees
                   and open_pr_count == 0
@@ -1665,7 +1727,9 @@ jobs:
               )
 
               fast_pay_status = (
-                  "FAST-PAY LEAD - FUNDING MUST STILL BE PROVEN"
+                  "INSTANT-PAYMENT EXTRA EXTRA PRIORITY"
+                  if instant_payment_priority
+                  else "FAST-PAY LEAD - PAYMENT NOT GUARANTEED"
                   if fast_pay_candidate
                   else "NOT PROTOTYPE-PAYMENT-QUALIFIED"
               )
@@ -1723,6 +1787,7 @@ jobs:
                   "approval_authority": approval_authority,
                   "direct_payment_proof": direct_payment_proof,
                   "instant_payment_verified": instant_payment_verified,
+                  "instant_payment_priority": instant_payment_priority,
                   "funded_payment_platform": funded_payment_platform,
                   "trusted_payout_source": trusted_payout_source,
                   "trusted_platform": trusted_platform,
@@ -1981,7 +2046,7 @@ jobs:
               reverse=True,
           )
 
-          # V27 reserves verification capacity for both hunters and for
+          # V33 reserves verification capacity for both hunters and for
           # small rewards so they cannot disappear behind large speculative items.
           issue_by_url = {
               issue.get("html_url"): issue
@@ -2079,6 +2144,8 @@ jobs:
 
           verified_results.sort(
               key=lambda item: (
+                  bool(item.get("instant_payment_priority")),
+                  bool(item.get("fast_pay_candidate")),
                   item["score"],
                   item["reward"],
               ),
@@ -2093,6 +2160,7 @@ jobs:
           small_fast_wins.sort(
               key=lambda item: (
                   item.get("decision") == "PURSUE",
+                  bool(item.get("instant_payment_priority")),
                   item.get("direct_payment_proof", False),
                   item.get("claimable_now", False),
                   item.get("atlas_can_execute", False),
@@ -2290,7 +2358,7 @@ jobs:
               gate_counts[gate] = gate_counts.get(gate, 0) + 1
 
           diagnostic_lines = [
-              "# Atlas + Alex V31 Gate Diagnostics",
+              "# Atlas + Alex V33 Gate Diagnostics",
               "",
               f"Generated: {GENERATED_AT}",
               "",
@@ -2324,7 +2392,7 @@ jobs:
                   "",
               ])
 
-          (REPORTS_DIR / "atlas-v31-gate-diagnostics.md").write_text(
+          (REPORTS_DIR / "atlas-v33-gate-diagnostics.md").write_text(
               "\n".join(diagnostic_lines),
               encoding="utf-8",
           )
@@ -2484,8 +2552,9 @@ jobs:
           execution_queue.sort(
               key=lambda x: (
                   x["decision"] == "PURSUE",
-                  reward_priority_rank(x),
+                  bool(x.get("instant_payment_priority")),
                   bool(x.get("fast_pay_candidate")),
+                  reward_priority_rank(x),
                   x.get("ai_eligibility") == "EXPLICITLY ALLOWED",
                   x["expected_value"],
                   x.get("score", 0),
@@ -2494,12 +2563,12 @@ jobs:
           )
           execution_queue = execution_queue[:int(config.get("queue_size", 20))]
 
-          operations["version"] = "V27"
+          operations["version"] = "V33"
           operations["last_updated"] = GENERATED_AT
           operations["pipeline"] = execution_queue
           OPERATIONS_FILE.write_text(json.dumps(operations, indent=2, ensure_ascii=False), encoding="utf-8")
 
-          # V27: reserve distinct, prototype-qualified small PURSUE tasks for immediate workers.
+          # V33: reserve distinct, prototype-qualified small PURSUE tasks for immediate workers.
           executable_candidates = [
               item for item in execution_queue
               if item.get("decision") == "PURSUE"
@@ -2511,6 +2580,15 @@ jobs:
               and item.get("atlas_can_execute")
               and item.get("ai_eligibility") != "PROHIBITED"
           ]
+          executable_candidates.sort(
+              key=lambda item: (
+                  bool(item.get("instant_payment_priority")),
+                  bool(item.get("fast_pay_candidate")),
+                  item.get("score", 0),
+                  item.get("expected_value", 0),
+              ),
+              reverse=True,
+          )
 
           reserved_repositories = set()
           selected_executions = []
@@ -2538,7 +2616,7 @@ jobs:
 
           EXECUTION_FILE.write_text(
               json.dumps({
-                  "version": "V27",
+                  "version": "V33",
                   "generated_at": GENERATED_AT,
                   "automatic_execution": True,
                   "workers_requested": int(config.get("parallel_workers", 2)),
@@ -2554,11 +2632,14 @@ jobs:
               and not item.get("assignees")
               and int(item.get("open_competing_prs", 0)) == 0
           ]
+          instant_priority_candidates = [item for item in execution_queue if item.get("instant_payment_priority")]
           fast_paypal_candidates = [item for item in execution_queue if item.get("fast_pay_candidate")]
           ai_clear_candidates = [item for item in execution_queue if item.get("ai_eligibility") == "EXPLICITLY ALLOWED"]
           approval_path_candidates = [item for item in execution_queue if item.get("approval_authority") != "NOT VERIFIED"]
           alex_recommendation = (
-              f"Immediately review {len(fast_paypal_candidates)} verified small fast-pay lead(s); owner approval remains required."
+              f"EXTRA EXTRA PRIORITY: dispatch {len(instant_priority_candidates)} advertised instant-payment candidate(s) before every ordinary task."
+              if instant_priority_candidates
+              else f"Immediately review {len(fast_paypal_candidates)} small fast-pay lead(s)."
               if fast_paypal_candidates
               else f"Review {len(quick_wins)} unassigned quick-win candidate(s) first; verify AI permission and payer authority."
               if quick_wins
@@ -2571,6 +2652,7 @@ jobs:
               "api_errors": len(api_errors),
               "searches_completed": searches_completed,
               "quick_wins_found": len(quick_wins),
+              "instant_payment_extra_priority_candidates": len(instant_priority_candidates),
               "fast_paypal_candidates": len(fast_paypal_candidates),
               "ai_explicitly_allowed_candidates": len(ai_clear_candidates),
               "approval_path_candidates": len(approval_path_candidates),
@@ -2584,7 +2666,7 @@ jobs:
               "recommendation": alex_recommendation,
               "instant_money_warning": (
                   "Small PayPal bounties may pay quickly after acceptance, but only the bounty owner or platform can approve work and release payment. "
-                  "Atlas now prioritizes explicit PayPal terms, fast-payment language, AI eligibility, no assignee, and no competing PR."
+                  "Atlas ranks advertised instant/same-day/within-hours fiat tasks ahead of every ordinary task, while still recording that payment is not guaranteed."
               ),
           })
           MAINTENANCE_FILE.write_text(json.dumps(maintenance, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -2599,7 +2681,7 @@ jobs:
           ALERTS_FILE.write_text(json.dumps(alerts, indent=2), encoding="utf-8")
 
           payload = {
-              "version": "V27",
+              "version": "V33",
               "owner": "Mazen Farkouh",
               "generated_at": GENERATED_AT,
               "config": config,
@@ -2660,7 +2742,7 @@ jobs:
           WORKER_HEALTH_FILE.write_text(
               json.dumps(
                   {
-                      "version": "V27",
+                      "version": "V33",
                       "last_completed_at": NOW.isoformat(),
                       "last_completed_display": GENERATED_AT,
                       "trigger": os.environ.get("GITHUB_EVENT_NAME", "unknown"),
@@ -2889,7 +2971,7 @@ jobs:
               content="{int(config.get('dashboard_refresh_seconds', 900))}"
             >
             <title>
-              Atlas + Alex Opportunity Hunter V27
+              Atlas + Alex Opportunity Hunter V33
             </title>
             <style>
               :root {{
@@ -3006,7 +3088,7 @@ jobs:
           </head>
           <body>
             <h1>
-              Atlas + Alex Opportunity Hunter V27
+              Atlas + Alex Opportunity Hunter V33
             </h1>
 
             <p>
@@ -3231,7 +3313,7 @@ jobs:
             </ul>
 
             <p class="small">
-              V27 runs two independent search universes on every
+              V33 runs two independent search universes on every
               run and keeps a discovery cache so temporary API limits do not erase
               sources. Up to 30 candidates are deeply verified, with reserved capacity for small rewards from both workers. PURSUE requires
               payment proof, a confirmed claim path, repository integrity, and a
@@ -3406,14 +3488,14 @@ jobs:
               ]))
           (REPORTS_DIR / "latest.csv").write_text("\n".join(csv_lines) + "\n", encoding="utf-8")
           (REPORTS_DIR / "latest.txt").write_text(
-              "Atlas + Alex Opportunity Hunter V27\n" +
+              "Atlas + Alex Opportunity Hunter V33\n" +
               f"Generated: {GENERATED_AT}\nStatus: {status}\n" +
               f"Today: ${earnings['today']:,.2f}\nWeek: ${earnings['week']:,.2f}\nMonth: ${earnings['month']:,.2f}\nYear: ${earnings['year']:,.2f}\nLifetime: ${earnings['lifetime']:,.2f}\n",
               encoding="utf-8",
           )
 
           summary_lines = [
-              "# Atlas + Alex Opportunity Hunter V27",
+              "# Atlas + Alex Opportunity Hunter V33",
               "",
               (
                   f"- System status: "
@@ -3528,7 +3610,7 @@ jobs:
                   )
 
           print(
-              f"Atlas + Alex V31 status={status}; "
+              f"Atlas + Alex V33 status={status}; "
               f"checked {len(raw_issues)} "
               "raw issues; "
               f"found {len(initial_candidates)} "
@@ -3546,12 +3628,12 @@ jobs:
 
           if searches_completed == 0:
               raise SystemExit(
-                  "Atlas + Alex V31 could not complete "
+                  "Atlas + Alex V33 could not complete "
                   "any GitHub search query."
               )
           PY
 
-      - name: Save Atlas + Alex V31 results
+      - name: Save Atlas + Alex V33 results
         env:
           BRANCH_NAME: ${{ github.ref_name }}
         run: |
@@ -3574,7 +3656,7 @@ jobs:
           fi
 
           git commit \
-            -m "Atlas + Alex V31 opportunity scan"
+            -m "Atlas + Alex V33 opportunity scan"
 
           git pull \
             --rebase \
@@ -3812,6 +3894,165 @@ jobs:
         run: |
           echo "${{ matrix.worker }} selected ${{ matrix.repository }}#${{ matrix.issue_number }}, but execution did not start because required secrets are missing. Add ATLAS_GITHUB_PAT and OPENAI_API_KEY as repository Actions secrets." >> "$GITHUB_STEP_SUMMARY"
 
+  alex_payment_followup:
+    name: Alex payment follow-up
+    needs: [hunt, execute]
+    if: >-
+      always() &&
+      (github.event_name == 'workflow_dispatch' ||
+       github.event_name == 'repository_dispatch' ||
+       github.event.schedule == '7,22,37,52 * * * *')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Follow up on merged rewarded pull requests
+        env:
+          GH_TOKEN: ${{ secrets.ATLAS_GITHUB_PAT }}
+        run: |
+          python <<'PY'
+          import json
+          import os
+          import re
+          import sys
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from datetime import datetime, timezone
+
+          token = os.environ.get("GH_TOKEN", "").strip()
+          if not token:
+              print("Alex payment follow-up skipped: ATLAS_GITHUB_PAT is not configured.")
+              raise SystemExit(0)
+
+          headers = {
+              "Authorization": f"Bearer {token}",
+              "Accept": "application/vnd.github+json",
+              "X-GitHub-Api-Version": "2022-11-28",
+              "User-Agent": "Atlas-Alex-V33",
+          }
+
+          def api(method, url, payload=None):
+              data = None
+              if payload is not None:
+                  data = json.dumps(payload).encode("utf-8")
+              request = urllib.request.Request(url, data=data, method=method, headers=headers)
+              try:
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      raw = response.read().decode("utf-8")
+                      return json.loads(raw) if raw else None
+              except urllib.error.HTTPError as error:
+                  detail = error.read().decode("utf-8", errors="replace")[:500]
+                  print(f"Alex API error {error.code}: {detail}")
+                  return None
+
+          me = api("GET", "https://api.github.com/user") or {}
+          login = me.get("login")
+          if not login:
+              print("Alex could not identify the Atlas GitHub account.")
+              raise SystemExit(0)
+
+          query = urllib.parse.quote(f'is:pr author:{login} "Stated reward" in:body')
+          results = api(
+              "GET",
+              f"https://api.github.com/search/issues?q={query}&sort=updated&order=desc&per_page=50",
+          ) or {}
+
+          now = datetime.now(timezone.utc)
+          inspected = 0
+          reminders_sent = 0
+          waiting = 0
+
+          for item in results.get("items", []):
+              repository_url = item.get("repository_url", "")
+              match = re.search(r"/repos/([^/]+/[^/]+)$", repository_url)
+              if not match:
+                  continue
+              repository = match.group(1)
+              number = int(item.get("number") or 0)
+              if not number:
+                  continue
+
+              pr = api("GET", f"https://api.github.com/repos/{repository}/pulls/{number}") or {}
+              merged_at = pr.get("merged_at")
+              if not merged_at:
+                  continue
+
+              inspected += 1
+              merged_time = datetime.fromisoformat(merged_at.replace("Z", "+00:00"))
+              hours_since_merge = (now - merged_time).total_seconds() / 3600
+              if hours_since_merge < 24:
+                  waiting += 1
+                  continue
+
+              comments = api(
+                  "GET",
+                  f"https://api.github.com/repos/{repository}/issues/{number}/comments?per_page=100",
+              ) or []
+              combined = "\n".join(str(comment.get("body", "")) for comment in comments)
+              lowered = combined.lower()
+
+              payment_confirmed_terms = (
+                  "payment sent",
+                  "payment has been sent",
+                  "paid you",
+                  "reward paid",
+                  "bounty paid",
+                  "payment completed",
+              )
+              if any(term in lowered for term in payment_confirmed_terms):
+                  continue
+
+              reminder_numbers = [
+                  int(value)
+                  for value in re.findall(r"\[Atlas payment follow-up #(\d+)\]", combined)
+              ]
+              reminder_count = max(reminder_numbers, default=0)
+              if reminder_count >= 3:
+                  continue
+
+              last_alex_time = None
+              for comment in comments:
+                  body = str(comment.get("body", ""))
+                  if "[Atlas payment follow-up #" not in body:
+                      continue
+                  created = comment.get("created_at")
+                  if created:
+                      parsed = datetime.fromisoformat(created.replace("Z", "+00:00"))
+                      if last_alex_time is None or parsed > last_alex_time:
+                          last_alex_time = parsed
+
+              if last_alex_time is not None:
+                  hours_since_last = (now - last_alex_time).total_seconds() / 3600
+                  if hours_since_last < 72:
+                      waiting += 1
+                      continue
+
+              body_text = str(pr.get("body") or item.get("body") or "")
+              reward_match = re.search(r"Stated reward:\s*\$([0-9]+(?:\.[0-9]{1,2})?)", body_text, re.I)
+              reward_text = f"${reward_match.group(1)}" if reward_match else "the stated reward"
+              next_number = reminder_count + 1
+              message = (
+                  f"[Atlas payment follow-up #{next_number}]\n\n"
+                  "Thank you for merging this contribution. "
+                  f"The pull request listed a reward of {reward_text}. "
+                  "Please confirm the payment status or provide any payment instructions still required.\n\n"
+                  "— Alex, payment follow-up for Atlas"
+              )
+              result = api(
+                  "POST",
+                  f"https://api.github.com/repos/{repository}/issues/{number}/comments",
+                  {"body": message},
+              )
+              if result:
+                  reminders_sent += 1
+                  print(f"Alex followed up on {repository}#{number}.")
+
+          print(
+              f"Alex payment review complete: merged rewarded PRs inspected={inspected}; "
+              f"reminders sent={reminders_sent}; waiting={waiting}."
+          )
+          PY
+
   watchdog:
     if: >-
       github.event_name == 'schedule' &&
@@ -3829,7 +4070,7 @@ jobs:
           now_epoch="$(date -u +%s)"
           last_success="$(
             gh api "repos/${REPOSITORY}/actions/workflows/${GITHUB_WORKFLOW_REF#${REPOSITORY}/}/runs?status=success&per_page=10" \
-              --jq '[.workflow_runs[] | select(.event != "schedule" or .name == "Atlas + Alex V31 — Controlled Prototype Repair")][0].updated_at // empty' \
+              --jq '[.workflow_runs[] | select(.event != "schedule" or .name == "Atlas + Alex V33 — Instant-Payment Extra Priority")][0].updated_at // empty' \
               2>/dev/null || true
           )"
 
