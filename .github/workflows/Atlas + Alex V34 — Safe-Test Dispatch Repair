@@ -1,4 +1,4 @@
-name: Atlas + Alex V33 — Instant-Payment Extra Priority
+name: Atlas + Alex V34 — Safe-Test Dispatch Repair
 
 on:
   workflow_dispatch:
@@ -21,7 +21,7 @@ on:
     - cron: "12,27,42,57 * * * *"
 
 concurrency:
-  group: atlas-alex-opportunity-hunter-v33
+  group: atlas-alex-opportunity-hunter-v34
   cancel-in-progress: false
 
 permissions:
@@ -36,6 +36,7 @@ jobs:
       execution_matrix: ${{ steps.atlas.outputs.execution_matrix }}
       pursue_count: ${{ steps.atlas.outputs.pursue_count }}
       system_status: ${{ steps.atlas.outputs.system_status }}
+      execution_ready: ${{ steps.atlas.outputs.execution_ready }}
     if: >-
       github.event_name == 'workflow_dispatch' ||
       github.event_name == 'repository_dispatch' ||
@@ -53,6 +54,7 @@ jobs:
         id: atlas
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REQUESTED_EXECUTION_MODE: ${{ github.event.inputs.execution_mode || 'scan_only' }}
         run: |
           python <<'PY'
           import html
@@ -468,12 +470,12 @@ jobs:
               EARNINGS_FILE.write_text("[]\n", encoding="utf-8")
 
           operations = load_json_file(OPERATIONS_FILE, {
-              "version": "V33",
+              "version": "V34",
               "pipeline": [],
               "last_updated": GENERATED_AT,
           })
           if not isinstance(operations, dict):
-              operations = {"version": "V33", "pipeline": [], "last_updated": GENERATED_AT}
+              operations = {"version": "V34", "pipeline": [], "last_updated": GENERATED_AT}
 
           maintenance = load_json_file(MAINTENANCE_FILE, {
               "doctor": "Dr. Alex",
@@ -2358,7 +2360,7 @@ jobs:
               gate_counts[gate] = gate_counts.get(gate, 0) + 1
 
           diagnostic_lines = [
-              "# Atlas + Alex V33 Gate Diagnostics",
+              "# Atlas + Alex V34 Gate Diagnostics",
               "",
               f"Generated: {GENERATED_AT}",
               "",
@@ -2563,7 +2565,7 @@ jobs:
           )
           execution_queue = execution_queue[:int(config.get("queue_size", 20))]
 
-          operations["version"] = "V33"
+          operations["version"] = "V34"
           operations["last_updated"] = GENERATED_AT
           operations["pipeline"] = execution_queue
           OPERATIONS_FILE.write_text(json.dumps(operations, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -2611,12 +2613,13 @@ jobs:
                   "reserved_at": NOW.isoformat(),
               })
               reserved_repositories.add(repository)
-              if len(selected_executions) >= int(config.get("parallel_workers", 2)):
+              dispatch_limit = 1 if os.environ.get("REQUESTED_EXECUTION_MODE", "scan_only") == "safe_test" else int(config.get("parallel_workers", 2))
+              if len(selected_executions) >= dispatch_limit:
                   break
 
           EXECUTION_FILE.write_text(
               json.dumps({
-                  "version": "V33",
+                  "version": "V34",
                   "generated_at": GENERATED_AT,
                   "automatic_execution": True,
                   "workers_requested": int(config.get("parallel_workers", 2)),
@@ -2681,7 +2684,7 @@ jobs:
           ALERTS_FILE.write_text(json.dumps(alerts, indent=2), encoding="utf-8")
 
           payload = {
-              "version": "V33",
+              "version": "V34",
               "owner": "Mazen Farkouh",
               "generated_at": GENERATED_AT,
               "config": config,
@@ -2742,7 +2745,7 @@ jobs:
           WORKER_HEALTH_FILE.write_text(
               json.dumps(
                   {
-                      "version": "V33",
+                      "version": "V34",
                       "last_completed_at": NOW.isoformat(),
                       "last_completed_display": GENERATED_AT,
                       "trigger": os.environ.get("GITHUB_EVENT_NAME", "unknown"),
@@ -3593,9 +3596,13 @@ jobs:
                   )
 
                   matrix = {"include": selected_executions}
+                  matrix_json = json.dumps(matrix, separators=(",", ":"))
+                  output.write("execution_matrix<<ATLAS_MATRIX\n")
+                  output.write(matrix_json + "\n")
+                  output.write("ATLAS_MATRIX\n")
                   output.write(
-                      "execution_matrix="
-                      + json.dumps(matrix, separators=(",", ":"))
+                      "execution_ready="
+                      + ("true" if selected_executions else "false")
                       + "\n"
                   )
 
@@ -3610,7 +3617,7 @@ jobs:
                   )
 
           print(
-              f"Atlas + Alex V33 status={status}; "
+              f"Atlas + Alex V34 status={status}; "
               f"checked {len(raw_issues)} "
               "raw issues; "
               f"found {len(initial_candidates)} "
@@ -3623,17 +3630,21 @@ jobs:
               f"contested={contested_count}; "
               f"assigned={assigned_count}; "
               "meaningful-changes="
-              f"{len(meaningful_changes)}."
+              f"{len(meaningful_changes)}; "
+              "dispatch-mode="
+              f"{os.environ.get('REQUESTED_EXECUTION_MODE', 'scan_only')}; "
+              "dispatched="
+              f"{len(selected_executions)}."
           )
 
           if searches_completed == 0:
               raise SystemExit(
-                  "Atlas + Alex V33 could not complete "
+                  "Atlas + Alex V34 could not complete "
                   "any GitHub search query."
               )
           PY
 
-      - name: Save Atlas + Alex V33 results
+      - name: Save Atlas + Alex V34 results
         env:
           BRANCH_NAME: ${{ github.ref_name }}
         run: |
@@ -3656,7 +3667,7 @@ jobs:
           fi
 
           git commit \
-            -m "Atlas + Alex V33 opportunity scan"
+            -m "Atlas + Alex V34 opportunity scan"
 
           git pull \
             --rebase \
@@ -3671,10 +3682,11 @@ jobs:
     name: Execute ${{ matrix.worker }} task
     needs: hunt
     if: >-
-      github.event_name == 'workflow_dispatch' &&
-      inputs.execution_mode != 'scan_only' &&
-      needs.hunt.outputs.execution_matrix != '' &&
-      needs.hunt.outputs.execution_matrix != '{"include":[]}'
+      ${{ always() &&
+          needs.hunt.result == 'success' &&
+          github.event_name == 'workflow_dispatch' &&
+          github.event.inputs.execution_mode != 'scan_only' &&
+          needs.hunt.outputs.execution_ready == 'true' }}
     strategy:
       fail-fast: false
       max-parallel: 2
@@ -3691,7 +3703,7 @@ jobs:
         env:
           ATLAS_GITHUB_PAT: ${{ secrets.ATLAS_GITHUB_PAT }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          EXECUTION_MODE: ${{ inputs.execution_mode }}
+          EXECUTION_MODE: ${{ github.event.inputs.execution_mode }}
         run: |
           set -euo pipefail
           if [ -z "${ATLAS_GITHUB_PAT:-}" ] || [ -z "${OPENAI_API_KEY:-}" ]; then
@@ -3709,7 +3721,7 @@ jobs:
           REPOSITORY: ${{ matrix.repository }}
           ISSUE_NUMBER: ${{ matrix.issue_number }}
           WORKER: ${{ matrix.worker }}
-          EXECUTION_MODE: ${{ inputs.execution_mode }}
+          EXECUTION_MODE: ${{ github.event.inputs.execution_mode }}
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/atlas-work"
@@ -3846,7 +3858,7 @@ jobs:
           test -n "$(git diff --name-only)" || { echo "Agent produced no change."; exit 1; }
 
       - name: Save safe-test patch for review
-        if: steps.credentials.outputs.ready == 'true' && inputs.execution_mode == 'safe_test'
+        if: steps.credentials.outputs.ready == 'true' && github.event.inputs.execution_mode == 'safe_test'
         working-directory: ${{ runner.temp }}/atlas-work/worktree
         run: |
           set -euo pipefail
@@ -3856,7 +3868,7 @@ jobs:
           git diff --stat > "$RUNNER_TEMP/atlas-review/${{ matrix.worker }}-${{ matrix.issue_number }}-summary.txt"
 
       - name: Upload safe-test review package
-        if: steps.credentials.outputs.ready == 'true' && inputs.execution_mode == 'safe_test'
+        if: steps.credentials.outputs.ready == 'true' && github.event.inputs.execution_mode == 'safe_test'
         uses: actions/upload-artifact@v4
         with:
           name: atlas-safe-test-${{ matrix.worker }}-${{ matrix.issue_number }}
@@ -3865,7 +3877,7 @@ jobs:
           retention-days: 7
 
       - name: Commit, push, and open pull request
-        if: steps.credentials.outputs.ready == 'true' && inputs.execution_mode == 'submit'
+        if: steps.credentials.outputs.ready == 'true' && github.event.inputs.execution_mode == 'submit'
         env:
           GH_TOKEN: ${{ secrets.ATLAS_GITHUB_PAT }}
           REPOSITORY: ${{ matrix.repository }}
@@ -4070,7 +4082,7 @@ jobs:
           now_epoch="$(date -u +%s)"
           last_success="$(
             gh api "repos/${REPOSITORY}/actions/workflows/${GITHUB_WORKFLOW_REF#${REPOSITORY}/}/runs?status=success&per_page=10" \
-              --jq '[.workflow_runs[] | select(.event != "schedule" or .name == "Atlas + Alex V33 — Instant-Payment Extra Priority")][0].updated_at // empty' \
+              --jq '[.workflow_runs[] | select(.event != "schedule" or .name == "Atlas + Alex V34 — Safe-Test Dispatch Repair")][0].updated_at // empty' \
               2>/dev/null || true
           )"
 
