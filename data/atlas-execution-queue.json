@@ -1,6 +1,6 @@
 {
   "version": "V35",
-  "generated_at": "2026-07-21 07:56 UTC",
+  "generated_at": "2026-07-21 13:05 UTC",
   "automatic_execution": true,
   "workers_requested": 2,
   "tasks_dispatched": 2,
@@ -15,19 +15,19 @@
       "score": 100.0,
       "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
       "status": "DISPATCHED",
-      "reserved_at": "2026-07-21T07:56:16.955964+00:00"
+      "reserved_at": "2026-07-21T13:05:28.836686+00:00"
     },
     {
       "worker": "Alex",
-      "repository": "UnsafeLabs/Bounty-Hunters",
-      "issue_number": 803,
-      "issue_url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/803",
-      "title": "[ FastAPI ] Add concurrent task runner with semaphore limiting and timeout",
+      "repository": "xevrion-v2/agent-playground",
+      "issue_number": 2681,
+      "issue_url": "https://github.com/xevrion-v2/agent-playground/issues/2681",
+      "title": "[agent] Document repository GitHub workflows",
       "reward": 50.0,
       "score": 100.0,
       "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
       "status": "DISPATCHED",
-      "reserved_at": "2026-07-21T07:56:16.955964+00:00"
+      "reserved_at": "2026-07-21T13:05:28.836686+00:00"
     }
   ]
 }
