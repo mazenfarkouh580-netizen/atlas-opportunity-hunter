@@ -1,7 +1,7 @@
 {
   "version": "V35",
   "owner": "Mazen Farkouh",
-  "generated_at": "2026-07-21 13:05 UTC",
+  "generated_at": "2026-07-21 17:57 UTC",
   "config": {
     "minimum_reward": 100,
     "minimum_payment_confidence": 55,
@@ -111,7 +111,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -192,7 +192,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -276,9 +276,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -362,9 +362,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -448,9 +448,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -534,9 +534,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -620,9 +620,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -706,9 +706,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -789,7 +789,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-20 08:53 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -877,7 +877,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-21 07:56 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -964,7 +964,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-21 07:56 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1042,9 +1042,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1122,9 +1122,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1202,9 +1202,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1282,9 +1282,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1362,9 +1362,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
@@ -1449,12 +1449,181 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
       "effort_risk": 75,
       "expected_value": 8.17
+    },
+    {
+      "title": "[$35 BOUNTY] [Python] Add module validation and --list-modules flag to build.py",
+      "url": "https://github.com/cuentaprueba244w-dotcom/TentOfTrials/issues/10",
+      "repository": "cuentaprueba244w-dotcom/TentOfTrials",
+      "issue_number": 10,
+      "author": "cuentaprueba244w-dotcom",
+      "reward": 35.0,
+      "reward_priority": "HIGHEST",
+      "score": 90,
+      "decision": "PURSUE",
+      "availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+      "created_at": "2026-06-19T00:55:38Z",
+      "updated_at": "2026-07-21T16:01:05Z",
+      "comments": 0,
+      "labels": [
+        "bounty",
+        "good first issue",
+        "help wanted",
+        "language:python"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
+      "paypal_signals": [],
+      "fiat_payment_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "instant_payment_priority": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "platform_signals": [],
+      "trusted_repository": false,
+      "payout_program_repository": false,
+      "payout_source": "Unverified promise or discovery signal",
+      "claimable_now": false,
+      "quick_win_risk_accepted": true,
+      "claimability_signals": [],
+      "atlas_can_execute": true,
+      "atlas_capability_signals": [
+        "python"
+      ],
+      "external_execution_blockers": [],
+      "repository_mismatch": false,
+      "advertised_repository": "",
+      "fast_pay_candidate": true,
+      "fast_pay_status": "FAST-PAY LEAD - PAYMENT NOT GUARANTEED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Stated paid reward",
+        "Useful requirements",
+        "Capability match: python, test",
+        "No visible comments",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "Small-reward prototype law accepts unverified-payment risk",
+        "Task matches Atlas execution capabilities",
+        "Highest-priority first-payment reward band",
+        "No assignee and no competing pull request",
+        "Very recent activity"
+      ],
+      "risks": [
+        "Payment unverified; risk accepted under small-reward prototype law",
+        "Claim path is missing, blocked, or ambiguous"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "NEW",
+      "first_seen": "2026-07-21 17:57 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
+      "payment_confidence": 49,
+      "competition_score": 100,
+      "clarity_score": 50,
+      "effort_risk": 65,
+      "expected_value": 6.6
+    },
+    {
+      "title": "[$10 BOUNTY] [TypeScript] Add telemetry batch flush threshold tests",
+      "url": "https://github.com/Saiaaax/CyberNinja-Dojo/issues/10",
+      "repository": "Saiaaax/CyberNinja-Dojo",
+      "issue_number": 10,
+      "author": "Saiaaax",
+      "reward": 10.0,
+      "reward_priority": "HIGHEST",
+      "score": 100,
+      "decision": "PURSUE",
+      "availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+      "created_at": "2026-06-25T01:30:42Z",
+      "updated_at": "2026-07-21T15:58:21Z",
+      "comments": 0,
+      "labels": [
+        "bounty",
+        "good first issue",
+        "help wanted",
+        "language:typescript"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
+      "paypal_signals": [],
+      "fiat_payment_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "instant_payment_priority": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "platform_signals": [],
+      "trusted_repository": false,
+      "payout_program_repository": false,
+      "payout_source": "Unverified promise or discovery signal",
+      "claimable_now": false,
+      "quick_win_risk_accepted": true,
+      "claimability_signals": [],
+      "atlas_can_execute": true,
+      "atlas_capability_signals": [
+        "python",
+        "typescript",
+        "unit test"
+      ],
+      "external_execution_blockers": [],
+      "repository_mismatch": false,
+      "advertised_repository": "",
+      "fast_pay_candidate": true,
+      "fast_pay_status": "FAST-PAY LEAD - PAYMENT NOT GUARANTEED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Stated paid reward",
+        "Useful requirements",
+        "Capability match: docs, python, test, tests, typescript",
+        "No visible comments",
+        "Posted within 30 days",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "Small-reward prototype law accepts unverified-payment risk",
+        "Task matches Atlas execution capabilities",
+        "Highest-priority first-payment reward band",
+        "No assignee and no competing pull request",
+        "Very recent activity"
+      ],
+      "risks": [
+        "Payment unverified; risk accepted under small-reward prototype law",
+        "Claim path is missing, blocked, or ambiguous"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "NEW",
+      "first_seen": "2026-07-21 17:57 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
+      "payment_confidence": 49,
+      "competition_score": 100,
+      "clarity_score": 50,
+      "effort_risk": 65,
+      "expected_value": 1.88
     },
     {
       "title": "[paid PR Opire bounty] [$10] Fix the clown not being able to do backflips.",
@@ -1537,199 +1706,29 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-21 07:56 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
+      "last_verified": "2026-07-21 17:57 UTC",
       "payment_confidence": 49,
       "competition_score": 100,
       "clarity_score": 50,
       "effort_risk": 65,
       "expected_value": 1.88
-    },
-    {
-      "title": "[Hacktoberfest] n8n Workflow Node for Policy Checks",
-      "url": "https://github.com/aporthq/aport-integrations/issues/31",
-      "repository": "aporthq/aport-integrations",
-      "issue_number": 31,
-      "author": "uchibeke",
-      "reward": 10.0,
-      "reward_priority": "HIGHEST",
-      "score": 75,
-      "decision": "PURSUE",
-      "availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
-      "created_at": "2025-10-02T13:19:23Z",
-      "updated_at": "2026-05-17T14:59:48Z",
-      "comments": 0,
-      "labels": [
-        "agent-framework",
-        "hacktoberfest",
-        "integration",
-        "low-code",
-        "n8n"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
-      "paypal_signals": [],
-      "fiat_payment_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
-      "approval_authority": "NOT VERIFIED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "instant_payment_priority": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "platform_signals": [],
-      "trusted_repository": false,
-      "payout_program_repository": false,
-      "payout_source": "Unverified promise or discovery signal",
-      "claimable_now": false,
-      "quick_win_risk_accepted": true,
-      "claimability_signals": [],
-      "atlas_can_execute": true,
-      "atlas_capability_signals": [
-        "api",
-        "automation",
-        "documentation"
-      ],
-      "external_execution_blockers": [],
-      "repository_mismatch": false,
-      "advertised_repository": "",
-      "fast_pay_candidate": true,
-      "fast_pay_status": "FAST-PAY LEAD - PAYMENT NOT GUARANTEED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Stated paid reward",
-        "Useful requirements",
-        "Capability match: automation, documentation, n8n, workflow",
-        "No visible comments",
-        "Explicit acceptance criteria",
-        "Small-reward prototype law accepts unverified-payment risk",
-        "Task matches Atlas execution capabilities",
-        "Highest-priority first-payment reward band",
-        "No assignee and no competing pull request"
-      ],
-      "risks": [
-        "Issue may be stale",
-        "Payment unverified; risk accepted under small-reward prototype law",
-        "Claim path is missing, blocked, or ambiguous"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "UNCHANGED",
-      "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
-      "payment_confidence": 49,
-      "competition_score": 100,
-      "clarity_score": 50,
-      "effort_risk": 75,
-      "expected_value": 1.63
-    },
-    {
-      "title": "[ Brainfuck ] Implement a program that prints the first 20 prime numbers",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/652",
-      "repository": "UnsafeLabs/Bounty-Hunters",
-      "issue_number": 652,
-      "author": "clankerjournalist",
-      "reward": 20.0,
-      "reward_priority": "HIGHEST",
-      "score": 42,
-      "decision": "WATCHLIST",
-      "availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
-      "created_at": "2026-05-14T20:36:13Z",
-      "updated_at": "2026-07-21T09:28:52Z",
-      "comments": 0,
-      "labels": [
-        "$20",
-        "AI Agent friendly",
-        "AI only allowed - no humans",
-        "good first issue",
-        "help wanted",
-        "💎 Bounty"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "FIAT METHOD MENTIONED - FUNDING/TIMING NOT PROVEN",
-      "paypal_signals": [],
-      "fiat_payment_signals": [
-        "ach"
-      ],
-      "fast_payment_signals": [],
-      "ai_eligibility": "EXPLICITLY ALLOWED",
-      "approval_authority": "NOT VERIFIED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "instant_payment_priority": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "platform_signals": [],
-      "trusted_repository": false,
-      "payout_program_repository": false,
-      "payout_source": "Unverified promise or discovery signal",
-      "claimable_now": false,
-      "quick_win_risk_accepted": false,
-      "claimability_signals": [],
-      "atlas_can_execute": false,
-      "atlas_capability_signals": [],
-      "external_execution_blockers": [],
-      "repository_mismatch": false,
-      "advertised_repository": "",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT PROTOTYPE-PAYMENT-QUALIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Stated paid reward",
-        "Detailed requirements",
-        "Capability match: ai agent, ci, claude, openai, test",
-        "No visible comments",
-        "Recently updated",
-        "Explicit acceptance criteria",
-        "AI/automation participation appears allowed",
-        "Highest-priority first-payment reward band",
-        "No assignee and no competing pull request",
-        "Very recent activity"
-      ],
-      "risks": [
-        "No direct payment proof or funded bounty platform detected",
-        "Claim path is missing, blocked, or ambiguous",
-        "Task is not clearly executable by Atlas"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "UNCHANGED",
-      "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-21 13:05 UTC",
-      "payment_confidence": 42.3,
-      "competition_score": 100,
-      "clarity_score": 50,
-      "effort_risk": 75,
-      "expected_value": 2.82
     }
   ],
   "alerts": [
     {
       "level": "HIGH",
-      "message": "19 pursue candidate(s) found",
-      "generated_at": "2026-07-21 13:05 UTC"
+      "message": "21 pursue candidate(s) found",
+      "generated_at": "2026-07-21 17:57 UTC"
     },
     {
       "level": "WARNING",
       "message": "Atlas health is DEGRADED: 2 API error(s)",
-      "generated_at": "2026-07-21 13:05 UTC"
+      "generated_at": "2026-07-21 17:57 UTC"
     },
     {
       "level": "CRITICAL",
       "message": "Alex is not searching: zero completed queries after automatic retry",
-      "generated_at": "2026-07-21 13:05 UTC"
+      "generated_at": "2026-07-21 17:57 UTC"
     }
   ],
   "system_status": "DEGRADED",
@@ -1746,7 +1745,7 @@
       "score": 100.0,
       "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
       "status": "DISPATCHED",
-      "reserved_at": "2026-07-21T13:05:28.836686+00:00"
+      "reserved_at": "2026-07-21T17:57:23.140087+00:00"
     },
     {
       "worker": "Alex",
@@ -1758,7 +1757,7 @@
       "score": 100.0,
       "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
       "status": "DISPATCHED",
-      "reserved_at": "2026-07-21T13:05:28.836686+00:00"
+      "reserved_at": "2026-07-21T17:57:23.140087+00:00"
     }
   ],
   "automation_boundary": "Atlas and Alex automatically dispatch up to two simple, uncontested tasks. Submission still depends on configured GitHub and AI credentials; payment remains controlled by maintainers.",
@@ -1767,7 +1766,7 @@
   "api_errors": [
     {
       "url": "https://api.github.com/search/issues?q=is%3Aissue%20is%3Aopen%20%22%2415%22%20in%3Atitle%2Cbody&sort=updated&order=desc&per_page=100",
-      "error": "HTTP 403: {\n\t\"message\": \"API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 3019:30AC94:48F7F47:FDAB813:6A5F6EC8 and timestamp 2026-07-21 13:06:16 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se"
+      "error": "HTTP 403: {\n\t\"message\": \"API rate limit exceeded for installation. If you reach out to GitHub Support for help, please include the request ID 4C03:2BADBC:AB4683C:AE0DAE1:6A5FB324 and timestamp 2026-07-21 17:57:57 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Se"
     },
     {
       "worker": "Alex",
@@ -1775,136 +1774,46 @@
       "error": "Alex completed zero search queries after automatic retry"
     }
   ],
-  "raw_issues_found": 2250,
-  "aggregator_pages_rejected": 704,
-  "unsafe_items_rejected": 95,
+  "raw_issues_found": 2323,
+  "aggregator_pages_rejected": 761,
+  "unsafe_items_rejected": 97,
   "items_without_extractable_reward_rejected": 1353,
-  "eligible_candidates_found": 98,
+  "eligible_candidates_found": 112,
   "deep_verified_candidates": 30,
   "counts": {
-    "PURSUE": 19,
+    "PURSUE": 21,
     "PRIORITY REVIEW": 0,
-    "WATCHLIST": 9,
-    "REJECT": 2
+    "WATCHLIST": 8,
+    "REJECT": 1
   },
   "contested_count": 0,
   "assigned_count": 0,
-  "strong_uncontested_targets": 19,
+  "strong_uncontested_targets": 21,
   "meaningful_changes": [
     {
       "type": "NEW",
-      "title": "Add is-halfwidth-katakana-letter-hi-present API utility",
-      "url": "https://github.com/xevrion-v2/agent-playground/issues/8200",
+      "title": "[$10 BOUNTY] [TypeScript] Add telemetry batch flush threshold tests",
+      "url": "https://github.com/Saiaaax/CyberNinja-Dojo/issues/10",
       "decision": "PURSUE"
     },
     {
       "type": "NEW",
-      "title": "Add is-halfwidth-katakana-letter-hu-present API utility",
-      "url": "https://github.com/xevrion-v2/agent-playground/issues/8201",
+      "title": "[$35 BOUNTY] [Python] Add module validation and --list-modules flag to build.py",
+      "url": "https://github.com/cuentaprueba244w-dotcom/TentOfTrials/issues/10",
       "decision": "PURSUE"
     },
     {
       "type": "NEW",
-      "title": "Add is-halfwidth-katakana-letter-ha-present API utility",
-      "url": "https://github.com/xevrion-v2/agent-playground/issues/8199",
-      "decision": "PURSUE"
-    },
-    {
-      "type": "NEW",
-      "title": "Add is-halfwidth-katakana-letter-no-present API utility",
-      "url": "https://github.com/xevrion-v2/agent-playground/issues/8198",
-      "decision": "PURSUE"
-    },
-    {
-      "type": "NEW",
-      "title": "Add is-halfwidth-katakana-letter-ne-present API utility",
-      "url": "https://github.com/xevrion-v2/agent-playground/issues/8197",
-      "decision": "PURSUE"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Config ] Fix image tag typo in docker-compose.yml",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/310",
-      "decision": "PURSUE"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Docs ] Fix wrong HTTP method for Create Bounty in api-reference.md",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/304",
-      "decision": "PURSUE"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Docs ] Fix broken markdown table in api-reference.md",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/303",
-      "decision": "PURSUE"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Config ] Fix misspelled database key in app.json",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/309",
-      "decision": "PURSUE"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Docs ] Fix missing Step 4 in setup-guide.md",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/305",
-      "decision": "PURSUE"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Config ] Fix port mapping in docker-compose.yml",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/312",
-      "decision": "PURSUE"
-    },
-    {
-      "type": "NEW",
-      "title": "[ English ] Complete the missing acrostic poems in acrostics.md",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/205",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "[Bounty] [BOUNTY] [PAID BOUNTY] [AGENT READY] [50$] Port the entirety of 5D Chess With Mu",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/599",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Docs ] Fix wrong package name in setup-guide.md",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/306",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Docs ] Fix date ordering in changelog.md",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/307",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "[ English ] Complete missing lines in acrostics.md — finish UNSAFE acrostic and write BOUNTY acrostic",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/575",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Scripts ] Add missing shebang to cleanup.sh",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/318",
-      "decision": "WATCHLIST"
-    },
-    {
-      "type": "NEW",
-      "title": "[ Scripts ] Add missing set -e to deploy.sh",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/316",
+      "title": "[Bounty] [BOUNTY] [EASY AI TASK] [$40] [AGENTIC] [AGENT READY][PAID BOUNTY] [UNCLAIMED] [",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/607",
       "decision": "WATCHLIST"
     }
   ],
   "lifecycle_summary": {
-    "new_this_run": 18,
-    "still_active": 12,
+    "new_this_run": 3,
+    "still_active": 27,
     "changed": 0,
-    "not_reverified": 18
+    "not_reverified": 3
   },
   "top_results": [
     {
@@ -1981,7 +1890,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-20 08:53 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[Bounty] [paid PR Opire bounty] [HIGH PRIORITY] [$50] Add the Dentist job with teeth orga",
@@ -2064,7 +1973,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-21 07:56 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[paid PR Opire bounty] [HIGH PRIORITY] [$50] Add the Dentist job with teeth organs.",
@@ -2146,7 +2055,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-21 07:56 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
@@ -2224,7 +2133,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "Add is-halfwidth-katakana-letter-hi-present API utility",
@@ -2297,9 +2206,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "Add is-halfwidth-katakana-letter-hu-present API utility",
@@ -2372,9 +2281,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "Add is-halfwidth-katakana-letter-ha-present API utility",
@@ -2447,9 +2356,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "Add is-halfwidth-katakana-letter-no-present API utility",
@@ -2522,9 +2431,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "Add is-halfwidth-katakana-letter-ne-present API utility",
@@ -2597,9 +2506,90 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
+    },
+    {
+      "title": "[$10 BOUNTY] [TypeScript] Add telemetry batch flush threshold tests",
+      "url": "https://github.com/Saiaaax/CyberNinja-Dojo/issues/10",
+      "repository": "Saiaaax/CyberNinja-Dojo",
+      "issue_number": 10,
+      "author": "Saiaaax",
+      "reward": 10.0,
+      "reward_priority": "HIGHEST",
+      "score": 100,
+      "decision": "PURSUE",
+      "availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+      "created_at": "2026-06-25T01:30:42Z",
+      "updated_at": "2026-07-21T15:58:21Z",
+      "comments": 0,
+      "labels": [
+        "bounty",
+        "good first issue",
+        "help wanted",
+        "language:typescript"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
+      "paypal_signals": [],
+      "fiat_payment_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "instant_payment_priority": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "platform_signals": [],
+      "trusted_repository": false,
+      "payout_program_repository": false,
+      "payout_source": "Unverified promise or discovery signal",
+      "claimable_now": false,
+      "quick_win_risk_accepted": true,
+      "claimability_signals": [],
+      "atlas_can_execute": true,
+      "atlas_capability_signals": [
+        "python",
+        "typescript",
+        "unit test"
+      ],
+      "external_execution_blockers": [],
+      "repository_mismatch": false,
+      "advertised_repository": "",
+      "fast_pay_candidate": true,
+      "fast_pay_status": "FAST-PAY LEAD - PAYMENT NOT GUARANTEED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Stated paid reward",
+        "Useful requirements",
+        "Capability match: docs, python, test, tests, typescript",
+        "No visible comments",
+        "Posted within 30 days",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "Small-reward prototype law accepts unverified-payment risk",
+        "Task matches Atlas execution capabilities",
+        "Highest-priority first-payment reward band",
+        "No assignee and no competing pull request",
+        "Very recent activity"
+      ],
+      "risks": [
+        "Payment unverified; risk accepted under small-reward prototype law",
+        "Claim path is missing, blocked, or ambiguous"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "NEW",
+      "first_seen": "2026-07-21 17:57 UTC",
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[paid PR Opire bounty] [$10] Fix the clown not being able to do backflips.",
@@ -2682,7 +2672,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-21 07:56 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[ Config ] Fix image tag typo in docker-compose.yml",
@@ -2761,90 +2751,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
-    },
-    {
-      "title": "[ Docs ] Fix wrong HTTP method for Create Bounty in api-reference.md",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/304",
-      "repository": "UnsafeLabs/Bounty-Hunters",
-      "issue_number": 304,
-      "author": "clankerjournalist",
-      "reward": 1.0,
-      "reward_priority": "HIGHEST",
-      "score": 100,
-      "decision": "PURSUE",
-      "availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
-      "created_at": "2026-05-13T15:13:07Z",
-      "updated_at": "2026-07-21T09:28:52Z",
-      "comments": 0,
-      "labels": [
-        "$1",
-        "AI Agent friendly",
-        "AI only allowed - no humans",
-        "good first issue",
-        "help wanted",
-        "💎 Bounty"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
-      "paypal_signals": [],
-      "fiat_payment_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "EXPLICITLY ALLOWED",
-      "approval_authority": "NOT VERIFIED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "instant_payment_priority": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "platform_signals": [],
-      "trusted_repository": false,
-      "payout_program_repository": false,
-      "payout_source": "Unverified promise or discovery signal",
-      "claimable_now": false,
-      "quick_win_risk_accepted": true,
-      "claimability_signals": [],
-      "atlas_can_execute": true,
-      "atlas_capability_signals": [
-        "api"
-      ],
-      "external_execution_blockers": [],
-      "repository_mismatch": false,
-      "advertised_repository": "",
-      "fast_pay_candidate": true,
-      "fast_pay_status": "FAST-PAY LEAD - PAYMENT NOT GUARANTEED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Stated paid reward",
-        "Useful requirements",
-        "Capability match: ai agent, claude, docs, fix, openai, prompt",
-        "No visible comments",
-        "Recently updated",
-        "Explicit acceptance criteria",
-        "AI/automation participation appears allowed",
-        "Small-reward prototype law accepts unverified-payment risk",
-        "Task matches Atlas execution capabilities",
-        "Highest-priority first-payment reward band",
-        "No assignee and no competing pull request",
-        "Very recent activity"
-      ],
-      "risks": [
-        "Payment unverified; risk accepted under small-reward prototype law",
-        "Claim path is missing, blocked, or ambiguous"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "NEW",
-      "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     }
   ],
   "all_verified_results": [
@@ -2922,7 +2831,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-20 08:53 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[Bounty] [paid PR Opire bounty] [HIGH PRIORITY] [$50] Add the Dentist job with teeth orga",
@@ -3005,7 +2914,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-21 07:56 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[paid PR Opire bounty] [HIGH PRIORITY] [$50] Add the Dentist job with teeth organs.",
@@ -3087,7 +2996,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-21 07:56 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
@@ -3165,7 +3074,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "Add is-halfwidth-katakana-letter-hi-present API utility",
@@ -3238,9 +3147,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "Add is-halfwidth-katakana-letter-hu-present API utility",
@@ -3313,9 +3222,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "Add is-halfwidth-katakana-letter-ha-present API utility",
@@ -3388,9 +3297,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "Add is-halfwidth-katakana-letter-no-present API utility",
@@ -3463,9 +3372,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "Add is-halfwidth-katakana-letter-ne-present API utility",
@@ -3538,9 +3447,90 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
+    },
+    {
+      "title": "[$10 BOUNTY] [TypeScript] Add telemetry batch flush threshold tests",
+      "url": "https://github.com/Saiaaax/CyberNinja-Dojo/issues/10",
+      "repository": "Saiaaax/CyberNinja-Dojo",
+      "issue_number": 10,
+      "author": "Saiaaax",
+      "reward": 10.0,
+      "reward_priority": "HIGHEST",
+      "score": 100,
+      "decision": "PURSUE",
+      "availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+      "created_at": "2026-06-25T01:30:42Z",
+      "updated_at": "2026-07-21T15:58:21Z",
+      "comments": 0,
+      "labels": [
+        "bounty",
+        "good first issue",
+        "help wanted",
+        "language:typescript"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
+      "paypal_signals": [],
+      "fiat_payment_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "instant_payment_priority": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "platform_signals": [],
+      "trusted_repository": false,
+      "payout_program_repository": false,
+      "payout_source": "Unverified promise or discovery signal",
+      "claimable_now": false,
+      "quick_win_risk_accepted": true,
+      "claimability_signals": [],
+      "atlas_can_execute": true,
+      "atlas_capability_signals": [
+        "python",
+        "typescript",
+        "unit test"
+      ],
+      "external_execution_blockers": [],
+      "repository_mismatch": false,
+      "advertised_repository": "",
+      "fast_pay_candidate": true,
+      "fast_pay_status": "FAST-PAY LEAD - PAYMENT NOT GUARANTEED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Stated paid reward",
+        "Useful requirements",
+        "Capability match: docs, python, test, tests, typescript",
+        "No visible comments",
+        "Posted within 30 days",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "Small-reward prototype law accepts unverified-payment risk",
+        "Task matches Atlas execution capabilities",
+        "Highest-priority first-payment reward band",
+        "No assignee and no competing pull request",
+        "Very recent activity"
+      ],
+      "risks": [
+        "Payment unverified; risk accepted under small-reward prototype law",
+        "Claim path is missing, blocked, or ambiguous"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "NEW",
+      "first_seen": "2026-07-21 17:57 UTC",
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[paid PR Opire bounty] [$10] Fix the clown not being able to do backflips.",
@@ -3623,7 +3613,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-21 07:56 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[ Config ] Fix image tag typo in docker-compose.yml",
@@ -3702,9 +3692,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[ Docs ] Fix wrong HTTP method for Create Bounty in api-reference.md",
@@ -3783,9 +3773,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[ Docs ] Fix broken markdown table in api-reference.md",
@@ -3864,9 +3854,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[ Config ] Fix misspelled database key in app.json",
@@ -3945,9 +3935,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[ Docs ] Fix missing Step 4 in setup-guide.md",
@@ -4026,9 +4016,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[ Config ] Fix port mapping in docker-compose.yml",
@@ -4107,9 +4097,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[BOUNTY $25] AGENT: Create a `CLAUDE.md` at the repo root.",
@@ -4185,7 +4175,85 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-19 09:23 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
+    },
+    {
+      "title": "[$35 BOUNTY] [Python] Add module validation and --list-modules flag to build.py",
+      "url": "https://github.com/cuentaprueba244w-dotcom/TentOfTrials/issues/10",
+      "repository": "cuentaprueba244w-dotcom/TentOfTrials",
+      "issue_number": 10,
+      "author": "cuentaprueba244w-dotcom",
+      "reward": 35.0,
+      "reward_priority": "HIGHEST",
+      "score": 90,
+      "decision": "PURSUE",
+      "availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+      "created_at": "2026-06-19T00:55:38Z",
+      "updated_at": "2026-07-21T16:01:05Z",
+      "comments": 0,
+      "labels": [
+        "bounty",
+        "good first issue",
+        "help wanted",
+        "language:python"
+      ],
+      "assignees": [],
+      "open_competing_prs": 0,
+      "merged_linked_prs": 0,
+      "linked_pull_requests": [],
+      "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
+      "paypal_signals": [],
+      "fiat_payment_signals": [],
+      "fast_payment_signals": [],
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
+      "approval_authority": "NOT VERIFIED",
+      "direct_payment_proof": false,
+      "instant_payment_verified": false,
+      "instant_payment_priority": false,
+      "funded_payment_platform": false,
+      "trusted_payout_source": false,
+      "trusted_platform": null,
+      "platform_signals": [],
+      "trusted_repository": false,
+      "payout_program_repository": false,
+      "payout_source": "Unverified promise or discovery signal",
+      "claimable_now": false,
+      "quick_win_risk_accepted": true,
+      "claimability_signals": [],
+      "atlas_can_execute": true,
+      "atlas_capability_signals": [
+        "python"
+      ],
+      "external_execution_blockers": [],
+      "repository_mismatch": false,
+      "advertised_repository": "",
+      "fast_pay_candidate": true,
+      "fast_pay_status": "FAST-PAY LEAD - PAYMENT NOT GUARANTEED",
+      "manual_verification_required": true,
+      "reasons": [
+        "Stated paid reward",
+        "Useful requirements",
+        "Capability match: python, test",
+        "No visible comments",
+        "Recently updated",
+        "Explicit acceptance criteria",
+        "Small-reward prototype law accepts unverified-payment risk",
+        "Task matches Atlas execution capabilities",
+        "Highest-priority first-payment reward band",
+        "No assignee and no competing pull request",
+        "Very recent activity"
+      ],
+      "risks": [
+        "Payment unverified; risk accepted under small-reward prototype law",
+        "Claim path is missing, blocked, or ambiguous"
+      ],
+      "discovered_by": [
+        "Atlas"
+      ],
+      "primary_hunter": "Atlas",
+      "change": "NEW",
+      "first_seen": "2026-07-21 17:57 UTC",
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[Hacktoberfest] Create a Custom n8n Node for APort Verification",
@@ -4265,7 +4333,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[Hacktoberfest] n8n Workflow Node for Policy Checks",
@@ -4345,7 +4413,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "Compatible x402 service: Bug Bounty Intelligence smart contract scanner",
@@ -4420,83 +4488,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-20 08:53 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
-    },
-    {
-      "title": "Using pay.sh with Bug Bounty Intelligence — x402 smart contract security scanner",
-      "url": "https://github.com/solana-foundation/pay/issues/404",
-      "repository": "solana-foundation/pay",
-      "issue_number": 404,
-      "author": "holistis",
-      "reward": 5.0,
-      "reward_priority": "HIGHEST",
-      "score": 61,
-      "decision": "REJECT",
-      "availability": "CRYPTO OR WALLET PAYMENT - BLOCKED",
-      "created_at": "2026-07-20T07:23:09Z",
-      "updated_at": "2026-07-20T07:23:09Z",
-      "comments": 0,
-      "labels": [],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fiat_payment_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "EXPLICITLY ALLOWED",
-      "approval_authority": "NOT VERIFIED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "instant_payment_priority": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "platform_signals": [],
-      "trusted_repository": false,
-      "payout_program_repository": false,
-      "payout_source": "Unverified promise or discovery signal",
-      "claimable_now": false,
-      "quick_win_risk_accepted": false,
-      "claimability_signals": [],
-      "atlas_can_execute": true,
-      "atlas_capability_signals": [
-        "api",
-        "documentation"
-      ],
-      "external_execution_blockers": [],
-      "repository_mismatch": false,
-      "advertised_repository": "",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT PROTOTYPE-PAYMENT-QUALIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Stated paid reward",
-        "Useful requirements",
-        "Capability match: ai agent, bug, documentation",
-        "No visible comments",
-        "Posted within 7 days",
-        "Recently updated",
-        "Review path appears usable",
-        "AI/automation participation appears allowed",
-        "Task matches Atlas execution capabilities",
-        "Highest-priority first-payment reward band",
-        "No assignee and no competing pull request",
-        "Very recent activity"
-      ],
-      "risks": [
-        "Potentially high complexity: smart contract",
-        "No direct payment proof or funded bounty platform detected",
-        "Claim path is missing, blocked, or ambiguous"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "UNCHANGED",
-      "first_seen": "2026-07-20 08:53 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[ Brainfuck ] Implement a program that prints the first 20 prime numbers",
@@ -4576,7 +4568,7 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[ English ] Complete the missing acrostic poems in acrostics.md",
@@ -4654,9 +4646,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[Bounty] [BOUNTY] [PAID BOUNTY] [AGENT READY] [50$] Port the entirety of 5D Chess With Mu",
@@ -4730,9 +4722,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[ Docs ] Fix wrong package name in setup-guide.md",
@@ -4808,9 +4800,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[ Docs ] Fix date ordering in changelog.md",
@@ -4886,9 +4878,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[ English ] Complete missing lines in acrostics.md — finish UNSAFE acrostic and write BOUNTY acrostic",
@@ -4966,9 +4958,9 @@
         "Atlas"
       ],
       "primary_hunter": "Atlas",
-      "change": "NEW",
+      "change": "UNCHANGED",
       "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
       "title": "[Bounty] [weilixiong/TentOfTrials] [$25 BOUNTY] [Python] Add independent log parser fixtu",
@@ -5049,29 +5041,25 @@
       "primary_hunter": "Atlas",
       "change": "UNCHANGED",
       "first_seen": "2026-07-19 07:34 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "last_verified": "2026-07-21 17:57 UTC"
     },
     {
-      "title": "[ Scripts ] Add missing shebang to cleanup.sh",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/318",
-      "repository": "UnsafeLabs/Bounty-Hunters",
-      "issue_number": 318,
-      "author": "clankerjournalist",
-      "reward": 1.0,
+      "title": "[Bounty] [BOUNTY] [EASY AI TASK] [$40] [AGENTIC] [AGENT READY][PAID BOUNTY] [UNCLAIMED] [",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/607",
+      "repository": "zhangjiayang6835-cyber/bounty-plaza",
+      "issue_number": 607,
+      "author": "zhangjiayang6835-cyber",
+      "reward": 40.0,
       "reward_priority": "HIGHEST",
-      "score": 35,
+      "score": 25,
       "decision": "WATCHLIST",
       "availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
-      "created_at": "2026-05-13T15:21:26Z",
-      "updated_at": "2026-07-21T09:28:52Z",
+      "created_at": "2026-07-21T15:26:04Z",
+      "updated_at": "2026-07-21T15:26:04Z",
       "comments": 0,
       "labels": [
-        "$1",
-        "AI Agent friendly",
-        "AI only allowed - no humans",
-        "good first issue",
-        "help wanted",
-        "💎 Bounty"
+        "bounty",
+        "real"
       ],
       "assignees": [],
       "open_competing_prs": 0,
@@ -5081,7 +5069,7 @@
       "paypal_signals": [],
       "fiat_payment_signals": [],
       "fast_payment_signals": [],
-      "ai_eligibility": "EXPLICITLY ALLOWED",
+      "ai_eligibility": "UNCLEAR - MANUAL VERIFICATION REQUIRED",
       "approval_authority": "NOT VERIFIED",
       "direct_payment_proof": false,
       "instant_payment_verified": false,
@@ -5107,11 +5095,10 @@
       "reasons": [
         "Stated paid reward",
         "Useful requirements",
-        "Capability match: ai agent, claude, openai, prompt",
         "No visible comments",
+        "Posted within 24 hours",
         "Recently updated",
-        "Explicit acceptance criteria",
-        "AI/automation participation appears allowed",
+        "Review path appears usable",
         "Highest-priority first-payment reward band",
         "No assignee and no competing pull request",
         "Very recent activity"
@@ -5126,86 +5113,8 @@
       ],
       "primary_hunter": "Atlas",
       "change": "NEW",
-      "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
-    },
-    {
-      "title": "[ Scripts ] Add missing set -e to deploy.sh",
-      "url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/316",
-      "repository": "UnsafeLabs/Bounty-Hunters",
-      "issue_number": 316,
-      "author": "clankerjournalist",
-      "reward": 1.0,
-      "reward_priority": "HIGHEST",
-      "score": 35,
-      "decision": "WATCHLIST",
-      "availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
-      "created_at": "2026-05-13T15:21:05Z",
-      "updated_at": "2026-07-21T09:28:52Z",
-      "comments": 0,
-      "labels": [
-        "$1",
-        "AI Agent friendly",
-        "AI only allowed - no humans",
-        "good first issue",
-        "help wanted",
-        "💎 Bounty"
-      ],
-      "assignees": [],
-      "open_competing_prs": 0,
-      "merged_linked_prs": 0,
-      "linked_pull_requests": [],
-      "payment_verification": "UNVERIFIED",
-      "paypal_signals": [],
-      "fiat_payment_signals": [],
-      "fast_payment_signals": [],
-      "ai_eligibility": "EXPLICITLY ALLOWED",
-      "approval_authority": "NOT VERIFIED",
-      "direct_payment_proof": false,
-      "instant_payment_verified": false,
-      "instant_payment_priority": false,
-      "funded_payment_platform": false,
-      "trusted_payout_source": false,
-      "trusted_platform": null,
-      "platform_signals": [],
-      "trusted_repository": false,
-      "payout_program_repository": false,
-      "payout_source": "Unverified promise or discovery signal",
-      "claimable_now": false,
-      "quick_win_risk_accepted": false,
-      "claimability_signals": [],
-      "atlas_can_execute": false,
-      "atlas_capability_signals": [],
-      "external_execution_blockers": [],
-      "repository_mismatch": false,
-      "advertised_repository": "",
-      "fast_pay_candidate": false,
-      "fast_pay_status": "NOT PROTOTYPE-PAYMENT-QUALIFIED",
-      "manual_verification_required": true,
-      "reasons": [
-        "Stated paid reward",
-        "Useful requirements",
-        "Capability match: ai agent, claude, openai, prompt",
-        "No visible comments",
-        "Recently updated",
-        "Explicit acceptance criteria",
-        "AI/automation participation appears allowed",
-        "Highest-priority first-payment reward band",
-        "No assignee and no competing pull request",
-        "Very recent activity"
-      ],
-      "risks": [
-        "No direct payment proof or funded bounty platform detected",
-        "Claim path is missing, blocked, or ambiguous",
-        "Task is not clearly executable by Atlas"
-      ],
-      "discovered_by": [
-        "Atlas"
-      ],
-      "primary_hunter": "Atlas",
-      "change": "NEW",
-      "first_seen": "2026-07-21 13:05 UTC",
-      "last_verified": "2026-07-21 13:05 UTC"
+      "first_seen": "2026-07-21 17:57 UTC",
+      "last_verified": "2026-07-21 17:57 UTC"
     }
   ]
 }
