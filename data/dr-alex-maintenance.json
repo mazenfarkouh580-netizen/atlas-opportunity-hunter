@@ -1,7 +1,7 @@
 {
   "doctor": "Dr. Alex",
   "health": "DEGRADED",
-  "last_check": "2026-07-21 17:57 UTC",
+  "last_check": "2026-07-21 21:46 UTC",
   "repairs": [],
   "diagnostics": [],
   "api_errors": 2,
@@ -11,7 +11,7 @@
   "ai_explicitly_allowed_candidates": 8,
   "approval_path_candidates": 0,
   "priority_reviews": 0,
-  "pursue_candidates": 21,
+  "pursue_candidates": 20,
   "recommendation": "Immediately review 20 small fast-pay lead(s).",
   "instant_money_warning": "Small PayPal bounties may pay quickly after acceptance, but only the bounty owner or platform can approve work and release payment. Atlas ranks advertised instant/same-day/within-hours fiat tasks ahead of every ordinary task, while still recording that payment is not guaranteed.",
   "best_immediate_target": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",

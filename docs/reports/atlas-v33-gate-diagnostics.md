@@ -1,20 +1,19 @@
 # Atlas + Alex V35 Gate Diagnostics
 
-Generated: 2026-07-21 17:57 UTC
+Generated: 2026-07-21 21:46 UTC
 
 ## Decision Counts
 
-- PURSUE: 21
+- PURSUE: 20
 - PRIORITY REVIEW: 0
-- WATCHLIST: 8
+- WATCHLIST: 9
 - REJECT: 1
 
 ## Gate Counts
 
-- SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED: 21
-- PAYMENT SPEED OR FUNDING NOT VERIFIED: 7
+- SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED: 20
+- PAYMENT SPEED OR FUNDING NOT VERIFIED: 9
 - CRYPTO OR WALLET PAYMENT - BLOCKED: 1
-- REPOSITORY MISMATCH - MANUAL VERIFY: 1
 
 ## Candidate Details
 
@@ -28,17 +27,6 @@ Generated: 2026-07-21 17:57 UTC
 - Quick-win risk accepted: True
 - Atlas executable: True
 - URL: https://github.com/xevrion-v2/agent-playground/issues/2681
-
-### zhangjiayang6835-cyber/bounty-plaza #588
-- Decision: PURSUE
-- Gate: SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED
-- Reward: $50.00
-- Payment: SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED
-- Payout source: Unverified promise or discovery signal
-- Claimable: False
-- Quick-win risk accepted: True
-- Atlas executable: True
-- URL: https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/588
 
 ### Iamgoofball/-tg-station #49
 - Decision: PURSUE
@@ -282,17 +270,6 @@ Generated: 2026-07-21 17:57 UTC
 - Atlas executable: False
 - URL: https://github.com/UnsafeLabs/Bounty-Hunters/issues/205
 
-### zhangjiayang6835-cyber/bounty-plaza #599
-- Decision: WATCHLIST
-- Gate: PAYMENT SPEED OR FUNDING NOT VERIFIED
-- Reward: $50.00
-- Payment: FIAT METHOD MENTIONED - FUNDING/TIMING NOT PROVEN
-- Payout source: Unverified promise or discovery signal
-- Claimable: False
-- Quick-win risk accepted: False
-- Atlas executable: False
-- URL: https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/599
-
 ### UnsafeLabs/Bounty-Hunters #306
 - Decision: WATCHLIST
 - Gate: PAYMENT SPEED OR FUNDING NOT VERIFIED
@@ -326,16 +303,38 @@ Generated: 2026-07-21 17:57 UTC
 - Atlas executable: False
 - URL: https://github.com/UnsafeLabs/Bounty-Hunters/issues/575
 
-### zhangjiayang6835-cyber/bounty-plaza #494
+### zhangjiayang6835-cyber/bounty-plaza #619
 - Decision: WATCHLIST
-- Gate: REPOSITORY MISMATCH - MANUAL VERIFY
-- Reward: $25.00
+- Gate: PAYMENT SPEED OR FUNDING NOT VERIFIED
+- Reward: $40.00
 - Payment: UNVERIFIED
 - Payout source: Unverified promise or discovery signal
 - Claimable: False
 - Quick-win risk accepted: False
-- Atlas executable: True
-- URL: https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/494
+- Atlas executable: False
+- URL: https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/619
+
+### UnsafeLabs/Bounty-Hunters #318
+- Decision: WATCHLIST
+- Gate: PAYMENT SPEED OR FUNDING NOT VERIFIED
+- Reward: $1.00
+- Payment: UNVERIFIED
+- Payout source: Unverified promise or discovery signal
+- Claimable: False
+- Quick-win risk accepted: False
+- Atlas executable: False
+- URL: https://github.com/UnsafeLabs/Bounty-Hunters/issues/318
+
+### UnsafeLabs/Bounty-Hunters #316
+- Decision: WATCHLIST
+- Gate: PAYMENT SPEED OR FUNDING NOT VERIFIED
+- Reward: $1.00
+- Payment: UNVERIFIED
+- Payout source: Unverified promise or discovery signal
+- Claimable: False
+- Quick-win risk accepted: False
+- Atlas executable: False
+- URL: https://github.com/UnsafeLabs/Bounty-Hunters/issues/316
 
 ### zhangjiayang6835-cyber/bounty-plaza #607
 - Decision: WATCHLIST
