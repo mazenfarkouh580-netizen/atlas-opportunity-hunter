@@ -13,7 +13,7 @@
     "title": "[Bounty] [weilixiong/TentOfTrials] [$25 BOUNTY] [Python] Add independent log parser fixtu",
     "repository": "zhangjiayang6835-cyber/bounty-plaza",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "WATCHLIST",
     "last_availability": "REPOSITORY MISMATCH - MANUAL VERIFY",
     "last_reward": 25.0,
@@ -43,7 +43,7 @@
     "title": "[ Brainfuck ] Implement a program that prints the first 20 prime numbers",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 20.0,
@@ -113,7 +113,7 @@
     "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
     "repository": "claude-builders-bounty/claude-builders-bounty",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -133,7 +133,7 @@
     "title": "[Hacktoberfest] Create a Custom n8n Node for APort Verification",
     "repository": "aporthq/aport-integrations",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -163,7 +163,7 @@
     "title": "[Hacktoberfest] n8n Workflow Node for Policy Checks",
     "repository": "aporthq/aport-integrations",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 10.0,
@@ -347,7 +347,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 55.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/654": {
     "title": "[ Brainfuck ] Implement a program that sorts an input string alphabetically",
@@ -363,9 +363,9 @@
     "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
     "repository": "claude-builders-bounty/claude-builders-bounty",
     "first_seen": "2026-07-19 08:02 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
-    "last_decision": "PURSUE",
-    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_verified": "2026-07-21 07:56 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 100.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -377,7 +377,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 75.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/527": {
     "title": "[Bounty] La función suma() resta en vez de sumar",
@@ -403,7 +403,7 @@
     "title": "[BOUNTY $25] AGENT: Create a `CLAUDE.md` at the repo root.",
     "repository": "claude-builders-bounty/claude-builders-bounty",
     "first_seen": "2026-07-19 09:23 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 25.0,
@@ -787,7 +787,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 60.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/tscircuit/schematic-trace-solver/issues/34": {
     "title": "Merge same-net trace lines that are close together (make at the same Y or same X)",
@@ -813,7 +813,7 @@
     "title": "Compatible x402 service: Bug Bounty Intelligence smart contract scanner",
     "repository": "nirium-protocol/nirium-sdk",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "REJECT",
     "last_availability": "CRYPTO OR WALLET PAYMENT - BLOCKED",
     "last_reward": 5.0,
@@ -823,17 +823,17 @@
     "title": "feat: add Bug Bounty Intelligence -- live x402 smart contract security scan API for AI agents",
     "repository": "tsubasakong/awesome-agent-payments-protocol",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-20 11:33 UTC",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "REJECT",
     "last_availability": "CRYPTO OR WALLET PAYMENT - BLOCKED",
     "last_reward": 5.0,
-    "verification_state": "NOT REVERIFIED THIS RUN"
+    "verification_state": "VERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/803": {
     "title": "[ FastAPI ] Add concurrent task runner with semaphore limiting and timeout",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -843,7 +843,7 @@
     "title": "[ Laravel ] Fix User model password cast not applying bcrypt rounds from config",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -853,7 +853,7 @@
     "title": "[agent] Document repository GitHub workflows",
     "repository": "xevrion-v2/agent-playground",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -863,17 +863,17 @@
     "title": "Using pay.sh with Bug Bounty Intelligence — x402 smart contract security scanner",
     "repository": "solana-foundation/pay",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-20 11:33 UTC",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "REJECT",
     "last_availability": "CRYPTO OR WALLET PAYMENT - BLOCKED",
     "last_reward": 5.0,
-    "verification_state": "NOT REVERIFIED THIS RUN"
+    "verification_state": "VERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/757": {
     "title": "[ FastAPI ] Fix validation error handler missing request context and add body redaction",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 40.0,
@@ -883,7 +883,7 @@
     "title": "[ FastAPI ] Fix OpenAPI schema missing server, contact, and license information",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 30.0,
@@ -893,7 +893,7 @@
     "title": "[ FastAPI ] Fix jsonable_encoder TypeError on bytes and memoryview objects",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 25.0,
@@ -903,7 +903,7 @@
     "title": "[ Laravel ] Add Slack notification service with retry and timeout handling",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 35.0,
@@ -933,17 +933,17 @@
     "title": "[agent] Add repository line-ending attributes",
     "repository": "xevrion-v2/agent-playground",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-20 11:33 UTC",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "NOT REVERIFIED THIS RUN"
+    "verification_state": "VERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/789": {
     "title": "[ Laravel ] Add failed job monitoring listener and summary command",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 45.0,
@@ -953,7 +953,7 @@
     "title": "[ Laravel ] Fix welcome.blade.php missing CSRF meta tag and add security headers",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
+    "last_verified": "2026-07-21 07:56 UTC",
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 30.0,
@@ -967,7 +967,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8167": {
     "title": "Add is-halfwidth-katakana-letter-sa-present API utility",
@@ -977,7 +977,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8166": {
     "title": "Add is-halfwidth-katakana-letter-ko-present API utility",
@@ -987,7 +987,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8165": {
     "title": "Add is-halfwidth-katakana-letter-ke-present API utility",
@@ -997,7 +997,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8164": {
     "title": "Add is-halfwidth-katakana-letter-ku-present API utility",
@@ -1007,15 +1007,15 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/795": {
     "title": "[ FastAPI ] Add request-scoped dependency caching to reduce duplicate resolution",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-20 10:48 UTC",
-    "last_verified": "2026-07-20 08:46 AM PDT",
-    "last_decision": "PURSUE",
-    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_verified": "2026-07-21 07:56 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 95.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -1023,9 +1023,9 @@
     "title": "[ Laravel ] Add database health check endpoint with retry logic",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-20 08:46 AM PDT",
-    "last_verified": "2026-07-20 08:46 AM PDT",
-    "last_decision": "PURSUE",
-    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_verified": "2026-07-21 07:56 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 90.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -1033,9 +1033,9 @@
     "title": "[ FastAPI ] Fix generate_unique_id producing duplicate operation IDs across routers",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-20 08:46 AM PDT",
-    "last_verified": "2026-07-20 08:46 AM PDT",
-    "last_decision": "PURSUE",
-    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_verified": "2026-07-21 07:56 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 70.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -1043,9 +1043,9 @@
     "title": "[ FastAPI ] Add StreamingCSVResponse for large dataset exports",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-20 08:46 AM PDT",
-    "last_verified": "2026-07-20 08:46 AM PDT",
-    "last_decision": "PURSUE",
-    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_verified": "2026-07-21 07:56 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 65.0,
     "verification_state": "VERIFIED THIS RUN"
   },
@@ -1057,6 +1057,66 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 75.0,
+    "verification_state": "NOT REVERIFIED THIS RUN"
+  },
+  "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/588": {
+    "title": "[Bounty] [paid PR Opire bounty] [HIGH PRIORITY] [$50] Add the Dentist job with teeth orga",
+    "repository": "zhangjiayang6835-cyber/bounty-plaza",
+    "first_seen": "2026-07-21 07:56 UTC",
+    "last_verified": "2026-07-21 07:56 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/Iamgoofball/-tg-station/issues/49": {
+    "title": "[paid PR Opire bounty] [HIGH PRIORITY] [$50] Add the Dentist job with teeth organs.",
+    "repository": "Iamgoofball/-tg-station",
+    "first_seen": "2026-07-21 07:56 UTC",
+    "last_verified": "2026-07-21 07:56 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/Iamgoofball/-tg-station/issues/50": {
+    "title": "[paid PR Opire bounty] [$10] Fix the clown not being able to do backflips.",
+    "repository": "Iamgoofball/-tg-station",
+    "first_seen": "2026-07-21 07:56 UTC",
+    "last_verified": "2026-07-21 07:56 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 10.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/585": {
+    "title": "[Bounty] [BOUNTY] [PAID BOUNTY] [$40] [paid opire bounty] Add enterprise resource plannin",
+    "repository": "zhangjiayang6835-cyber/bounty-plaza",
+    "first_seen": "2026-07-21 07:56 UTC",
+    "last_verified": "2026-07-21 07:56 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
+    "last_reward": 40.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/587": {
+    "title": "[Bounty] [BOUNTY] [PAID BOUNTY] [$25] Make the bar fish sing",
+    "repository": "zhangjiayang6835-cyber/bounty-plaza",
+    "first_seen": "2026-07-21 07:56 UTC",
+    "last_verified": "2026-07-21 07:56 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
+    "last_reward": 30.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/tscircuit/pcb-viewer/issues/163": {
+    "title": "Remove `disableAutoFocus` in favor of `focusOnHover={false}`",
+    "repository": "tscircuit/pcb-viewer",
+    "first_seen": "2026-07-21 07:56 UTC",
+    "last_verified": "2026-07-21 07:56 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
+    "last_reward": 3.0,
     "verification_state": "VERIFIED THIS RUN"
   }
 }

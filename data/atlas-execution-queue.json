@@ -1,21 +1,33 @@
 {
   "version": "V35",
-  "generated_at": "2026-07-20 08:46 AM PDT",
+  "generated_at": "2026-07-21 07:56 UTC",
   "automatic_execution": true,
   "workers_requested": 2,
-  "tasks_dispatched": 1,
+  "tasks_dispatched": 2,
   "tasks": [
     {
       "worker": "Atlas",
       "repository": "claude-builders-bounty/claude-builders-bounty",
-      "issue_number": 3,
-      "issue_url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3",
-      "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
-      "reward": 100.0,
+      "issue_number": 1,
+      "issue_url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
+      "reward": 50.0,
       "score": 100.0,
       "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
       "status": "DISPATCHED",
-      "reserved_at": "2026-07-20T15:46:50.569026+00:00"
+      "reserved_at": "2026-07-21T07:56:16.955964+00:00"
+    },
+    {
+      "worker": "Alex",
+      "repository": "UnsafeLabs/Bounty-Hunters",
+      "issue_number": 803,
+      "issue_url": "https://github.com/UnsafeLabs/Bounty-Hunters/issues/803",
+      "title": "[ FastAPI ] Add concurrent task runner with semaphore limiting and timeout",
+      "reward": 50.0,
+      "score": 100.0,
+      "payment_verification": "SMALL-REWARD RISK ACCEPTED - PAYMENT UNVERIFIED",
+      "status": "DISPATCHED",
+      "reserved_at": "2026-07-21T07:56:16.955964+00:00"
     }
   ]
 }

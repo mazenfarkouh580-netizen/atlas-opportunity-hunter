@@ -1,8 +1,8 @@
 {
   "version": "V35",
-  "last_completed_at": "2026-07-20T15:46:50.569026+00:00",
-  "last_completed_display": "2026-07-20 08:46 AM PDT",
-  "trigger": "workflow_dispatch",
+  "last_completed_at": "2026-07-21T07:56:16.955964+00:00",
+  "last_completed_display": "2026-07-21 07:56 UTC",
+  "trigger": "schedule",
   "status": "DEGRADED",
   "target_interval_minutes": 15,
   "atlas_role": "discover and execute first eligible task",
