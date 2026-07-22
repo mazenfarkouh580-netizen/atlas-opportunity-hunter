@@ -47,7 +47,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 20.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/softwary/ClaudeYourWayToTheTop/issues/4": {
     "title": "📱 #4: Platform Integration & App Store Submission",
@@ -113,7 +113,7 @@
     "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
     "repository": "claude-builders-bounty/claude-builders-bounty",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -133,7 +133,7 @@
     "title": "[Hacktoberfest] Create a Custom n8n Node for APort Verification",
     "repository": "aporthq/aport-integrations",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -163,7 +163,7 @@
     "title": "[Hacktoberfest] n8n Workflow Node for Policy Checks",
     "repository": "aporthq/aport-integrations",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 10.0,
@@ -407,7 +407,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 25.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/Tyaoo/picker/issues/1399": {
     "title": "[每日信息流] 2026-06-02",
@@ -817,7 +817,7 @@
     "last_decision": "REJECT",
     "last_availability": "CRYPTO OR WALLET PAYMENT - BLOCKED",
     "last_reward": 5.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/tsubasakong/awesome-agent-payments-protocol/issues/59": {
     "title": "feat: add Bug Bounty Intelligence -- live x402 smart contract security scan API for AI agents",
@@ -853,7 +853,7 @@
     "title": "[agent] Document repository GitHub workflows",
     "repository": "xevrion-v2/agent-playground",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -1073,7 +1073,7 @@
     "title": "[paid PR Opire bounty] [HIGH PRIORITY] [$50] Add the Dentist job with teeth organs.",
     "repository": "Iamgoofball/-tg-station",
     "first_seen": "2026-07-21 07:56 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -1083,7 +1083,7 @@
     "title": "[paid PR Opire bounty] [$10] Fix the clown not being able to do backflips.",
     "repository": "Iamgoofball/-tg-station",
     "first_seen": "2026-07-21 07:56 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 10.0,
@@ -1127,7 +1127,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8201": {
     "title": "Add is-halfwidth-katakana-letter-hu-present API utility",
@@ -1137,7 +1137,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8199": {
     "title": "Add is-halfwidth-katakana-letter-ha-present API utility",
@@ -1147,7 +1147,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8198": {
     "title": "Add is-halfwidth-katakana-letter-no-present API utility",
@@ -1157,7 +1157,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8197": {
     "title": "Add is-halfwidth-katakana-letter-ne-present API utility",
@@ -1167,13 +1167,13 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/310": {
     "title": "[ Config ] Fix image tag typo in docker-compose.yml",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-21 13:05 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 1.0,
@@ -1183,7 +1183,7 @@
     "title": "[ Docs ] Fix wrong HTTP method for Create Bounty in api-reference.md",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-21 13:05 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 1.0,
@@ -1193,7 +1193,7 @@
     "title": "[ Docs ] Fix broken markdown table in api-reference.md",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-21 13:05 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 1.0,
@@ -1203,7 +1203,7 @@
     "title": "[ Config ] Fix misspelled database key in app.json",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-21 13:05 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 1.0,
@@ -1213,7 +1213,7 @@
     "title": "[ Docs ] Fix missing Step 4 in setup-guide.md",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-21 13:05 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 1.0,
@@ -1227,7 +1227,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 1.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/205": {
     "title": "[ English ] Complete the missing acrostic poems in acrostics.md",
@@ -1237,7 +1237,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 1.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/599": {
     "title": "[Bounty] [BOUNTY] [PAID BOUNTY] [AGENT READY] [50$] Port the entirety of 5D Chess With Mu",
@@ -1253,7 +1253,7 @@
     "title": "[ Docs ] Fix wrong package name in setup-guide.md",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-21 13:05 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 1.0,
@@ -1263,7 +1263,7 @@
     "title": "[ Docs ] Fix date ordering in changelog.md",
     "repository": "UnsafeLabs/Bounty-Hunters",
     "first_seen": "2026-07-21 13:05 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 1.0,
@@ -1277,7 +1277,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 1.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/318": {
     "title": "[ Scripts ] Add missing shebang to cleanup.sh",
@@ -1287,7 +1287,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 1.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/316": {
     "title": "[ Scripts ] Add missing set -e to deploy.sh",
@@ -1297,13 +1297,13 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 1.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/Saiaaax/CyberNinja-Dojo/issues/10": {
     "title": "[$10 BOUNTY] [TypeScript] Add telemetry batch flush threshold tests",
     "repository": "Saiaaax/CyberNinja-Dojo",
     "first_seen": "2026-07-21 17:57 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 10.0,
@@ -1313,7 +1313,7 @@
     "title": "[$35 BOUNTY] [Python] Add module validation and --list-modules flag to build.py",
     "repository": "cuentaprueba244w-dotcom/TentOfTrials",
     "first_seen": "2026-07-21 17:57 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 35.0,
@@ -1323,7 +1323,7 @@
     "title": "[Bounty] [BOUNTY] [EASY AI TASK] [$40] [AGENTIC] [AGENT READY][PAID BOUNTY] [UNCLAIMED] [",
     "repository": "zhangjiayang6835-cyber/bounty-plaza",
     "first_seen": "2026-07-21 17:57 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 40.0,
@@ -1333,10 +1333,140 @@
     "title": "[Bounty] [BOUNTY] [$40] Add a Nix flake and an agentic screenshot harness using Wine + xv",
     "repository": "zhangjiayang6835-cyber/bounty-plaza",
     "first_seen": "2026-07-21 21:46 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 40.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8224": {
+    "title": "Add is-halfwidth-katakana-letter-ru-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8223": {
+    "title": "Add is-halfwidth-katakana-letter-ri-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8222": {
+    "title": "Add is-halfwidth-katakana-letter-ra-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8221": {
+    "title": "Add is-halfwidth-katakana-letter-mo-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8220": {
+    "title": "Add is-halfwidth-katakana-letter-me-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8214": {
+    "title": "Add is-halfwidth-katakana-letter-mu-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8213": {
+    "title": "Add is-halfwidth-katakana-letter-mi-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8212": {
+    "title": "Add is-halfwidth-katakana-letter-ma-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8211": {
+    "title": "Add is-halfwidth-katakana-letter-ho-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8210": {
+    "title": "Add is-halfwidth-katakana-letter-he-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/633": {
+    "title": "[Bounty] [BOUNTY] [$50] Fix SSinput Deadlocking",
+    "repository": "zhangjiayang6835-cyber/bounty-plaza",
+    "first_seen": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/652": {
+    "title": "[Bounty] [BOUNTY] [$25] Open a duplicate of this issue to test our external duplicate iss",
+    "repository": "zhangjiayang6835-cyber/bounty-plaza",
+    "first_seen": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
+    "last_reward": 25.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/Iamgoofball/-tg-station/issues/108": {
+    "title": "[BOUNTY] [$5] Open a duplicate of this issue to test our external duplicate issue tracker",
+    "repository": "Iamgoofball/-tg-station",
+    "first_seen": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 07:42 UTC",
+    "last_decision": "WATCHLIST",
+    "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
+    "last_reward": 5.0,
     "verification_state": "VERIFIED THIS RUN"
   }
 }

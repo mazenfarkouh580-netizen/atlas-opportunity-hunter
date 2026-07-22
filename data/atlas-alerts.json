@@ -1,17 +1,17 @@
 [
   {
     "level": "HIGH",
-    "message": "20 pursue candidate(s) found",
-    "generated_at": "2026-07-21 21:46 UTC"
+    "message": "23 pursue candidate(s) found",
+    "generated_at": "2026-07-22 07:42 UTC"
   },
   {
     "level": "WARNING",
     "message": "Atlas health is DEGRADED: 2 API error(s)",
-    "generated_at": "2026-07-21 21:46 UTC"
+    "generated_at": "2026-07-22 07:42 UTC"
   },
   {
     "level": "CRITICAL",
     "message": "Alex is not searching: zero completed queries after automatic retry",
-    "generated_at": "2026-07-21 21:46 UTC"
+    "generated_at": "2026-07-22 07:42 UTC"
   }
 ]
