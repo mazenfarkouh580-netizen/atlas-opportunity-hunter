@@ -113,7 +113,7 @@
     "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
     "repository": "claude-builders-bounty/claude-builders-bounty",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -133,7 +133,7 @@
     "title": "[Hacktoberfest] Create a Custom n8n Node for APort Verification",
     "repository": "aporthq/aport-integrations",
     "first_seen": "2026-07-19 07:34 UTC",
-    "last_verified": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -167,7 +167,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 10.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/4811": {
     "title": "Add is-double-quote-symbol-present API utility",
@@ -813,11 +813,11 @@
     "title": "Compatible x402 service: Bug Bounty Intelligence smart contract scanner",
     "repository": "nirium-protocol/nirium-sdk",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-21 21:46 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
     "last_decision": "REJECT",
     "last_availability": "CRYPTO OR WALLET PAYMENT - BLOCKED",
     "last_reward": 5.0,
-    "verification_state": "NOT REVERIFIED THIS RUN"
+    "verification_state": "VERIFIED THIS RUN"
   },
   "https://github.com/tsubasakong/awesome-agent-payments-protocol/issues/59": {
     "title": "feat: add Bug Bounty Intelligence -- live x402 smart contract security scan API for AI agents",
@@ -853,7 +853,7 @@
     "title": "[agent] Document repository GitHub workflows",
     "repository": "xevrion-v2/agent-playground",
     "first_seen": "2026-07-20 08:53 UTC",
-    "last_verified": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -1073,7 +1073,7 @@
     "title": "[paid PR Opire bounty] [HIGH PRIORITY] [$50] Add the Dentist job with teeth organs.",
     "repository": "Iamgoofball/-tg-station",
     "first_seen": "2026-07-21 07:56 UTC",
-    "last_verified": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -1087,7 +1087,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 10.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/585": {
     "title": "[Bounty] [BOUNTY] [PAID BOUNTY] [$40] [paid opire bounty] Add enterprise resource plannin",
@@ -1177,7 +1177,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 1.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/304": {
     "title": "[ Docs ] Fix wrong HTTP method for Create Bounty in api-reference.md",
@@ -1187,7 +1187,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 1.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/303": {
     "title": "[ Docs ] Fix broken markdown table in api-reference.md",
@@ -1197,7 +1197,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 1.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/309": {
     "title": "[ Config ] Fix misspelled database key in app.json",
@@ -1207,7 +1207,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 1.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/305": {
     "title": "[ Docs ] Fix missing Step 4 in setup-guide.md",
@@ -1217,7 +1217,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 1.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/312": {
     "title": "[ Config ] Fix port mapping in docker-compose.yml",
@@ -1257,7 +1257,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 1.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/307": {
     "title": "[ Docs ] Fix date ordering in changelog.md",
@@ -1267,7 +1267,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 1.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/UnsafeLabs/Bounty-Hunters/issues/575": {
     "title": "[ English ] Complete missing lines in acrostics.md — finish UNSAFE acrostic and write BOUNTY acrostic",
@@ -1303,7 +1303,7 @@
     "title": "[$10 BOUNTY] [TypeScript] Add telemetry batch flush threshold tests",
     "repository": "Saiaaax/CyberNinja-Dojo",
     "first_seen": "2026-07-21 17:57 UTC",
-    "last_verified": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 10.0,
@@ -1317,7 +1317,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 35.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/607": {
     "title": "[Bounty] [BOUNTY] [EASY AI TASK] [$40] [AGENTIC] [AGENT READY][PAID BOUNTY] [UNCLAIMED] [",
@@ -1327,7 +1327,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 40.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/619": {
     "title": "[Bounty] [BOUNTY] [$40] Add a Nix flake and an agentic screenshot harness using Wine + xv",
@@ -1337,13 +1337,13 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 40.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8224": {
     "title": "Add is-halfwidth-katakana-letter-ru-present API utility",
     "repository": "xevrion-v2/agent-playground",
     "first_seen": "2026-07-22 07:42 UTC",
-    "last_verified": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -1353,7 +1353,7 @@
     "title": "Add is-halfwidth-katakana-letter-ri-present API utility",
     "repository": "xevrion-v2/agent-playground",
     "first_seen": "2026-07-22 07:42 UTC",
-    "last_verified": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -1363,7 +1363,7 @@
     "title": "Add is-halfwidth-katakana-letter-ra-present API utility",
     "repository": "xevrion-v2/agent-playground",
     "first_seen": "2026-07-22 07:42 UTC",
-    "last_verified": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -1373,7 +1373,7 @@
     "title": "Add is-halfwidth-katakana-letter-mo-present API utility",
     "repository": "xevrion-v2/agent-playground",
     "first_seen": "2026-07-22 07:42 UTC",
-    "last_verified": "2026-07-22 07:42 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
@@ -1387,7 +1387,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8214": {
     "title": "Add is-halfwidth-katakana-letter-mu-present API utility",
@@ -1397,7 +1397,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8213": {
     "title": "Add is-halfwidth-katakana-letter-mi-present API utility",
@@ -1407,7 +1407,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8212": {
     "title": "Add is-halfwidth-katakana-letter-ma-present API utility",
@@ -1417,7 +1417,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8211": {
     "title": "Add is-halfwidth-katakana-letter-ho-present API utility",
@@ -1427,7 +1427,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/xevrion-v2/agent-playground/issues/8210": {
     "title": "Add is-halfwidth-katakana-letter-he-present API utility",
@@ -1437,7 +1437,7 @@
     "last_decision": "PURSUE",
     "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/633": {
     "title": "[Bounty] [BOUNTY] [$50] Fix SSinput Deadlocking",
@@ -1447,7 +1447,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 50.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/652": {
     "title": "[Bounty] [BOUNTY] [$25] Open a duplicate of this issue to test our external duplicate iss",
@@ -1457,7 +1457,7 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 25.0,
-    "verification_state": "VERIFIED THIS RUN"
+    "verification_state": "NOT REVERIFIED THIS RUN"
   },
   "https://github.com/Iamgoofball/-tg-station/issues/108": {
     "title": "[BOUNTY] [$5] Open a duplicate of this issue to test our external duplicate issue tracker",
@@ -1467,6 +1467,206 @@
     "last_decision": "WATCHLIST",
     "last_availability": "PAYMENT SPEED OR FUNDING NOT VERIFIED",
     "last_reward": 5.0,
+    "verification_state": "NOT REVERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8345": {
+    "title": "Add is-hangul-jamo-chitueumsios-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8344": {
+    "title": "Add is-hangul-jamo-sios-hieuh-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8343": {
+    "title": "Add is-hangul-jamo-sios-phieuph-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8342": {
+    "title": "Add is-hangul-jamo-sios-thieuth-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8341": {
+    "title": "Add is-hangul-jamo-sios-khieukh-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8335": {
+    "title": "Add is-hangul-jamo-sios-chieuch-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8334": {
+    "title": "Add is-hangul-jamo-sios-ieung-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8333": {
+    "title": "Add is-hangul-jamo-sios-ssangsios-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8332": {
+    "title": "Add is-hangul-jamo-sios-mieum-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8331": {
+    "title": "Add is-hangul-jamo-sios-rieul-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8324": {
+    "title": "Add is-hangul-jamo-sios-nieun-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8323": {
+    "title": "Add is-hangul-jamo-kapyeounssangpieup-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8322": {
+    "title": "Add is-hangul-jamo-kapyeounpieup-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8321": {
+    "title": "Add is-hangul-jamo-pieup-phieuph-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8320": {
+    "title": "Add is-hangul-jamo-pieup-thieuth-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8314": {
+    "title": "Add is-hangul-jamo-pieup-chieuch-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8313": {
+    "title": "Add is-hangul-jamo-pieup-cieuc-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8312": {
+    "title": "Add is-hangul-jamo-pieup-sios-cieuc-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8311": {
+    "title": "Add is-hangul-jamo-pieup-ssangsios-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
+    "verification_state": "VERIFIED THIS RUN"
+  },
+  "https://github.com/xevrion-v2/agent-playground/issues/8310": {
+    "title": "Add is-hangul-jamo-pieup-sios-tikeut-present API utility",
+    "repository": "xevrion-v2/agent-playground",
+    "first_seen": "2026-07-22 13:10 UTC",
+    "last_verified": "2026-07-22 13:10 UTC",
+    "last_decision": "PURSUE",
+    "last_availability": "SMALL REWARD PROTOTYPE - PAYMENT RISK ACCEPTED",
+    "last_reward": 50.0,
     "verification_state": "VERIFIED THIS RUN"
   }
 }
